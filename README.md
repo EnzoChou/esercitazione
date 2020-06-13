@@ -1,2 +1,0 @@
-# esercitazione
-nodeJS/expressJS
