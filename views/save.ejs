@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="stylesheet" href="/style.css">
+<title>Edit <%= person.name %></title>
+</head>
+
+<body>
+<h1><%= person.name %></h1>
+<form action="/person/<%= person.id %>?_method=put" method="post">
+  <label>Name: <input type="text" name="person[name]" value="<%= person.name %>"></label>
+  <input type="submit" value="Update">
+</form>
+</body>
+</html>

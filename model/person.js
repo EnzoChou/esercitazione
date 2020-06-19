@@ -1,6 +1,6 @@
 var mongoose = require("mongoose");
 
-var PersoneSchema = new mongoose.Schema({
+var personSchema = new mongoose.Schema({
   name : {
     type : String,
     required : "Required"
@@ -18,4 +18,4 @@ var PersoneSchema = new mongoose.Schema({
 
 });
 
-mongoose.model( 'Persona', PersoneSchema );
+module.exports = mongoose.model( 'Persona', personSchema, 'Persone' );
