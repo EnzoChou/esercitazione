@@ -14,13 +14,9 @@ function connect() {
 };
 
 function disconnect() {
-  // If the Node process ends, close the Mongoose connection
-process.on('SIGINT', function() {
   mongoose.connection.close(function () {
-    console.log('Mongoose disconnected on app termination');
-    process.exit(0);
+    console.log('Mongoose disconnected');
   });
-});
 };
 
 exports.connect = connect;
