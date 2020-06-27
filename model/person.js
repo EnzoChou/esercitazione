@@ -1,5 +1,6 @@
 var mongoose = require("mongoose");
 
+//schema della persona
 var personSchema = new mongoose.Schema({
   name : {
     type : String,
