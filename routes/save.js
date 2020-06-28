@@ -13,25 +13,29 @@ router.get('/', function(req, res, next) {
 });
 
 router.post('/', function(req, res, next){
-  var person = new Person ({
-    name : req.body.name,
-    surname : req.body.surname,
-    birthplace : req.body.birthplace,
-    birthdate : req.body.birthdate
-  });
-  connection.connect();
-  person.save().then(result => {
-    console.log(result);
-    connection.disconnect();
-    res.status(201).json({
-      message: "Handling POST requests to /person",
-      createdPerson: result
+  if( req.body.name == undefined || req.body.surname == undefined ){
+    res.status()
+  } else {
+      var person = new Person ({
+        name : req.body.name,
+        surname : req.body.surname,
+        birthplace : req.body.birthplace,
+        birthdate : req.body.birthdate
+      });
+      connection.connect();
+      person.save().then(result => {
+        console.log(result);
+        connection.disconnect();
+        res.status(201).json({
+        message: "Handling POST requests to /person",
+        createdPerson: result
+      });
+    })
+    .catch(err => {
+      console.log(err)
+      res.status(500).json({error: err});
     });
-  })
-  .catch(err => {
-    console.log(err)
-    res.status(500).json({error: err});
-  });
-})
+  };
+});
 
 module.exports = router;
