@@ -14,7 +14,6 @@ router.get('/', (req, res, next) => {
       res.render('retrieve', {
         data : docs
       });
-      connection.disconnect();
     }
     else {
 
