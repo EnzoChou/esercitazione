@@ -3,22 +3,28 @@ var mongoose = require("mongoose");
 
 //require database URL from properties file
 //var dbURL = require('./property').db;
-var dbURL = "mongodb://localhost:27017/local";
+var dbURI = "";
+var db;
 
-function connect() {
-
+function connect(uri) {
+  dbURI = uri;
   //qui servirebbe una connessione un pò più sicura.
-  mongoose.connect(dbURL,
-  { useUnifiedTopology: true, useNewUrlParser: true },
-   (err)=>{
-  if(!err){
-    console.log("Success connecting to database");
+  mongoose.connect(dbURI,
+      { useUnifiedTopology: true, useNewUrlParser: true },
+       (err, client)=>{
+      if(!err){
+        db = client;
+      }
+    });
+};
+
+function getDB() {
+  if(!db){
+    console.log("there's no connection to database")
   }
   else {
-    console.log("Error connecting to database");
+    return db;
   }
-});
-
 };
 
 function disconnect() {
@@ -27,12 +33,33 @@ function disconnect() {
   });
 };
 
-process.on('SIGINT', function(){
-  mongoose.connection.close(function(){
-    console.log("Mongoose default connection is disconnected due to application termination");
+// CONNECTION EVENTS
+// When successfully connected
+mongoose.connection.on('connected', function () {
+  console.log('Mongoose default connection open to ' + dbURI);
+});
+
+// If the connection throws an error
+mongoose.connection.on('error',function (err) {
+  console.log('Mongoose default connection error: ' + err);
+});
+
+// When the connection is disconnected
+mongoose.connection.on('disconnected', function () {
+  console.log('Mongoose default connection disconnected');
+});
+
+// If the Node process ends, close the Mongoose connection
+process.on('SIGINT', function() {
+  mongoose.connection.close(function () {
+    console.log('Mongoose default connection disconnected through app termination');
     process.exit(0);
   });
 });
 
-exports.connect = connect;
-exports.disconnect = disconnect;
+// BRING IN YOUR SCHEMAS & MODELS // For example
+require("../model/person");
+
+module.exports = {
+  connect, disconnect, getDB
+};
