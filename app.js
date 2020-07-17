@@ -3,6 +3,7 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+var config = require('./config.json')
 
 var connection = require('./db/connection');
 var dbRoutes = require('./routes/dbRoutes');
@@ -14,9 +15,8 @@ var updateRouter = require('./routes/update');
 var deleteRouter = require('./routes/delete');
 
 var app = express();
-
 // view engine setup
-connection.connect();
+connection.connect(config.dev.host);
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 

@@ -1,0 +1,12 @@
+{
+  "dev": {
+    "host": "mongodb://localhost:27017/local",
+    "username": "",
+    "password": ""
+  },
+  "prod": {
+    "host": "",
+    "username": "",
+    "password": ""
+  }
+}
