@@ -1,4 +1,8 @@
-var mongoose = require("mongoose");
+var Promise = require("bluebird");
+var mongoose = Promise.promisifyAll(require("mongoose"));
+Promise.config({
+  longStackTraces: true
+});
 //connection to db
 
 //require database URL from properties file
@@ -10,12 +14,16 @@ function connect(uri) {
   dbURI = uri;
   //qui servirebbe una connessione un pò più sicura.
   mongoose.connect(dbURI,
-      { useUnifiedTopology: true, useNewUrlParser: true },
+      { useUnifiedTopology: true, useNewUrlParser: true,
+        serverSelectionTimeoutMS: 5000,
+        poolSize: 4 // Timeout after 5s
+      },
        (err, client)=>{
       if(!err){
         db = client;
       }
-    });
+    })
+    .catch(err => console.log(err.reason));
 };
 
 function getDB() {
@@ -58,7 +66,7 @@ process.on('SIGINT', function() {
 });
 
 // BRING IN YOUR SCHEMAS & MODELS // For example
-require("../model/person");
+var person = require("../model/person").person;
 
 module.exports = {
   connect, disconnect, getDB
