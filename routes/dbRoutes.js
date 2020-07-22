@@ -1,11 +1,8 @@
     var express = require('express');
-    var mongoose = require('mongoose');
     var router = express.Router();
-    var connection = require('../db/connection');
-    var Person = require("../model/person").person;
+    var person = require("../model/person").person;
     var validator = require("./validator");
     var schemas = require("../model/person").schemas;
-    var personModel = mongoose.model('Persona');
 
 
     /* GET home page. */
@@ -15,7 +12,7 @@
 
     //Retrieve section
     router.get('/retrieve/', validator(schemas.personLIST, 'query'), (req, res, next) => {
-      personModel.find((err, docs) => {
+      person.find((err, docs) => {
         if (!err) {
           res.render('retrieve', {
             data : docs
@@ -30,7 +27,7 @@
 
     router.get('/retrieve/:personId', validator(schemas.personId, 'params'), (req, res, next) => {
       var id = req.params.personId;
-      personModel.findById(id)
+      person.findById(id)
       .exec()
       .then( doc => {
         console.log("from database", doc )
@@ -51,7 +48,7 @@
 
     //Save section
     router.post('/save', validator(schemas.person, 'body'), function(req, res, next){
-      var person = new Person ({
+      var person = new person ({
         name : req.body.name,
         surname : req.body.surname,
         birthplace : req.body.birthplace,
@@ -61,7 +58,7 @@
         console.log(result);
         res.status(201).json({
           message: "Handling POST requests to /person",
-          createdPerson: result
+          createdperson: result
         });
       })
       .catch(err => {
@@ -74,7 +71,7 @@
     router.get('/delete/:personId', function(req, res, next) {
       //res.send('respond with a resource');
       var id = req.params.personId;
-      personModel.deleteOne({ _id : id })
+      person.deleteOne({ _id : id })
       .exec()
       .then( result => {
         res.status( 200 ).json( result );
@@ -97,7 +94,7 @@
         updateOperation[ops.propName] = ops.value;
       }
       console.log( ops, updateOperation );
-      personModel.update({ _id : id }, { $set : updateOperation })
+      person.update({ _id : id }, { $set : updateOperation })
       .exec()
       .then( result => {
         console.log( result );
