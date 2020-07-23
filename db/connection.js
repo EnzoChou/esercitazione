@@ -3,15 +3,13 @@ var mongoose = Promise.promisifyAll(require("mongoose"));
 Promise.config({
   longStackTraces: true
 });
+var config = require('../config.json');
 //connection to db
 
 //require database URL from properties file
 //var dbURL = require('./property').db;
-var dbURI = "";
-var db;
-
-function connect(uri) {
-  dbURI = uri;
+var dbURI = config.dev.host;
+var db = mongoose.connection;
   //qui servirebbe una connessione un pò più sicura.
   mongoose.connect(dbURI,
       { useUnifiedTopology: true, useNewUrlParser: true,
@@ -20,26 +18,12 @@ function connect(uri) {
       },
        (err, client)=>{
       if(!err){
-        db = client;
+
       }
     })
-    .catch(err => console.log(err.reason));
-};
-
-function getDB() {
-  if(!db){
-    console.log("there's no connection to database")
-  }
-  else {
-    return db;
-  }
-};
-
-function disconnect() {
-  mongoose.connection.close(function () {
-    console.log('Mongoose disconnected');
-  });
-};
+    .catch(err => {
+      console.log(err.reason)
+});
 
 // CONNECTION EVENTS
 // When successfully connected
@@ -66,8 +50,29 @@ process.on('SIGINT', function() {
 });
 
 // BRING IN YOUR SCHEMAS & MODELS // For example
-var person = require("../model/person").person;
+var
+  util = require('util'),
+  path = require('path'),
+  basename = path.basename(module.filename);
 
-module.exports = {
-  connect, disconnect, getDB
-};
+mongoose.Promise = global.Promise;
+
+function capitalizeFirstLetter(string) {
+  return string.charAt(0).toUpperCase() + string.slice(1);
+}
+
+let modelsDir = path.join(__dirname, '..', 'model');
+
+fs
+  .readdirSync(modelsDir)
+  .filter(function (file) {
+    return (file.indexOf('.') !== 0) && (file !== basename);
+  })
+  .forEach(function (file) {
+    if (file.slice(-3) !== '.js') return;
+    let modelName = capitalizeFirstLetter(file.replace('.js', ''));
+    db[modelName] = require(path.join(modelsDir, file));
+  });
+
+
+exports = module.exports = db;
