@@ -1,11 +1,11 @@
-require('./globals');
+require('./global');
 
 var createError = require('http-errors');
 var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
-var config = require('./config.json')
+var config = require('./config.json');
 
 var connection = require('./db/connection');
 var dbRoutes = require('./routes/dbRoutes');
@@ -13,7 +13,7 @@ var indexRouter = require('./routes/index');
 
 var app = express();
 // view engine setup
-connection.connect(config.dev.host);
+app.locals.db = connection;
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
