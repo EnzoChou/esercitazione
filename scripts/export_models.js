@@ -3,7 +3,7 @@
 
 var Promise = require('bluebird');
 var chalk = require('chalk');
-var lodash = require('lodash');
+//var lodash = require('lodash');
 var fs = Promise.promisifyAll(require("fs"));
 var path = require('path');
 
@@ -12,17 +12,17 @@ function capitalizeFirstLetter(string) {
 }
 
 global.mongoose = require(`mongoose`);
-global.db_yeah = require(`./../components/mongodb`)();
+global.db_yeah = require(`./../db/connection`);
 
 return fs
-    .readdirAsync('./../models')
+    .readdirAsync('./../model')
     .then(res => {
         console.log("res", res);
 
         res.forEach(elem => {
             var export_model = elem.replace(".js", "");
             export_model = capitalizeFirstLetter(export_model);
-            db_yeah[export_model] = require('./../models/' + export_model);
+            db_yeah[export_model] = require('./../model/' + export_model);
         });
 
         console.log("db_yeah", db_yeah);
@@ -34,6 +34,7 @@ return fs
         return;
     })
     .catch(err => {
+      db_yeah.close();
         console.log("err", err);
         return;
     });

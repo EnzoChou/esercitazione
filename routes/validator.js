@@ -1,5 +1,5 @@
 var Joi = require("joi");
-var schemas = require("../model/person").schemas;
+var schemas = require("../JOImodel/persona");
 
 var validator = (schema, property) => {
   return (req, res, next) => {
