@@ -1,26 +1,4 @@
-var mongoose = require("mongoose");
 var Joi = require("joi");
-
-//schema della persona
-var personSchema = new mongoose.Schema({
-  name : {
-    type : String,
-    required : "Required"
-  },
-  surname : {
-    type : String,
-    required : "Required"
-  },
-  birthplace : {
-    type : String
-  },
-  birthdate : {
-    type : Date
-  }
-
-});
-
-//module.exports = mongoose.model( 'Persona', personSchema, 'Persone' );
 
 var schemas = {
   person: Joi.object().keys({
@@ -40,7 +18,4 @@ var schemas = {
 
 };
 
-module.exports = {
-  person: mongoose.model( 'Persona', personSchema, 'Persone' ),
-  schemas: schemas
-};
+module.exports = schemas;
