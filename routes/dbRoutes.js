@@ -64,14 +64,14 @@
     });
 
     //Save section
-    router.post('/save', validator(schemas.Persona, 'body'), function(req, res, next){
-      var Persona = new Persona ({
+    router.post('/save', validator(schemas.person, 'body'), function(req, res, next){
+      var persona = new Persona ({
         name : req.body.name,
         surname : req.body.surname,
         birthplace : req.body.birthplace,
         birthdate : req.body.birthdate
       });
-      Persona.save().then(result => {
+      persona.save().then(result => {
         console.log(result);
         res.status(201).json({
           message: "Handling POST requests to /Persona",

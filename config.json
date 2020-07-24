@@ -1,8 +1,8 @@
 {
   "dev": {
     "host": "mongodb://localhost:27017/local",
-    "username": "",
-    "password": ""
+    "username": "banano",
+    "password": "nano"
   },
   "prod": {
     "host": "",

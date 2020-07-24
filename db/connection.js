@@ -10,6 +10,9 @@ var config = require('../config.json');
 //var dbURL = require('./property').db;
 var dbURI = config.dev.host;
 var db = mongoose.connection;
+process.env.usr = config.dev.username;
+process.env.pwd = config.dev.password;
+//console.log(process.env.usr, process.env.pwd);
   //qui servirebbe una connessione un pò più sicura.
   mongoose.connect(dbURI,
       { useUnifiedTopology: true, useNewUrlParser: true,
@@ -53,6 +56,7 @@ process.on('SIGINT', function() {
 var
   util = require('util'),
   path = require('path'),
+  fs = require('fs'),
   basename = path.basename(module.filename);
 
 mongoose.Promise = global.Promise;
