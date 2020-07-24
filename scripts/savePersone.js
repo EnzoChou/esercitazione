@@ -6,7 +6,7 @@ var fs = Promise.promisifyAll(require("fs"));
 var Persona = require('../model/persona');
 //var app = require('../app');
 
-var numeroDiPersoneDaSalvareNelDB = 5;
+var numeroDiPersoneDaSalvareNelDB = 100;
 
 var persone = [];
 var name = ["andrea","brandon","carla",
@@ -35,20 +35,8 @@ function aggiungiPersone(n) {
 
 aggiungiPersone(numeroDiPersoneDaSalvareNelDB);
 
-function salva(persone){
-  /*var promises = [];
-  persone.forEach(ciccino => {
-      var ret = ciccino.save();
-      promises.push(ret);
-      console.log(ret)
-  });
-  Promise.all(promises)
-  .then( ret => {
-    console.log("Interno giorno.");
-    console.log(ret);
-    db_yeah.close();
-    }
-  );*/
+function salvaColMap(persone){
+  /**/
   Promise.map(persone, elem => {
     console.log("persona: ", elem);
     return elem.save();
@@ -62,4 +50,22 @@ function salva(persone){
   })
 
 };
-salva(persone);
+
+function salvaColAll(persone){
+  var promises = [];
+  persone.forEach(ciccino => {
+      var ret = ciccino.save();
+      promises.push(ret);
+      console.log(ret)
+  });
+  Promise.all(promises)
+  .then( ret => {
+    console.log('ritorno then', ret);
+    db_yeah.close();
+    })
+    .catch(err => {
+      console.log('err', err);
+      db_yeah.close()
+    });
+};
+salvaColMap(persone);
