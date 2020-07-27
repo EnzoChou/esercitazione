@@ -32,10 +32,28 @@ function cancellaById(id) {
 
 function brasaTutto() {
   return db_yeah.Persona.find()
-  .then()
-  .catch()
-  db_yeah.close();
+  .then(personeTrovate => {
+    var promises = [];
+    personeTrovate.forEach((persona, i) => {
+      console.log('persona trovata', persona);
+      var ret = persona.delete();
+      promises.push(ret);
+    });
+    Promise.all(promises)
+
+    .then(personeCancellate =>{
+      console.log(personeCancellate);
+      db_yeah.close();
+    })
+    .catch(err => {
+      throw err;
+    })
+  })
+  .catch(err => {
+    console.log('err', err);
+    db_yeah.close();
+  })
 };
 
 //cancellaById('5f1166121db9661b385f29de');
-brasaTutto();
+//brasaTutto();
