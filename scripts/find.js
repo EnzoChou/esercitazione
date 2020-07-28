@@ -18,13 +18,13 @@ function trovaTutti() {
   })
 }
 
-var cognome = "Credico";
-
-function trovaCondizione(surname) {
-  return db_yeah.Persona.find({ surname : surname })
-  .then(trovati => {
-    console.log('persone col cognome ', surname, ':\n');
-    trovati.forEach((item, i) => {
+function trovaCondizione(key, value) {
+  var persona = {};
+  persona[key] = value;
+  return db_yeah.Persona.find(persona)
+  .then(foundStuff => {
+    console.log('persone col nome ', value, ':\n');
+    foundStuff.forEach((item, i) => {
       console.log(item);
     });
     db_yeah.close();
@@ -36,4 +36,9 @@ function trovaCondizione(surname) {
 }
 
 //trovaTutti();
-trovaCondizione(cognome);
+
+
+//valori chiave valore da mettere per modellare il criterio di ricerca
+var key = "name";
+var value = "Zarathustra";
+trovaCondizione(key, value);
