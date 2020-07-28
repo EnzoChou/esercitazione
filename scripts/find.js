@@ -21,12 +21,15 @@ function trovaTutti() {
 function trovaCondizione(key, value) {
   var persona = {};
   persona[key] = value;
+  var contatore = 0;
   return db_yeah.Persona.find(persona)
   .then(foundStuff => {
-    console.log('persone col nome ', value, ':\n');
+    console.log('persone col', key, value, ':\n');
     foundStuff.forEach((item, i) => {
+      contatore++;
       console.log(item);
     });
+    console.log('numero di persone col',key, value, 'trovate sono', contatore, '\n\n');
     db_yeah.close();
   })
   .catch(err => {
@@ -39,6 +42,6 @@ function trovaCondizione(key, value) {
 
 
 //valori chiave valore da mettere per modellare il criterio di ricerca
-var key = "name";
-var value = "Zarathustra";
+var key = "surname";
+var value = "Bonaventura";
 trovaCondizione(key, value);
