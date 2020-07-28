@@ -13,7 +13,7 @@ function cancellaById(id) {
   })
   .then( persona => {
     if(persona != null || persona != undefined) {
-      console.log('persona trovata', persona);
+      console.log('persona trovata e nel processo di cancellazione', persona);
       return persona.delete();
     }
     else {
@@ -55,5 +55,40 @@ function brasaTutto() {
   })
 };
 
-//cancellaById('5f1166121db9661b385f29de');
-//brasaTutto();
+function cancellaInizioLetteraCorsiva() {
+  return db_yeah.Persona.find({
+    $or : [
+      {
+        name : {
+          $regex : /^[a-z]/
+        },
+        surname : {
+          $regex : /^[a-z]/
+        }
+      }
+
+    ]
+  })
+  .then(trovati => {
+    console.log('persone trovate che iniziano con la lettera corsiva', trovati);
+    var promises = [];
+    trovati.forEach((persona, i) => {
+      var ret;
+      ret = persona.delete();
+      promises.push(ret);
+    });
+    return Promise.all(promises)
+    .then(risposta => {
+      console.log('risposta db', risposta);
+      db_yeah.close();
+    })
+    .catch(err => {
+      console.log('err', err);
+      db_yeah.close();
+    })
+  })
+};
+
+//cancellaById('5f1166121db9661b385f29de'); //decommentare questa riga per usare il metodo cancellaById
+//brasaTutto(); //decommentare questa riga per usare il metodo brasaTutto
+//cancellaInizioLetteraCorsiva(); //decommentare questa riga per usare il metodo cancellaInizioLetteraCorsiva

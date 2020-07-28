@@ -6,14 +6,22 @@ var fs = Promise.promisifyAll(require("fs"));
 var Persona = require('../model/persona');
 //var app = require('../app');
 
-var numeroDiPersoneDaSalvareNelDB = 100;
+function capitalize(word) {
+  return word.charAt(0).toUpperCase() + word.slice(1);
+}
+
+function uncapitalize(word) {
+  return word.charAt(0).toLowerCase() + word.slice(1);
+}
+
+var numeroDiPersoneDaSalvareNelDB = 5;
 
 var persone = [];
-var name = ["andrea","brandon","carla",
-"davide","enzo","federica","giorgia","herman",
-"ilaria","laura","marco","nathaniel","osvaldo",
-"paola","quentin","roberta","sabrina","tano","ugo",
-"valeria","zarathustra"];
+var name = ["Andrea","Brandon","Carla",
+"Davide","Enzo","Federica","Giorgia","Herman",
+"Ilaria","Laura","Marco","Nathaniel","Osvaldo",
+"Paola","Quentin","Roberta","Sabrina","Tano","Ugo",
+"Valeria","Zarathustra"];
 var surname = ["Berardino", "Annunzio", "Bonaventura",
  "Cintio","Amario", "Intino", "Prinzio", "Addario",
   "Ascenzo", "Credico", "Ciuffini", "Ciocca", "Pelliccione",
@@ -22,8 +30,8 @@ var surname = ["Berardino", "Annunzio", "Bonaventura",
 function aggiungiPersone(n) {
   var i = 0;
   while(i<n) {
-    let randomName = name[Math.floor(Math.random() * name.length)];
-    let randomSurname = surname[Math.floor(Math.random() * surname.length)];
+    let randomName = capitalize(name[Math.floor(Math.random() * name.length)]);
+    let randomSurname = capitalize(surname[Math.floor(Math.random() * surname.length)]);
     var persona = new Persona({
       name : randomName,
       surname : randomSurname
