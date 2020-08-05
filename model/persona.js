@@ -1,6 +1,6 @@
 var mongoose = require("mongoose");
 
-//schema della persona
+//schema della persona Nome, Cognome, anno di nascita(Date), città, indirizzo, età(int), iscritto(bool)
 var personSchema = new mongoose.Schema({
   name : {
     type : String,
@@ -15,6 +15,18 @@ var personSchema = new mongoose.Schema({
   },
   birthdate : {
     type : Date
+  },
+  status : {
+    type : String
+  },
+  address : {
+    type : String
+  },
+  age : {
+    type : Date
+  },
+  subscription : {
+    type : Boolean
   }
 
 });
