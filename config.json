@@ -2,7 +2,8 @@
   "dev": {
     "host": "mongodb://localhost:27017/local",
     "username": "banano",
-    "password": "nano"
+    "password": "nano",
+    "excelFile": "Ricette per Foodpairing + ricette italiane_25_8.xlsx"
   },
   "prod": {
     "host": "",
