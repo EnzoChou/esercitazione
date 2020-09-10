@@ -38,6 +38,7 @@ var abbinamentiGenerali;
 var abbinamentiOccasioni;
 var listaViniFallback;
 var IngredientiPrincipali = {};
+var ricettaToVini = {};
 /*
 struttura antipastiContorni / primi / secondi
 
@@ -97,10 +98,38 @@ console.log('primi',primi);
 console.log('secondi',secondi);
 console.log('dessert',dessert);
 console.log('ricetteItaliane',ricetteItaliane);
-
-*/
 var propValue;
 for(var propName in IngredientiPrincipali) {
   propValue = IngredientiPrincipali[propName];
   console.log(propName,propValue);
+}
+
+*/
+
+function popolaRicettaToVini(nomePagina) {
+  var listaEsempio = result[nomePagina];
+  for(let i=3;i<listaEsempio.length;i++) {
+    if(listaEsempio[i].B) {
+      if(!ricettaToVini[listaEsempio[i].B]) {
+        ricettaToVini[listaEsempio[i].B] = [listaEsempio[i].G,listaEsempio[i].H,listaEsempio[i].I];
+      }
+    }
+  }
+}
+
+popolaRicettaToVini('Antipasticontorni');
+popolaRicettaToVini('Primi');
+popolaRicettaToVini('Secondi');
+popolaRicettaToVini('Dessert');
+popolaRicettaToVini('Ricette italiane');
+
+var propValue;
+for(var propName in ricettaToVini) {
+  propValue = ricettaToVini[propName];
+  console.log(propName,propValue);
+}
+
+
+function popolaCarnePesceVerdure() {
+  return null;
 }
