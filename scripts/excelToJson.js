@@ -44,6 +44,7 @@ var ricetteItaliane;
 var abbinamentiGenerali;
 var abbinamentiOccasioni;
 var listaViniFallback;
+var listaPerIngredientePrincipale = {};
 /*
 struttura antipastiContorni / primi / secondi
 
@@ -74,23 +75,39 @@ J: 'MOTIVAZIONE ABBINAMENTO( Max 120/150caratteri)'
 */
 
 function estrazioneNomiRicette(nomePagina){
-  var lista = [];
+  var listaRicetta = [];
   var listaEsempio = result[nomePagina];
   for (let i=3; i<listaEsempio.length;i++) {
     if(listaEsempio[i].B) {
-      lista.push(listaEsempio[i].B);
+      listaRicetta.push(listaEsempio[i].B);
+      if(listaEsempio[i].D) {
+        if(listaPerIngredientePrincipale[listaEsempio[i].D]) {
+          listaPerIngredientePrincipale[listaEsempio[i].D].push(listaEsempio[i].B);
+        }
+        else {
+          listaPerIngredientePrincipale[listaEsempio[i].D] = [listaEsempio[i].B];
+        }
+      }
     }
   }
-  return lista;
+  return listaRicetta;
 }
 antipastiContorni = estrazioneNomiRicette('Antipasticontorni');
 primi = estrazioneNomiRicette('Primi');
 secondi = estrazioneNomiRicette('Secondi');
 dessert = estrazioneNomiRicette('Dessert');
 ricetteItaliane = estrazioneNomiRicette('Ricette italiane');
+/*
 
 console.log('antipastiContorni',antipastiContorni);
 console.log('primi',primi);
 console.log('secondi',secondi);
 console.log('dessert',dessert);
 console.log('ricetteItaliane',ricetteItaliane);
+
+*/
+var propValue;
+for(var propName in listaPerIngredientePrincipale) {
+  propValue = listaPerIngredientePrincipale[propName];
+  console.log(propName,propValue);
+}
