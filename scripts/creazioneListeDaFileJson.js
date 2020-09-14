@@ -87,6 +87,7 @@ var ricetteItaliane;
 var abbinamentiGenerali;
 var abbinamentiOccasioni;
 var listaViniFallback;
+var listaCompletaRicette = [];
 var ingredientiPrincipali = [];
 var ingredientiSecondari = [];
 var ricettaToVini = {};
@@ -95,12 +96,16 @@ var idRicetta = 1;
 var idIngredientePrincipale = 1;
 var idIngredienteSecondario = 1;
 var idVini = 1;
+
+var varToString = varObj => Object.keys(varObj)[0];
+
 //POPOLA LISTA VINI
 function estrazioneListaVini(nomeVino) {
   if(listaVini.filter( vino => vino.nome === nomeVino).length==0) {
     var vino = {};
     vino.id = idVini;
     vino.nome = nomeVino;
+    vino.ricette = [];
     listaVini.push(vino);
     idVini++;
   }
@@ -111,6 +116,7 @@ function estrazioneListaIngredientiPrincipali(nomeIngredientePrincipale) {
     var ingredientePrincipale = {};
     ingredientePrincipale.id = idIngredientePrincipale;
     ingredientePrincipale.nome = nomeIngredientePrincipale;
+    ingredientePrincipale.ricette = [];
     ingredientiPrincipali.push(ingredientePrincipale);
     idIngredientePrincipale++;
   }
@@ -121,6 +127,7 @@ function estrazioneListaIngredientiSecondari(nomeIngredienteSecondario) {
     var ingredienteSecondario = {};
     ingredienteSecondario.id = idIngredienteSecondario;
     ingredienteSecondario.nome = nomeIngredienteSecondario;
+    ingredienteSecondario.ricette = [];
     ingredientiSecondari.push(ingredienteSecondario);
     idIngredienteSecondario++;
   }
@@ -130,7 +137,7 @@ function ricercaOggetto(nomeOggetto,listaOggetti) {
   var found = listaOggetti.find(oggetto => oggetto.nome === nomeOggetto);
   if(found)
     return found.id;
-    return "id not found";
+    return 0;
 }
 
 function estrazioneViniConAggiornamentoListaVini(riga){
@@ -191,8 +198,46 @@ function estrazioneListaRicette(nomePagina){
   return listaRicette;
 }
 
-function ingredientiPrincipaliDaRicette(){
+function aggiornamentoLista(oggetto,lista) {
+  if(lista.filter(o => o === oggetto).length==0)
+    lista.push(oggetto);
+}
 
+function aggiornamentoListeVarieDaRicette(listaRicette){
+  for(let i=0;i<listaRicette.length;i++) {
+
+    for(let j=0;j<listaRicette[i].ingredientiPrincipali.length;j++) {
+      var codice = listaRicette[i].ingredientiPrincipali[j];
+      var condizione = false;
+      for(let x=0;x<ingredientiPrincipali.length&&!condizione;x++) {
+        if(ingredientiPrincipali[x].id==codice) {
+          aggiornamentoLista(listaRicette[i].id,ingredientiPrincipali[x].ricette);
+          condizione=true;
+        }
+      }
+    }
+    for(let j=0;j<listaRicette[i].ingredientiSecondari.length;j++){
+      var codice = listaRicette[i].ingredientiSecondari[j];
+      var condizione = false;
+      for(let x=0;x<ingredientiSecondari.length&&!condizione;x++) {
+        if(ingredientiSecondari[x].id==codice) {
+          aggiornamentoLista(listaRicette[i].id,ingredientiSecondari[x].ricette);
+          condizione=true;
+        }
+      }
+    }
+    for(let j=0;j<listaRicette[i].viniProposti.length;j++){
+      var codice = listaRicette[i].viniProposti[j];
+      var condizione = false;
+      for(let x=0;x<listaVini.length&&!condizione;x++) {
+        if(listaVini[x].id==codice) {
+          aggiornamentoLista(listaRicette[i].id,listaVini[x].ricette);
+          condizione=true;
+        }
+      }
+    }
+
+  }
 }
 
 antipastiContorni = estrazioneListaRicette('Antipasticontorni');
@@ -200,49 +245,9 @@ primi = estrazioneListaRicette('Primi');
 secondi = estrazioneListaRicette('Secondi');
 dessert = estrazioneListaRicette('Dessert');
 ricetteItaliane = estrazioneListaRicette('Ricette italiane');
-
-console.log('lista ricette:',antipastiContorni, primi, secondi, dessert, ricetteItaliane);
-//console.log('lista ingredienti principali:',ingredientiPrincipali);
-//console.log('lista ingredienti secondari',ingredientiSecondari);
-/*
-
-console.log('antipastiContorni',antipastiContorni);
-console.log('primi',primi);
-console.log('secondi',secondi);
-console.log('dessert',dessert);
-console.log('ricetteItaliane',ricetteItaliane);
-var propValue;
-for(var propName in ingredientiPrincipali) {
-  propValue = ingredientiPrincipali[propName];
-  console.log(propName,propValue);
-}
-
-*/
-
-function popolaRicettaToVini(nomePagina) {
-  var listaPagina = listaRicetteDaExcel[nomePagina];
-  for(let i=3;i<listaPagina.length;i++) {
-    if(listaPagina[i].B) {
-      if(!ricettaToVini[listaPagina[i].B]) {
-        ricettaToVini[listaPagina[i].B] = [listaPagina[i].G,listaPagina[i].H,listaPagina[i].I];
-      }
-    }
-  }
-}
-/*
-popolaRicettaToVini('Antipasticontorni');
-popolaRicettaToVini('Primi');
-popolaRicettaToVini('Secondi');
-popolaRicettaToVini('Dessert');
-popolaRicettaToVini('Ricette italiane');
-
-var propValue;
-for(var propName in ricettaToVini) {
-  propValue = ricettaToVini[propName];
-  console.log(propName,propValue);
-}
-*/
-
-function popolaCarnePesceVerdure() {
-  return null;
-}
+listaCompletaRicette = antipastiContorni.concat(primi,secondi,dessert,ricetteItaliane);
+aggiornamentoListeVarieDaRicette(listaCompletaRicette);
+console.log('lista ricette:',listaCompletaRicette);
+console.log('lista ingredienti principali:',ingredientiPrincipali);
+console.log('lista ingredienti secondari:',ingredientiSecondari);
+console.log('lista vini:',listaVini);
