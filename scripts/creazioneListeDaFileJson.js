@@ -1,4 +1,4 @@
-const result = require('./excelToJson');
+const listaRicetteDaExcel = require('./excelToJson');
 
 /*
 Macrocategorie importanti : 'carne / pesce / verdure',
@@ -24,23 +24,14 @@ nomePagina = {
 'ingrediente' : 'percentualeUsoNelNomePagina'
 ],
 'ingredientiSecondari' : [
-'ingrediente' : ['listaIngredientiPrincipaliInOrdineDiUso/listaIngredientiPrincipaliInOrdineDiGradimento']
+'ingrediente' : ['listaingredientiPrincipaliInOrdineDiUso/listaingredientiPrincipaliInOrdineDiGradimento']
 ]
 }
 
 */
-var antipastiContorni;
-var primi;
-var secondi;
-var dessert;
-var ricetteItaliane;
-var abbinamentiGenerali;
-var abbinamentiOccasioni;
-var listaViniFallback;
-var IngredientiPrincipali = {};
-var ricettaToVini = {};
+
 /*
-struttura antipastiContorni / primi / secondi
+struttura antipastiContorni / primi / secondi / ricetteItaliane
 
 NOMEPAGINA : [
 { B: 'NOMEPAGINA' },
@@ -68,29 +59,117 @@ J: 'MOTIVAZIONE ABBINAMENTO( Max 120/150caratteri)'
 ]
 */
 
-function estrazioneNomiRicette(nomePagina){
-  var listaRicetta = [];
-  var listaEsempio = result[nomePagina];
-  for (let i=3; i<listaEsempio.length;i++) {
-    if(listaEsempio[i].B) {
-      listaRicetta.push(listaEsempio[i].B);
-      if(listaEsempio[i].D) {
-        if(IngredientiPrincipali[listaEsempio[i].D]) {
-          IngredientiPrincipali[listaEsempio[i].D].push(listaEsempio[i].B);
-        }
-        else {
-          IngredientiPrincipali[listaEsempio[i].D] = [listaEsempio[i].B];
-        }
-      }
+/*
+{ "id" : "numeroID",
+  "nomeRicetta" : "nomeRicettaA",
+  "tags" : ["tagA", "tagB", "tagC"],
+  "ingredienti" : ["ingredienteA","ingredienteB", "ingredienteC"],
+  "viniProposti" : [{"nome" : "nomeVinoA",
+                     "id" : "idVino"},{...},{...}]
+}
+*/
+/*
+function StrutturaRicetta(id,nomeRicetta,tags,ingredientiPrincipali,ingredientiSecondari,viniProposti) {
+  this.id = id;
+  this.ricetta = ricetta;
+  this.tags = tags;
+  this.ingredientiPrincipali = ingredientiPrincipali;
+  this.ingredientiSecondari = ingredientiSecondari;
+  this.viniProposti = viniProposti;
+}
+*/
+
+var antipastiContorni;
+var primi;
+var secondi;
+var dessert;
+var ricetteItaliane;
+var abbinamentiGenerali;
+var abbinamentiOccasioni;
+var listaViniFallback;
+var ingredientiPrincipali = {};
+var ricettaToVini = {};
+var listaVini = []; // LISTA VINI
+var idRicetta = 1;
+var idIngredientePrincipale = 1;
+var idIngredienteSecondario = 1;
+var idVini = 1;
+//POPOLA LISTA VINI
+function estrazioneListaVini(nomeVino) {
+  if(listaVini.filter( vino => vino.nome === nomeVino).length==0) {
+    var vino = {}
+      vino.id = idVini;
+      vino.nome = nomeVino;
+    listaVini.push(vino);
+    idVini++;
+  }
+}
+
+function ricercaVino(nomeVino) {
+  var found = listaVini.find(vino => vino.nome === nomeVino);
+    return found.id;
+}
+
+function estrazioneViniConAggiornamentoListaVini(riga){
+  var listaViniTmp = [];
+  if (riga.G) {
+    estrazioneListaVini(riga.G);
+    listaViniTmp.push(ricercaVino(riga.G));
+  }
+  if (riga.H) {
+    estrazioneListaVini(riga.H);
+    listaViniTmp.push(ricercaVino(riga.H));
+  }
+  if (riga.I) {
+    estrazioneListaVini(riga.I);
+    listaViniTmp.push(ricercaVino(riga.I));
+  }
+  return listaViniTmp;
+}
+
+function estrazioneIngredientiPrincipali(riga) {
+  var listaIngredientiPrincipali = [];
+  if (riga.D) listaIngredientiPrincipali.push(riga.D);
+  return listaIngredientiPrincipali;
+}
+
+function estrazioneIngrientiSecondari(riga) {
+  var listaIngredientiSecondari = [];
+  if (riga.E) listaIngredientiSecondari.push(riga.E);
+  if (riga.F) listaIngredientiSecondari.push(riga.F);
+  return listaIngredientiSecondari;
+}
+
+function estrazioneListaRicette(nomePagina){
+  var listaRicette = [];
+  var listaPagina = listaRicetteDaExcel[nomePagina];
+  for (let i=3; i<listaPagina.length;i++) {
+    if(listaPagina[i].B) {
+      var strutturaRicetta = {};
+      strutturaRicetta.id = idRicetta;
+      strutturaRicetta.nome = listaPagina[i].B;
+      strutturaRicetta.ingredientiPrincipali = estrazioneIngredientiPrincipali(listaPagina[i]);
+      strutturaRicetta.ingredientiSecondari = estrazioneIngrientiSecondari(listaPagina[i]);
+      strutturaRicetta.viniProposti = estrazioneViniConAggiornamentoListaVini(listaPagina[i]);
+      idRicetta++;
+      listaRicette.push(strutturaRicetta);
     }
   }
-  return listaRicetta;
+  return listaRicette;
 }
-antipastiContorni = estrazioneNomiRicette('Antipasticontorni');
-primi = estrazioneNomiRicette('Primi');
-secondi = estrazioneNomiRicette('Secondi');
-dessert = estrazioneNomiRicette('Dessert');
-ricetteItaliane = estrazioneNomiRicette('Ricette italiane');
+
+function ingredientiPrincipaliDaRicette(){
+
+}
+
+antipastiContorni = estrazioneListaRicette('Antipasticontorni');
+primi = estrazioneListaRicette('Primi');
+secondi = estrazioneListaRicette('Secondi');
+dessert = estrazioneListaRicette('Dessert');
+ricetteItaliane = estrazioneListaRicette('Ricette italiane');
+
+console.log('lista ricette:',antipastiContorni, primi, secondi, dessert, ricetteItaliane);
+console.log('lista vini:',listaVini);
 /*
 
 console.log('antipastiContorni',antipastiContorni);
@@ -99,24 +178,24 @@ console.log('secondi',secondi);
 console.log('dessert',dessert);
 console.log('ricetteItaliane',ricetteItaliane);
 var propValue;
-for(var propName in IngredientiPrincipali) {
-  propValue = IngredientiPrincipali[propName];
+for(var propName in ingredientiPrincipali) {
+  propValue = ingredientiPrincipali[propName];
   console.log(propName,propValue);
 }
 
 */
 
 function popolaRicettaToVini(nomePagina) {
-  var listaEsempio = result[nomePagina];
-  for(let i=3;i<listaEsempio.length;i++) {
-    if(listaEsempio[i].B) {
-      if(!ricettaToVini[listaEsempio[i].B]) {
-        ricettaToVini[listaEsempio[i].B] = [listaEsempio[i].G,listaEsempio[i].H,listaEsempio[i].I];
+  var listaPagina = listaRicetteDaExcel[nomePagina];
+  for(let i=3;i<listaPagina.length;i++) {
+    if(listaPagina[i].B) {
+      if(!ricettaToVini[listaPagina[i].B]) {
+        ricettaToVini[listaPagina[i].B] = [listaPagina[i].G,listaPagina[i].H,listaPagina[i].I];
       }
     }
   }
 }
-
+/*
 popolaRicettaToVini('Antipasticontorni');
 popolaRicettaToVini('Primi');
 popolaRicettaToVini('Secondi');
@@ -128,7 +207,7 @@ for(var propName in ricettaToVini) {
   propValue = ricettaToVini[propName];
   console.log(propName,propValue);
 }
-
+*/
 
 function popolaCarnePesceVerdure() {
   return null;
