@@ -13,21 +13,6 @@ carnePesceVerdure = {
 'verdure' : [[primi], [secondi], [antipasti/contorni]]
 }
 
-DatabaseRicette ->
-{ 'nomeRicetta' : [listaViniDaProporre] }
-
-
-
-nomePagina = {
-'ingredientiPrincipali' : [
-'ingrediente' : 'percentualeUsoNelNomePagina',
-'ingrediente' : 'percentualeUsoNelNomePagina'
-],
-'ingredientiSecondari' : [
-'ingrediente' : ['listaingredientiPrincipaliInOrdineDiUso/listaingredientiPrincipaliInOrdineDiGradimento']
-]
-}
-
 */
 
 /*
@@ -84,9 +69,9 @@ var primi;
 var secondi;
 var dessert;
 var ricetteItaliane;
-var abbinamentiGenerali;
-var abbinamentiOccasioni;
-var listaViniFallback;
+//var abbinamentiGenerali;
+//var abbinamentiOccasioni;
+//var listaViniFallback;
 var listaCompletaRicette = [];
 var ingredientiPrincipali = [];
 var ingredientiSecondari = [];
@@ -247,7 +232,16 @@ dessert = estrazioneListaRicette('Dessert');
 ricetteItaliane = estrazioneListaRicette('Ricette italiane');
 listaCompletaRicette = antipastiContorni.concat(primi,secondi,dessert,ricetteItaliane);
 aggiornamentoListeVarieDaRicette(listaCompletaRicette);
+/*
 console.log('lista ricette:',listaCompletaRicette);
 console.log('lista ingredienti principali:',ingredientiPrincipali);
 console.log('lista ingredienti secondari:',ingredientiSecondari);
 console.log('lista vini:',listaVini);
+*/
+var strutture = {
+  listaRicette : listaCompletaRicette,
+  listaIngredientiPrincipali : ingredientiPrincipali,
+  listaIngredientiSecondari : ingredientiSecondari,
+  listaVini : listaVini
+}
+module.exports = strutture;

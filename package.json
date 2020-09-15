@@ -17,7 +17,7 @@
     "lodash": "^4.17.20",
     "mongoose": "^5.9.19",
     "morgan": "~1.9.1",
-    "naturaljs": "^0.1.1",
+    "natural": "^2.1.5",
     "nodemon": "^2.0.4"
   }
 }
