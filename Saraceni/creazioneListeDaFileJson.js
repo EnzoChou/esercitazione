@@ -76,6 +76,7 @@ var listaParoleChiave = [];
 var listaCompletaRicette = [];
 var ingredientiPrincipali = [];
 var ingredientiSecondari = [];
+var listaParoleChiavePerCategoria = {};
 var ricettaToVini = {};
 var listaVini = []; // LISTA VINI
 var idRicetta = 1;
@@ -227,6 +228,14 @@ function aggiornamentoListeVarieDaRicette(listaRicette){
   }
 }
 
+function estrazioneParoleChiavePerCategoria(raccoglitore,lista,nomeCategoria) {
+  var arrayTmp = []
+  lista.forEach((item, i) => {
+    arrayTmp.push(item.nome);
+  });
+  return raccoglitore[nomeCategoria] = arrayTmp;
+}
+
 function estrazioneParoleChiave(lista) {
   var arrayTmp = [];
   for(let i=0;i<lista.length;i++) {
@@ -250,7 +259,15 @@ listaCompletaRicette = antipastiContorni.concat(primi,secondi,dessert,ricetteIta
 aggiornamentoListeVarieDaRicette(listaCompletaRicette);
 estrazioneParoleChiave(listaCompletaRicette);
 listaParoleChiave = listaParoleChiave.concat(estrazioneParoleChiave(listaCompletaRicette),estrazioneParoleChiave(ingredientiPrincipali),estrazioneParoleChiave(ingredientiSecondari));
-
+estrazioneParoleChiavePerCategoria(listaParoleChiavePerCategoria,antipastiContorni,'antipastiContorni');
+estrazioneParoleChiavePerCategoria(listaParoleChiavePerCategoria,primi,'primi');
+estrazioneParoleChiavePerCategoria(listaParoleChiavePerCategoria,secondi,'secondi');
+estrazioneParoleChiavePerCategoria(listaParoleChiavePerCategoria,dessert,'dessert');
+estrazioneParoleChiavePerCategoria(listaParoleChiavePerCategoria,ricetteItaliane,'ricetteItaliane');
+estrazioneParoleChiavePerCategoria(listaParoleChiavePerCategoria,ingredientiPrincipali,'ingredientiPrincipali');
+estrazioneParoleChiavePerCategoria(listaParoleChiavePerCategoria,ingredientiSecondari,'ingredientiSecondari');
+estrazioneParoleChiavePerCategoria(listaParoleChiavePerCategoria,listaVini,'listaVini');
+//console.log('parole chiave per categoria',listaParoleChiavePerCategoria);
 //console.log('lista ricette:',listaCompletaRicette);
 //console.log('lista ingredienti principali:',ingredientiPrincipali);
 //console.log('lista ingredienti secondari:',ingredientiSecondari);
@@ -262,6 +279,7 @@ var strutture = {
   listaIngredientiPrincipali : ingredientiPrincipali,
   listaIngredientiSecondari : ingredientiSecondari,
   listaVini : listaVini,
-  listaParoleChiave : listaParoleChiave
+  listaParoleChiave : listaParoleChiave,
+  listaParoleChiavePerCategoria : listaParoleChiavePerCategoria
 }
 module.exports = strutture;
