@@ -72,6 +72,7 @@ var ricetteItaliane;
 //var abbinamentiGenerali;
 //var abbinamentiOccasioni;
 //var listaViniFallback;
+var listaParoleChiave = [];
 var listaCompletaRicette = [];
 var ingredientiPrincipali = [];
 var ingredientiSecondari = [];
@@ -225,6 +226,20 @@ function aggiornamentoListeVarieDaRicette(listaRicette){
   }
 }
 
+function estrazioneParoleChiave(lista) {
+  var arrayTmp = [];
+  for(let i=0;i<lista.length;i++) {
+    arrayTmp.push(lista[i].nome);
+    if(lista[i].tags) {
+      for(let j=0;j<lista[i].tags.length;j++) {
+        if(!arrayTmp.includes(lista[i].tags[j]))
+          arrayTmp = arrayTmp.concat(lista[i].tags[j]);
+      }
+    }
+  }
+  return arrayTmp;
+}
+
 antipastiContorni = estrazioneListaRicette('Antipasticontorni');
 primi = estrazioneListaRicette('Primi');
 secondi = estrazioneListaRicette('Secondi');
@@ -232,16 +247,20 @@ dessert = estrazioneListaRicette('Dessert');
 ricetteItaliane = estrazioneListaRicette('Ricette italiane');
 listaCompletaRicette = antipastiContorni.concat(primi,secondi,dessert,ricetteItaliane);
 aggiornamentoListeVarieDaRicette(listaCompletaRicette);
-/*
-console.log('lista ricette:',listaCompletaRicette);
-console.log('lista ingredienti principali:',ingredientiPrincipali);
-console.log('lista ingredienti secondari:',ingredientiSecondari);
-console.log('lista vini:',listaVini);
-*/
+estrazioneParoleChiave(listaCompletaRicette);
+listaParoleChiave = listaParoleChiave.concat(estrazioneParoleChiave(listaCompletaRicette),estrazioneParoleChiave(ingredientiPrincipali),estrazioneParoleChiave(ingredientiSecondari));
+
+//console.log('lista ricette:',listaCompletaRicette);
+//console.log('lista ingredienti principali:',ingredientiPrincipali);
+//console.log('lista ingredienti secondari:',ingredientiSecondari);
+//console.log('lista vini:',listaVini);
+//console.log('lista parole chiave',listaParoleChiave);
+
 var strutture = {
   listaRicette : listaCompletaRicette,
   listaIngredientiPrincipali : ingredientiPrincipali,
   listaIngredientiSecondari : ingredientiSecondari,
-  listaVini : listaVini
+  listaVini : listaVini,
+  listaParoleChiave : listaParoleChiave
 }
 module.exports = strutture;
