@@ -1,6 +1,7 @@
 var strutture = require('./creazioneListeDaFileJson');
 var natural = require('natural');
 var classifier = require('./trainParole');
+var fun = require('./funzioniPerRicercaParole');
 var tokenizer = new natural.WordTokenizer();
 natural.PorterStemmer.attach(); //english language set -> 'words'.tokenizeAndStem() toSingularizeAndTurnIntoArrayOfWords
 
@@ -12,8 +13,9 @@ var listaIngredientiPrincipali = strutture.listaIngredientiPrincipali;
 var listaIngredientiSecondari = strutture.listaIngredientiSecondari;
 var listaVini = strutture.listaVini;
 var listaParoleChiave = strutture.listaParoleChiave;
+var listaParoleChiavePerCategoria = strutture.listaParoleChiavePerCategoria;
 
-var utente = "i'd like some chicken nuggets and pastrami";
+var utente = "i'd like some chicken";
 var stemmed = utente.stem();
 var tokenized = tokenizer.tokenize(stemmed);
 var tokenizeAndStem = utente.tokenizeAndStem();
@@ -24,6 +26,11 @@ var tokenizeAndStem = utente.tokenizeAndStem();
 //console.log('tokenizeAndStem',tokenizeAndStem);
 //console.log(listaIngredientiPrincipali);
 var paroleDaCercare = utente.tokenizeAndStem();
+var antipastiContorni = listaParoleChiavePerCategoria.antipastiContorni.map(parola => parola.stem());
+var primi = listaParoleChiavePerCategoria.primi.map(parola => parola.stem());
+var secondi = listaParoleChiavePerCategoria.secondi.map(parola => parola.stem());
+var ingredientiPrincipali = listaParoleChiavePerCategoria.ingredientiPrincipali.map(parola => parola.stem());
+var ingredientiSecondari = listaParoleChiavePerCategoria.ingredientiPrincipali.map(parola => parola.stem());
 
 var matchIngredientiPrincipali = listaIngredientiPrincipali.filter(function(ingrediente){
   return paroleDaCercare.find(function(parola){
@@ -37,4 +44,5 @@ var matchIngredientiPrincipali = listaIngredientiPrincipali.filter(function(ingr
 
 matchIngredientiPrincipali.sort(function(a,b){return b.match - a.match});
 
-console.log(matchIngredientiPrincipali);
+var ricetteTrovate = fun.ricetteDaIngredienti(matchIngredientiPrincipali,listaRicette);
+//console.log('ricette trovate',ricetteTrovate);
