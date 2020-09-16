@@ -170,13 +170,14 @@ function estrazioneListaRicette(nomePagina){
   var listaPagina = listaRicetteDaExcel[nomePagina];
   for (let i=3; i<listaPagina.length;i++) {
     if(listaPagina[i].B) {
-      var strutturaRicetta = {};
+      var strutturaRicetta = {}; // come uscirà fuori l'oggetto RICETTA
       strutturaRicetta.id = idRicetta;
       strutturaRicetta.nome = listaPagina[i].B;
       strutturaRicetta.tags = [nomePagina];
       strutturaRicetta.ingredientiPrincipali = estrazioneIngredientiPrincipaliConAggiornamentoLista(listaPagina[i]);
       strutturaRicetta.ingredientiSecondari = estrazioneIngredientiSecondariConAggiornamentoLista(listaPagina[i]);
       strutturaRicetta.viniProposti = estrazioneViniConAggiornamentoListaVini(listaPagina[i]);
+      strutturaRicetta.motivazioneAbbinamento = listaPagina[i].J;
       idRicetta++;
       listaRicette.push(strutturaRicetta);
     }
