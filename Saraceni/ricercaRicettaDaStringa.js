@@ -15,22 +15,37 @@ var listaVini = strutture.listaVini;
 var listaParoleChiave = strutture.listaParoleChiave;
 var listaParoleChiavePerCategoria = strutture.listaParoleChiavePerCategoria;
 
-var utente = "i'd like some chicken";
-var stemmed = utente.stem();
-var tokenized = tokenizer.tokenize(stemmed);
-var tokenizeAndStem = utente.tokenizeAndStem();
+var utente = "i'd like some chicken parami sanduwich";
 //console.log(natural.PorterStemmer.stem(utente));
 //console.log(natural.JaroWinklerDistance("dixon","dicksonx", undefined, true));
-//console.log('tokenize',tokenized);
-//console.log('stemmed',stemmed);
-//console.log('tokenizeAndStem',tokenizeAndStem);
-//console.log(listaIngredientiPrincipali);
 var paroleDaCercare = utente.tokenizeAndStem();
+console.log(paroleDaCercare);
+
+var nomiRicette = listaRicette.map(ricetta => ricetta.nome.tokenizeAndStem());
 var antipastiContorni = listaParoleChiavePerCategoria.antipastiContorni.map(parola => parola.stem());
 var primi = listaParoleChiavePerCategoria.primi.map(parola => parola.stem());
 var secondi = listaParoleChiavePerCategoria.secondi.map(parola => parola.stem());
 var ingredientiPrincipali = listaParoleChiavePerCategoria.ingredientiPrincipali.map(parola => parola.stem());
 var ingredientiSecondari = listaParoleChiavePerCategoria.ingredientiPrincipali.map(parola => parola.stem());
+
+var matchRicetta = function(arrayParole,ricette) {
+  var ricettaPerfetta = {index:'-1', max:'0.5'};
+  ricette.forEach((item, i) => {
+    var tmp = fun.somiglianzaParoleArray(arrayParole,item);
+    if(tmp>ricettaPerfetta.max) {
+      ricettaPerfetta.index = i;
+      ricettaPerfetta.max = tmp;
+      console.log(ricettaPerfetta);
+      console.log(ricette[ricettaPerfetta.index]);
+    }
+  });
+  if(ricette[ricettaPerfetta.index]) {
+    return listaRicette.find(ricetta =>
+      ricetta.nome.tokenizeAndStem().toString() == ricette[ricettaPerfetta.index].toString()
+  )} else {
+    return undefined;
+  }
+}
 
 var matchIngredientiPrincipali = listaIngredientiPrincipali.filter(function(ingrediente){
   return paroleDaCercare.find(function(parola){
@@ -43,6 +58,6 @@ var matchIngredientiPrincipali = listaIngredientiPrincipali.filter(function(ingr
 })
 
 matchIngredientiPrincipali.sort(function(a,b){return b.match - a.match});
-
-var ricetteTrovate = fun.ricetteDaIngredienti(matchIngredientiPrincipali,listaRicette);
-//console.log('ricette trovate',ricetteTrovate);
+var ricettaTrovataDaRicette = matchRicetta(paroleDaCercare,nomiRicette);
+var ricetteTrovateDaIngredientiPrincipali = fun.ricetteDaIngredienti(matchIngredientiPrincipali,listaRicette);
+console.log('ricette trovate',ricetteTrovate);
