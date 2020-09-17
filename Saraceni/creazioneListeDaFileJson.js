@@ -69,13 +69,13 @@ var primi;
 var secondi;
 var dessert;
 var ricetteItaliane;
-//var abbinamentiGenerali;
 //var abbinamentiOccasioni;
 //var listaViniFallback;
 var listaParoleChiave = [];
 var listaCompletaRicette = [];
 var ingredientiPrincipali = [];
 var ingredientiSecondari = [];
+var listaAbbinamentiGenerali = [];
 var listaParoleChiavePerCategoria = {};
 var ricettaToVini = {};
 var listaVini = []; // LISTA VINI
@@ -83,6 +83,7 @@ var idRicetta = 1;
 var idIngredientePrincipale = 1;
 var idIngredienteSecondario = 1;
 var idVini = 1;
+var idAbbinamento = 1;
 
 var varToString = varObj => Object.keys(varObj)[0];
 
@@ -249,12 +250,38 @@ function estrazioneParoleChiave(lista) {
   }
   return arrayTmp;
 }
+/*
+function estrazioneTipoIngrediente(nomeTipoIngrediente) {
+  var tipoIngrediente = {};
+  tipoIngrediente.nome = nomeTipoIngrediente;
+  return tipoIngrediente;
+}
 
+function estrazioneAbbinamentiGenerali(nomePagina){
+  var listaAbbinamenti = [];
+  var listaPagina = listaRicetteDaExcel[nomePagina];
+  for (let i=3; i<listaPagina.length;i++) {
+    if(listaPagina[i].B) {
+      var strutturaAbbinamento = {}; // come uscirà fuori l'oggetto RICETTA
+      strutturaAbbinamento.id = idAbbinamento;
+      strutturaAbbinamento.nome = listaPagina[i].B;
+      strutturaAbbinamento.tags = [nomePagina];
+      strutturaAbbinamento.tipoIngrediente = estrazioneTipoIngrediente(listaPagina[i]);
+      strutturaRicetta.viniProposti = estrazioneViniConAggiornamentoListaVini(listaPagina[i]);
+      strutturaAbbinamento.motivazioneAbbinamento = listaPagina[i].H; //normalmente la motivazione sta in J
+      idAbbinamento++;
+      listaAbbinamenti.push(strutturaAbbinamento);
+    }
+  }
+  return listaAbbinamenti;
+}
+*/
 antipastiContorni = estrazioneListaRicette('Antipasticontorni');
 primi = estrazioneListaRicette('Primi');
 secondi = estrazioneListaRicette('Secondi');
 dessert = estrazioneListaRicette('Dessert');
 ricetteItaliane = estrazioneListaRicette('Ricette italiane');
+//listaAbbinamentiGenerali = estrazioneAbbinamentiGenerali('Abbinamenti generali');
 listaCompletaRicette = antipastiContorni.concat(primi,secondi,dessert,ricetteItaliane);
 aggiornamentoListeVarieDaRicette(listaCompletaRicette);
 estrazioneParoleChiave(listaCompletaRicette);
@@ -267,6 +294,7 @@ estrazioneParoleChiavePerCategoria(listaParoleChiavePerCategoria,ricetteItaliane
 estrazioneParoleChiavePerCategoria(listaParoleChiavePerCategoria,ingredientiPrincipali,'ingredientiPrincipali');
 estrazioneParoleChiavePerCategoria(listaParoleChiavePerCategoria,ingredientiSecondari,'ingredientiSecondari');
 estrazioneParoleChiavePerCategoria(listaParoleChiavePerCategoria,listaVini,'listaVini');
+//estrazioneParoleChiavePerCategoria()
 //console.log('parole chiave per categoria',listaParoleChiavePerCategoria);
 //console.log('lista ricette:',listaCompletaRicette);
 //console.log('lista ingredienti principali:',ingredientiPrincipali);
