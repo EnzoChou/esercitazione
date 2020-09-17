@@ -31,7 +31,7 @@ var surname = ["Berardino", "Annunzio", "Bonaventura",
 "Ascenzo", "Credico", "Ciuffini", "Ciocca", "Pelliccione",
 "Scarsella", "Cocciolone", "Cetrullo", "Scimia", "Mammarella", "Zappacosta"];
 var subscription = [true, false];
-var status = ["single", "engaged", "married"]
+var status = ["single", "engaged", "married"];
 
 function aggiungiPersone(n) {
   var i = 0;
@@ -86,4 +86,4 @@ function salvaColAll(persone){
     db_yeah.close()
   });
 };
-salvaColMap(persone);
+//salvaColMap(persone);

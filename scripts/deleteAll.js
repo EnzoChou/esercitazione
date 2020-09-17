@@ -90,5 +90,5 @@ function cancellaInizioLetteraCorsiva() {
 };
 
 //cancellaById('5f1166121db9661b385f29de'); //decommentare questa riga per usare il metodo cancellaById
-//brasaTutto(); //decommentare questa riga per usare il metodo brasaTutto
+brasaTutto(); //decommentare questa riga per usare il metodo brasaTutto
 //cancellaInizioLetteraCorsiva(); //decommentare questa riga per usare il metodo cancellaInizioLetteraCorsiva
