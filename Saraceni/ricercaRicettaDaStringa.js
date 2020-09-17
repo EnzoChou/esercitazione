@@ -15,7 +15,7 @@ var listaVini = strutture.listaVini;
 var listaParoleChiave = strutture.listaParoleChiave;
 var listaParoleChiavePerCategoria = strutture.listaParoleChiavePerCategoria;
 
-var utente = "i'd like some ciken with parmaesan ";
+var utente = "i'd like some ciken with parmaesan";
 //console.log(natural.PorterStemmer.stem(utente));
 //console.log(natural.JaroWinklerDistance("dixon","dicksonx", undefined, true));
 var paroleDaCercare = utente.tokenizeAndStem();
@@ -26,7 +26,7 @@ var antipastiContorni = listaParoleChiavePerCategoria.antipastiContorni.map(paro
 var primi = listaParoleChiavePerCategoria.primi.map(parola => parola.stem());
 var secondi = listaParoleChiavePerCategoria.secondi.map(parola => parola.stem());
 var ingredientiPrincipali = listaParoleChiavePerCategoria.ingredientiPrincipali.map(parola => parola.stem());
-var ingredientiSecondari = listaParoleChiavePerCategoria.ingredientiPrincipali.map(parola => parola.stem());
+var ingredientiSecondari = listaParoleChiavePerCategoria.ingredientiSecondari.map(parola => parola.stem());
 
 var matchRicetta = function(arrayParole,ricette) {
   var ricettaPerfetta = {index:'-1', max:'0.5'};
@@ -56,9 +56,12 @@ var matchIngredientiPrincipali = listaIngredientiPrincipali.filter(function(ingr
     return false;
   })
 })
-
 matchIngredientiPrincipali.sort(function(a,b){return b.match - a.match});
+var trovaInfo = function() {
+
+}
 var ricettaTrovataDaRicette = matchRicetta(paroleDaCercare,nomiRicette);
 var ricetteTrovateDaIngredientiPrincipali = fun.ricetteDaIngredienti(matchIngredientiPrincipali,listaRicette);
+
 console.log(ricettaTrovataDaRicette);
 //console.log('ricette trovate',ricetteTrovateDaIngredientiPrincipali);
