@@ -15,7 +15,7 @@ var listaVini = strutture.listaVini;
 var listaParoleChiave = strutture.listaParoleChiave;
 var listaParoleChiavePerCategoria = strutture.listaParoleChiavePerCategoria;
 
-var utente = "i'd like some chicken parami sanduwich";
+var utente = "i'd like some ciken with parmaesan ";
 //console.log(natural.PorterStemmer.stem(utente));
 //console.log(natural.JaroWinklerDistance("dixon","dicksonx", undefined, true));
 var paroleDaCercare = utente.tokenizeAndStem();
@@ -60,4 +60,5 @@ var matchIngredientiPrincipali = listaIngredientiPrincipali.filter(function(ingr
 matchIngredientiPrincipali.sort(function(a,b){return b.match - a.match});
 var ricettaTrovataDaRicette = matchRicetta(paroleDaCercare,nomiRicette);
 var ricetteTrovateDaIngredientiPrincipali = fun.ricetteDaIngredienti(matchIngredientiPrincipali,listaRicette);
-console.log('ricette trovate',ricetteTrovate);
+console.log(ricettaTrovataDaRicette);
+//console.log('ricette trovate',ricetteTrovateDaIngredientiPrincipali);
