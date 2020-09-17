@@ -1,3 +1,4 @@
+var natural = require('natural');
 var funzioniPerRicercaParole = {};
 
 var ricetteDaIDs = function(listaID,listaRicette) {
@@ -16,9 +17,21 @@ var ricetteDaIngredienti = function(ingredienti,listaRicette) {
   return arrayRicette;
 }
 
+var somiglianzaParoleArray = function(arrayParole,arrayRicette) {
+  var contatore = 0;
+  arrayParole.forEach((item, i) => {
+    arrayRicette.forEach((item2, j) => {
+      if(natural.JaroWinklerDistance(item,item2,undefined,true)>0.8){
+        contatore+=natural.JaroWinklerDistance(item,item2,undefined,true);
+      }
+    });
+  });
+  return contatore/(arrayRicette.length);
+}
 
 funzioniPerRicercaParole.ricetteDaIDs = ricetteDaIDs;
 funzioniPerRicercaParole.ricetteDaIngrediente = ricetteDaIngrediente;
 funzioniPerRicercaParole.ricetteDaIngredienti = ricetteDaIngredienti;
+funzioniPerRicercaParole.somiglianzaParoleArray = somiglianzaParoleArray;
 
 module.exports = funzioniPerRicercaParole;
