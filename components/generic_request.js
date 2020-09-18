@@ -35,14 +35,16 @@ function processing(options) {
                 if (response) {
                   console.log("c'è stata una risposta");
                   if( response.statusCode == 200){
-                  var data = JSON.parse(response.body);
-                  if (data.status == 'success') {
+                    var data = JSON.parse(response.body);
+                    if (data.status == 'success') {
                         resolve(data.data);
                     } else {
                         resolve();
                     }
                 } else {
-                    resolve();
+                  console.log('statusCode non è risultato 200, l\'api di dummy è un pò sempliciotto');
+                    var data = JSON.parse(response);
+                    resolve(data);
                 }}else{
                   console.log("non c'è alcuna response");
                   resolve();
