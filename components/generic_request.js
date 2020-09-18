@@ -1,25 +1,55 @@
-const { promiseImpl } = require("ejs");
+//const { promiseImpl } = require("ejs");
+/*var http = require('http');
+
+var processing = (url) => {
+  return new Promise((resolve, reject) => {
+    const request = http.request(url, res => {
+      let chunks = [];
+      res.on('data', chunk => {
+        chunks.push(chunk);
+      });
+
+      res.on('end', () => {
+        let body = Buffer.concat(chunks).toString();
+        resolve(body);
+      })
+
+    });
+//handling error
+    request.on('error', (e) => {
+      reject('problem with request: ' + e.message);
+    });
+//here you have to put request.end()
+    request.end();
+  })
+};
+*/
 
 function processing(options) {
     return new Promise(function (resolve, reject) {
         return request(options)
             .then(response => {
+              console.log("response", response);
+              console.log("response.statusCode", response.statusCode);
+              console.log("response.body", response.body);
                 if (response) {
-                    console.log("Status response.statusCode");
-                    console.log("Body response.body");
-                    if (response.statusCode == 200) {
-                        console.log(response.body);
-                        var data = JSON.parse(response.body);
-                        resolve(data);
+                  console.log("c'è stata una risposta");
+                  if( response.statusCode == 200){
+                  var data = JSON.parse(response.body);
+                  if (data.status == 'success') {
+                        resolve(data.data);
                     } else {
                         resolve();
                     }
                 } else {
                     resolve();
+                }}else{
+                  console.log("non c'è alcuna response");
+                  resolve();
                 }
             })
             .catch(error => {
-                console.log(err)
+                console.log("generic_request error", error);
                 reject();
             });
     });

@@ -13,7 +13,7 @@
     });
 
     //Retrieve section
-    router.get('/retrieve/', validator(schemas.personLIST, 'query'), (req, res, next) => {
+    router.get('/retrieve', validator(schemas.personLIST, 'query'), (req, res, next) => {
       var db = req.app.locals.db;
       Promise.try(function() {
         return db.Persona.find();
