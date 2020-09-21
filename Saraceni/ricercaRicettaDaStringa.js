@@ -1,12 +1,7 @@
 var strutture = require('./creazioneListeDaFileJson')
 var natural = require('natural')
-var classifier = require('./trainParole')
 var fun = require('./funzioniPerRicercaParole')
-var tokenizer = new natural.WordTokenizer()
 natural.PorterStemmer.attach() // english language set -> 'words'.tokenizeAndStem() toSingularizeAndTurnIntoArrayOfWords
-
-var TfIdf = natural.TfIdf
-var tfIdf = new TfIdf() // frequency control -> tfIdf.addDocument('stringData') ;; tfIdf.tfidfs('wordToMeasure', function(document#, numberOfRepetition){courseOfAction})
 
 var listaRicette = strutture.listaRicette
 var listaIngredientiPrincipali = strutture.listaIngredientiPrincipali
@@ -15,11 +10,8 @@ var listaVini = strutture.listaVini
 var listaParoleChiave = strutture.listaParoleChiave
 var listaParoleChiavePerCategoria = strutture.listaParoleChiavePerCategoria
 
-var utente = "i'd like some fish course"
 // console.log(natural.PorterStemmer.stem(utente));
 // console.log(natural.JaroWinklerDistance("dixon","dicksonx", undefined, true));
-var paroleDaCercare = utente.tokenizeAndStem()
-// console.log(paroleDaCercare)
 
 var nomiRicette = listaRicette.map(ricetta => ricetta.nome.tokenizeAndStem())
 var antipastiContorni = listaParoleChiavePerCategoria.antipastiContorni.map(parola => parola.stem())
@@ -28,12 +20,16 @@ var secondi = listaParoleChiavePerCategoria.secondi.map(parola => parola.stem())
 var ingredientiPrincipali = listaParoleChiavePerCategoria.ingredientiPrincipali.map(parola => parola.tokenizeAndStem())
 var ingredientiSecondari = listaParoleChiavePerCategoria.ingredientiSecondari.map(parola => parola.tokenizeAndStem())
 
-var matchRicetta = function (arrayParole, ricette) {
+// METODI DI RICERCA DALLA LISTA RICETTE
+
+var matchRicetta = function (arrayParole) {
+  console.log('è stato scelto il metodo di match da Ricette\n\n')
   var ricettaPerfetta = {
     index: '-1',
     max: '0.5'
   }
-  ricette.forEach((item, i) => {
+  var ricettaTrovata = []
+  nomiRicette.forEach((item, i) => {
     var tmp = fun.somiglianzaParoleArray(arrayParole, item)
     if (tmp > ricettaPerfetta.max) {
       ricettaPerfetta.index = i
@@ -42,36 +38,54 @@ var matchRicetta = function (arrayParole, ricette) {
       // console.log(ricette[ricettaPerfetta.index])
     }
   })
-  if (ricette[ricettaPerfetta.index]) {
-    return listaRicette.find(ricetta =>
-      ricetta.nome.tokenizeAndStem().toString() === ricette[ricettaPerfetta.index].toString()
-    )
-  } else {
-    return undefined
+  if (nomiRicette[ricettaPerfetta.index]) {
+    ricettaTrovata.push(listaRicette.find(ricetta =>
+      ricetta.nome.tokenizeAndStem().toString() === nomiRicette[ricettaPerfetta.index].toString()
+    ))
   }
+  return ricettaTrovata
 }
 
-var matchIngredientiPrincipali = listaIngredientiPrincipali.filter(function (ingrediente) {
-  return paroleDaCercare.find(function (parola) {
-    if (natural.JaroWinklerDistance(ingrediente.nome, parola, undefined, true) > 0.8) {
-      ingrediente.match = natural.JaroWinklerDistance(ingrediente.nome, parola, undefined, true)
-      return true
-    }
-    return false
-  })
-})
+// METODI DI RICERCA DALLA LISTA DEGLI INGREDIENTI PRINCIPALI
 
-matchIngredientiPrincipali.sort(function (a, b) {
-  return b.match - a.match
-})
+var matchIngredientiPrincipali = function (arrayParole) {
+  console.log('è stato scelto il metodo di matchDaIngredientiPrincipali\n\n')
+  return fun.ricercaIngredientiPapabili(arrayParole, listaIngredientiPrincipali)
+}
 
-// var ricercaPunteggio = arrayPunteggio.map(array => fun.somiglianzaParoleArray(paroleDaCercare, array))
+var ricetteTrovateDaIngredientiPrincipali = function (arrayParole) {
+  return fun.ricetteDaIngredienti(matchIngredientiPrincipali(arrayParole), listaRicette)
+}
 
-// console.log(ricercaPunteggio)
+// METODI DI RICERCA DALLA LISTA DEGLI INGREDIENTI SECONDARI
 
-var ricettaTrovataDaRicette = matchRicetta(paroleDaCercare, nomiRicette)
-var ricetteTrovateDaIngredientiPrincipali = fun.ricetteDaIngredienti(matchIngredientiPrincipali, listaRicette)
+var matchIngredientiSecondari = function (arrayParole) {
+  console.log('è stato scelto il metodo di matchDaIngredientiSecondari\n\n')
+  return fun.ricercaIngredientiPapabili(arrayParole, listaIngredientiSecondari)
+}
 
-// console.log(ricettaTrovataDaRicette)
-console.log('match ingredienti principali', matchIngredientiPrincipali)
-console.log('ricette trovate', ricetteTrovateDaIngredientiPrincipali)
+var ricetteTrovateDaIngredientiSecondari = function (arrayParole) {
+  return fun.ricetteDaIngredienti(matchIngredientiSecondari(arrayParole), listaRicette)
+}
+
+// METODI DI RICERCA PER MISMATCH
+
+var laRicercaNonHaProdottoRisultatiSoddisfacenti = function (arrayParole) {
+  return 'la tua richiesta non ha prodotto risultati, puoi dirmi qualcosa di più specifico?'
+}
+
+// METODI DI RICERCA DALLA LISTA DELLE PORTATE
+
+var ricetteTrovateDaPortate = function (arrayParole) {
+  return 'la tua richiesta ha portato all\'algoritmo della ricerca da portate, ma questi deve ancora essere implementato'
+}
+
+var modulo = {}
+
+modulo.ricettaTrovataDaRicette = matchRicetta
+modulo.ricetteTrovateDaIngredientiPrincipali = ricetteTrovateDaIngredientiPrincipali
+modulo.ricetteTrovateDaIngredientiSecondari = ricetteTrovateDaIngredientiSecondari
+modulo.laRicercaNonHaProdottoRisultatiSoddisfacenti = laRicercaNonHaProdottoRisultatiSoddisfacenti
+modulo.ricetteTrovateDaPortate = ricetteTrovateDaPortate
+
+module.exports = modulo
