@@ -17,6 +17,23 @@ var ricetteDaIngredienti = function (ingredienti, listaRicette) {
   return arrayRicette
 }
 
+var ricercaIngredientiPapabili = function (arrayParole, listaIngredienti) {
+  var listaOrdinata = listaIngredienti.filter(function (ingrediente) {
+    return arrayParole.find(function (parola) {
+      if (natural.JaroWinklerDistance(ingrediente.nome, parola, undefined, true) > 0.8) {
+        ingrediente.match = natural.JaroWinklerDistance(ingrediente.nome, parola, undefined, true)
+        return true
+      }
+      return false
+    })
+  })
+  var listaDiRitorno = listaOrdinata.sort(function (a, b) {
+    return b.match - a.match
+  })
+  console.log('lista ingredienti papabili ordinati', listaDiRitorno)
+  return listaDiRitorno
+}
+
 var somiglianzaParoleArray = function (arrayParole, arrayDiConfronto) {
   var contatore = 0
   arrayParole.forEach((item, i) => {
@@ -52,5 +69,6 @@ funzioniPerRicercaParole.ricetteDaIngrediente = ricetteDaIngrediente
 funzioniPerRicercaParole.ricetteDaIngredienti = ricetteDaIngredienti
 funzioniPerRicercaParole.somiglianzaParoleArray = somiglianzaParoleArray
 funzioniPerRicercaParole.indiceMassimoAccoppiamento = indiceMassimoAccoppiamento
+funzioniPerRicercaParole.ricercaIngredientiPapabili = ricercaIngredientiPapabili
 
 module.exports = funzioniPerRicercaParole
