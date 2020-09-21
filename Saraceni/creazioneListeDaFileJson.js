@@ -252,24 +252,26 @@ function estrazioneParoleChiave(lista) {
   }
   return arrayTmp;
 }
-/*
+
 function estrazioneTipoIngrediente(nomeTipoIngrediente) {
-  var tipoIngrediente = {};
-  tipoIngrediente.nome = nomeTipoIngrediente;
-  return tipoIngrediente;
+  var listaTipoIngrediente = [nomeTipoIngrediente];
+  return listaTipoIngrediente;
+  // var tipoIngrediente = {};
+  // tipoIngrediente.nome = nomeTipoIngrediente;
+  // return tipoIngrediente;
 }
 
-function estrazioneAbbinamentiGenerali(nomePagina){
+function estrazioneAbbinamentiGenerali(nomePagina) {
   var listaAbbinamenti = [];
   var listaPagina = listaRicetteDaExcel[nomePagina];
-  for (let i=3; i<listaPagina.length;i++) {
-    if(listaPagina[i].B) {
-      var strutturaAbbinamento = {}; // come uscirà fuori l'oggetto RICETTA
+  for (let i = 3; i < listaPagina.length; i++) {
+    if (listaPagina[i].B) {
+      var strutturaAbbinamento = {}; // come uscirà fuori l'oggetto ABBINAMENTO
       strutturaAbbinamento.id = idAbbinamento;
       strutturaAbbinamento.nome = listaPagina[i].B;
       strutturaAbbinamento.tags = [nomePagina];
-      strutturaAbbinamento.tipoIngrediente = estrazioneTipoIngrediente(listaPagina[i]);
-      strutturaRicetta.viniProposti = estrazioneViniConAggiornamentoListaVini(listaPagina[i]);
+      strutturaAbbinamento.tipoIngrediente = estrazioneTipoIngrediente(listaPagina[i].D);
+      strutturaAbbinamento.viniProposti = estrazioneViniConAggiornamentoListaVini(listaPagina[i]);
       strutturaAbbinamento.motivazioneAbbinamento = listaPagina[i].H; //normalmente la motivazione sta in J
       idAbbinamento++;
       listaAbbinamenti.push(strutturaAbbinamento);
@@ -277,13 +279,13 @@ function estrazioneAbbinamentiGenerali(nomePagina){
   }
   return listaAbbinamenti;
 }
-*/
+
 antipastiContorni = estrazioneListaRicette('Antipasticontorni');
 primi = estrazioneListaRicette('Primi');
 secondi = estrazioneListaRicette('Secondi');
 dessert = estrazioneListaRicette('Dessert');
 ricetteItaliane = estrazioneListaRicette('Ricette italiane');
-// listaAbbinamentiGenerali = estrazioneAbbinamentiGenerali('Abbinamenti generali');
+listaAbbinamentiGenerali = estrazioneAbbinamentiGenerali('Abbinamenti generali');
 listaCompletaRicette = antipastiContorni.concat(primi, secondi, dessert, ricetteItaliane);
 aggiornamentoListeVarieDaRicette(listaCompletaRicette);
 estrazioneParoleChiave(listaCompletaRicette);
@@ -296,16 +298,18 @@ estrazioneParoleChiavePerCategoria(listaParoleChiavePerCategoria, ricetteItalian
 estrazioneParoleChiavePerCategoria(listaParoleChiavePerCategoria, ingredientiPrincipali, 'ingredientiPrincipali');
 estrazioneParoleChiavePerCategoria(listaParoleChiavePerCategoria, ingredientiSecondari, 'ingredientiSecondari');
 estrazioneParoleChiavePerCategoria(listaParoleChiavePerCategoria, listaVini, 'listaVini');
-// estrazioneParoleChiavePerCategoria()
+//estrazioneParoleChiavePerCategoria()
 // console.log('parole chiave per categoria',listaParoleChiavePerCategoria);
 // console.log('lista ricette:',listaCompletaRicette);
 // console.log('lista ingredienti principali:',ingredientiPrincipali);
 // console.log('lista ingredienti secondari:',ingredientiSecondari);
 // console.log('lista vini:',listaVini);
 // console.log('lista parole chiave',listaParoleChiave);
+console.log(listaAbbinamentiGenerali);
 
 var strutture = {
   listaRicette: listaCompletaRicette,
+  listaAbbinamentiGenerali: listaAbbinamentiGenerali,
   listaIngredientiPrincipali: ingredientiPrincipali,
   listaIngredientiSecondari: ingredientiSecondari,
   listaVini: listaVini,
