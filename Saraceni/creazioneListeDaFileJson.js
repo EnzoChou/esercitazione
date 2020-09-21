@@ -69,8 +69,8 @@ var primi;
 var secondi;
 var dessert;
 var ricetteItaliane;
-//var abbinamentiOccasioni;
-//var listaViniFallback;
+// var abbinamentiOccasioni;
+// var listaViniFallback;
 var listaParoleChiave = [];
 var listaCompletaRicette = [];
 var ingredientiPrincipali = [];
@@ -89,7 +89,7 @@ var varToString = varObj => Object.keys(varObj)[0];
 
 //POPOLA LISTA VINI
 function estrazioneListaVini(nomeVino) {
-  if(listaVini.filter( vino => vino.nome === nomeVino).length==0) {
+  if (listaVini.filter(vino => vino.nome === nomeVino).length == 0) {
     var vino = {};
     vino.id = idVini;
     vino.nome = nomeVino;
@@ -100,7 +100,7 @@ function estrazioneListaVini(nomeVino) {
 }
 
 function estrazioneListaIngredientiPrincipali(nomeIngredientePrincipale) {
-  if(ingredientiPrincipali.filter( i => i.nome === nomeIngredientePrincipale).length==0) {
+  if (ingredientiPrincipali.filter(i => i.nome === nomeIngredientePrincipale).length == 0) {
     var ingredientePrincipale = {};
     ingredientePrincipale.id = idIngredientePrincipale;
     ingredientePrincipale.nome = nomeIngredientePrincipale;
@@ -111,7 +111,7 @@ function estrazioneListaIngredientiPrincipali(nomeIngredientePrincipale) {
 }
 
 function estrazioneListaIngredientiSecondari(nomeIngredienteSecondario) {
-  if(ingredientiSecondari.filter( i => i.nome === nomeIngredienteSecondario).length==0) {
+  if (ingredientiSecondari.filter(i => i.nome === nomeIngredienteSecondario).length == 0) {
     var ingredienteSecondario = {};
     ingredienteSecondario.id = idIngredienteSecondario;
     ingredienteSecondario.nome = nomeIngredienteSecondario;
@@ -121,26 +121,26 @@ function estrazioneListaIngredientiSecondari(nomeIngredienteSecondario) {
   }
 }
 
-function ricercaOggetto(nomeOggetto,listaOggetti) {
+function ricercaOggetto(nomeOggetto, listaOggetti) {
   var found = listaOggetti.find(oggetto => oggetto.nome === nomeOggetto);
-  if(found)
+  if (found)
     return found.id;
-    return 0;
+  return 0;
 }
 
-function estrazioneViniConAggiornamentoListaVini(riga){
+function estrazioneViniConAggiornamentoListaVini(riga) {
   var listaViniTmp = [];
   if (riga.G) {
     estrazioneListaVini(riga.G);
-    listaViniTmp.push(ricercaOggetto(riga.G,listaVini));
+    listaViniTmp.push(ricercaOggetto(riga.G, listaVini));
   }
   if (riga.H) {
     estrazioneListaVini(riga.H);
-    listaViniTmp.push(ricercaOggetto(riga.H,listaVini));
+    listaViniTmp.push(ricercaOggetto(riga.H, listaVini));
   }
   if (riga.I) {
     estrazioneListaVini(riga.I);
-    listaViniTmp.push(ricercaOggetto(riga.I,listaVini));
+    listaViniTmp.push(ricercaOggetto(riga.I, listaVini));
   }
   return listaViniTmp;
 }
@@ -149,7 +149,7 @@ function estrazioneIngredientiPrincipaliConAggiornamentoLista(riga) {
   var listaIngredientiPrincipali = [];
   if (riga.D) {
     estrazioneListaIngredientiPrincipali(riga.D);
-    listaIngredientiPrincipali.push(ricercaOggetto(riga.D,ingredientiPrincipali));
+    listaIngredientiPrincipali.push(ricercaOggetto(riga.D, ingredientiPrincipali));
   }
   return listaIngredientiPrincipali;
 }
@@ -158,20 +158,20 @@ function estrazioneIngredientiSecondariConAggiornamentoLista(riga) {
   var listaIngredientiSecondari = [];
   if (riga.E) {
     estrazioneListaIngredientiSecondari(riga.E);
-    listaIngredientiSecondari.push(ricercaOggetto(riga.E,ingredientiSecondari));
+    listaIngredientiSecondari.push(ricercaOggetto(riga.E, ingredientiSecondari));
   }
   if (riga.F) {
     estrazioneListaIngredientiSecondari(riga.F);
-    listaIngredientiSecondari.push(ricercaOggetto(riga.F,ingredientiSecondari));
+    listaIngredientiSecondari.push(ricercaOggetto(riga.F, ingredientiSecondari));
   }
   return listaIngredientiSecondari;
 }
 
-function estrazioneListaRicette(nomePagina){
+function estrazioneListaRicette(nomePagina) {
   var listaRicette = [];
   var listaPagina = listaRicetteDaExcel[nomePagina];
-  for (let i=3; i<listaPagina.length;i++) {
-    if(listaPagina[i].B) {
+  for (let i = 3; i < listaPagina.length; i++) {
+    if (listaPagina[i].B) {
       var strutturaRicetta = {}; // come uscirà fuori l'oggetto RICETTA
       strutturaRicetta.id = idRicetta;
       strutturaRicetta.nome = listaPagina[i].B;
@@ -187,41 +187,41 @@ function estrazioneListaRicette(nomePagina){
   return listaRicette;
 }
 
-function aggiornamentoLista(oggetto,lista) {
-  if(lista.filter(o => o === oggetto).length==0)
+function aggiornamentoLista(oggetto, lista) {
+  if (lista.filter(o => o === oggetto).length == 0)
     lista.push(oggetto);
 }
 
-function aggiornamentoListeVarieDaRicette(listaRicette){
-  for(let i=0;i<listaRicette.length;i++) {
+function aggiornamentoListeVarieDaRicette(listaRicette) {
+  for (let i = 0; i < listaRicette.length; i++) {
 
-    for(let j=0;j<listaRicette[i].ingredientiPrincipali.length;j++) {
+    for (let j = 0; j < listaRicette[i].ingredientiPrincipali.length; j++) {
       var codice = listaRicette[i].ingredientiPrincipali[j];
       var condizione = false;
-      for(let x=0;x<ingredientiPrincipali.length&&!condizione;x++) {
-        if(ingredientiPrincipali[x].id==codice) {
-          aggiornamentoLista(listaRicette[i].id,ingredientiPrincipali[x].ricette);
-          condizione=true;
+      for (let x = 0; x < ingredientiPrincipali.length && !condizione; x++) {
+        if (ingredientiPrincipali[x].id === codice) {
+          aggiornamentoLista(listaRicette[i].id, ingredientiPrincipali[x].ricette);
+          condizione = true;
         }
       }
     }
-    for(let j=0;j<listaRicette[i].ingredientiSecondari.length;j++){
+    for (let j = 0; j < listaRicette[i].ingredientiSecondari.length; j++) {
       var codice = listaRicette[i].ingredientiSecondari[j];
       var condizione = false;
-      for(let x=0;x<ingredientiSecondari.length&&!condizione;x++) {
-        if(ingredientiSecondari[x].id==codice) {
-          aggiornamentoLista(listaRicette[i].id,ingredientiSecondari[x].ricette);
-          condizione=true;
+      for (let x = 0; x < ingredientiSecondari.length && !condizione; x++) {
+        if (ingredientiSecondari[x].id === codice) {
+          aggiornamentoLista(listaRicette[i].id, ingredientiSecondari[x].ricette);
+          condizione = true;
         }
       }
     }
-    for(let j=0;j<listaRicette[i].viniProposti.length;j++){
+    for (let j = 0; j < listaRicette[i].viniProposti.length; j++) {
       var codice = listaRicette[i].viniProposti[j];
       var condizione = false;
-      for(let x=0;x<listaVini.length&&!condizione;x++) {
-        if(listaVini[x].id==codice) {
-          aggiornamentoLista(listaRicette[i].id,listaVini[x].ricette);
-          condizione=true;
+      for (let x = 0; x < listaVini.length && !condizione; x++) {
+        if (listaVini[x].id === codice) {
+          aggiornamentoLista(listaRicette[i].id, listaVini[x].ricette);
+          condizione = true;
         }
       }
     }
@@ -229,22 +229,24 @@ function aggiornamentoListeVarieDaRicette(listaRicette){
   }
 }
 
-function estrazioneParoleChiavePerCategoria(raccoglitore,lista,nomeCategoria) {
+function estrazioneParoleChiavePerCategoria(raccoglitore, lista, nomeCategoria) {
   var arrayTmp = []
   lista.forEach((item, i) => {
     arrayTmp.push(item.nome);
   });
-  return raccoglitore[nomeCategoria] = arrayTmp;
+  raccoglitore[nomeCategoria] = arrayTmp;
+  return arrayTmp;
 }
 
 function estrazioneParoleChiave(lista) {
   var arrayTmp = [];
-  for(let i=0;i<lista.length;i++) {
+  for (let i = 0; i < lista.length; i++) {
     arrayTmp.push(lista[i].nome);
-    if(lista[i].tags) {
-      for(let j=0;j<lista[i].tags.length;j++) {
-        if(!arrayTmp.includes(lista[i].tags[j]))
+    if (lista[i].tags) {
+      for (let j = 0; j < lista[i].tags.length; j++) {
+        if (!arrayTmp.includes(lista[i].tags[j])) {
           arrayTmp = arrayTmp.concat(lista[i].tags[j]);
+        }
       }
     }
   }
@@ -281,33 +283,33 @@ primi = estrazioneListaRicette('Primi');
 secondi = estrazioneListaRicette('Secondi');
 dessert = estrazioneListaRicette('Dessert');
 ricetteItaliane = estrazioneListaRicette('Ricette italiane');
-//listaAbbinamentiGenerali = estrazioneAbbinamentiGenerali('Abbinamenti generali');
-listaCompletaRicette = antipastiContorni.concat(primi,secondi,dessert,ricetteItaliane);
+// listaAbbinamentiGenerali = estrazioneAbbinamentiGenerali('Abbinamenti generali');
+listaCompletaRicette = antipastiContorni.concat(primi, secondi, dessert, ricetteItaliane);
 aggiornamentoListeVarieDaRicette(listaCompletaRicette);
 estrazioneParoleChiave(listaCompletaRicette);
-listaParoleChiave = listaParoleChiave.concat(estrazioneParoleChiave(listaCompletaRicette),estrazioneParoleChiave(ingredientiPrincipali),estrazioneParoleChiave(ingredientiSecondari));
-estrazioneParoleChiavePerCategoria(listaParoleChiavePerCategoria,antipastiContorni,'antipastiContorni');
-estrazioneParoleChiavePerCategoria(listaParoleChiavePerCategoria,primi,'primi');
-estrazioneParoleChiavePerCategoria(listaParoleChiavePerCategoria,secondi,'secondi');
-estrazioneParoleChiavePerCategoria(listaParoleChiavePerCategoria,dessert,'dessert');
-estrazioneParoleChiavePerCategoria(listaParoleChiavePerCategoria,ricetteItaliane,'ricetteItaliane');
-estrazioneParoleChiavePerCategoria(listaParoleChiavePerCategoria,ingredientiPrincipali,'ingredientiPrincipali');
-estrazioneParoleChiavePerCategoria(listaParoleChiavePerCategoria,ingredientiSecondari,'ingredientiSecondari');
-estrazioneParoleChiavePerCategoria(listaParoleChiavePerCategoria,listaVini,'listaVini');
-//estrazioneParoleChiavePerCategoria()
-//console.log('parole chiave per categoria',listaParoleChiavePerCategoria);
-//console.log('lista ricette:',listaCompletaRicette);
-//console.log('lista ingredienti principali:',ingredientiPrincipali);
-//console.log('lista ingredienti secondari:',ingredientiSecondari);
-//console.log('lista vini:',listaVini);
-//console.log('lista parole chiave',listaParoleChiave);
+listaParoleChiave = listaParoleChiave.concat(estrazioneParoleChiave(listaCompletaRicette), estrazioneParoleChiave(ingredientiPrincipali), estrazioneParoleChiave(ingredientiSecondari));
+estrazioneParoleChiavePerCategoria(listaParoleChiavePerCategoria, antipastiContorni, 'antipastiContorni');
+estrazioneParoleChiavePerCategoria(listaParoleChiavePerCategoria, primi, 'primi');
+estrazioneParoleChiavePerCategoria(listaParoleChiavePerCategoria, secondi, 'secondi');
+estrazioneParoleChiavePerCategoria(listaParoleChiavePerCategoria, dessert, 'dessert');
+estrazioneParoleChiavePerCategoria(listaParoleChiavePerCategoria, ricetteItaliane, 'ricetteItaliane');
+estrazioneParoleChiavePerCategoria(listaParoleChiavePerCategoria, ingredientiPrincipali, 'ingredientiPrincipali');
+estrazioneParoleChiavePerCategoria(listaParoleChiavePerCategoria, ingredientiSecondari, 'ingredientiSecondari');
+estrazioneParoleChiavePerCategoria(listaParoleChiavePerCategoria, listaVini, 'listaVini');
+// estrazioneParoleChiavePerCategoria()
+// console.log('parole chiave per categoria',listaParoleChiavePerCategoria);
+// console.log('lista ricette:',listaCompletaRicette);
+// console.log('lista ingredienti principali:',ingredientiPrincipali);
+// console.log('lista ingredienti secondari:',ingredientiSecondari);
+// console.log('lista vini:',listaVini);
+// console.log('lista parole chiave',listaParoleChiave);
 
 var strutture = {
-  listaRicette : listaCompletaRicette,
-  listaIngredientiPrincipali : ingredientiPrincipali,
-  listaIngredientiSecondari : ingredientiSecondari,
-  listaVini : listaVini,
-  listaParoleChiave : listaParoleChiave,
-  listaParoleChiavePerCategoria : listaParoleChiavePerCategoria
+  listaRicette: listaCompletaRicette,
+  listaIngredientiPrincipali: ingredientiPrincipali,
+  listaIngredientiSecondari: ingredientiSecondari,
+  listaVini: listaVini,
+  listaParoleChiave: listaParoleChiave,
+  listaParoleChiavePerCategoria: listaParoleChiavePerCategoria
 }
 module.exports = strutture;
