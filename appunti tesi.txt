@@ -1,0 +1,5 @@
+laurea
+
+visual code studio -> ide
+cervello del bot -> algoritmo di ricerca di liste da excel
+rest api -> servizi di richieste GET POST PUT
