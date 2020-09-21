@@ -22,7 +22,6 @@ var somiglianzaParoleArray = function (arrayParole, arrayDiConfronto) {
   arrayParole.forEach((item, i) => {
     arrayDiConfronto.forEach((item2, j) => {
       if (natural.JaroWinklerDistance(item, item2, undefined, true) > 0.8) {
-        console.log('confronto parole', item, item2, natural.JaroWinklerDistance(item, item2, undefined, true))
         contatore += natural.JaroWinklerDistance(item, item2, undefined, true)
       }
     })
