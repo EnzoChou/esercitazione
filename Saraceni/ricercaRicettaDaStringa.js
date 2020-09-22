@@ -9,13 +9,14 @@ var listaIngredientiSecondari = strutture.listaIngredientiSecondari
 var listaVini = strutture.listaVini
 // var listaParoleChiave = strutture.listaParoleChiave
 var listaParoleChiavePerCategoria = strutture.listaParoleChiavePerCategoria
-var listaTipoIngredienti = strutture.listaAbbinamentiGenerali
-
+var listaAbbinamentiGenerali = strutture.listaAbbinamentiGenerali
+var listaAbbinamentiPerTipologia = strutture.listaAbbinamentiPerTipologia
 // console.log(natural.PorterStemmer.stem(utente));
 // console.log(natural.JaroWinklerDistance("dixon","dicksonx", undefined, true));
 
 var nomiRicette = listaRicette.map(ricetta => ricetta.nome.tokenizeAndStem())
-var tipoIngredienti = listaTipoIngredienti.map(tipo => tipo.nome.tokenizeAndStem())
+var abbinamentiGenerali = listaAbbinamentiGenerali.map(tipo => tipo.nome.tokenizeAndStem())
+var abbinamentiPerTipologia = listaAbbinamentiPerTipologia.map(tipo => tipo.nome.tokenizeAndStem())
 var antipastiContorni = listaParoleChiavePerCategoria.antipastiContorni.map(parola => parola.stem())
 var primi = listaParoleChiavePerCategoria.primi.map(parola => parola.stem())
 var secondi = listaParoleChiavePerCategoria.secondi.map(parola => parola.stem())
@@ -70,22 +71,22 @@ var ricetteTrovateDaIngredientiSecondari = function (arrayParole) {
   return fun.ricetteDaIngredienti(matchIngredientiSecondari(arrayParole), listaRicette)
 }
 
-// METODI DI RICERCA DALLA LISTA DELLE PORTATE
+// METODI DI RICERCA PER ABBINAMENTI GENERALI
 
 var matchViniPerTipoPortata = function (arrayParole) {
   console.log('è stato scelto il metodo di matchPerPortataETipo\n\n')
   var arrayParoleTrovate = matchTipoIngrediente(arrayParole)
   console.log('array parole trovate \n', arrayParoleTrovate)
   console.log('array parole da cercare\n', arrayParole)
-  console.log('lista tipo ingredienti\n', listaTipoIngredienti)
-  var tipoIngredienti = listaTipoIngredienti.filter(tipoIngrediente =>
+  console.log('lista tipo ingredienti\n', listaAbbinamentiGenerali)
+  var abbinamentiGenerali = listaAbbinamentiGenerali.filter(tipoIngrediente =>
     tipoIngrediente.nome === arrayParoleTrovate.toString)
-  console.log('tipoIngredienti\n', tipoIngredienti)
-  return fun.filtroPerTag(arrayParoleTrovate, tipoIngredienti)
+  console.log('abbinamentiGenerali\n', abbinamentiGenerali)
+  return fun.filtroPerTag(arrayParoleTrovate, abbinamentiGenerali)
 }
 
 var matchTipoIngrediente = function (arrayParole) {
-  return fun.ricercaTipoIngredientePapabile(arrayParole, tipoIngredienti)
+  return fun.ricercaTipoIngredientePapabile(arrayParole, abbinamentiGenerali)
 }
 
 var ricetteTrovateDaPortate = function (arrayParole) {
@@ -93,9 +94,20 @@ var ricetteTrovateDaPortate = function (arrayParole) {
 }
 
 var listaPortate = ['antipasto', 'primo', 'secondo', 'contorno',
-  'dessert', 'carne bianca', 'carne rossa', 'formaggio', 'verdure',
+  'dessert'
+].map(portata => portata.tokenizeAndStem())
+
+// METODI DI RICERCA PER TIPOLOGIA
+
+var ricetteTrovatePerTipologia = function () {
+  return 0;
+}
+
+/*
+var listaTipoIngrediente = ['carne bianca', 'carne rossa', 'formaggio', 'verdure',
   'uova', 'crostacei', 'molluschi', 'pesce'
 ].map(portata => portata.tokenizeAndStem())
+*/
 
 // METODI DI RICERCA PER MISMATCH
 
@@ -107,17 +119,22 @@ var laRicercaNonHaProdottoRisultatiSoddisfacenti = function (arrayParole) {
 
 var arrayPunteggio = [
   nomiRicette,
+  abbinamentiPerTipologia,
+  abbinamentiGenerali,
   listaPortate,
   ingredientiPrincipali,
   ingredientiSecondari
 ]
+// console.log(arrayPunteggio)
 
 var arrayAlgoritmoScelto = {
   '-1': laRicercaNonHaProdottoRisultatiSoddisfacenti,
   0: matchRicetta,
-  1: ricetteTrovateDaPortate,
-  2: ricetteTrovateDaIngredientiPrincipali,
-  3: ricetteTrovateDaIngredientiSecondari
+  1: ricetteTrovatePerTipologia,
+  2: abbinamentiGenerali,
+  3: ricetteTrovateDaPortate,
+  4: ricetteTrovateDaIngredientiPrincipali,
+  5: ricetteTrovateDaIngredientiSecondari
 }
 var metodoScelto = function (richiestaUtente) {
   var paroleDaCercare = richiestaUtente.tokenizeAndStem()
