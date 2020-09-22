@@ -59,6 +59,8 @@ var ricercaIngredientiPapabili = function (arrayParole, listaIngredienti) {
 }
 
 var somiglianzaParoleArray = function (arrayParole, arrayDiConfronto) {
+  console.log('\n\narrayParole', arrayParole)
+  console.log('\n\narrayDiConfronto', arrayDiConfronto)
   var contatore = 0
   arrayParole.forEach((item, i) => {
     arrayDiConfronto.forEach((item2, j) => {
