@@ -7,13 +7,15 @@ var listaRicette = strutture.listaRicette
 var listaIngredientiPrincipali = strutture.listaIngredientiPrincipali
 var listaIngredientiSecondari = strutture.listaIngredientiSecondari
 var listaVini = strutture.listaVini
-var listaParoleChiave = strutture.listaParoleChiave
+// var listaParoleChiave = strutture.listaParoleChiave
 var listaParoleChiavePerCategoria = strutture.listaParoleChiavePerCategoria
+var listaTipoIngredienti = strutture.listaAbbinamentiGenerali
 
 // console.log(natural.PorterStemmer.stem(utente));
 // console.log(natural.JaroWinklerDistance("dixon","dicksonx", undefined, true));
 
 var nomiRicette = listaRicette.map(ricetta => ricetta.nome.tokenizeAndStem())
+var tipoIngredienti = listaTipoIngredienti.map(tipo => tipo.nome.tokenizeAndStem())
 var antipastiContorni = listaParoleChiavePerCategoria.antipastiContorni.map(parola => parola.stem())
 var primi = listaParoleChiavePerCategoria.primi.map(parola => parola.stem())
 var secondi = listaParoleChiavePerCategoria.secondi.map(parola => parola.stem())
@@ -68,24 +70,78 @@ var ricetteTrovateDaIngredientiSecondari = function (arrayParole) {
   return fun.ricetteDaIngredienti(matchIngredientiSecondari(arrayParole), listaRicette)
 }
 
+// METODI DI RICERCA DALLA LISTA DELLE PORTATE
+
+var matchViniPerTipoPortata = function (arrayParole) {
+  console.log('è stato scelto il metodo di matchPerPortataETipo\n\n')
+  var arrayParoleTrovate = matchTipoIngrediente(arrayParole)
+  console.log('array parole trovate \n', arrayParoleTrovate)
+  console.log('array parole da cercare\n', arrayParole)
+  console.log('lista tipo ingredienti\n', listaTipoIngredienti)
+  var tipoIngredienti = listaTipoIngredienti.filter(tipoIngrediente =>
+    tipoIngrediente.nome === arrayParoleTrovate.toString)
+  console.log('tipoIngredienti\n', tipoIngredienti)
+  return fun.filtroPerTag(arrayParoleTrovate, tipoIngredienti)
+}
+
+var matchTipoIngrediente = function (arrayParole) {
+  return fun.ricercaTipoIngredientePapabile(arrayParole, tipoIngredienti)
+}
+
+var ricetteTrovateDaPortate = function (arrayParole) {
+  return fun.ricercaViniProposti(matchViniPerTipoPortata(arrayParole), listaVini)
+}
+
+var listaPortate = ['antipasto', 'primo', 'secondo', 'contorno',
+  'dessert', 'carne bianca', 'carne rossa', 'formaggio', 'verdure',
+  'uova', 'crostacei', 'molluschi', 'pesce'
+].map(portata => portata.tokenizeAndStem())
+
 // METODI DI RICERCA PER MISMATCH
 
 var laRicercaNonHaProdottoRisultatiSoddisfacenti = function (arrayParole) {
   return 'la tua richiesta non ha prodotto risultati, puoi dirmi qualcosa di più specifico?'
 }
 
-// METODI DI RICERCA DALLA LISTA DELLE PORTATE
+// ELABORAZIONE DATI DALLA RICHIESTA UTENTE
 
-var ricetteTrovateDaPortate = function (arrayParole) {
-  return 'la tua richiesta ha portato all\'algoritmo della ricerca da portate, ma questi deve ancora essere implementato'
+var arrayPunteggio = [
+  nomiRicette,
+  listaPortate,
+  ingredientiPrincipali,
+  ingredientiSecondari
+]
+
+var arrayAlgoritmoScelto = {
+  '-1': laRicercaNonHaProdottoRisultatiSoddisfacenti,
+  0: matchRicetta,
+  1: ricetteTrovateDaPortate,
+  2: ricetteTrovateDaIngredientiPrincipali,
+  3: ricetteTrovateDaIngredientiSecondari
+}
+var metodoScelto = function (richiestaUtente) {
+  var paroleDaCercare = richiestaUtente.tokenizeAndStem()
+  console.log('parole inserite dall\'utente', paroleDaCercare)
+  var punteggi = arrayPunteggio.map(arrayDiArray =>
+    Math.max(...arrayDiArray.map(array =>
+      fun.somiglianzaParoleArray(paroleDaCercare, array)
+    ))
+  )
+  console.log('indice: [nomiRicette, listaPortate, IngPrincipali, ingSecondari]')
+  console.log('punteggi', punteggi)
+  var indexScelto = punteggi.findIndex(elem => elem > 0.9)
+  console.log('index scelto', indexScelto)
+
+  return arrayAlgoritmoScelto[indexScelto](paroleDaCercare)
 }
 
 var modulo = {}
 
-modulo.ricettaTrovataDaRicette = matchRicetta
-modulo.ricetteTrovateDaIngredientiPrincipali = ricetteTrovateDaIngredientiPrincipali
-modulo.ricetteTrovateDaIngredientiSecondari = ricetteTrovateDaIngredientiSecondari
-modulo.laRicercaNonHaProdottoRisultatiSoddisfacenti = laRicercaNonHaProdottoRisultatiSoddisfacenti
-modulo.ricetteTrovateDaPortate = ricetteTrovateDaPortate
+// modulo.matchRicetta = matchRicetta
+// modulo.ricetteTrovateDaIngredientiPrincipali = ricetteTrovateDaIngredientiPrincipali
+// modulo.ricetteTrovateDaIngredientiSecondari = ricetteTrovateDaIngredientiSecondari
+// modulo.laRicercaNonHaProdottoRisultatiSoddisfacenti = laRicercaNonHaProdottoRisultatiSoddisfacenti
+// modulo.ricetteTrovateDaPortate = ricetteTrovateDaPortate
+modulo.scegliMetodo = metodoScelto
 
 module.exports = modulo
