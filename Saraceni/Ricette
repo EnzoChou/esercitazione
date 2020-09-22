@@ -215,6 +215,15 @@
       I: 'Prosecco'
     },
     {
+      B: 'Ravioli',
+      D: 'pasta',
+      E: 'ricotta',
+      F: 'spinach',
+      G: 'Volare',
+      H: 'Prosecco',
+      I: 'Libero Chianti'
+    },
+    {
       B: 'Fettucine alfredo',
       D: 'pasta',
       E: 'butter',
@@ -222,6 +231,24 @@
       G: 'Riserva di Famiglia',
       H: 'Prosecco',
       I: 'Pinot Grigio'
+    },
+    {
+      B: 'carbonara',
+      D: 'pasta',
+      E: 'eggs',
+      F: 'bacon',
+      G: 'Libero Chianti',
+      H: 'Riserva di Famiglia',
+      I: 'Albergaccio'
+    },
+    {
+      B: 'lasagne',
+      D: 'pasta',
+      E: 'ragu',
+      F: 'mozzarella',
+      G: 'Libero Chianti',
+      H: 'Riserva di Famiglia',
+      I: 'Libero Toscana IGT'
     },
     {
       B: 'Mac and Cheese',
@@ -241,6 +268,32 @@
       I: 'Albergaccio'
     },
     {
+      B: 'cannelloni',
+      D: 'cheese',
+      E: 'pasta',
+      F: 'ragu',
+      G: 'Riserva di Famiglia',
+      H: 'Libero Chianti',
+      I: 'Perlè'
+    },
+    {
+      B: 'gnocchi al pesto',
+      D: 'gnocchi',
+      E: 'pesto',
+      G: 'Volare',
+      H: 'Prosecco',
+      I: 'Rosé Monogram'
+    },
+    {
+      B: 'Parmigiana',
+      D: 'aubregines',
+      E: 'mozzarella cheese',
+      F: 'parmesan',
+      G: 'Volare',
+      H: 'Prosecco',
+      I: 'Rosé Monogram'
+    },
+    {
       B: 'spaghetti with clams',
       D: 'spaghetti',
       E: 'clams',
@@ -258,6 +311,24 @@
       I: 'Perlè'
     },
     {
+      B: 'cacio e pepe',
+      D: 'pasta',
+      E: 'cheese',
+      F: 'pepper',
+      G: 'Libero Chianti',
+      H: 'Riserva di Famiglia',
+      I: 'Pinot Grigio'
+    },
+    {
+      B: 'matriciana',
+      D: 'pasta',
+      E: 'tomato sauce',
+      F: 'bacon',
+      G: 'Libero Chianti',
+      H: 'Riserva di Famiglia',
+      I: 'Albergaccio'
+    },
+    {
       B: 'seafood risotto',
       D: 'rise',
       E: 'clams',
@@ -265,6 +336,14 @@
       G: 'Volare',
       H: 'Pinot Grigio',
       I: 'Chardonnay'
+    },
+    {
+      B: 'polenta',
+      D: 'tomato sauce',
+      E: 'sausage',
+      G: 'Riserva di Famiglia',
+      H: 'Libero Chianti',
+      I: 'Perlè'
     },
     {
       B: 'risotto with gorgonzola and radicchio',
@@ -282,6 +361,14 @@
       G: 'Libero Toscana IGT',
       H: 'Riserva di Famiglia',
       I: 'Il Principe'
+    },
+    {
+      B: 'gricia',
+      D: 'pasta',
+      E: 'bacon',
+      G: 'Riserva di Famiglia',
+      H: 'Libero Chianti',
+      I: 'Perlè'
     },
     {
       B: 'risotto with tomato sauce',
@@ -319,6 +406,14 @@
       G: 'Volare',
       H: 'Pinot Grigio',
       I: 'Libero Chianti'
+    },
+    {
+      B: 'Risotto with scampi cream',
+      D: 'rice',
+      E: 'scampi',
+      G: 'Prosecco',
+      H: 'Pinot Grigio',
+      I: 'Chardonnay'
     },
     {
       B: 'pasta with ricotta',
@@ -751,163 +846,6 @@
     { D: 'Uova' },
     { D: 'Frutta' }
   ],
-  'Ricette italiane': [
-    { B: 'RICETTE ITALIANE' },
-    {
-      B: 'Note introduttive: Segue la proposta di elenco RICETTE ITALIANE con cui istruire il Bot nel flusso Foodpairing.'
-    },
-    {
-      B: 'NOME RICETTA',
-      D: 'INGREDIENTI',
-      E: 'INGREDIENTI',
-      F: 'INGREDIENTI',
-      G: 'ABBINAMENTO VINO',
-      H: 'ABBINAMENTO VINO',
-      I: 'ABBINAMENTO VINO',
-      J: 'MOTIVAZIONE ABBINAMENTO( Max 120/150caratteri)'
-    },
-    {
-      B: 'Carbonara',
-      D: 'pasta',
-      E: 'eggs',
-      F: 'bacon',
-      G: 'Libero Chianti',
-      H: 'Riserva di Famiglia',
-      I: 'Albergaccio'
-    },
-    {
-      B: 'Matriciana',
-      D: 'pasta',
-      E: 'tomato sauce',
-      F: 'bacon',
-      G: 'Libero Chianti',
-      H: 'Riserva di Famiglia',
-      I: 'Albergaccio'
-    },
-    {
-      B: 'Gricia',
-      D: 'pasta',
-      E: 'bacon',
-      G: 'Riserva di Famiglia',
-      H: 'Libero Chianti',
-      I: 'Perlè'
-    },
-    { B: 'cacio e pepe', D: 'pasta', E: 'pecorino', F: 'pepper' },
-    { B: 'Pasta al pesto', D: 'pasta', E: 'basil', F: 'parmesan' },
-    {
-      B: 'Spaghetti allo scoglio',
-      D: 'pasta',
-      E: 'mussels',
-      F: 'shrimp'
-    },
-    {
-      B: 'Pasta al ragu',
-      D: 'pasta',
-      E: 'ragu',
-      G: 'Libero Chianti',
-      H: 'Riserva di Famiglia',
-      I: 'Albergaccio'
-    },
-    { B: 'Tortellini in brodo', D: 'tornellini', E: 'meat broth' },
-    {
-      B: 'Ravioli al sugo',
-      D: 'pasta',
-      E: 'ricotta',
-      F: 'tomato sauce'
-    },
-    {
-      B: 'spaghetti aglio e olio',
-      D: 'pasta',
-      E: 'olive oil',
-      F: 'garlic'
-    },
-    { B: 'Pasta al forno', D: 'pasta', E: 'ragu', F: 'mozzarella' },
-    {
-      B: 'Pasta alla norma',
-      D: 'pasta',
-      E: 'ricotta',
-      F: 'aubergines'
-    },
-    { B: 'Parma ham and mozzarella', D: 'parmaham', E: 'mozzarella' },
-    {
-      B: 'gnocchi alla sorrentina',
-      D: 'gnocchi',
-      E: 'tomato sauce',
-      F: 'Mozzarella'
-    },
-    { B: 'arrosto', D: 'veal meat' },
-    {
-      B: 'risotto alla milanese',
-      D: 'rice',
-      E: 'saffron',
-      F: 'butter'
-    },
-    {
-      B: 'risotto agli scampi',
-      D: 'rice',
-      E: 'scampi',
-      G: 'Prosecco',
-      H: 'Pinot Grigio',
-      I: 'Chardonnay'
-    },
-    { B: 'Cannelloni', D: 'pasta', E: 'ragu' },
-    { B: 'Polenta' },
-    { B: 'Vitello tonnato', D: 'veal', E: 'tuna sauce' },
-    { B: 'Saltimbocca alla romana', D: 'veal', E: 'parma ham' },
-    {
-      B: 'pollo alla cacciatora',
-      D: 'chicken',
-      E: 'olives',
-      F: 'tomato'
-    },
-    { B: 'Brasato', D: 'meat' },
-    { B: 'Impepata di cozze', D: 'mussels' },
-    {
-      B: 'lasagne',
-      D: 'pasta',
-      E: 'ragu',
-      F: 'mozzarella',
-      G: 'Libero Chianti',
-      H: 'Riserva di Famiglia',
-      I: 'Libero Toscana IGT'
-    },
-    {
-      B: 'Parmigiana',
-      D: 'aubregines',
-      E: 'mozzarella cheese',
-      F: 'parmesan',
-      G: 'Volare',
-      H: 'Prosecco',
-      I: 'Rosé Monogram'
-    },
-    {
-      B: 'spaghetti alla puttanesca',
-      D: 'pasta',
-      E: 'tomato sauce',
-      F: 'anchovies',
-      G: 'Prosecco',
-      H: 'Rosé Monogram',
-      I: 'Pinot Grigio'
-    },
-    { B: 'polpettone', D: 'meat' },
-    { B: 'Crostata', D: 'shortcrust pastry', E: 'jam' },
-    {
-      B: 'Tiramisu',
-      D: 'mascarpone cheese',
-      E: 'coffee',
-      G: 'Amor diVino',
-      H: 'Crema di Limoncino',
-      I: 'Crema di caffè'
-    },
-    { C: 'Leggenda:' },
-    { D: 'Carne Bianca' },
-    { D: 'Carne Rossa' },
-    { D: 'Pesce' },
-    { D: 'Formaggio' },
-    { D: 'Verdure' },
-    { D: 'Uova' },
-    { D: 'Frutta' }
-  ],
   'Abbinamenti generali': [
     { B: 'ABBINAMENTI GENERALI' },
     {
@@ -1068,6 +1006,34 @@
       E: 'Amor diVino',
       F: 'Splendia',
       G: 'Cream liquors pack'
+    }
+  ],
+  'Abbinamenti per tipologia': [
+    { B: 'ABBINAMENTI GENERALI' },
+    {
+      B: "Note introduttive: Segue la proposta di elenco piatti con cui verrà istruito il bot nel caso il piatto richiesto dall'utente non fosse presente tra gli elenchi precedenti."
+    },
+    {
+      B: 'INGREDIENTE PRINCIPALE',
+      D: 'TAGS',
+      E: 'ABBINAMENTO VINO',
+      F: 'ABBINAMENTO VINO',
+      G: 'ABBINAMENTO VINO',
+      H: 'MOTIVAZIONE ABBINAMENTO( testo 120/150 caratteri di massima)'
+    },
+    {
+      B: 'CARNE BIANCA',
+      D: 'pollo, coniglio, tacchino',
+      E: 'Libero Chianti',
+      F: 'Perlè',
+      G: 'Albergaccio'
+    },
+    {
+      B: 'PESCE',
+      D: 'triglia, rombo, merluzzo',
+      E: 'Volare',
+      F: 'Hugo',
+      G: 'Libero Bianco'
     }
   ],
   'Abbinamenti occasioni': [
