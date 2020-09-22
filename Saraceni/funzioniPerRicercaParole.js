@@ -17,6 +17,30 @@ var ricetteDaIngredienti = function (ingredienti, listaRicette) {
   return arrayRicette
 }
 
+var ricercaTipoIngredientePapabile = function (arrayParole, tipoIngredienti) {
+  var listaDiRitorno = []
+  listaDiRitorno = tipoIngredienti.find(tipoIngrediente =>
+    somiglianzaParoleArray(arrayParole, tipoIngrediente) > 0.5
+  )
+  console.log('listaDiRitorno tipo ingrediente papabile\n', listaDiRitorno)
+  return listaDiRitorno
+}
+
+function filtroListaDalNome (arrayParole, lista) {
+  var nome = arrayParole.toString()
+  
+}
+
+function filtroPerTag (arrayParole, lista) {
+  return lista.includes(oggetto =>
+    arrayParole.map(parola =>
+      oggetto.tags.includes(tag =>
+        natural.JaroWinklerDistance(parola, tag, undefined, true) > 0.8
+      )
+    )
+  )
+}
+
 var ricercaIngredientiPapabili = function (arrayParole, listaIngredienti) {
   var listaOrdinata = listaIngredienti.filter(function (ingrediente) {
     return arrayParole.find(function (parola) {
@@ -46,6 +70,11 @@ var somiglianzaParoleArray = function (arrayParole, arrayDiConfronto) {
   return contatore / (arrayDiConfronto.length)
 }
 
+var ricercaViniProposti = function (listaIdVini, listaVini) {
+  console.log('ricercaViniProposti\n', 'listaIdVini', listaIdVini)
+  return listaVini.filter(vino => listaIdVini.includes(id => vino.id === id))
+}
+
 var indiceMassimoAccoppiamento = function (arr) {
   if (arr.length === 0) {
     return -1
@@ -70,5 +99,8 @@ funzioniPerRicercaParole.ricetteDaIngredienti = ricetteDaIngredienti
 funzioniPerRicercaParole.somiglianzaParoleArray = somiglianzaParoleArray
 funzioniPerRicercaParole.indiceMassimoAccoppiamento = indiceMassimoAccoppiamento
 funzioniPerRicercaParole.ricercaIngredientiPapabili = ricercaIngredientiPapabili
+funzioniPerRicercaParole.ricercaViniProposti = ricercaViniProposti
+funzioniPerRicercaParole.ricercaTipoIngredientePapabile = ricercaTipoIngredientePapabile
+funzioniPerRicercaParole.filtroPerTag = filtroPerTag
 
 module.exports = funzioniPerRicercaParole
