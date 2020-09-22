@@ -305,8 +305,10 @@ function estrazioneAbbinamentiPerTipologia(nomePagina) {
       var strutturaAbbinamentoPerTipologia = {};
       strutturaAbbinamentoPerTipologia.id = idAbbinamentoPerTipologia;
       strutturaAbbinamentoPerTipologia.nome = listaPagina[i].B.toLowerCase();
+      strutturaAbbinamentoPerTipologia.tags = [];
       if (listaPagina[i].D) {
-        strutturaAbbinamentoPerTipologia.tags = listaPagina[i].D.split(/[.,\/ -]/);
+        const regexFieldSpace = /[.,\/ -]/;
+        strutturaAbbinamentoPerTipologia.tags = listaPagina[i].D.split(regexFieldSpace);
       }
       idAbbinamentoPerTipologia++;
       listaAbbinamentiPerTipologia.push(strutturaAbbinamentoPerTipologia);
@@ -346,17 +348,17 @@ estrazioneParoleChiavePerCategoria(listaParoleChiavePerCategoria, listaVini, 'li
 // console.log('lista ingredienti secondari:',ingredientiSecondari);
 // console.log('lista vini:',listaVini);
 // console.log('lista parole chiave',listaParoleChiave);
-// console.log(listaAbb
+// console.log(listaAbbinamentiPerTipologia)
 //console.log(listaRicetteDaExcel['Abbinamenti per tipologia']);inamentiGenerali);
 
 var strutture = {
   listaRicette: listaCompletaRicette,
+  listaAbbinamentiPerTipologia: listaAbbinamentiPerTipologia,
   listaAbbinamentiGenerali: listaAbbinamentiGenerali,
   listaIngredientiPrincipali: ingredientiPrincipali,
   listaIngredientiSecondari: ingredientiSecondari,
   listaVini: listaVini,
   listaParoleChiave: listaParoleChiave,
-  listaParoleChiavePerCategoria: listaParoleChiavePerCategoria,
-  listaAbbinamentiPerTipologia: listaAbbinamentiPerTipologia
+  listaParoleChiavePerCategoria: listaParoleChiavePerCategoria
 }
 module.exports = strutture;
