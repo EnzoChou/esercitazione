@@ -2,7 +2,7 @@
 const excelToJson = require('convert-excel-to-json')
 
 const result = excelToJson({
-  sourceFile: '../Ricette per Foodpairing + ricette italiane_25_8.xlsx'
+  sourceFile: '../IT Ricette per Foodpairing + ricette italiane.xlsx'
 })
 
 // console.log(result);
