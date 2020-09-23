@@ -101,6 +101,13 @@ var concatTags = function (lista) {
   return listaTmp;
 };
 
+var filtroParoleInutili = function(listaParole, listaParoleChiave) {
+  var listaParoleFiltrate = listaParole.filter(parola => 
+    listaParoleChiave.some( parolaChiave => 
+      natural.JaroWinklerDistance(parola, parolaChiave, undefined, true) > 0.75))
+  return listaParoleFiltrate;
+}
+
 funzioniPerRicercaParole.ricetteDaIDs = ricetteDaIDs;
 funzioniPerRicercaParole.ricetteDaIngrediente = ricetteDaIngrediente;
 funzioniPerRicercaParole.ricetteDaIngredienti = ricetteDaIngredienti;
@@ -112,5 +119,6 @@ funzioniPerRicercaParole.ricercaTipoIngredientePapabile = ricercaTipoIngrediente
 funzioniPerRicercaParole.filtroPerTag = filtroPerTag;
 funzioniPerRicercaParole.filtroListaDalNome = filtroListaDalNome;
 funzioniPerRicercaParole.concatTags = concatTags;
+funzioniPerRicercaParole.filtroParoleInutili = filtroParoleInutili;
 
 module.exports = funzioniPerRicercaParole;
