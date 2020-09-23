@@ -7,7 +7,7 @@ var listaRicette = strutture.listaRicette;
 var listaIngredientiPrincipali = strutture.listaIngredientiPrincipali;
 var listaIngredientiSecondari = strutture.listaIngredientiSecondari;
 var listaVini = strutture.listaVini;
-// var listaParoleChiave = strutture.listaParoleChiave
+// var listaParoleChiave = strutture.listaParoleChiave;
 var listaParoleChiavePerCategoria = strutture.listaParoleChiavePerCategoria;
 var listaAbbinamentiGenerali = strutture.listaAbbinamentiGenerali;
 var listaAbbinamentiPerTipologia = strutture.listaAbbinamentiPerTipologia;
@@ -105,6 +105,12 @@ var ricercaPerAbbinamentiGenerali = function (arrayParole) {
   return fun.ricercaViniProposti(matchViniPerTipoPortata(arrayParole), listaVini);
 };
 
+// METODI DI RICERCA PER PORTATA
+
+var ricetteTrovateDaPortate = function (arrayParole) {
+  return 0;
+};
+
 var listaPortate = ['antipasto', 'primo', 'secondo', 'contorno',
   'dessert'
 ].map(portata => portata.tokenizeAndStem()); // da implementare quello automatico
@@ -148,7 +154,7 @@ var arrayAlgoritmoScelto = {
   0: matchRicetta,
   1: ricetteTrovatePerTipologia,
   2: ricercaPerAbbinamentiGenerali, // non implementata, questo abbinamento non torna mai perchè lo stesso della tipologia
-  // 3: ricetteTrovateDaPortate, ANCORA DA IMPLEMENTARE
+  3: ricetteTrovateDaPortate, // FORSE DA IMPLEMENTARE
   4: ricetteTrovateDaIngredientiPrincipali,
   5: ricetteTrovateDaIngredientiSecondari
 };
@@ -162,14 +168,19 @@ var metodoScelto = function (richiestaUtente) {
     ))
   );
 
-  console.log('indice: \n[\n\t\'-1\': laRicercaNonHaProdottoRisultatiSoddisfacenti, \n\t0: matchRicetta, \n\t1: ricetteTrovatePerTipologia, \n\t2: ricercaPerAbbinamentiGenerali, \n\t3: ricetteTrovateDaPortate, \n\t4: ricetteTrovateDaIngredientiPrincipali, \n\t5: ricetteTrovateDaIngredientiSecondari\n]');
+  console.log(
+    'indice: \n[\n\t\'-1\': laRicercaNonHaProdottoRisultatiSoddisfacenti, \n\t0: matchRicetta, \n\t1: ricetteTrovatePerTipologia, \n\t2: ricercaPerAbbinamentiGenerali, // non implementata \n\t3: ricetteTrovateDaPortate, // FORSE DA IMPLEMENTARE \n\t4: ricetteTrovateDaIngredientiPrincipali, \n\t5: ricetteTrovateDaIngredientiSecondari\n]');
   console.log('punteggi', punteggi);
   var indexScelto = punteggi.findIndex(elem => elem > 0.9);
   console.log('index scelto', indexScelto);
 
   var listaPapabile = arrayAlgoritmoScelto[indexScelto](paroleDaCercare);
   console.log('listaPapabile', listaPapabile);
-  return listaPapabile[0].viniProposti;
+  if (listaPapabile[0].viniProposti !== undefined) {
+    return listaPapabile[0].viniProposti;
+  } else {
+    return [];
+  }
 };
 
 var modulo = {};

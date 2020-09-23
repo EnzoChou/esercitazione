@@ -50,7 +50,6 @@ var ricercaIngredientiPapabili = function (arrayParole, listaIngredienti) {
   var listaDiRitorno = listaOrdinata.sort(function (a, b) {
     return b.match - a.match;
   });
-  console.log('lista ingredienti papabili ordinati', listaDiRitorno);
   return listaDiRitorno;
 };
 
