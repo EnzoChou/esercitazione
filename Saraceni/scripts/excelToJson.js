@@ -2,7 +2,7 @@
 const excelToJson = require('convert-excel-to-json');
 const fs = require('fs');
 
-var inputFile = '../json/ricette.xlsx';
+var inputFile = '../others/ricette.xlsx';
 var outputFile = '../json/ricette.json';
 
 const result = excelToJson({
