@@ -1,6 +1,6 @@
 // Include fs module  
 var fs = require('fs');
-var pathFileJson = '../others/ricette.json'
+var pathFileJson = '../json/ricette.json'
 
 /*
 Macrocategorie importanti : 'carne / pesce / verdure',
@@ -94,6 +94,17 @@ var idOccasioni = 1;
 // var varToString = varObj => Object.keys(varObj)[0];
 
 // POPOLA LISTA VINI
+
+function recuperoColonneVini(legenda) {
+  var colonneVini = [];
+  for (const [key, value] of Object.entries(legenda)) {
+    if (value === 'ABBINAMENTO VINO') {
+      colonneVini.push(key);
+    }
+  }
+  return colonneVini;
+}
+
 function estrazioneListaVini(nomeVino) {
   if (listaVini.filter(vino => vino.nome === nomeVino).length === 0) {
     var vino = {};
@@ -171,6 +182,7 @@ function estrazioneIngredientiSecondariConAggiornamentoLista(riga) {
 function estrazioneListaRicette(nomePagina) {
   var listaRicette = [];
   var listaPagina = listaRicetteDaFileJson[nomePagina];
+  var colonneVini = recuperoColonneVini(listaPagina[2]);
   for (let i = 3; i < listaPagina.length; i++) {
     if (listaPagina[i].B) {
       var strutturaRicetta = {}; // come uscirà fuori l'oggetto RICETTA
@@ -179,7 +191,7 @@ function estrazioneListaRicette(nomePagina) {
       strutturaRicetta.tags = [nomePagina];
       strutturaRicetta.ingredientiPrincipali = estrazioneIngredientiPrincipaliConAggiornamentoLista(listaPagina[i]);
       strutturaRicetta.ingredientiSecondari = estrazioneIngredientiSecondariConAggiornamentoLista(listaPagina[i]);
-      strutturaRicetta.viniProposti = estrazioneViniConAggiornamentoListaVini(listaPagina[i], ['G', 'H', 'I']);
+      strutturaRicetta.viniProposti = estrazioneViniConAggiornamentoListaVini(listaPagina[i], colonneVini);
       strutturaRicetta.motivazioneAbbinamento = listaPagina[i].J;
       idRicetta++;
       listaRicette.push(strutturaRicetta);
@@ -256,13 +268,14 @@ function estrazioneParoleChiave(lista) {
 function estrazioneAbbinamentiGenerali(nomePagina) {
   var listaAbbinamenti = [];
   var listaPagina = listaRicetteDaFileJson[nomePagina];
+  var colonneVini = recuperoColonneVini(listaPagina[2]);
   for (let i = 3; i < listaPagina.length; i++) {
     if (listaPagina[i].B) {
       var strutturaAbbinamento = {}; // come uscirà fuori l'oggetto ABBINAMENTO
       strutturaAbbinamento.id = idAbbinamento;
       strutturaAbbinamento.nome = listaPagina[i].D.toLowerCase();
       strutturaAbbinamento.tags = [nomePagina.toLowerCase(), listaPagina[i].B.toLowerCase()];
-      strutturaAbbinamento.viniProposti = estrazioneViniConAggiornamentoListaVini(listaPagina[i], ['E', 'F', 'G']);
+      strutturaAbbinamento.viniProposti = estrazioneViniConAggiornamentoListaVini(listaPagina[i], colonneVini);
       strutturaAbbinamento.motivazioneAbbinamento = listaPagina[i].H; // normalmente la motivazione sta in J
       idAbbinamento++;
       listaAbbinamenti.push(strutturaAbbinamento);
@@ -274,6 +287,7 @@ function estrazioneAbbinamentiGenerali(nomePagina) {
 function estrazioneAbbinamentiPerTipologia(nomePagina) {
   var listaAbbinamentiPerTipologia = [];
   var listaPagina = listaRicetteDaFileJson[nomePagina];
+  var colonneVini = recuperoColonneVini(listaPagina[2]);
   for (let i = 3; i < listaPagina.length; i++) {
     if (listaPagina[i].B) {
       var strutturaAbbinamentoPerTipologia = {};
@@ -284,7 +298,7 @@ function estrazioneAbbinamentiPerTipologia(nomePagina) {
         const regexFieldSpace = /[.,\/ -]/;
         strutturaAbbinamentoPerTipologia.tags = listaPagina[i].D.split(regexFieldSpace);
       }
-      strutturaAbbinamentoPerTipologia.viniProposti = estrazioneViniConAggiornamentoListaVini(listaPagina[i], ['E', 'F', 'G']);
+      strutturaAbbinamentoPerTipologia.viniProposti = estrazioneViniConAggiornamentoListaVini(listaPagina[i], colonneVini);
       idAbbinamentoPerTipologia++;
       listaAbbinamentiPerTipologia.push(strutturaAbbinamentoPerTipologia);
     }
@@ -295,12 +309,13 @@ function estrazioneAbbinamentiPerTipologia(nomePagina) {
 function estrazioneListaOccasioni(nomePagina) {
   var listaAbbinamentiTmp = [];
   var listaPagina = listaRicetteDaFileJson[nomePagina];
+  var colonneVini = recuperoColonneVini(listaPagina[2]);
   for (let i = 3; i < listaPagina.length; i++) {
     if (listaPagina[i].B) {
       var strutturaOccasione = {};
       strutturaOccasione.id = idOccasioni;
       strutturaOccasione.nome = listaPagina[i].B.toLowerCase();
-      strutturaOccasione.viniProposti = estrazioneViniConAggiornamentoListaVini(listaPagina[i], ['D', 'E', 'F']);
+      strutturaOccasione.viniProposti = estrazioneViniConAggiornamentoListaVini(listaPagina[i], colonneVini);
       idOccasioni++;
       listaAbbinamentiTmp.push(strutturaOccasione);
     }
@@ -342,7 +357,6 @@ estrazioneParoleChiavePerCategoria(listaParoleChiavePerCategoria, listaVini, 'li
 // console.log('\nlista vini:\n', listaVini);
 // console.log('\nlista parole chiave\n', listaParoleChiave);
 // console.log('\nlista abbinamenti per tipologia\n', listaAbbinamentiPerTipologia);
-// console.log(listaRicetteDaFileJson['Abbinamenti per tipologia']);inamentiGenerali);
 
 var strutture = {
   listaRicette: listaCompletaRicette,
