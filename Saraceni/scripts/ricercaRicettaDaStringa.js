@@ -1,6 +1,6 @@
 var strutture = require('./creazioneListeDaFileJson');
 var natural = require('natural');
-var fun = require('./funzioniPerRicercaParole');
+var funzioniGeneriche = require('./funzioniPerRicercaParole');
 natural.PorterStemmer.attach(); // english language set -> 'words'.tokenizeAndStem() toSingularizeAndTurnIntoArrayOfWords
 
 var listaRicette = strutture.listaRicette;
@@ -17,7 +17,7 @@ var listaAbbinamentiPerTipologia = strutture.listaAbbinamentiPerTipologia;
 
 var nomiRicette = listaRicette.map(ricetta => ricetta.nome.tokenizeAndStem());
 var abbinamentiGenerali = listaAbbinamentiGenerali.map(tipo => tipo.nome.tokenizeAndStem());
-var abbinamentiPerTipologiaTags = fun.concatTags(listaAbbinamentiPerTipologia);
+var abbinamentiPerTipologiaTags = funzioniGeneriche.concatTags(listaAbbinamentiPerTipologia);
 var abbinamentiPerTipologia = listaAbbinamentiPerTipologia.map(tipo => tipo.nome.tokenizeAndStem());
 abbinamentiPerTipologia = abbinamentiPerTipologia.concat(abbinamentiPerTipologiaTags);
 // var antipastiContorni = listaParoleChiavePerCategoria.antipastiContorni.map(parola => parola.stem());
@@ -47,7 +47,7 @@ var matchRicetta = function (arrayParole) {
   };
   var ricettaTrovata = [];
   nomiRicette.forEach((item, i) => {
-    var tmp = fun.somiglianzaParoleArray(arrayParole, item);
+    var tmp = funzioniGeneriche.somiglianzaParoleArray(arrayParole, item);
     if (tmp > ricettaPerfetta.max) {
       ricettaPerfetta.index = i;
       ricettaPerfetta.max = tmp;
@@ -67,22 +67,22 @@ var matchRicetta = function (arrayParole) {
 
 var matchIngredientiPrincipali = function (arrayParole) {
   console.log('è stato scelto il metodo di matchDaIngredientiPrincipali\n\n');
-  return fun.ricercaIngredientiPapabili(arrayParole, listaIngredientiPrincipali);
+  return funzioniGeneriche.ricercaIngredientiPapabili(arrayParole, listaIngredientiPrincipali);
 };
 
 var ricetteTrovateDaIngredientiPrincipali = function (arrayParole) {
-  return fun.ricetteDaIngredienti(matchIngredientiPrincipali(arrayParole), listaRicette);
+  return funzioniGeneriche.ricetteDaIngredienti(matchIngredientiPrincipali(arrayParole), listaRicette);
 };
 
 // METODI DI RICERCA DALLA LISTA DEGLI INGREDIENTI SECONDARI
 
 var matchIngredientiSecondari = function (arrayParole) {
   console.log('è stato scelto il metodo di matchDaIngredientiSecondari\n\n');
-  return fun.ricercaIngredientiPapabili(arrayParole, listaIngredientiSecondari);
+  return funzioniGeneriche.ricercaIngredientiPapabili(arrayParole, listaIngredientiSecondari);
 };
 
 var ricetteTrovateDaIngredientiSecondari = function (arrayParole) {
-  return fun.ricetteDaIngredienti(matchIngredientiSecondari(arrayParole), listaRicette);
+  return funzioniGeneriche.ricetteDaIngredienti(matchIngredientiSecondari(arrayParole), listaRicette);
 };
 
 // METODI DI RICERCA PER ABBINAMENTI GENERALI
@@ -96,15 +96,15 @@ var matchViniPerTipoPortata = function (arrayParole) {
   var abbinamentiGenerali = listaAbbinamentiGenerali.filter(tipoIngrediente =>
     tipoIngrediente.nome === arrayParoleTrovate.toString);
   console.log('abbinamentiGenerali\n', abbinamentiGenerali);
-  return fun.filtroPerTag(arrayParoleTrovate, abbinamentiGenerali);
+  return funzioniGeneriche.filtroPerTag(arrayParoleTrovate, abbinamentiGenerali);
 };
 
 var matchTipoIngrediente = function (arrayParole) {
-  return fun.ricercaTipoIngredientePapabile(arrayParole, abbinamentiGenerali);
+  return funzioniGeneriche.ricercaTipoIngredientePapabile(arrayParole, abbinamentiGenerali);
 };
 
 var ricercaPerAbbinamentiGenerali = function (arrayParole) {
-  return fun.ricercaViniProposti(matchViniPerTipoPortata(arrayParole), listaVini);
+  return funzioniGeneriche.ricercaViniProposti(matchViniPerTipoPortata(arrayParole), listaVini);
 };
 
 // METODI DI RICERCA PER PORTATA
@@ -121,9 +121,9 @@ var listaPortate = ['antipasto', 'primo', 'secondo', 'contorno',
 
 var abbinamentoTrovatoPerTipologia = function (arrayParole) {
   var listaTipi = [];
-  listaTipi = fun.filtroListaDalNome(arrayParole, listaAbbinamentiPerTipologia);
+  listaTipi = funzioniGeneriche.filtroListaDalNome(arrayParole, listaAbbinamentiPerTipologia);
   if (listaTipi.length === 0) {
-    listaTipi = fun.filtroPerTag(arrayParole, listaAbbinamentiPerTipologia);
+    listaTipi = funzioniGeneriche.filtroPerTag(arrayParole, listaAbbinamentiPerTipologia);
   }
   return listaTipi;
 };
@@ -139,7 +139,7 @@ var listaTipoIngrediente = ['carne bianca', 'carne rossa', 'formaggio', 'verdure
 var occasioneTrovata = function (arrayParole) {
   var listaOccasioniTmp = [];
   console.log('\nlista occasioni originale\n', listaOccasioni);
-  listaOccasioniTmp = fun.filtroListaDalNome(arrayParole, listaOccasioni);
+  listaOccasioniTmp = funzioniGeneriche.filtroListaDalNome(arrayParole, listaOccasioni);
   console.log('\nlista occasioni tmp\n', listaOccasioniTmp);
   return listaOccasioniTmp;
 };
@@ -178,7 +178,7 @@ var metodoScelto = function (richiestaUtente) {
   console.log('parole inserite dall\'utente', paroleDaCercare);
   var punteggi = arrayPunteggio.map(arrayDiArray =>
     Math.max(...arrayDiArray.map(array =>
-      fun.somiglianzaParoleArray(paroleDaCercare, array)
+      funzioniGeneriche.somiglianzaParoleArray(paroleDaCercare, array)
     ))
   );
 
@@ -191,7 +191,7 @@ var metodoScelto = function (richiestaUtente) {
   var listaPapabile = arrayAlgoritmoScelto[indexScelto](paroleDaCercare);
   console.log('listaPapabile', listaPapabile);
   if (listaPapabile[0] !== undefined) {
-    return listaPapabile[0].viniProposti;
+    return funzioniGeneriche.ricercaViniProposti(listaPapabile[0].viniProposti, listaVini);
   } else {
     return [];
   }
