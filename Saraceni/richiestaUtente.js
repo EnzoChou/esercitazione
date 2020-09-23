@@ -2,6 +2,16 @@ var natural = require('natural');
 var metodoDiRicerca = require('./ricercaRicettaDaStringa');
 natural.PorterStemmer.attach(); // english language set -> 'words'.tokenizeAndStem() toSingularizeAndTurnIntoArrayOfWords
 
-var richiestaUtente = "i'd like some chicken fries";
+console.log('process.env.PHRASE', process.env.PHRASE);
 
-console.log('risultato trovato dal bot:', metodoDiRicerca.scegliMetodo(richiestaUtente));
+function init() {
+    var richiestaUtente = process.env.PHRASE;
+
+    var result = metodoDiRicerca.scegliMetodo(richiestaUtente);
+
+    console.log('risultato trovato dal bot:', result);
+}
+
+init();
+
+PHRASE="ciao" node richiestaUtente.js
