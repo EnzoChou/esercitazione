@@ -10,6 +10,7 @@ var listaVini = strutture.listaVini;
 // var listaParoleChiave = strutture.listaParoleChiave;
 var listaParoleChiavePerCategoria = strutture.listaParoleChiavePerCategoria;
 var listaAbbinamentiGenerali = strutture.listaAbbinamentiGenerali;
+var listaOccasioni = strutture.listaOccasioni;
 var listaAbbinamentiPerTipologia = strutture.listaAbbinamentiPerTipologia;
 // console.log(natural.PorterStemmer.stem(utente));
 // console.log(natural.JaroWinklerDistance("dixon","dicksonx", undefined, true));
@@ -24,6 +25,7 @@ abbinamentiPerTipologia = abbinamentiPerTipologia.concat(abbinamentiPerTipologia
 // var secondi = listaParoleChiavePerCategoria.secondi.map(parola => parola.stem());
 var ingredientiPrincipali = listaParoleChiavePerCategoria.ingredientiPrincipali.map(parola => parola.tokenizeAndStem());
 var ingredientiSecondari = listaParoleChiavePerCategoria.ingredientiSecondari.map(parola => parola.tokenizeAndStem());
+var occasioni = listaOccasioni.map(occasione => occasione.nome.tokenizeAndStem());
 
 // PULIZIA ARRAY DAGLI ARRAY VUOTI
 
@@ -117,7 +119,7 @@ var listaPortate = ['antipasto', 'primo', 'secondo', 'contorno',
 
 // METODI DI RICERCA PER TIPOLOGIA
 
-var ricetteTrovatePerTipologia = function (arrayParole) {
+var abbinamentoTrovatoPerTipologia = function (arrayParole) {
   var listaTipi = [];
   listaTipi = fun.filtroListaDalNome(arrayParole, listaAbbinamentiPerTipologia);
   if (listaTipi.length === 0) {
@@ -131,6 +133,16 @@ var listaTipoIngrediente = ['carne bianca', 'carne rossa', 'formaggio', 'verdure
   'uova', 'crostacei', 'molluschi', 'pesce'
 ].map(portata => portata.tokenizeAndStem());
 */
+
+// METODI DI RICERCA PER L'OCCASIONE
+
+var occasioneTrovata = function (arrayParole) {
+  var listaOccasioniTmp = [];
+  console.log('\nlista occasioni originale\n', listaOccasioni);
+  listaOccasioniTmp = fun.filtroListaDalNome(arrayParole, listaOccasioni);
+  console.log('\nlista occasioni tmp\n', listaOccasioniTmp);
+  return listaOccasioniTmp;
+};
 
 // METODI DI RICERCA PER MISMATCH
 
@@ -146,17 +158,19 @@ var arrayPunteggio = [
   abbinamentiGenerali,
   listaPortate,
   ingredientiPrincipali,
-  ingredientiSecondari
+  ingredientiSecondari,
+  occasioni
 ];
 
 var arrayAlgoritmoScelto = {
   '-1': laRicercaNonHaProdottoRisultatiSoddisfacenti,
   0: matchRicetta,
-  1: ricetteTrovatePerTipologia,
+  1: abbinamentoTrovatoPerTipologia,
   2: ricercaPerAbbinamentiGenerali, // non implementata, questo abbinamento non torna mai perchè lo stesso della tipologia
   3: ricetteTrovateDaPortate, // FORSE DA IMPLEMENTARE
   4: ricetteTrovateDaIngredientiPrincipali,
-  5: ricetteTrovateDaIngredientiSecondari
+  5: ricetteTrovateDaIngredientiSecondari,
+  6: occasioneTrovata
 };
 
 var metodoScelto = function (richiestaUtente) {
@@ -169,14 +183,14 @@ var metodoScelto = function (richiestaUtente) {
   );
 
   console.log(
-    'indice: \n[\n\t\'-1\': laRicercaNonHaProdottoRisultatiSoddisfacenti, \n\t0: matchRicetta, \n\t1: ricetteTrovatePerTipologia, \n\t2: ricercaPerAbbinamentiGenerali, // non implementata \n\t3: ricetteTrovateDaPortate, // FORSE DA IMPLEMENTARE \n\t4: ricetteTrovateDaIngredientiPrincipali, \n\t5: ricetteTrovateDaIngredientiSecondari\n]');
+    'indice: \n[\n\t\'-1\': laRicercaNonHaProdottoRisultatiSoddisfacenti, \n\t0: matchRicetta, \n\t1: abbinamentoTrovatoPerTipologia, \n\t2: ricercaPerAbbinamentiGenerali, // non implementata \n\t3: ricetteTrovateDaPortate, // FORSE DA IMPLEMENTARE \n\t4: ricetteTrovateDaIngredientiPrincipali, \n\t5: ricetteTrovateDaIngredientiSecondari\n]');
   console.log('punteggi', punteggi);
   var indexScelto = punteggi.findIndex(elem => elem > 0.9);
   console.log('index scelto', indexScelto);
 
   var listaPapabile = arrayAlgoritmoScelto[indexScelto](paroleDaCercare);
   console.log('listaPapabile', listaPapabile);
-  if (listaPapabile[0].viniProposti !== undefined) {
+  if (listaPapabile[0] !== undefined) {
     return listaPapabile[0].viniProposti;
   } else {
     return [];
