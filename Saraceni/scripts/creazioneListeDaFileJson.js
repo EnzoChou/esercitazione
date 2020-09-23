@@ -294,7 +294,7 @@ function estrazioneAbbinamentiPerTipologia(nomePagina) {
       strutturaAbbinamentoPerTipologia.nome = listaPagina[i].B.toLowerCase();
       strutturaAbbinamentoPerTipologia.tags = [];
       if (listaPagina[i].D) {
-        const regexFieldSpace = /[.,\/ -]/;
+        const regexFieldSpace = /[.,\/\n-]/;
         strutturaAbbinamentoPerTipologia.tags = listaPagina[i].D.split(regexFieldSpace);
       }
       strutturaAbbinamentoPerTipologia.viniProposti = estrazioneViniConAggiornamentoListaVini(listaPagina[i], colonneVini);
@@ -335,6 +335,7 @@ aggiornamentoListeVarieDaRicette(listaCompletaRicette);
 estrazioneParoleChiave(listaCompletaRicette);
 listaParoleChiave = listaParoleChiave.concat(
   estrazioneParoleChiave(listaCompletaRicette),
+  estrazioneParoleChiave(listaAbbinamentiPerTipologia),
   estrazioneParoleChiave(ingredientiPrincipali),
   estrazioneParoleChiave(ingredientiSecondari),
   estrazioneParoleChiave(listaOccasioni)
