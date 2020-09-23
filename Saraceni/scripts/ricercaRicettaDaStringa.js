@@ -12,6 +12,7 @@ var listaParoleChiavePerCategoria = strutture.listaParoleChiavePerCategoria;
 var listaAbbinamentiGenerali = strutture.listaAbbinamentiGenerali;
 var listaOccasioni = strutture.listaOccasioni;
 var listaAbbinamentiPerTipologia = strutture.listaAbbinamentiPerTipologia;
+var listaParoleChiave = strutture.listaParoleChiave;
 // console.log(natural.PorterStemmer.stem(utente));
 // console.log(natural.JaroWinklerDistance("dixon","dicksonx", undefined, true));
 
@@ -175,10 +176,12 @@ var arrayAlgoritmoScelto = {
 
 var metodoScelto = function (richiestaUtente) {
   var paroleDaCercare = richiestaUtente.tokenizeAndStem();
+  var paroleDaCercareFiltrate = funzioniGeneriche.filtroParoleInutili(paroleDaCercare, listaParoleChiave);
   console.log('parole inserite dall\'utente', paroleDaCercare);
+  console.log('parole inserite dall\'utente filtrate', paroleDaCercareFiltrate);
   var punteggi = arrayPunteggio.map(arrayDiArray =>
     Math.max(...arrayDiArray.map(array =>
-      funzioniGeneriche.somiglianzaParoleArray(paroleDaCercare, array)
+      funzioniGeneriche.somiglianzaParoleArray(paroleDaCercareFiltrate, array)
     ))
   );
 
