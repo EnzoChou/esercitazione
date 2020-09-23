@@ -147,7 +147,7 @@ var occasioneTrovata = function (arrayParole) {
 // METODI DI RICERCA PER MISMATCH
 
 var laRicercaNonHaProdottoRisultatiSoddisfacenti = function (arrayParole) {
-  return 'la tua richiesta non ha prodotto risultati, puoi dirmi qualcosa di più specifico?';
+  return [];
 };
 
 // ELABORAZIONE DATI DALLA RICHIESTA UTENTE
@@ -183,7 +183,7 @@ var metodoScelto = function (richiestaUtente) {
   );
 
   console.log(
-    'indice: \n[\n\t\'-1\': laRicercaNonHaProdottoRisultatiSoddisfacenti, \n\t0: matchRicetta, \n\t1: abbinamentoTrovatoPerTipologia, \n\t2: ricercaPerAbbinamentiGenerali, // non implementata \n\t3: ricetteTrovateDaPortate, // FORSE DA IMPLEMENTARE \n\t4: ricetteTrovateDaIngredientiPrincipali, \n\t5: ricetteTrovateDaIngredientiSecondari\n]');
+    'indice: \n[\n\t\'-1\': laRicercaNonHaProdottoRisultatiSoddisfacenti, \n\t0: matchRicetta,\n\t1: abbinamentoTrovatoPerTipologia,\n\t 2: ricercaPerAbbinamentiGenerali,\n\t 3: ricetteTrovateDaPortate, \n\t 4: ricetteTrovateDaIngredientiPrincipali,\n\t 5: ricetteTrovateDaIngredientiSecondari,\n\t 6: occasioneTrovata\n]');
   console.log('punteggi', punteggi);
   var indexScelto = punteggi.findIndex(elem => elem > 0.9);
   console.log('index scelto', indexScelto);
