@@ -25,13 +25,16 @@ var ricercaTipoIngredientePapabile = function (arrayParole, tipoIngredienti) {
   return listaDiRitorno;
 };
 
-function filtroListaDalNome(arrayParole, lista) {
+function filtroListaDalNome (arrayParole, lista) {
+  lista.forEach(oggetto =>
+    console.log(natural.JaroWinklerDistance(oggetto.nome, arrayParole.join(), undefined, true))
+  );
   return lista.filter(oggetto =>
     natural.JaroWinklerDistance(oggetto.nome, arrayParole.join(), undefined, true) > 0.8
   );
 }
 
-function filtroPerTag(arrayParole, lista) {
+function filtroPerTag (arrayParole, lista) {
   return lista.filter(oggetto =>
     oggetto.tags.some(tag => natural.JaroWinklerDistance(tag, arrayParole.join(), undefined, true) > 0.8)
   );
@@ -54,8 +57,6 @@ var ricercaIngredientiPapabili = function (arrayParole, listaIngredienti) {
 };
 
 var somiglianzaParoleArray = function (arrayParole, arrayDiConfronto) {
-  // console.log('\n\narrayParole', arrayParole)
-  // console.log('\n\narrayDiConfronto', arrayDiConfronto)
   var contatore = 0;
   arrayParole.forEach((item, i) => {
     arrayDiConfronto.forEach((item2, j) => {
