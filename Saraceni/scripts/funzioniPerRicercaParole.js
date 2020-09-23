@@ -26,9 +26,6 @@ var ricercaTipoIngredientePapabile = function (arrayParole, tipoIngredienti) {
 };
 
 function filtroListaDalNome (arrayParole, lista) {
-  lista.forEach(oggetto =>
-    console.log(natural.JaroWinklerDistance(oggetto.nome, arrayParole.join(), undefined, true))
-  );
   return lista.filter(oggetto =>
     natural.JaroWinklerDistance(oggetto.nome, arrayParole.join(), undefined, true) > 0.8
   );
