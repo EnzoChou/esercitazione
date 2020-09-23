@@ -1,0 +1,1578 @@
+{
+    "Antipasticontorni": [
+        {
+            "B": "ANTIPASTI E CONTORNI"
+        },
+        {
+            "B": "Note introduttive: Segue la proposta di elenco piatti ANTIPASTI E CONTORNI con cui istruire il Bot nel flusso Foodpairing."
+        },
+        {
+            "B": "NOME RICETTA",
+            "D": "INGREDIENTI",
+            "E": "INGREDIENTI",
+            "F": "INGREDIENTI",
+            "G": "ABBINAMENTO VINO",
+            "H": "ABBINAMENTO VINO",
+            "I": "ABBINAMENTO VINO",
+            "J": "MOTIVAZIONE ABBINAMENTO( Max 120/150caratteri)"
+        },
+        {
+            "B": "Garlic Mushrooms",
+            "D": "mushroom",
+            "E": "garlic",
+            "G": "Perlè",
+            "H": "Prosecco",
+            "I": "Libero Chianti"
+        },
+        {
+            "B": "Baked beans",
+            "D": "beans",
+            "E": "onion",
+            "F": "tomato sauce",
+            "G": "Libero Chianti",
+            "H": "Perlè",
+            "I": "Volare"
+        },
+        {
+            "B": "Nachos",
+            "D": "Cheese",
+            "G": "Volare",
+            "H": "Hugo",
+            "I": "Prosecco"
+        },
+        {
+            "B": "Tacos",
+            "D": "beef",
+            "E": "onion",
+            "G": "Volare",
+            "H": "Hugo",
+            "I": "Prosecco"
+        },
+        {
+            "B": "Eggs and bacon",
+            "D": "eggs",
+            "E": "bacon",
+            "G": "Perlè",
+            "H": "Volare",
+            "I": "Libero Chianti"
+        },
+        {
+            "B": "Cesear salad",
+            "D": "bread",
+            "E": "chicken",
+            "F": "cesear dressing",
+            "G": "Prosecco",
+            "H": "Volare",
+            "I": "Libero Bianco"
+        },
+        {
+            "B": "Club sandwich",
+            "D": "eggs",
+            "E": "chicken",
+            "F": "mayonnaise",
+            "G": "Prosecco",
+            "H": "Hugo",
+            "I": "Rosé Monogram"
+        },
+        {
+            "B": "Avocado Toast",
+            "D": "bread",
+            "E": "avocado",
+            "G": "Volare",
+            "H": "Prosecco",
+            "I": "Rosé Monogram"
+        },
+        {
+            "B": "Poke",
+            "D": "salmon/tuna",
+            "E": "mango",
+            "F": "edamame beans",
+            "G": "Volare",
+            "H": "Prosecco",
+            "I": "Hugo"
+        },
+        {
+            "B": "Bagel with cheese and salmon",
+            "D": "salmon",
+            "E": "cheese",
+            "G": "Volare",
+            "H": "Prosecco",
+            "I": "Rosé Monogram"
+        },
+        {
+            "B": "Garlic bread",
+            "D": "bread",
+            "E": "butter",
+            "F": "garlic",
+            "G": "Prosecco",
+            "H": "Volare",
+            "I": "Hugo"
+        },
+        {
+            "B": "Fried green tomatoes",
+            "D": "tomatoes",
+            "G": "Prosecco",
+            "H": "Volare",
+            "I": "Hugo"
+        },
+        {
+            "B": "Caprese",
+            "D": "tomatoes",
+            "E": "mozzarella cheese",
+            "F": "basil",
+            "G": "Volare",
+            "H": "Prosecco",
+            "I": "Hugo"
+        },
+        {
+            "B": "French fries",
+            "D": "potatoes",
+            "G": "Volare",
+            "H": "Prosecco",
+            "I": "Hugo"
+        },
+        {
+            "B": "Hummus",
+            "D": "chickpeas",
+            "G": "Volare",
+            "H": "Prosecco",
+            "I": "Hugo"
+        },
+        {
+            "B": "Mashed potatoes",
+            "D": "potatoes",
+            "E": "butter",
+            "F": "milk",
+            "G": "Volare",
+            "H": "Prosecco",
+            "I": "Hugo"
+        },
+        {
+            "B": "Salmon tartare with avocado",
+            "D": "salmon",
+            "E": "avocado",
+            "G": "Volare",
+            "H": "Prosecco",
+            "I": "Hugo"
+        },
+        {
+            "B": "Coleslaw",
+            "D": "carrot",
+            "E": "cabbage",
+            "F": "mayonnaise",
+            "G": "Volare",
+            "H": "Prosecco",
+            "I": "Hugo"
+        },
+        {
+            "C": "Leggenda:"
+        },
+        {
+            "D": "Carne Bianca"
+        },
+        {
+            "D": "Carne Rossa"
+        },
+        {
+            "D": "Pesce"
+        },
+        {
+            "D": "Formaggio"
+        },
+        {
+            "D": "Verdure"
+        },
+        {
+            "D": "Uova"
+        },
+        {
+            "D": "Frutta"
+        }
+    ],
+    "Primi": [
+        {
+            "B": "PRIMI PIATTI"
+        },
+        {
+            "B": "Note introduttive: Segue la proposta di elenco piatti PRIMI PIATTI con cui istruire il Bot nel flusso Foodpairing."
+        },
+        {
+            "B": "NOME RICETTA",
+            "D": "INGREDIENTI",
+            "E": "INGREDIENTI",
+            "F": "INGREDIENTI",
+            "G": "ABBINAMENTO VINO",
+            "H": "ABBINAMENTO VINO",
+            "I": "ABBINAMENTO VINO",
+            "J": "MOTIVAZIONE ABBINAMENTO( Max 120/150caratteri)"
+        },
+        {
+            "B": "Spaghetti with meatballs",
+            "D": "pasta",
+            "E": "meat",
+            "F": "tomatosauce",
+            "G": "Libero Chianti",
+            "H": "Perlè",
+            "I": "Riserva di Famiglia"
+        },
+        {
+            "B": "Spaghetti with tomato sauce",
+            "D": "tomato sauce",
+            "E": "basil",
+            "G": "Volare",
+            "H": "Prosecco",
+            "I": "Libero Chianti"
+        },
+        {
+            "B": "Spaghetti alla marinara",
+            "D": "tomato sauce",
+            "E": "garlic",
+            "F": "origan",
+            "G": "Volare",
+            "H": "Prosecco",
+            "I": "Libero Chianti"
+        },
+        {
+            "B": "Spaghetti with shrimps",
+            "D": "shimprs",
+            "E": "tomato",
+            "G": "Volare",
+            "H": "Libero Bianco",
+            "I": "Prosecco"
+        },
+        {
+            "B": "Fettucine alfredo",
+            "D": "pasta",
+            "E": "butter",
+            "F": "parmesan",
+            "G": "Riserva di Famiglia",
+            "H": "Prosecco",
+            "I": "Pinot Grigio"
+        },
+        {
+            "B": "Mac and Cheese",
+            "D": "pasta",
+            "E": "cheese",
+            "F": "parmesan",
+            "G": "Libero Chianti",
+            "H": "Riserva di Famiglia",
+            "I": "Prosecco"
+        },
+        {
+            "B": "Spaghetti bolognese",
+            "D": "pasta",
+            "E": "ragu",
+            "G": "Libero Chianti",
+            "H": "Riserva di Famiglia",
+            "I": "Albergaccio"
+        },
+        {
+            "B": "spaghetti with clams",
+            "D": "spaghetti",
+            "E": "clams",
+            "G": "Volare",
+            "H": "Pinot Grigio",
+            "I": "Prosecco"
+        },
+        {
+            "B": "risotto with mushrooms",
+            "D": "rice",
+            "E": "mushroom",
+            "F": "butter",
+            "G": "Riserva di Famiglia",
+            "H": "Libero Chianti",
+            "I": "Perlè"
+        },
+        {
+            "B": "seafood risotto",
+            "D": "rise",
+            "E": "clams",
+            "F": "squid",
+            "G": "Volare",
+            "H": "Pinot Grigio",
+            "I": "Chardonnay"
+        },
+        {
+            "B": "risotto with gorgonzola and radicchio",
+            "D": "rice",
+            "E": "gorgonzola",
+            "F": "radicchio",
+            "G": "Perlè",
+            "H": "Riserva di Famiglia",
+            "I": "Albergaccio"
+        },
+        {
+            "B": "Risotto with truffle",
+            "D": "rise",
+            "E": "truffle",
+            "G": "Libero Toscana IGT",
+            "H": "Riserva di Famiglia",
+            "I": "Il Principe"
+        },
+        {
+            "B": "risotto with tomato sauce",
+            "D": "rice",
+            "E": "tomato sauce",
+            "G": "Prosecco",
+            "H": "Rosé Monogram",
+            "I": "Pinot Grigio"
+        },
+        {
+            "B": "Cantonese fried rice",
+            "D": "rice",
+            "E": "peas",
+            "F": "eggs"
+        },
+        {
+            "B": "spaghetti alla puttanesca",
+            "D": "pasta",
+            "E": "tomato sauce",
+            "F": "anchovies",
+            "G": "Prosecco",
+            "H": "Rosé Monogram",
+            "I": "Pinot Grigio"
+        },
+        {
+            "B": "spring rolls",
+            "D": "meat",
+            "E": "carrot",
+            "F": "onion"
+        },
+        {
+            "B": "spaghetti with tuna",
+            "D": "pasta",
+            "E": "tuna",
+            "F": "tomato sauce",
+            "G": "Volare",
+            "H": "Pinot Grigio",
+            "I": "Chardonnay"
+        },
+        {
+            "B": "Pizza stromboli",
+            "D": "pizza",
+            "E": "salame",
+            "F": "mozzarella cheese",
+            "G": "Volare",
+            "H": "Pinot Grigio",
+            "I": "Libero Chianti"
+        },
+        {
+            "B": "pasta with ricotta",
+            "D": "pasta",
+            "E": "ricotta",
+            "G": "Perlè",
+            "H": "Pinot Grigio",
+            "I": "Rosé Monogram"
+        },
+        {
+            "B": "pumpkin risotto",
+            "D": "rice",
+            "E": "pumpkin",
+            "G": "Libero Chianti",
+            "H": "Riserva di Famiglia",
+            "I": "Prosecco"
+        },
+        {
+            "B": "Lentils soup",
+            "D": "lentils",
+            "G": "Libero Chianti",
+            "H": "Riserva di Famiglia",
+            "I": "Perlè"
+        },
+        {
+            "B": "Fish soup",
+            "D": "mussels",
+            "E": "calamari",
+            "G": "Prosecco",
+            "H": "Pinot Grigio",
+            "I": "Chardonnay"
+        },
+        {
+            "B": "Pad thai",
+            "D": "noodles",
+            "E": "shrimp",
+            "F": "walnuts",
+            "G": "Volare",
+            "H": "Prosecco",
+            "I": "Chardonnay"
+        },
+        {
+            "C": "Leggenda:"
+        },
+        {
+            "D": "Carne Bianca"
+        },
+        {
+            "D": "Carne Rossa"
+        },
+        {
+            "D": "Pesce"
+        },
+        {
+            "D": "Formaggio"
+        },
+        {
+            "D": "Verdure"
+        },
+        {
+            "D": "Uova"
+        },
+        {
+            "D": "Frutta"
+        }
+    ],
+    "Secondi": [
+        {
+            "B": "SECONDI PIATTI"
+        },
+        {
+            "B": "Note introduttive: Segue la proposta di elenco SECONDI  PIATTI con cui istruire il Bot nel flusso Foodpairing."
+        },
+        {
+            "B": "NOME RICETTA",
+            "D": "INGREDIENTI",
+            "E": "INGREDIENTI",
+            "F": "INGREDIENTI",
+            "G": "ABBINAMENTO VINO",
+            "H": "ABBINAMENTO VINO",
+            "I": "ABBINAMENTO VINO",
+            "J": "MOTIVAZIONE ABBINAMENTO( Max 120/150caratteri)"
+        },
+        {
+            "B": "Chicken masala",
+            "D": "chicken",
+            "E": "curry",
+            "F": "yogurt",
+            "G": "Perlè",
+            "H": "Pinot Grigio",
+            "I": "Riserva di Famiglia"
+        },
+        {
+            "B": "Oysters Rockefeller",
+            "D": "oysters",
+            "E": "butter",
+            "F": "parsley",
+            "G": "Volare",
+            "H": "Prosecco",
+            "I": "Pinot Grigio"
+        },
+        {
+            "B": "Enchiladas",
+            "D": "chicken",
+            "E": "cheddar",
+            "F": "tomatosauce"
+        },
+        {
+            "B": "Lobster rolls",
+            "D": "lobster",
+            "E": "mayonnaise",
+            "F": "celery",
+            "G": "Volare",
+            "H": "Prosecco",
+            "I": "Pinot Grigio"
+        },
+        {
+            "B": "Fajitas",
+            "D": "meat",
+            "E": "onion",
+            "F": "pepper"
+        },
+        {
+            "B": "Chicken parmesan",
+            "D": "chicken",
+            "E": "tomato sauce",
+            "F": "mozzarella",
+            "G": "Prosecco",
+            "H": "Libero Chianti",
+            "I": "Pinot Grigio"
+        },
+        {
+            "B": "Barbecue ribs",
+            "D": "meat",
+            "E": "barbecue sauce",
+            "G": "Libero Toscana IGT",
+            "H": "Riserva di Famiglia",
+            "I": "Libero Chianti"
+        },
+        {
+            "B": "Cheeseburger",
+            "D": "bread",
+            "E": "hambuger",
+            "F": "cheddar",
+            "G": "Libero Chianti",
+            "H": "Perlè",
+            "I": "Riserva di Famiglia"
+        },
+        {
+            "B": "Sausages",
+            "D": "sausages",
+            "G": "Libero Toscana IGT",
+            "H": "Riserva di Famiglia",
+            "I": "Libero Chianti"
+        },
+        {
+            "B": "Chilli",
+            "D": "meat",
+            "E": "tomato sauce",
+            "F": "hot pepper and onion"
+        },
+        {
+            "B": "Fried chicken",
+            "D": "chicken",
+            "G": "Libero Chianti",
+            "H": "Perlè",
+            "I": "Albergaccio"
+        },
+        {
+            "B": "Pulled Pork",
+            "D": "meat",
+            "G": "Libero Toscana IGT",
+            "H": "Riserva di Famiglia",
+            "I": "Libero Chianti"
+        },
+        {
+            "B": "Turkey",
+            "D": "white meat",
+            "G": "Libero Toscana IGT",
+            "H": "Riserva di Famiglia",
+            "I": "Libero Chianti"
+        },
+        {
+            "B": "Pastrami sandwich",
+            "D": "pastrami",
+            "E": "bread",
+            "G": "Libero Toscana IGT",
+            "H": "Riserva di Famiglia",
+            "I": "Libero Chianti"
+        },
+        {
+            "B": "Lamb",
+            "D": "meat",
+            "G": "Libero Toscana IGT",
+            "H": "Riserva di Famiglia",
+            "I": "Libero Chianti"
+        },
+        {
+            "B": "Sushi",
+            "D": "rice",
+            "E": "fish",
+            "G": "Volare",
+            "H": "Prosecco",
+            "I": "Rosé Monogram"
+        },
+        {
+            "B": "Smoked Ham",
+            "D": "meat",
+            "G": "Libero Chianti",
+            "H": "Riserva di Famiglia",
+            "I": "Albergaccio"
+        },
+        {
+            "B": "Burrito",
+            "D": "chicken",
+            "G": "Libero Chianti",
+            "H": "Perlè",
+            "I": "Prosecco"
+        },
+        {
+            "B": "American barbecue",
+            "D": "meat",
+            "G": "Libero Toscana IGT",
+            "H": "Riserva di Famiglia",
+            "I": "Libero Chianti"
+        },
+        {
+            "B": "Steak with french fries",
+            "D": "meat",
+            "G": "Libero Toscana IGT",
+            "H": "Riserva di Famiglia",
+            "I": "Libero Chianti"
+        },
+        {
+            "B": "Meatballs",
+            "D": "meat",
+            "E": "tomato sauce",
+            "G": "Libero Toscana IGT",
+            "H": "Riserva di Famiglia",
+            "I": "Libero Chianti"
+        },
+        {
+            "B": "Cotoletta alla milanese",
+            "D": "meat",
+            "G": "Libero Toscana IGT",
+            "H": "Riserva di Famiglia",
+            "I": "Libero Chianti"
+        },
+        {
+            "B": "fried squid",
+            "D": "squid",
+            "G": "Volare",
+            "H": "Pinot Grigio",
+            "I": "Chardonnay"
+        },
+        {
+            "B": "Mussel saute",
+            "D": "mussel",
+            "E": "garlic",
+            "G": "Volare",
+            "H": "Pinot Grigio",
+            "I": "Chardonnay"
+        },
+        {
+            "B": "Baked potatoes",
+            "G": "Libero Chianti",
+            "H": "Rosé Monogram",
+            "I": "Pinot Grigio"
+        },
+        {
+            "B": "Roastbeef",
+            "D": "meat",
+            "G": "Libero Toscana IGT",
+            "H": "Riserva di Famiglia",
+            "I": "Libero Chianti"
+        },
+        {
+            "B": "Sea bass",
+            "D": "sea bass",
+            "G": "Volare",
+            "H": "Pinot Grigio",
+            "I": "Chardonnay"
+        },
+        {
+            "B": "Sea ​​bream",
+            "D": "sea bream",
+            "G": "Volare",
+            "H": "Pinot Grigio",
+            "I": "Chardonnay"
+        },
+        {
+            "B": "Stuffed squid",
+            "D": "squid",
+            "G": "Rosé Monogram",
+            "H": "Pinot Grigio",
+            "I": "Chardonnay"
+        },
+        {
+            "B": "Hot dog",
+            "D": "wurstel",
+            "E": "bread",
+            "G": "Libero Chianti",
+            "H": "Perlè",
+            "I": "Albergaccio"
+        },
+        {
+            "B": "Omelette",
+            "D": "eggs",
+            "G": "Libero Chianti",
+            "H": "Perlè",
+            "I": "Chardonnay"
+        },
+        {
+            "B": "Almoond chicken",
+            "D": "chicken",
+            "E": "almond",
+            "G": "Perlè",
+            "H": "Riserva di Famiglia",
+            "I": "Libero Chianti"
+        },
+        {
+            "B": "Stew",
+            "D": "meat",
+            "E": "onion",
+            "F": "carrot",
+            "G": "Libero Toscana IGT",
+            "H": "Riserva di Famiglia",
+            "I": "Libero Chianti"
+        },
+        {
+            "B": "Pepper steak.",
+            "D": "meat",
+            "E": "pepper",
+            "F": "fresh cream",
+            "G": "Libero Toscana IGT",
+            "H": "Riserva di Famiglia",
+            "I": "Libero Chianti"
+        },
+        {
+            "B": "Quinoa with vegetables",
+            "D": "quinoa",
+            "E": "vegetables",
+            "G": "Volare",
+            "H": "Libero Chianti",
+            "I": "Pinot Grigio"
+        },
+        {
+            "B": "Tempura",
+            "D": "vegetables",
+            "G": "Chardonnay",
+            "H": "Pinot Grigio",
+            "I": "Rosé Monogram"
+        },
+        {
+            "B": "Lentils soup",
+            "D": "lentils",
+            "G": "Libero Chianti",
+            "H": "Perlè",
+            "I": "Pinot Grigio"
+        },
+        {
+            "C": "Leggenda:"
+        },
+        {
+            "D": "Carne Bianca"
+        },
+        {
+            "D": "Carne Rossa"
+        },
+        {
+            "D": "Pesce"
+        },
+        {
+            "D": "Formaggio"
+        },
+        {
+            "D": "Verdure"
+        },
+        {
+            "D": "Uova"
+        },
+        {
+            "D": "Frutta"
+        }
+    ],
+    "Dessert": [
+        {
+            "B": "DESSERT"
+        },
+        {
+            "B": "Note introduttive: Segue la proposta di elenco DESSERT con cui istruire il Bot nel flusso Foodpairing."
+        },
+        {
+            "B": "NOME RICETTA",
+            "D": "INGREDIENTI",
+            "E": "INGREDIENTI",
+            "F": "INGREDIENTI",
+            "G": "ABBINAMENTO VINO",
+            "H": "ABBINAMENTO VINO",
+            "I": "ABBINAMENTO VINO",
+            "J": "MOTIVAZIONE ABBINAMENTO( Max 120/150caratteri)"
+        },
+        {
+            "B": "Apple pie",
+            "D": "apple",
+            "E": "sugar",
+            "G": "Amor diVino",
+            "H": "Splendia",
+            "I": "Crema di Grappa"
+        },
+        {
+            "B": "Pancakes",
+            "G": "Amor diVino",
+            "H": "Blumond",
+            "I": "Crema di cioccolato"
+        },
+        {
+            "B": "Chocolate mud cake",
+            "D": "chocolate",
+            "G": "Amor diVino",
+            "H": "Splendia",
+            "I": "Crema di caffè"
+        },
+        {
+            "B": "Cheesecake",
+            "D": "Fresh cheese",
+            "E": "fruits",
+            "G": "Crema di Limoncino",
+            "H": "Crema di cioccolato",
+            "I": "Amor diVino"
+        },
+        {
+            "B": "brownies",
+            "D": "chocolate",
+            "E": "walnuts",
+            "G": "Crema di caffè",
+            "H": "Splendia",
+            "I": "Blumond"
+        },
+        {
+            "B": "Carrot cake",
+            "D": "carrot",
+            "E": "walnuts",
+            "G": "Amor diVino",
+            "H": "Prosecco",
+            "I": "Crema di caffè"
+        },
+        {
+            "B": "Strawberry and chocolate",
+            "D": "strawberry",
+            "G": "Amor diVino",
+            "H": "Prosecco",
+            "I": "Limoncello"
+        },
+        {
+            "B": "Tiramisu",
+            "D": "mascarpone cheese",
+            "E": "coffee",
+            "G": "Amor diVino",
+            "H": "Crema di Limoncino",
+            "I": "Crema di caffè"
+        },
+        {
+            "B": "ice cream",
+            "D": "milk",
+            "G": "Crema di caffè",
+            "H": "Crema di cioccolato",
+            "I": "Crema di Pistacchio"
+        },
+        {
+            "C": "Leggenda:"
+        },
+        {
+            "D": "Cioccolato"
+        },
+        {
+            "D": "Carne Rossa"
+        },
+        {
+            "D": "Pesce"
+        },
+        {
+            "D": "Formaggio"
+        },
+        {
+            "D": "Verdure"
+        },
+        {
+            "D": "Uova"
+        },
+        {
+            "D": "Frutta"
+        }
+    ],
+    "Ricette italiane": [
+        {
+            "B": "RICETTE ITALIANE"
+        },
+        {
+            "B": "Note introduttive: Segue la proposta di elenco RICETTE ITALIANE con cui istruire il Bot nel flusso Foodpairing."
+        },
+        {
+            "B": "NOME RICETTA",
+            "D": "INGREDIENTI",
+            "E": "INGREDIENTI",
+            "F": "INGREDIENTI",
+            "G": "ABBINAMENTO VINO",
+            "H": "ABBINAMENTO VINO",
+            "I": "ABBINAMENTO VINO",
+            "J": "MOTIVAZIONE ABBINAMENTO( Max 120/150caratteri)"
+        },
+        {
+            "B": "Carbonara",
+            "D": "pasta",
+            "E": "eggs",
+            "F": "bacon",
+            "G": "Libero Chianti",
+            "H": "Riserva di Famiglia",
+            "I": "Albergaccio"
+        },
+        {
+            "B": "Matriciana",
+            "D": "pasta",
+            "E": "tomato sauce",
+            "F": "bacon",
+            "G": "Libero Chianti",
+            "H": "Riserva di Famiglia",
+            "I": "Albergaccio"
+        },
+        {
+            "B": "Gricia",
+            "D": "pasta",
+            "E": "bacon",
+            "G": "Riserva di Famiglia",
+            "H": "Libero Chianti",
+            "I": "Perlè"
+        },
+        {
+            "B": "cacio e pepe",
+            "D": "pasta",
+            "E": "pecorino",
+            "F": "pepper"
+        },
+        {
+            "B": "Pasta al pesto",
+            "D": "pasta",
+            "E": "basil",
+            "F": "parmesan"
+        },
+        {
+            "B": "Spaghetti allo scoglio",
+            "D": "pasta",
+            "E": "mussels",
+            "F": "shrimp"
+        },
+        {
+            "B": "Pasta al ragu",
+            "D": "pasta",
+            "E": "ragu",
+            "G": "Libero Chianti",
+            "H": "Riserva di Famiglia",
+            "I": "Albergaccio"
+        },
+        {
+            "B": "Tortellini in brodo",
+            "D": "tornellini",
+            "E": "meat broth"
+        },
+        {
+            "B": "Ravioli al sugo",
+            "D": "pasta",
+            "E": "ricotta",
+            "F": "tomato sauce"
+        },
+        {
+            "B": "spaghetti aglio e olio",
+            "D": "pasta",
+            "E": "olive oil",
+            "F": "garlic"
+        },
+        {
+            "B": "Pasta al forno",
+            "D": "pasta",
+            "E": "ragu",
+            "F": "mozzarella"
+        },
+        {
+            "B": "Pasta alla norma",
+            "D": "pasta",
+            "E": "ricotta",
+            "F": "aubergines"
+        },
+        {
+            "B": "Parma ham and mozzarella",
+            "D": "parmaham",
+            "E": "mozzarella"
+        },
+        {
+            "B": "gnocchi alla sorrentina",
+            "D": "gnocchi",
+            "E": "tomato sauce",
+            "F": "Mozzarella"
+        },
+        {
+            "B": "arrosto",
+            "D": "veal meat"
+        },
+        {
+            "B": "risotto alla milanese",
+            "D": "rice",
+            "E": "saffron",
+            "F": "butter"
+        },
+        {
+            "B": "risotto agli scampi",
+            "D": "rice",
+            "E": "scampi",
+            "G": "Prosecco",
+            "H": "Pinot Grigio",
+            "I": "Chardonnay"
+        },
+        {
+            "B": "Cannelloni",
+            "D": "pasta",
+            "E": "ragu"
+        },
+        {
+            "B": "Polenta"
+        },
+        {
+            "B": "Vitello tonnato",
+            "D": "veal",
+            "E": "tuna sauce"
+        },
+        {
+            "B": "Saltimbocca alla romana",
+            "D": "veal",
+            "E": "parma ham"
+        },
+        {
+            "B": "pollo alla cacciatora",
+            "D": "chicken",
+            "E": "olives",
+            "F": "tomato"
+        },
+        {
+            "B": "Brasato",
+            "D": "meat"
+        },
+        {
+            "B": "Impepata di cozze",
+            "D": "mussels"
+        },
+        {
+            "B": "lasagne",
+            "D": "pasta",
+            "E": "ragu",
+            "F": "mozzarella",
+            "G": "Libero Chianti",
+            "H": "Riserva di Famiglia",
+            "I": "Libero Toscana IGT"
+        },
+        {
+            "B": "Parmigiana",
+            "D": "aubregines",
+            "E": "mozzarella cheese",
+            "F": "parmesan",
+            "G": "Volare",
+            "H": "Prosecco",
+            "I": "Rosé Monogram"
+        },
+        {
+            "B": "spaghetti alla puttanesca",
+            "D": "pasta",
+            "E": "tomato sauce",
+            "F": "anchovies",
+            "G": "Prosecco",
+            "H": "Rosé Monogram",
+            "I": "Pinot Grigio"
+        },
+        {
+            "B": "polpettone",
+            "D": "meat"
+        },
+        {
+            "B": "Crostata",
+            "D": "shortcrust pastry",
+            "E": "jam"
+        },
+        {
+            "B": "Tiramisu",
+            "D": "mascarpone cheese",
+            "E": "coffee",
+            "G": "Amor diVino",
+            "H": "Crema di Limoncino",
+            "I": "Crema di caffè"
+        },
+        {
+            "C": "Leggenda:"
+        },
+        {
+            "D": "Carne Bianca"
+        },
+        {
+            "D": "Carne Rossa"
+        },
+        {
+            "D": "Pesce"
+        },
+        {
+            "D": "Formaggio"
+        },
+        {
+            "D": "Verdure"
+        },
+        {
+            "D": "Uova"
+        },
+        {
+            "D": "Frutta"
+        }
+    ],
+    "Abbinamenti generali": [
+        {
+            "B": "ABBINAMENTI GENERALI"
+        },
+        {
+            "B": "Note introduttive: Segue la proposta di elenco piatti con cui verrà istruito il bot nel caso il piatto richiesto dall'utente non fosse presente tra gli elenchi precedenti."
+        },
+        {
+            "B": "PORTATA",
+            "D": "INGREDIENTE PRINCIPALE",
+            "E": "ABBINAMENTO VINO",
+            "F": "ABBINAMENTO VINO",
+            "G": "ABBINAMENTO VINO",
+            "H": "MOTIVAZIONE ABBINAMENTO( testo 120/150 caratteri di massima)"
+        },
+        {
+            "B": "Antipasto/contorno",
+            "D": "CARNE BIANCA",
+            "E": "Volare",
+            "F": "Hugo",
+            "G": "Libero Bianco"
+        },
+        {
+            "B": "Antipasto/contorno",
+            "D": "CARNE ROSSA",
+            "E": "Libero Chianti",
+            "F": "Perlè",
+            "G": "Albergaccio"
+        },
+        {
+            "B": "Antipasto/contorno",
+            "D": "PESCE",
+            "E": "Volare",
+            "F": "Prosecco",
+            "G": "Rosé Monogram"
+        },
+        {
+            "B": "Antipasto/contorno",
+            "D": "FORMAGGIO",
+            "E": "Perlè",
+            "F": "Libero Chianti",
+            "G": "Riserva di Famiglia"
+        },
+        {
+            "B": "Antipasto/contorno",
+            "D": "VERDURE",
+            "E": "Prosecco",
+            "F": "Libero Bianco",
+            "G": "Perlè"
+        },
+        {
+            "B": "Antipasto/contorno",
+            "D": "UOVA",
+            "E": "Perlè",
+            "F": "Libero Chianti",
+            "G": "Riserva di Famiglia"
+        },
+        {
+            "B": "Antipasto/contorno",
+            "D": "CROSTACEI",
+            "E": "Volare",
+            "F": "Hugo",
+            "G": "Prosecco"
+        },
+        {
+            "B": "Antipasto/contorno",
+            "D": "MOLLUSCHI",
+            "E": "Volare",
+            "F": "Hugo",
+            "G": "Prosecco"
+        },
+        {
+            "B": "Primo",
+            "D": "CARNE BIANCA",
+            "E": "Libero Chianti",
+            "F": "Libero Toscana IGT",
+            "G": "Prosecco"
+        },
+        {
+            "B": "Primo",
+            "D": "CARNE ROSSA",
+            "E": "Riserva di Famiglia",
+            "F": "Libero Chianti",
+            "G": "Perlè"
+        },
+        {
+            "B": "Primo",
+            "D": "PESCE",
+            "E": "Volare",
+            "F": "Hugo",
+            "G": "Prosecco"
+        },
+        {
+            "B": "Primo",
+            "D": "FORMAGGIO",
+            "E": "Perlè",
+            "F": "Libero Chianti",
+            "G": "Riserva di Famiglia"
+        },
+        {
+            "B": "Primo",
+            "D": "VERDURE",
+            "E": "Volare",
+            "F": "Prosecco",
+            "G": "Rosé Monogram"
+        },
+        {
+            "B": "Primo",
+            "D": "UOVA",
+            "E": "Perlè",
+            "F": "Libero Chianti",
+            "G": "Riserva di Famiglia"
+        },
+        {
+            "B": "Primo",
+            "D": "CROSTACEI",
+            "E": "Volare",
+            "F": "Libero Bianco",
+            "G": "Prosecco"
+        },
+        {
+            "B": "Primo",
+            "D": "MOLLUSCHI",
+            "E": "Volare",
+            "F": "Hugo",
+            "G": "Prosecco"
+        },
+        {
+            "B": "Secondo",
+            "D": "CARNE BIANCA",
+            "E": "Riserva di Famiglia",
+            "F": "Libero Chianti",
+            "G": "Perlè"
+        },
+        {
+            "B": "Secondo",
+            "D": "CARNE ROSSA",
+            "E": "Libero Toscana IGT",
+            "F": "Riserva di Famiglia",
+            "G": "Albergaccio"
+        },
+        {
+            "B": "Secondo",
+            "D": "PESCE",
+            "E": "Volare",
+            "F": "Hugo",
+            "G": "Prosecco"
+        },
+        {
+            "B": "Secondo",
+            "D": "PESCE",
+            "E": "Rosé Monogram",
+            "F": "Blanc de Blancs",
+            "G": "Satèn"
+        },
+        {
+            "B": "Secondo",
+            "D": "PESCE",
+            "E": "Pinot Grigio",
+            "F": "Chardonnay",
+            "G": "Libero Bianco"
+        },
+        {
+            "B": "Secondo",
+            "D": "PESCE"
+        },
+        {
+            "B": "Secondo",
+            "D": "PESCE"
+        },
+        {
+            "B": "Secondo",
+            "D": "PESCE"
+        },
+        {
+            "B": "Secondo",
+            "D": "PESCE"
+        },
+        {
+            "B": "Secondo",
+            "D": "PESCE"
+        },
+        {
+            "B": "Secondo",
+            "D": "PESCE"
+        },
+        {
+            "B": "Dolce",
+            "D": "TORTA",
+            "E": "Amor diVino",
+            "F": "Splendia",
+            "G": "Cream liquors pack"
+        }
+    ],
+    "Ingredienti Principali": [
+        {
+            "B": "ABBINAMENTI GENERALI"
+        },
+        {
+            "B": "Note introduttive: Segue la proposta di elenco piatti con cui verrà istruito il bot nel caso il piatto richiesto dall'utente non fosse presente tra gli elenchi precedenti."
+        },
+        {
+            "B": "INGREDIENTE PRINCIPALE",
+            "D": "TAGS (parole divise da sole virgole",
+            "E": "ABBINAMENTO VINO",
+            "F": "ABBINAMENTO VINO",
+            "G": "ABBINAMENTO VINO",
+            "H": "MOTIVAZIONE ABBINAMENTO( testo 120/150 caratteri di massima)"
+        },
+        {
+            "B": "CARNE BIANCA",
+            "D": "pollo,coniglio,tacchino"
+        },
+        {
+            "B": "PESCE"
+        }
+    ],
+    "Abbinamenti occasioni": [
+        {
+            "B": "ABBINAMENTI OCCASIONI"
+        },
+        {
+            "B": "Note introduttive: E' richiesto il suggerimento da Fratelli Saraceni delle etichette maggiormente indicate per suddette occazioni."
+        },
+        {
+            "B": "OCCASIONE",
+            "D": "ABBINAMENTO VINO",
+            "E": "ABBINAMENTO VINO",
+            "F": "ABBINAMENTO VINO",
+            "G": "MOTIVAZIONE ABBINAMENTO( testo 120/150 caratteri di massima)"
+        },
+        {
+            "B": "Indipendence Day",
+            "D": "Red, White and Blue Bubbles pack",
+            "E": "Iconic Sparklers",
+            "F": "Blumond Magnum",
+            "G": "Vini"
+        },
+        {
+            "B": "Baby shower",
+            "D": "Baby sparklers pack",
+            "E": "Baby Blumond",
+            "F": "Baby Splendia"
+        },
+        {
+            "B": "Matrimonio",
+            "D": "Blumond",
+            "E": "Blumond Magnum",
+            "F": "Baby Blumond"
+        },
+        {
+            "B": "Addio al nubilato/Celibato",
+            "D": "Blumond",
+            "E": "Amor diVino",
+            "F": "Splendia"
+        },
+        {
+            "B": "Pool Party / Barbeque",
+            "D": "Let's Celebrate",
+            "E": "Private tasting room",
+            "F": "Made in Tuscany with love"
+        },
+        {
+            "B": "Compleanno",
+            "D": "Let's Celebrate",
+            "E": "Blumond Magnum",
+            "F": "Baby sparklers Party kit"
+        },
+        {
+            "B": "Valentine’s Day",
+            "D": "Amor diVino",
+            "E": "Blumond",
+            "F": "Iconic Sparklers"
+        },
+        {
+            "B": "International Women’s Day",
+            "D": "Amor diVino",
+            "E": "Splendia",
+            "F": "Rosé Monogram"
+        },
+        {
+            "B": "First Day of Spring",
+            "D": "Bottled sunshine",
+            "E": "Hugo",
+            "F": "Volare"
+        },
+        {
+            "B": "Easter",
+            "D": "Private tasting room",
+            "E": "Made in Tuscany with love",
+            "F": "Signature Collection"
+        },
+        {
+            "B": "Mother’s Day",
+            "D": "Amor diVino",
+            "E": "Iconic Sparklers",
+            "F": "Blumond"
+        },
+        {
+            "B": "Memorial Day",
+            "D": "Red, White and Blue Bubbles pack",
+            "E": "Iconic Sparklers",
+            "F": "Riserva di famiglia"
+        },
+        {
+            "B": "Father’s Day",
+            "D": "Libero Toscana IGT",
+            "E": "Family's treasure pack",
+            "F": "Il Principe"
+        },
+        {
+            "B": "First Day of Summer",
+            "D": "Hello Summer pack",
+            "E": "Bottled sunshine",
+            "F": "Hugo"
+        },
+        {
+            "B": "Labor Day",
+            "D": "Red, White and Blue Bubbles pack",
+            "E": "Iconic Sparklers",
+            "F": "Cream liquors pack"
+        },
+        {
+            "B": "Halloween",
+            "D": "Cream liquors pack",
+            "E": "Let's Celebrate",
+            "F": "Iconic Sparklers"
+        },
+        {
+            "B": "Thanksgiving Day",
+            "D": "Private tasting room",
+            "E": "Made in Tuscany with love",
+            "F": "Let's Celebrate"
+        },
+        {
+            "B": "Christmas Day",
+            "D": "Blumond",
+            "E": "Amor diVino",
+            "F": "Cream liquors pack"
+        },
+        {
+            "B": "New Year’s Eve",
+            "D": "Blumond",
+            "E": "Blumond Magnum",
+            "F": "Let's Celebrate"
+        },
+        {
+            "B": "Super Bowl",
+            "D": "Let's Celebrate",
+            "E": "Baby sparklers Party kit",
+            "F": "Blumond Magnum"
+        }
+    ],
+    "Lista vini per fallback": [
+        {
+            "B": "LISTA VINI PER FALLBACK"
+        },
+        {
+            "B": "Note introduttive:  E' richiesto il suggerimento da Fratelli Saraceni di un set generico di 5 etichette da mostrare all'utente in caso il bot non riconosca la richiesta"
+        },
+        {
+            "B": "NOME VINO",
+            "C": "NOME VINO",
+            "D": "NOME VINO",
+            "E": "NOME VINO",
+            "F": "NOME VINO"
+        },
+        {
+            "B": "Blumond",
+            "C": "Amor diVino",
+            "D": "Prosecco",
+            "E": "Libero Toscana IGT",
+            "F": "Riserva di famiglia"
+        }
+    ],
+    "Aggettivi vino": [
+        {
+            "B": "AGGETTIVI VINO"
+        },
+        {
+            "B": "Note introduttive: Segue l'elenco delle etichette della Cantina Saraceni."
+        },
+        {
+            "B": "È richiesto l'inserimento di un aggettivo (selezionato da una lista di massimo 10) in corrispondenza di ogni etichetta."
+        },
+        {
+            "B": "NOME VINO",
+            "D": "AGGETTIVO"
+        },
+        {
+            "B": "Amor Divino"
+        },
+        {
+            "B": "Blumond"
+        },
+        {
+            "B": "Hugo"
+        },
+        {
+            "B": "Splendia Fragolino"
+        },
+        {
+            "B": "Volare"
+        },
+        {
+            "B": "Mario! The sparkling lemoncello"
+        },
+        {
+            "B": "Crema di caffé"
+        },
+        {
+            "B": "Crema di limoncino"
+        },
+        {
+            "B": "Crema di cioccolato"
+        },
+        {
+            "B": "Crema di pistacchio"
+        },
+        {
+            "B": "Crema di fragole"
+        },
+        {
+            "B": "Crema di grappa"
+        },
+        {
+            "B": "Libero toscana IGT"
+        },
+        {
+            "B": "Libero Chianti DOGC"
+        },
+        {
+            "B": "Limoncello d'autore"
+        },
+        {
+            "B": "Prosecco DOC"
+        },
+        {
+            "B": "Perléé sparkling red"
+        },
+        {
+            "B": "Libero riserva famiglia"
+        },
+        {
+            "B": "Solatìo chianti"
+        },
+        {
+            "B": "Libero bianco"
+        },
+        {
+            "B": "Il principe"
+        },
+        {
+            "B": "Albergaccio rosso di toscana"
+        },
+        {
+            "B": "Conti serristori rosso di toscana"
+        },
+        {
+            "B": "Fontanelle chianti gran selezione"
+        },
+        {
+            "B": "Conti serristori bianco"
+        },
+        {
+            "B": "Rosée cuvée monogram"
+        },
+        {
+            "B": "Blanc de blancs cuvée monogram"
+        },
+        {
+            "B": "Dosage zero millesimato cuvée"
+        },
+        {
+            "B": "Satén cuvée monogram"
+        },
+        {
+            "B": "Vermouth rosso superiore"
+        },
+        {
+            "B": "Vermouth bianco superiore"
+        },
+        {
+            "B": "Conti serristori chianti DOC"
+        },
+        {
+            "B": "Coribante castello monaci"
+        },
+        {
+            "B": "Santelmo conti serristori"
+        },
+        {
+            "B": "Pinot grigio del collio"
+        },
+        {
+            "B": "Chardonnay del collio"
+        }
+    ]
+}
