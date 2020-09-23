@@ -69,7 +69,7 @@ var primi;
 var secondi;
 var dessert;
 var ricetteItaliane;
-// var abbinamentiOccasioni;
+var listaOccasioni;
 var listaParoleChiave = [];
 var listaCompletaRicette = [];
 var ingredientiPrincipali = [];
@@ -85,6 +85,7 @@ var idIngredienteSecondario = 1;
 var idVini = 1;
 var idAbbinamento = 1;
 var idAbbinamentoPerTipologia = 1;
+var idOccasioni = 1;
 
 // var varToString = varObj => Object.keys(varObj)[0];
 
@@ -130,20 +131,14 @@ function ricercaOggetto (nomeOggetto, listaOggetti) {
   return 0;
 }
 
-function estrazioneViniConAggiornamentoListaVini (riga) {
+function estrazioneViniConAggiornamentoListaVini (riga, colonneVini) {
   var listaViniTmp = [];
-  if (riga.G) {
-    estrazioneListaVini(riga.G);
-    listaViniTmp.push(ricercaOggetto(riga.G, listaVini));
-  }
-  if (riga.H) {
-    estrazioneListaVini(riga.H);
-    listaViniTmp.push(ricercaOggetto(riga.H, listaVini));
-  }
-  if (riga.I) {
-    estrazioneListaVini(riga.I);
-    listaViniTmp.push(ricercaOggetto(riga.I, listaVini));
-  }
+  colonneVini.forEach(function (colonna) {
+    if (riga[colonna]) {
+      estrazioneListaVini(riga[colonna]);
+      listaViniTmp.push(ricercaOggetto(riga[colonna], listaVini));
+    }
+  });
   return listaViniTmp;
 }
 
@@ -180,7 +175,7 @@ function estrazioneListaRicette (nomePagina) {
       strutturaRicetta.tags = [nomePagina];
       strutturaRicetta.ingredientiPrincipali = estrazioneIngredientiPrincipaliConAggiornamentoLista(listaPagina[i]);
       strutturaRicetta.ingredientiSecondari = estrazioneIngredientiSecondariConAggiornamentoLista(listaPagina[i]);
-      strutturaRicetta.viniProposti = estrazioneViniConAggiornamentoListaVini(listaPagina[i]);
+      strutturaRicetta.viniProposti = estrazioneViniConAggiornamentoListaVini(listaPagina[i], ['G', 'H', 'I']);
       strutturaRicetta.motivazioneAbbinamento = listaPagina[i].J;
       idRicetta++;
       listaRicette.push(strutturaRicetta);
@@ -254,23 +249,6 @@ function estrazioneParoleChiave (lista) {
   return arrayTmp;
 }
 
-function estrazioneViniSuEFG (riga) {
-  var listaViniTmp = [];
-  if (riga.E) {
-    estrazioneListaVini(riga.E);
-    listaViniTmp.push(ricercaOggetto(riga.E, listaVini));
-  }
-  if (riga.F) {
-    estrazioneListaVini(riga.F);
-    listaViniTmp.push(ricercaOggetto(riga.F, listaVini));
-  }
-  if (riga.G) {
-    estrazioneListaVini(riga.G);
-    listaViniTmp.push(ricercaOggetto(riga.G, listaVini));
-  }
-  return listaViniTmp;
-}
-
 function estrazioneAbbinamentiGenerali (nomePagina) {
   var listaAbbinamenti = [];
   var listaPagina = listaRicetteDaExcel[nomePagina];
@@ -280,7 +258,7 @@ function estrazioneAbbinamentiGenerali (nomePagina) {
       strutturaAbbinamento.id = idAbbinamento;
       strutturaAbbinamento.nome = listaPagina[i].D.toLowerCase();
       strutturaAbbinamento.tags = [nomePagina.toLowerCase(), listaPagina[i].B.toLowerCase()];
-      strutturaAbbinamento.viniProposti = estrazioneViniSuEFG(listaPagina[i]);
+      strutturaAbbinamento.viniProposti = estrazioneViniConAggiornamentoListaVini(listaPagina[i], ['E', 'F', 'G']);
       strutturaAbbinamento.motivazioneAbbinamento = listaPagina[i].H; // normalmente la motivazione sta in J
       idAbbinamento++;
       listaAbbinamenti.push(strutturaAbbinamento);
@@ -302,12 +280,28 @@ function estrazioneAbbinamentiPerTipologia (nomePagina) {
         const regexFieldSpace = /[.,\/ -]/;
         strutturaAbbinamentoPerTipologia.tags = listaPagina[i].D.split(regexFieldSpace);
       }
-      strutturaAbbinamentoPerTipologia.viniProposti = estrazioneViniSuEFG(listaPagina[i]);
+      strutturaAbbinamentoPerTipologia.viniProposti = estrazioneViniConAggiornamentoListaVini(listaPagina[i], ['E', 'F', 'G']);
       idAbbinamentoPerTipologia++;
       listaAbbinamentiPerTipologia.push(strutturaAbbinamentoPerTipologia);
     }
   }
   return listaAbbinamentiPerTipologia;
+}
+
+function estrazioneListaOccasioni (nomePagina) {
+  var listaAbbinamentiTmp = [];
+  var listaPagina = listaRicetteDaExcel[nomePagina];
+  for (let i = 3; i < listaPagina.length; i++) {
+    if (listaPagina[i].B) {
+      var strutturaOccasione = {};
+      strutturaOccasione.id = idOccasioni;
+      strutturaOccasione.nome = listaPagina[i].B.toLowerCase();
+      strutturaOccasione.viniProposti = estrazioneViniConAggiornamentoListaVini(listaPagina[i], ['D', 'E', 'F']);
+      idOccasioni++;
+      listaAbbinamentiTmp.push(strutturaOccasione);
+    }
+  }
+  return listaAbbinamentiTmp;
 }
 
 antipastiContorni = estrazioneListaRicette('Antipasticontorni');
@@ -317,6 +311,7 @@ dessert = estrazioneListaRicette('Dessert');
 ricetteItaliane = estrazioneListaRicette('Ricette italiane');
 listaAbbinamentiGenerali = estrazioneAbbinamentiGenerali('Abbinamenti generali');
 listaAbbinamentiPerTipologia = estrazioneAbbinamentiPerTipologia('Ingredienti Principali');
+listaOccasioni = estrazioneListaOccasioni('Abbinamenti occasioni');
 listaCompletaRicette = antipastiContorni.concat(primi, secondi, dessert, ricetteItaliane);
 aggiornamentoListeVarieDaRicette(listaCompletaRicette);
 estrazioneParoleChiave(listaCompletaRicette);
@@ -336,12 +331,13 @@ estrazioneParoleChiavePerCategoria(listaParoleChiavePerCategoria, ingredientiSec
 estrazioneParoleChiavePerCategoria(listaParoleChiavePerCategoria, listaVini, 'listaVini');
 // estrazioneParoleChiavePerCategoria();
 // console.log('parole chiave per categoria',listaParoleChiavePerCategoria);
-// console.log('lista ricette:', listaCompletaRicette);
-// console.log('lista ingredienti principali:',ingredientiPrincipali);
-// console.log('lista ingredienti secondari:',ingredientiSecondari);
-// console.log('lista vini:',listaVini);
-// console.log('lista parole chiave',listaParoleChiave);
-// console.log(listaAbbinamentiPerTipologia)
+// console.log('\nlista ricette:\n', listaCompletaRicette);
+// console.log('\nlista ingredienti principali:\n', ingredientiPrincipali);
+// console.log('\nlista ingredienti secondari:\n', ingredientiSecondari);
+// console.log('\nlista occasioni\n', listaOccasioni);
+// console.log('\nlista vini:\n', listaVini);
+// console.log('\nlista parole chiave\n', listaParoleChiave);
+// console.log('\nlista abbinamenti per tipologia\n', listaAbbinamentiPerTipologia);
 // console.log(listaRicetteDaExcel['Abbinamenti per tipologia']);inamentiGenerali);
 
 var strutture = {
@@ -350,6 +346,7 @@ var strutture = {
   listaAbbinamentiGenerali: listaAbbinamentiGenerali,
   listaIngredientiPrincipali: ingredientiPrincipali,
   listaIngredientiSecondari: ingredientiSecondari,
+  listaOccasioni: listaOccasioni,
   listaVini: listaVini,
   listaParoleChiave: listaParoleChiave,
   listaParoleChiavePerCategoria: listaParoleChiavePerCategoria
