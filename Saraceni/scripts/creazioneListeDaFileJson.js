@@ -1,4 +1,6 @@
-const listaRicetteDaExcel = require('./excelToJson');
+// Include fs module  
+var fs = require('fs');
+var pathFileJson = '../others/ricette.json'
 
 /*
 Macrocategorie importanti : 'carne / pesce / verdure',
@@ -64,6 +66,8 @@ function StrutturaRicetta(id,nomeRicetta,tags,ingredientiPrincipali,ingredientiS
 }
 */
 
+const listaRicetteDaFileJson = JSON.parse(fs.readFileSync(pathFileJson, 'utf8'));
+
 var antipastiContorni;
 var primi;
 var secondi;
@@ -90,7 +94,7 @@ var idOccasioni = 1;
 // var varToString = varObj => Object.keys(varObj)[0];
 
 // POPOLA LISTA VINI
-function estrazioneListaVini (nomeVino) {
+function estrazioneListaVini(nomeVino) {
   if (listaVini.filter(vino => vino.nome === nomeVino).length === 0) {
     var vino = {};
     vino.id = idVini;
@@ -101,7 +105,7 @@ function estrazioneListaVini (nomeVino) {
   }
 }
 
-function estrazioneListaIngredientiPrincipali (nomeIngredientePrincipale) {
+function estrazioneListaIngredientiPrincipali(nomeIngredientePrincipale) {
   if (ingredientiPrincipali.filter(i => i.nome === nomeIngredientePrincipale).length === 0) {
     var ingredientePrincipale = {};
     ingredientePrincipale.id = idIngredientePrincipale;
@@ -112,7 +116,7 @@ function estrazioneListaIngredientiPrincipali (nomeIngredientePrincipale) {
   }
 }
 
-function estrazioneListaIngredientiSecondari (nomeIngredienteSecondario) {
+function estrazioneListaIngredientiSecondari(nomeIngredienteSecondario) {
   if (ingredientiSecondari.filter(i => i.nome === nomeIngredienteSecondario).length === 0) {
     var ingredienteSecondario = {};
     ingredienteSecondario.id = idIngredienteSecondario;
@@ -123,7 +127,7 @@ function estrazioneListaIngredientiSecondari (nomeIngredienteSecondario) {
   }
 }
 
-function ricercaOggetto (nomeOggetto, listaOggetti) {
+function ricercaOggetto(nomeOggetto, listaOggetti) {
   var found = listaOggetti.find(oggetto => oggetto.nome === nomeOggetto);
   if (found) {
     return found.id;
@@ -131,7 +135,7 @@ function ricercaOggetto (nomeOggetto, listaOggetti) {
   return 0;
 }
 
-function estrazioneViniConAggiornamentoListaVini (riga, colonneVini) {
+function estrazioneViniConAggiornamentoListaVini(riga, colonneVini) {
   var listaViniTmp = [];
   colonneVini.forEach(function (colonna) {
     if (riga[colonna]) {
@@ -142,7 +146,7 @@ function estrazioneViniConAggiornamentoListaVini (riga, colonneVini) {
   return listaViniTmp;
 }
 
-function estrazioneIngredientiPrincipaliConAggiornamentoLista (riga) {
+function estrazioneIngredientiPrincipaliConAggiornamentoLista(riga) {
   var listaIngredientiPrincipali = [];
   if (riga.D) {
     estrazioneListaIngredientiPrincipali(riga.D);
@@ -151,7 +155,7 @@ function estrazioneIngredientiPrincipaliConAggiornamentoLista (riga) {
   return listaIngredientiPrincipali;
 }
 
-function estrazioneIngredientiSecondariConAggiornamentoLista (riga) {
+function estrazioneIngredientiSecondariConAggiornamentoLista(riga) {
   var listaIngredientiSecondari = [];
   if (riga.E) {
     estrazioneListaIngredientiSecondari(riga.E);
@@ -164,9 +168,9 @@ function estrazioneIngredientiSecondariConAggiornamentoLista (riga) {
   return listaIngredientiSecondari;
 }
 
-function estrazioneListaRicette (nomePagina) {
+function estrazioneListaRicette(nomePagina) {
   var listaRicette = [];
-  var listaPagina = listaRicetteDaExcel[nomePagina];
+  var listaPagina = listaRicetteDaFileJson[nomePagina];
   for (let i = 3; i < listaPagina.length; i++) {
     if (listaPagina[i].B) {
       var strutturaRicetta = {}; // come uscirà fuori l'oggetto RICETTA
@@ -184,13 +188,13 @@ function estrazioneListaRicette (nomePagina) {
   return listaRicette;
 }
 
-function aggiornamentoLista (oggetto, lista) {
+function aggiornamentoLista(oggetto, lista) {
   if (lista.filter(o => o === oggetto).length === 0) {
     lista.push(oggetto);
   }
 }
 
-function aggiornamentoListeVarieDaRicette (listaRicette) {
+function aggiornamentoListeVarieDaRicette(listaRicette) {
   for (let i = 0; i < listaRicette.length; i++) {
     for (let j = 0; j < listaRicette[i].ingredientiPrincipali.length; j++) {
       var codice1 = listaRicette[i].ingredientiPrincipali[j];
@@ -225,7 +229,7 @@ function aggiornamentoListeVarieDaRicette (listaRicette) {
   }
 }
 
-function estrazioneParoleChiavePerCategoria (raccoglitore, lista, nomeCategoria) {
+function estrazioneParoleChiavePerCategoria(raccoglitore, lista, nomeCategoria) {
   var arrayTmp = [];
   lista.forEach((item, i) => {
     arrayTmp.push(item.nome);
@@ -234,7 +238,7 @@ function estrazioneParoleChiavePerCategoria (raccoglitore, lista, nomeCategoria)
   return arrayTmp;
 }
 
-function estrazioneParoleChiave (lista) {
+function estrazioneParoleChiave(lista) {
   var arrayTmp = [];
   for (let i = 0; i < lista.length; i++) {
     arrayTmp.push(lista[i].nome);
@@ -249,9 +253,9 @@ function estrazioneParoleChiave (lista) {
   return arrayTmp;
 }
 
-function estrazioneAbbinamentiGenerali (nomePagina) {
+function estrazioneAbbinamentiGenerali(nomePagina) {
   var listaAbbinamenti = [];
-  var listaPagina = listaRicetteDaExcel[nomePagina];
+  var listaPagina = listaRicetteDaFileJson[nomePagina];
   for (let i = 3; i < listaPagina.length; i++) {
     if (listaPagina[i].B) {
       var strutturaAbbinamento = {}; // come uscirà fuori l'oggetto ABBINAMENTO
@@ -267,9 +271,9 @@ function estrazioneAbbinamentiGenerali (nomePagina) {
   return listaAbbinamenti;
 }
 
-function estrazioneAbbinamentiPerTipologia (nomePagina) {
+function estrazioneAbbinamentiPerTipologia(nomePagina) {
   var listaAbbinamentiPerTipologia = [];
-  var listaPagina = listaRicetteDaExcel[nomePagina];
+  var listaPagina = listaRicetteDaFileJson[nomePagina];
   for (let i = 3; i < listaPagina.length; i++) {
     if (listaPagina[i].B) {
       var strutturaAbbinamentoPerTipologia = {};
@@ -288,9 +292,9 @@ function estrazioneAbbinamentiPerTipologia (nomePagina) {
   return listaAbbinamentiPerTipologia;
 }
 
-function estrazioneListaOccasioni (nomePagina) {
+function estrazioneListaOccasioni(nomePagina) {
   var listaAbbinamentiTmp = [];
-  var listaPagina = listaRicetteDaExcel[nomePagina];
+  var listaPagina = listaRicetteDaFileJson[nomePagina];
   for (let i = 3; i < listaPagina.length; i++) {
     if (listaPagina[i].B) {
       var strutturaOccasione = {};
@@ -338,7 +342,7 @@ estrazioneParoleChiavePerCategoria(listaParoleChiavePerCategoria, listaVini, 'li
 // console.log('\nlista vini:\n', listaVini);
 // console.log('\nlista parole chiave\n', listaParoleChiave);
 // console.log('\nlista abbinamenti per tipologia\n', listaAbbinamentiPerTipologia);
-// console.log(listaRicetteDaExcel['Abbinamenti per tipologia']);inamentiGenerali);
+// console.log(listaRicetteDaFileJson['Abbinamenti per tipologia']);inamentiGenerali);
 
 var strutture = {
   listaRicette: listaCompletaRicette,
