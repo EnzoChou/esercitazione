@@ -69,8 +69,7 @@ var somiglianzaParoleArray = function (arrayParole, arrayDiConfronto) {
 };
 
 var ricercaViniProposti = function (listaIdVini, listaVini) {
-  console.log('ricercaViniProposti\n', 'listaIdVini', listaIdVini);
-  return listaVini.filter(vino => listaIdVini.includes(id => vino.id === id));
+  return listaVini.filter(vino => listaIdVini.some(id => vino.id === id));
 };
 
 var indiceMassimoAccoppiamento = function (arr) {
