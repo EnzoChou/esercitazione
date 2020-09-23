@@ -1,108 +1,117 @@
-var natural = require('natural')
-var funzioniPerRicercaParole = {}
+var natural = require('natural');
+var funzioniPerRicercaParole = {};
 
 var ricetteDaIDs = function (listaID, listaRicette) {
-  return listaID.filter(id => listaRicette.id.find(idRicetta => id === idRicetta))
-}
+  return listaID.filter(id => listaRicette.id.find(idRicetta => id === idRicetta));
+};
 
 var ricetteDaIngrediente = function (ingrediente, listaRicette) {
-  return ingrediente.ricette.map(codiceRicetta => listaRicette.find(ricetta => ricetta.id === codiceRicetta))
-}
+  return ingrediente.ricette.map(codiceRicetta => listaRicette.find(ricetta => ricetta.id === codiceRicetta));
+};
 
 var ricetteDaIngredienti = function (ingredienti, listaRicette) {
-  var arrayRicette = []
+  var arrayRicette = [];
   ingredienti.forEach((item, i) => {
-    arrayRicette = arrayRicette.concat(ricetteDaIngrediente(item, listaRicette))
-  })
-  return arrayRicette
-}
+    arrayRicette = arrayRicette.concat(ricetteDaIngrediente(item, listaRicette));
+  });
+  return arrayRicette;
+};
 
 var ricercaTipoIngredientePapabile = function (arrayParole, tipoIngredienti) {
-  var listaDiRitorno = []
+  var listaDiRitorno = [];
   listaDiRitorno = tipoIngredienti.find(tipoIngrediente =>
     somiglianzaParoleArray(arrayParole, tipoIngrediente) > 0.5
-  )
-  console.log('listaDiRitorno tipo ingrediente papabile\n', listaDiRitorno)
-  return listaDiRitorno
+  );
+  return listaDiRitorno;
+};
+
+function filtroListaDalNome(arrayParole, lista) {
+  return lista.filter(oggetto =>
+    natural.JaroWinklerDistance(oggetto.nome, arrayParole.join(), undefined, true) > 0.8
+  );
 }
 
-function filtroListaDalNome (arrayParole, lista) {
-  var nome = arrayParole.toString()
-  
-}
-
-function filtroPerTag (arrayParole, lista) {
-  return lista.includes(oggetto =>
-    arrayParole.map(parola =>
-      oggetto.tags.includes(tag =>
-        natural.JaroWinklerDistance(parola, tag, undefined, true) > 0.8
-      )
-    )
-  )
+function filtroPerTag(arrayParole, lista) {
+  return lista.filter(oggetto =>
+    oggetto.tags.some(tag => natural.JaroWinklerDistance(tag, arrayParole.join(), undefined, true) > 0.8)
+  );
 }
 
 var ricercaIngredientiPapabili = function (arrayParole, listaIngredienti) {
   var listaOrdinata = listaIngredienti.filter(function (ingrediente) {
     return arrayParole.find(function (parola) {
       if (natural.JaroWinklerDistance(ingrediente.nome, parola, undefined, true) > 0.8) {
-        ingrediente.match = natural.JaroWinklerDistance(ingrediente.nome, parola, undefined, true)
-        return true
+        ingrediente.match = natural.JaroWinklerDistance(ingrediente.nome, parola, undefined, true);
+        return true;
       }
-      return false
-    })
-  })
+      return false;
+    });
+  });
   var listaDiRitorno = listaOrdinata.sort(function (a, b) {
-    return b.match - a.match
-  })
-  console.log('lista ingredienti papabili ordinati', listaDiRitorno)
-  return listaDiRitorno
-}
+    return b.match - a.match;
+  });
+  console.log('lista ingredienti papabili ordinati', listaDiRitorno);
+  return listaDiRitorno;
+};
 
 var somiglianzaParoleArray = function (arrayParole, arrayDiConfronto) {
-  console.log('\n\narrayParole', arrayParole)
-  console.log('\n\narrayDiConfronto', arrayDiConfronto)
-  var contatore = 0
+  // console.log('\n\narrayParole', arrayParole)
+  // console.log('\n\narrayDiConfronto', arrayDiConfronto)
+  var contatore = 0;
   arrayParole.forEach((item, i) => {
     arrayDiConfronto.forEach((item2, j) => {
       if (natural.JaroWinklerDistance(item, item2, undefined, true) > 0.8) {
-        contatore += natural.JaroWinklerDistance(item, item2, undefined, true)
+        contatore += natural.JaroWinklerDistance(item, item2, undefined, true);
       }
-    })
-  })
-  return contatore / (arrayDiConfronto.length)
-}
+    });
+  });
+  return contatore / (arrayDiConfronto.length);
+};
 
 var ricercaViniProposti = function (listaIdVini, listaVini) {
-  console.log('ricercaViniProposti\n', 'listaIdVini', listaIdVini)
-  return listaVini.filter(vino => listaIdVini.includes(id => vino.id === id))
-}
+  console.log('ricercaViniProposti\n', 'listaIdVini', listaIdVini);
+  return listaVini.filter(vino => listaIdVini.includes(id => vino.id === id));
+};
 
 var indiceMassimoAccoppiamento = function (arr) {
   if (arr.length === 0) {
-    return -1
+    return -1;
   }
 
-  var max = arr[0]
-  var maxIndex = 0
+  var max = arr[0];
+  var maxIndex = 0;
 
   for (var i = 1; i < arr.length; i++) {
     if (arr[i] > max) {
-      maxIndex = i
-      max = arr[i]
+      maxIndex = i;
+      max = arr[i];
     }
   }
 
-  return maxIndex
-}
+  return maxIndex;
+};
 
-funzioniPerRicercaParole.ricetteDaIDs = ricetteDaIDs
-funzioniPerRicercaParole.ricetteDaIngrediente = ricetteDaIngrediente
-funzioniPerRicercaParole.ricetteDaIngredienti = ricetteDaIngredienti
-funzioniPerRicercaParole.somiglianzaParoleArray = somiglianzaParoleArray
-funzioniPerRicercaParole.indiceMassimoAccoppiamento = indiceMassimoAccoppiamento
-funzioniPerRicercaParole.ricercaIngredientiPapabili = ricercaIngredientiPapabili
-funzioniPerRicercaParole.ricercaViniProposti = ricercaViniProposti
-funzioniPerRicercaParole.ricercaTipoIngredientePapabile = ricercaTipoIngredientePapabile
-funzioniPerRicercaParole.filtroPerTag = filtroPerTag
+var concatTags = function (lista) {
+  var listaTmp = [];
+  for (let i = 0; i < lista.length; i++) {
+    for (let j = 0; j < lista[i].tags.length; j++) {
+      var arrayizzazione = [lista[i].tags[j]];
+      listaTmp.push(arrayizzazione);
+    }
+  }
+  return listaTmp;
+};
 
-module.exports = funzioniPerRicercaParole
+funzioniPerRicercaParole.ricetteDaIDs = ricetteDaIDs;
+funzioniPerRicercaParole.ricetteDaIngrediente = ricetteDaIngrediente;
+funzioniPerRicercaParole.ricetteDaIngredienti = ricetteDaIngredienti;
+funzioniPerRicercaParole.somiglianzaParoleArray = somiglianzaParoleArray;
+funzioniPerRicercaParole.indiceMassimoAccoppiamento = indiceMassimoAccoppiamento;
+funzioniPerRicercaParole.ricercaIngredientiPapabili = ricercaIngredientiPapabili;
+funzioniPerRicercaParole.ricercaViniProposti = ricercaViniProposti;
+funzioniPerRicercaParole.ricercaTipoIngredientePapabile = ricercaTipoIngredientePapabile;
+funzioniPerRicercaParole.filtroPerTag = filtroPerTag;
+funzioniPerRicercaParole.filtroListaDalNome = filtroListaDalNome;
+funzioniPerRicercaParole.concatTags = concatTags;
+
+module.exports = funzioniPerRicercaParole;
