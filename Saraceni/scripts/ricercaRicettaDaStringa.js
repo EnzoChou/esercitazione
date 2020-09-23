@@ -191,7 +191,9 @@ var metodoScelto = function (richiestaUtente) {
   var listaPapabile = arrayAlgoritmoScelto[indexScelto](paroleDaCercare);
   console.log('listaPapabile', listaPapabile);
   if (listaPapabile[0] !== undefined) {
-    return funzioniGeneriche.ricercaViniProposti(listaPapabile[0].viniProposti, listaVini);
+    var arrayDiRitorno = funzioniGeneriche.ricercaViniProposti(listaPapabile[0].viniProposti, listaVini);
+    console.log('arrayDiRitorno', arrayDiRitorno);
+    return arrayDiRitorno;
   } else {
     return [];
   }
