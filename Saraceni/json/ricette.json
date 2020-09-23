@@ -1287,11 +1287,28 @@
             "H": "MOTIVAZIONE ABBINAMENTO( testo 120/150 caratteri di massima)"
         },
         {
-            "B": "CARNE BIANCA",
-            "D": "pollo,coniglio,tacchino"
+            "B": "white meat",
+            "D": "chicken,rabbit,turkey,lamb,veal"
         },
         {
-            "B": "PESCE"
+            "B": "Red meat",
+            "D": "beef,horse,pork,horsemeat,boar meat,game"
+        },
+        {
+            "B": "Fish",
+            "D": "bream,sea bass,swordfish,tuna,salmon,sole,mackerel,squids"
+        },
+        {
+            "B": "shellfishes",
+            "D": "mussels,clams,oyster,crayfish,lobster,shrimp,prawn,sea urchins"
+        },
+        {
+            "B": "Cheese",
+            "D": "cheddar,gorgonzola,emmental,mozzarella cheese,parmesan,pecorino"
+        },
+        {
+            "B": "Vegetables",
+            "D": "aubergines,eggplants,zucchini,courgettes,peppers,salad,fennel, \nbroccoli,carrots,tomatoes,garlic,onion,beens,chcikpeas,peas"
         }
     ],
     "Abbinamenti occasioni": [
