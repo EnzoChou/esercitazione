@@ -1,5 +1,5 @@
 excelToJson.js => 
-estrae da Excel i dati utili per il foodparing
+estrae da Excel i dati utili per il foodpairing
 
 creazioneListeDaFileJson.js => 
 crea le liste necessarie e non necessarie dopo l'estrazione dei dati dall'excel
