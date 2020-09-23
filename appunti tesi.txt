@@ -6,3 +6,4 @@ rest api -> servizi di richieste GET POST PUT
 artificial intelligente -> nlp
 natural package -> naive Bayes classifier, JaroWinklerDistance
 mathematical model
+integrazioni utilizzate dal bot
