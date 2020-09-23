@@ -167,7 +167,9 @@ var metodoScelto = function (richiestaUtente) {
   var indexScelto = punteggi.findIndex(elem => elem > 0.9);
   console.log('index scelto', indexScelto);
 
-  return arrayAlgoritmoScelto[indexScelto](paroleDaCercare);
+  var listaPapabile = arrayAlgoritmoScelto[indexScelto](paroleDaCercare);
+  console.log('listaPapabile', listaPapabile);
+  return listaPapabile[0].viniProposti;
 };
 
 var modulo = {};
