@@ -67,7 +67,6 @@ function StrutturaRicetta(id,nomeRicetta,tags,ingredientiPrincipali,ingredientiS
 */
 
 const listaRicetteDaFileJson = JSON.parse(fs.readFileSync(pathFileJson, 'utf8'));
-
 var antipastiContorni;
 var primi;
 var secondi;
@@ -337,7 +336,8 @@ estrazioneParoleChiave(listaCompletaRicette);
 listaParoleChiave = listaParoleChiave.concat(
   estrazioneParoleChiave(listaCompletaRicette),
   estrazioneParoleChiave(ingredientiPrincipali),
-  estrazioneParoleChiave(ingredientiSecondari)
+  estrazioneParoleChiave(ingredientiSecondari),
+  estrazioneParoleChiave(listaOccasioni)
 );
 
 estrazioneParoleChiavePerCategoria(listaParoleChiavePerCategoria, antipastiContorni, 'antipastiContorni');
