@@ -7,3 +7,11 @@ artificial intelligente -> nlp
 natural package -> naive Bayes classifier, JaroWinklerDistance
 mathematical model
 integrazioni utilizzate dal bot
+
+
+Struttura
+Cartelle:
+- json: salviamo tutti i file contenenti i dati che l'integrazione utilizza
+- script: script chiave per la preparazione dei dati dell'integrazione
+- utils: file con gestione di supporto alle integrazioni
+- integrations: integrazioni utilizzate dal bot

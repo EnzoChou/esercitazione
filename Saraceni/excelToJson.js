@@ -1,10 +1,10 @@
-'use strict'
-const excelToJson = require('convert-excel-to-json')
+'use strict';
+const excelToJson = require('convert-excel-to-json');
 
 const result = excelToJson({
   sourceFile: '../IT Ricette per Foodpairing + ricette italiane.xlsx'
-})
+});
 
 console.log(result);
 
-module.exports = result
+module.exports = result;
