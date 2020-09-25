@@ -204,7 +204,7 @@ var metodoScelto = function (richiestaUtente) {
 
 var modulo = {};
 
-// metodoScelto('i\'d like some rabbit');
+metodoScelto('i\'m watching harry potter tonight and i\'d like something for my compleanno');
 
 // modulo.matchRicetta = matchRicetta;
 // modulo.ricetteTrovateDaIngredientiPrincipali = ricetteTrovateDaIngredientiPrincipali;
