@@ -1,6 +1,6 @@
 var strutture = require('./creazioneListeDaFileJson');
 var natural = require('natural');
-var funzioniGeneriche = require('./funzioniPerRicercaParole');
+var funzioniGeneriche = require('./funzioniGeneriche');
 natural.PorterStemmer.attach(); // english language set -> 'words'.tokenizeAndStem() toSingularizeAndTurnIntoArrayOfWords
 
 var listaRicette = strutture.listaRicette;
@@ -139,7 +139,6 @@ var listaTipoIngrediente = ['carne bianca', 'carne rossa', 'formaggio', 'verdure
 
 var occasioneTrovata = function (arrayParole) {
   var listaOccasioniTmp = [];
-  console.log('\nlista occasioni originale\n', listaOccasioni);
   listaOccasioniTmp = funzioniGeneriche.filtroListaDalNome(arrayParole, listaOccasioni);
   console.log('\nlista occasioni tmp\n', listaOccasioniTmp);
   return listaOccasioniTmp;
@@ -191,7 +190,7 @@ var metodoScelto = function (richiestaUtente) {
   var indexScelto = punteggi.findIndex(elem => elem > 0.9);
   console.log('index scelto', indexScelto);
 
-  var listaPapabile = arrayAlgoritmoScelto[indexScelto](paroleDaCercare);
+  var listaPapabile = arrayAlgoritmoScelto[indexScelto](paroleDaCercareFiltrate);
   console.log('listaPapabile', listaPapabile);
   if (listaPapabile[0] !== undefined) {
     var arrayDiRitorno = funzioniGeneriche.ricercaViniProposti(listaPapabile[0].viniProposti, listaVini);
@@ -204,7 +203,7 @@ var metodoScelto = function (richiestaUtente) {
 
 var modulo = {};
 
-metodoScelto('i\'m watching harry potter tonight and i\'d like something for my compleanno');
+// metodoScelto('i\'m watching harry potter tonight and i\'d like something for my oyster rockfeller');
 
 // modulo.matchRicetta = matchRicetta;
 // modulo.ricetteTrovateDaIngredientiPrincipali = ricetteTrovateDaIngredientiPrincipali;
