@@ -9,8 +9,8 @@ const result = excelToJson({
   sourceFile: inputFile
 });
 
-function toJsonFile(result) {
-  let json = JSON.stringify(result, null, 4);
+function toJsonFile (result) {
+  var json = JSON.stringify(result, null, 4);
   fs.writeFile(outputFile, json, function (err) {
     if (err) throw err;
     console.log('Results saved in', outputFile);

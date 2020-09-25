@@ -1,6 +1,6 @@
-// Include fs module  
+// Include fs module
 var fs = require('fs');
-var pathFileJson = '../json/ricette.json'
+var pathFileJson = '../json/ricette.json';
 
 /*
 Macrocategorie importanti : 'carne / pesce / verdure',
