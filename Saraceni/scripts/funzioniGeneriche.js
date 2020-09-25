@@ -25,10 +25,37 @@ var ricercaTipoIngredientePapabile = function (arrayParole, tipoIngredienti) {
   return listaDiRitorno;
 };
 
+function anagrammaParole (arrayParole, oggettoNome) {
+  // esempio arrayParole = ['banana', 'papaya', 'ciquita']
+  // numeroParole = 2
+  // paroleAnaGrammate = ['banana papaya', 'papaya ciquita']
+  var arrayNome = oggettoNome.split(' ');
+  var numeroParole = arrayNome.length;
+
+  if (arrayParole.length > numeroParole) {
+    var paroleAnagrammate = [];
+    for (let i = 0; i < arrayParole.length && arrayParole.length >= numeroParole + i; i++) {
+      var parola = [arrayParole[i]];
+      var paroleUnite;
+      for (let j = i + 1; j < i + numeroParole; j++) {
+        parola.push(arrayParole[j]);
+      }
+      paroleUnite = parola.join(' ');
+      paroleAnagrammate.push(paroleUnite);
+    }
+    return paroleAnagrammate;
+  } else {
+    return arrayParole;
+  }
+}
+
 function filtroListaDalNome (arrayParole, lista) {
-  return lista.filter(oggetto =>
-    natural.JaroWinklerDistance(oggetto.nome, arrayParole.join(), undefined, true) > 0.8
-  );
+  return lista.filter(function (oggetto) {
+    var paroleAnagrammate = anagrammaParole(arrayParole, oggetto.nome);
+    return paroleAnagrammate.some(parolaAnagrammata =>
+      natural.JaroWinklerDistance(oggetto.nome, parolaAnagrammata, undefined, true) > 0.8
+    );
+  });
 }
 
 function filtroPerTag (arrayParole, lista) {
@@ -98,12 +125,12 @@ var concatTags = function (lista) {
   return listaTmp;
 };
 
-var filtroParoleInutili = function(listaParole, listaParoleChiave) {
-  var listaParoleFiltrate = listaParole.filter(parola => 
-    listaParoleChiave.some( parolaChiave => 
-      natural.JaroWinklerDistance(parola, parolaChiave, undefined, true) > 0.75))
+var filtroParoleInutili = function (listaParole, listaParoleChiave) {
+  var listaParoleFiltrate = listaParole.filter(parola =>
+    listaParoleChiave.some(parolaChiave =>
+      natural.JaroWinklerDistance(parola, parolaChiave, undefined, true) > 0.75));
   return listaParoleFiltrate;
-}
+};
 
 funzioniPerRicercaParole.ricetteDaIDs = ricetteDaIDs;
 funzioniPerRicercaParole.ricetteDaIngrediente = ricetteDaIngrediente;
