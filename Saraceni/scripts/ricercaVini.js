@@ -1,7 +1,9 @@
-var strutture = require('./creazioneListeDaFileJson');
 var natural = require('natural');
+var fs = require('fs');
 var funzioniGeneriche = require('./funzioniGeneriche');
 natural.PorterStemmer.attach(); // english language set -> 'words'.tokenizeAndStem() toSingularizeAndTurnIntoArrayOfWords
+var pathFileJson = '';
+var strutture = JSON.parse(fs.readFileSync(pathFileJson, 'utf8'));
 
 var listaRicette = strutture.listaRicette;
 var listaIngredientiPrincipali = strutture.listaIngredientiPrincipali;
@@ -40,28 +42,9 @@ ingredientiSecondari = ingredientiSecondari.filter(array => array.length !== 0);
 
 // METODI DI RICERCA DALLA LISTA RICETTE
 
-var matchRicetta = function (arrayParole) {
+var matchRicetta = function (arrayParole, listaRicette) {
   console.log('è stato scelto il metodo di match da Ricette\n\n');
-  var ricettaPerfetta = {
-    index: '-1',
-    max: '0.5'
-  };
-  var ricettaTrovata = [];
-  nomiRicette.forEach((item, i) => {
-    var tmp = funzioniGeneriche.somiglianzaParoleArray(arrayParole, item);
-    if (tmp > ricettaPerfetta.max) {
-      ricettaPerfetta.index = i;
-      ricettaPerfetta.max = tmp;
-      // console.log(ricettaPerfetta);
-      // console.log(ricette[ricettaPerfetta.index]);
-    }
-  });
-  if (nomiRicette[ricettaPerfetta.index]) {
-    ricettaTrovata.push(listaRicette.find(ricetta =>
-      ricetta.nome.tokenizeAndStem().toString() === nomiRicette[ricettaPerfetta.index].toString()
-    ));
-  }
-  return ricettaTrovata;
+  return funzioniGeneriche.filtroListaDalNome(arrayParole, listaRicette);
 };
 
 // METODI DI RICERCA DALLA LISTA DEGLI INGREDIENTI PRINCIPALI
@@ -72,7 +55,8 @@ var matchIngredientiPrincipali = function (arrayParole) {
 };
 
 var ricetteTrovateDaIngredientiPrincipali = function (arrayParole) {
-  return funzioniGeneriche.ricetteDaIngredienti(matchIngredientiPrincipali(arrayParole), listaRicette);
+  var a = matchIngredientiPrincipali(arrayParole);
+  return funzioniGeneriche.ricetteDaIngredienti(a, listaRicette);
 };
 
 // METODI DI RICERCA DALLA LISTA DEGLI INGREDIENTI SECONDARI
@@ -83,7 +67,8 @@ var matchIngredientiSecondari = function (arrayParole) {
 };
 
 var ricetteTrovateDaIngredientiSecondari = function (arrayParole) {
-  return funzioniGeneriche.ricetteDaIngredienti(matchIngredientiSecondari(arrayParole), listaRicette);
+  var a = matchIngredientiSecondari(arrayParole);
+  return funzioniGeneriche.ricetteDaIngredienti(a, listaRicette);
 };
 
 // METODI DI RICERCA PER ABBINAMENTI GENERALI
@@ -203,7 +188,7 @@ var metodoScelto = function (richiestaUtente) {
 
 var modulo = {};
 
-// metodoScelto('i\'m watching harry potter tonight and i\'d like something for my oyster rockfeller');
+metodoScelto('i\'m watching harry potter tonight and i\'d like something for my oyster rockfeller');
 
 // modulo.matchRicetta = matchRicetta;
 // modulo.ricetteTrovateDaIngredientiPrincipali = ricetteTrovateDaIngredientiPrincipali;

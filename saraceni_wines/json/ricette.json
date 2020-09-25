@@ -1,0 +1,4660 @@
+{
+    "listaRicette": [
+        {
+            "id": 1,
+            "nome": "Garlic Mushrooms",
+            "tags": [
+                "Antipasticontorni"
+            ],
+            "ingredientiPrincipali": [
+                1
+            ],
+            "ingredientiSecondari": [
+                1
+            ],
+            "viniProposti": [
+                1,
+                2,
+                3
+            ]
+        },
+        {
+            "id": 2,
+            "nome": "Baked beans",
+            "tags": [
+                "Antipasticontorni"
+            ],
+            "ingredientiPrincipali": [
+                2
+            ],
+            "ingredientiSecondari": [
+                2,
+                3
+            ],
+            "viniProposti": [
+                3,
+                1,
+                4
+            ]
+        },
+        {
+            "id": 3,
+            "nome": "Nachos",
+            "tags": [
+                "Antipasticontorni"
+            ],
+            "ingredientiPrincipali": [
+                3
+            ],
+            "ingredientiSecondari": [],
+            "viniProposti": [
+                4,
+                5,
+                2
+            ]
+        },
+        {
+            "id": 4,
+            "nome": "Tacos",
+            "tags": [
+                "Antipasticontorni"
+            ],
+            "ingredientiPrincipali": [
+                4
+            ],
+            "ingredientiSecondari": [
+                2
+            ],
+            "viniProposti": [
+                4,
+                5,
+                2
+            ]
+        },
+        {
+            "id": 5,
+            "nome": "Eggs and bacon",
+            "tags": [
+                "Antipasticontorni"
+            ],
+            "ingredientiPrincipali": [
+                5
+            ],
+            "ingredientiSecondari": [
+                4
+            ],
+            "viniProposti": [
+                1,
+                4,
+                3
+            ]
+        },
+        {
+            "id": 6,
+            "nome": "Cesear salad",
+            "tags": [
+                "Antipasticontorni"
+            ],
+            "ingredientiPrincipali": [
+                6
+            ],
+            "ingredientiSecondari": [
+                5,
+                6
+            ],
+            "viniProposti": [
+                2,
+                4,
+                6
+            ]
+        },
+        {
+            "id": 7,
+            "nome": "Club sandwich",
+            "tags": [
+                "Antipasticontorni"
+            ],
+            "ingredientiPrincipali": [
+                5
+            ],
+            "ingredientiSecondari": [
+                5,
+                7
+            ],
+            "viniProposti": [
+                2,
+                5,
+                7
+            ]
+        },
+        {
+            "id": 8,
+            "nome": "Avocado Toast",
+            "tags": [
+                "Antipasticontorni"
+            ],
+            "ingredientiPrincipali": [
+                6
+            ],
+            "ingredientiSecondari": [
+                8
+            ],
+            "viniProposti": [
+                4,
+                2,
+                7
+            ]
+        },
+        {
+            "id": 9,
+            "nome": "Poke",
+            "tags": [
+                "Antipasticontorni"
+            ],
+            "ingredientiPrincipali": [
+                7
+            ],
+            "ingredientiSecondari": [
+                9,
+                10
+            ],
+            "viniProposti": [
+                4,
+                2,
+                5
+            ]
+        },
+        {
+            "id": 10,
+            "nome": "Bagel with cheese and salmon",
+            "tags": [
+                "Antipasticontorni"
+            ],
+            "ingredientiPrincipali": [
+                8
+            ],
+            "ingredientiSecondari": [
+                11
+            ],
+            "viniProposti": [
+                4,
+                2,
+                7
+            ]
+        },
+        {
+            "id": 11,
+            "nome": "Garlic bread",
+            "tags": [
+                "Antipasticontorni"
+            ],
+            "ingredientiPrincipali": [
+                6
+            ],
+            "ingredientiSecondari": [
+                12,
+                1
+            ],
+            "viniProposti": [
+                2,
+                4,
+                5
+            ]
+        },
+        {
+            "id": 12,
+            "nome": "Fried green tomatoes",
+            "tags": [
+                "Antipasticontorni"
+            ],
+            "ingredientiPrincipali": [
+                9
+            ],
+            "ingredientiSecondari": [],
+            "viniProposti": [
+                2,
+                4,
+                5
+            ]
+        },
+        {
+            "id": 13,
+            "nome": "Caprese",
+            "tags": [
+                "Antipasticontorni"
+            ],
+            "ingredientiPrincipali": [
+                9
+            ],
+            "ingredientiSecondari": [
+                13,
+                14
+            ],
+            "viniProposti": [
+                4,
+                2,
+                5
+            ]
+        },
+        {
+            "id": 14,
+            "nome": "French fries",
+            "tags": [
+                "Antipasticontorni"
+            ],
+            "ingredientiPrincipali": [
+                10
+            ],
+            "ingredientiSecondari": [],
+            "viniProposti": [
+                4,
+                2,
+                5
+            ]
+        },
+        {
+            "id": 15,
+            "nome": "Hummus",
+            "tags": [
+                "Antipasticontorni"
+            ],
+            "ingredientiPrincipali": [
+                11
+            ],
+            "ingredientiSecondari": [],
+            "viniProposti": [
+                4,
+                2,
+                5
+            ]
+        },
+        {
+            "id": 16,
+            "nome": "Mashed potatoes",
+            "tags": [
+                "Antipasticontorni"
+            ],
+            "ingredientiPrincipali": [
+                10
+            ],
+            "ingredientiSecondari": [
+                12,
+                15
+            ],
+            "viniProposti": [
+                4,
+                2,
+                5
+            ]
+        },
+        {
+            "id": 17,
+            "nome": "Salmon tartare with avocado",
+            "tags": [
+                "Antipasticontorni"
+            ],
+            "ingredientiPrincipali": [
+                8
+            ],
+            "ingredientiSecondari": [
+                8
+            ],
+            "viniProposti": [
+                4,
+                2,
+                5
+            ]
+        },
+        {
+            "id": 18,
+            "nome": "Coleslaw",
+            "tags": [
+                "Antipasticontorni"
+            ],
+            "ingredientiPrincipali": [
+                12
+            ],
+            "ingredientiSecondari": [
+                16,
+                7
+            ],
+            "viniProposti": [
+                4,
+                2,
+                5
+            ]
+        },
+        {
+            "id": 19,
+            "nome": "Spaghetti with meatballs",
+            "tags": [
+                "Primi"
+            ],
+            "ingredientiPrincipali": [
+                13
+            ],
+            "ingredientiSecondari": [
+                17,
+                18
+            ],
+            "viniProposti": [
+                3,
+                1,
+                8
+            ]
+        },
+        {
+            "id": 20,
+            "nome": "Spaghetti with tomato sauce",
+            "tags": [
+                "Primi"
+            ],
+            "ingredientiPrincipali": [
+                14
+            ],
+            "ingredientiSecondari": [
+                14
+            ],
+            "viniProposti": [
+                4,
+                2,
+                3
+            ]
+        },
+        {
+            "id": 21,
+            "nome": "Spaghetti alla marinara",
+            "tags": [
+                "Primi"
+            ],
+            "ingredientiPrincipali": [
+                14
+            ],
+            "ingredientiSecondari": [
+                1,
+                19
+            ],
+            "viniProposti": [
+                4,
+                2,
+                3
+            ]
+        },
+        {
+            "id": 22,
+            "nome": "Spaghetti with shrimps",
+            "tags": [
+                "Primi"
+            ],
+            "ingredientiPrincipali": [
+                15
+            ],
+            "ingredientiSecondari": [
+                20
+            ],
+            "viniProposti": [
+                4,
+                6,
+                2
+            ]
+        },
+        {
+            "id": 23,
+            "nome": "Fettucine alfredo",
+            "tags": [
+                "Primi"
+            ],
+            "ingredientiPrincipali": [
+                13
+            ],
+            "ingredientiSecondari": [
+                12,
+                21
+            ],
+            "viniProposti": [
+                8,
+                2,
+                9
+            ]
+        },
+        {
+            "id": 24,
+            "nome": "Mac and Cheese",
+            "tags": [
+                "Primi"
+            ],
+            "ingredientiPrincipali": [
+                13
+            ],
+            "ingredientiSecondari": [
+                11,
+                21
+            ],
+            "viniProposti": [
+                3,
+                8,
+                2
+            ]
+        },
+        {
+            "id": 25,
+            "nome": "Spaghetti bolognese",
+            "tags": [
+                "Primi"
+            ],
+            "ingredientiPrincipali": [
+                13
+            ],
+            "ingredientiSecondari": [
+                22
+            ],
+            "viniProposti": [
+                3,
+                8,
+                10
+            ]
+        },
+        {
+            "id": 26,
+            "nome": "spaghetti with clams",
+            "tags": [
+                "Primi"
+            ],
+            "ingredientiPrincipali": [
+                16
+            ],
+            "ingredientiSecondari": [
+                23
+            ],
+            "viniProposti": [
+                4,
+                9,
+                2
+            ]
+        },
+        {
+            "id": 27,
+            "nome": "risotto with mushrooms",
+            "tags": [
+                "Primi"
+            ],
+            "ingredientiPrincipali": [
+                17
+            ],
+            "ingredientiSecondari": [
+                24,
+                12
+            ],
+            "viniProposti": [
+                8,
+                3,
+                1
+            ]
+        },
+        {
+            "id": 28,
+            "nome": "seafood risotto",
+            "tags": [
+                "Primi"
+            ],
+            "ingredientiPrincipali": [
+                18
+            ],
+            "ingredientiSecondari": [
+                23,
+                25
+            ],
+            "viniProposti": [
+                4,
+                9,
+                11
+            ]
+        },
+        {
+            "id": 29,
+            "nome": "risotto with gorgonzola and radicchio",
+            "tags": [
+                "Primi"
+            ],
+            "ingredientiPrincipali": [
+                17
+            ],
+            "ingredientiSecondari": [
+                26,
+                27
+            ],
+            "viniProposti": [
+                1,
+                8,
+                10
+            ]
+        },
+        {
+            "id": 30,
+            "nome": "Risotto with truffle",
+            "tags": [
+                "Primi"
+            ],
+            "ingredientiPrincipali": [
+                18
+            ],
+            "ingredientiSecondari": [
+                28
+            ],
+            "viniProposti": [
+                12,
+                8,
+                13
+            ]
+        },
+        {
+            "id": 31,
+            "nome": "risotto with tomato sauce",
+            "tags": [
+                "Primi"
+            ],
+            "ingredientiPrincipali": [
+                17
+            ],
+            "ingredientiSecondari": [
+                3
+            ],
+            "viniProposti": [
+                2,
+                7,
+                9
+            ]
+        },
+        {
+            "id": 32,
+            "nome": "Cantonese fried rice",
+            "tags": [
+                "Primi"
+            ],
+            "ingredientiPrincipali": [
+                17
+            ],
+            "ingredientiSecondari": [
+                29,
+                30
+            ],
+            "viniProposti": []
+        },
+        {
+            "id": 33,
+            "nome": "spaghetti alla puttanesca",
+            "tags": [
+                "Primi"
+            ],
+            "ingredientiPrincipali": [
+                13
+            ],
+            "ingredientiSecondari": [
+                3,
+                31
+            ],
+            "viniProposti": [
+                2,
+                7,
+                9
+            ]
+        },
+        {
+            "id": 34,
+            "nome": "spring rolls",
+            "tags": [
+                "Primi"
+            ],
+            "ingredientiPrincipali": [
+                19
+            ],
+            "ingredientiSecondari": [
+                32,
+                2
+            ],
+            "viniProposti": []
+        },
+        {
+            "id": 35,
+            "nome": "spaghetti with tuna",
+            "tags": [
+                "Primi"
+            ],
+            "ingredientiPrincipali": [
+                13
+            ],
+            "ingredientiSecondari": [
+                33,
+                3
+            ],
+            "viniProposti": [
+                4,
+                9,
+                11
+            ]
+        },
+        {
+            "id": 36,
+            "nome": "Pizza stromboli",
+            "tags": [
+                "Primi"
+            ],
+            "ingredientiPrincipali": [
+                20
+            ],
+            "ingredientiSecondari": [
+                34,
+                13
+            ],
+            "viniProposti": [
+                4,
+                9,
+                3
+            ]
+        },
+        {
+            "id": 37,
+            "nome": "pasta with ricotta",
+            "tags": [
+                "Primi"
+            ],
+            "ingredientiPrincipali": [
+                13
+            ],
+            "ingredientiSecondari": [
+                35
+            ],
+            "viniProposti": [
+                1,
+                9,
+                7
+            ]
+        },
+        {
+            "id": 38,
+            "nome": "pumpkin risotto",
+            "tags": [
+                "Primi"
+            ],
+            "ingredientiPrincipali": [
+                17
+            ],
+            "ingredientiSecondari": [
+                36
+            ],
+            "viniProposti": [
+                3,
+                8,
+                2
+            ]
+        },
+        {
+            "id": 39,
+            "nome": "Lentils soup",
+            "tags": [
+                "Primi"
+            ],
+            "ingredientiPrincipali": [
+                21
+            ],
+            "ingredientiSecondari": [],
+            "viniProposti": [
+                3,
+                8,
+                1
+            ]
+        },
+        {
+            "id": 40,
+            "nome": "Fish soup",
+            "tags": [
+                "Primi"
+            ],
+            "ingredientiPrincipali": [
+                22
+            ],
+            "ingredientiSecondari": [
+                37
+            ],
+            "viniProposti": [
+                2,
+                9,
+                11
+            ]
+        },
+        {
+            "id": 41,
+            "nome": "Pad thai",
+            "tags": [
+                "Primi"
+            ],
+            "ingredientiPrincipali": [
+                23
+            ],
+            "ingredientiSecondari": [
+                38,
+                39
+            ],
+            "viniProposti": [
+                4,
+                2,
+                11
+            ]
+        },
+        {
+            "id": 42,
+            "nome": "Chicken masala",
+            "tags": [
+                "Secondi"
+            ],
+            "ingredientiPrincipali": [
+                24
+            ],
+            "ingredientiSecondari": [
+                40,
+                41
+            ],
+            "viniProposti": [
+                1,
+                9,
+                8
+            ]
+        },
+        {
+            "id": 43,
+            "nome": "Oysters Rockefeller",
+            "tags": [
+                "Secondi"
+            ],
+            "ingredientiPrincipali": [
+                25
+            ],
+            "ingredientiSecondari": [
+                12,
+                42
+            ],
+            "viniProposti": [
+                4,
+                2,
+                9
+            ]
+        },
+        {
+            "id": 44,
+            "nome": "Enchiladas",
+            "tags": [
+                "Secondi"
+            ],
+            "ingredientiPrincipali": [
+                24
+            ],
+            "ingredientiSecondari": [
+                43,
+                18
+            ],
+            "viniProposti": []
+        },
+        {
+            "id": 45,
+            "nome": "Lobster rolls",
+            "tags": [
+                "Secondi"
+            ],
+            "ingredientiPrincipali": [
+                26
+            ],
+            "ingredientiSecondari": [
+                7,
+                44
+            ],
+            "viniProposti": [
+                4,
+                2,
+                9
+            ]
+        },
+        {
+            "id": 46,
+            "nome": "Fajitas",
+            "tags": [
+                "Secondi"
+            ],
+            "ingredientiPrincipali": [
+                19
+            ],
+            "ingredientiSecondari": [
+                2,
+                45
+            ],
+            "viniProposti": []
+        },
+        {
+            "id": 47,
+            "nome": "Chicken parmesan",
+            "tags": [
+                "Secondi"
+            ],
+            "ingredientiPrincipali": [
+                24
+            ],
+            "ingredientiSecondari": [
+                3,
+                46
+            ],
+            "viniProposti": [
+                2,
+                3,
+                9
+            ]
+        },
+        {
+            "id": 48,
+            "nome": "Barbecue ribs",
+            "tags": [
+                "Secondi"
+            ],
+            "ingredientiPrincipali": [
+                19
+            ],
+            "ingredientiSecondari": [
+                47
+            ],
+            "viniProposti": [
+                12,
+                8,
+                3
+            ]
+        },
+        {
+            "id": 49,
+            "nome": "Cheeseburger",
+            "tags": [
+                "Secondi"
+            ],
+            "ingredientiPrincipali": [
+                6
+            ],
+            "ingredientiSecondari": [
+                48,
+                43
+            ],
+            "viniProposti": [
+                3,
+                1,
+                8
+            ]
+        },
+        {
+            "id": 50,
+            "nome": "Sausages",
+            "tags": [
+                "Secondi"
+            ],
+            "ingredientiPrincipali": [
+                27
+            ],
+            "ingredientiSecondari": [],
+            "viniProposti": [
+                12,
+                8,
+                3
+            ]
+        },
+        {
+            "id": 51,
+            "nome": "Chilli",
+            "tags": [
+                "Secondi"
+            ],
+            "ingredientiPrincipali": [
+                19
+            ],
+            "ingredientiSecondari": [
+                3,
+                49
+            ],
+            "viniProposti": []
+        },
+        {
+            "id": 52,
+            "nome": "Fried chicken",
+            "tags": [
+                "Secondi"
+            ],
+            "ingredientiPrincipali": [
+                24
+            ],
+            "ingredientiSecondari": [],
+            "viniProposti": [
+                3,
+                1,
+                10
+            ]
+        },
+        {
+            "id": 53,
+            "nome": "Pulled Pork",
+            "tags": [
+                "Secondi"
+            ],
+            "ingredientiPrincipali": [
+                19
+            ],
+            "ingredientiSecondari": [],
+            "viniProposti": [
+                12,
+                8,
+                3
+            ]
+        },
+        {
+            "id": 54,
+            "nome": "Turkey",
+            "tags": [
+                "Secondi"
+            ],
+            "ingredientiPrincipali": [
+                28
+            ],
+            "ingredientiSecondari": [],
+            "viniProposti": [
+                12,
+                8,
+                3
+            ]
+        },
+        {
+            "id": 55,
+            "nome": "Pastrami sandwich",
+            "tags": [
+                "Secondi"
+            ],
+            "ingredientiPrincipali": [
+                29
+            ],
+            "ingredientiSecondari": [
+                50
+            ],
+            "viniProposti": [
+                12,
+                8,
+                3
+            ]
+        },
+        {
+            "id": 56,
+            "nome": "Lamb",
+            "tags": [
+                "Secondi"
+            ],
+            "ingredientiPrincipali": [
+                19
+            ],
+            "ingredientiSecondari": [],
+            "viniProposti": [
+                12,
+                8,
+                3
+            ]
+        },
+        {
+            "id": 57,
+            "nome": "Sushi",
+            "tags": [
+                "Secondi"
+            ],
+            "ingredientiPrincipali": [
+                17
+            ],
+            "ingredientiSecondari": [
+                51
+            ],
+            "viniProposti": [
+                4,
+                2,
+                7
+            ]
+        },
+        {
+            "id": 58,
+            "nome": "Smoked Ham",
+            "tags": [
+                "Secondi"
+            ],
+            "ingredientiPrincipali": [
+                19
+            ],
+            "ingredientiSecondari": [],
+            "viniProposti": [
+                3,
+                8,
+                10
+            ]
+        },
+        {
+            "id": 59,
+            "nome": "Burrito",
+            "tags": [
+                "Secondi"
+            ],
+            "ingredientiPrincipali": [
+                24
+            ],
+            "ingredientiSecondari": [],
+            "viniProposti": [
+                3,
+                1,
+                2
+            ]
+        },
+        {
+            "id": 60,
+            "nome": "American barbecue",
+            "tags": [
+                "Secondi"
+            ],
+            "ingredientiPrincipali": [
+                19
+            ],
+            "ingredientiSecondari": [],
+            "viniProposti": [
+                12,
+                8,
+                3
+            ]
+        },
+        {
+            "id": 61,
+            "nome": "Steak with french fries",
+            "tags": [
+                "Secondi"
+            ],
+            "ingredientiPrincipali": [
+                19
+            ],
+            "ingredientiSecondari": [],
+            "viniProposti": [
+                12,
+                8,
+                3
+            ]
+        },
+        {
+            "id": 62,
+            "nome": "Meatballs",
+            "tags": [
+                "Secondi"
+            ],
+            "ingredientiPrincipali": [
+                19
+            ],
+            "ingredientiSecondari": [
+                3
+            ],
+            "viniProposti": [
+                12,
+                8,
+                3
+            ]
+        },
+        {
+            "id": 63,
+            "nome": "Cotoletta alla milanese",
+            "tags": [
+                "Secondi"
+            ],
+            "ingredientiPrincipali": [
+                19
+            ],
+            "ingredientiSecondari": [],
+            "viniProposti": [
+                12,
+                8,
+                3
+            ]
+        },
+        {
+            "id": 64,
+            "nome": "fried squid",
+            "tags": [
+                "Secondi"
+            ],
+            "ingredientiPrincipali": [
+                30
+            ],
+            "ingredientiSecondari": [],
+            "viniProposti": [
+                4,
+                9,
+                11
+            ]
+        },
+        {
+            "id": 65,
+            "nome": "Mussel saute",
+            "tags": [
+                "Secondi"
+            ],
+            "ingredientiPrincipali": [
+                31
+            ],
+            "ingredientiSecondari": [
+                1
+            ],
+            "viniProposti": [
+                4,
+                9,
+                11
+            ]
+        },
+        {
+            "id": 66,
+            "nome": "Baked potatoes",
+            "tags": [
+                "Secondi"
+            ],
+            "ingredientiPrincipali": [],
+            "ingredientiSecondari": [],
+            "viniProposti": [
+                3,
+                7,
+                9
+            ]
+        },
+        {
+            "id": 67,
+            "nome": "Roastbeef",
+            "tags": [
+                "Secondi"
+            ],
+            "ingredientiPrincipali": [
+                19
+            ],
+            "ingredientiSecondari": [],
+            "viniProposti": [
+                12,
+                8,
+                3
+            ]
+        },
+        {
+            "id": 68,
+            "nome": "Sea bass",
+            "tags": [
+                "Secondi"
+            ],
+            "ingredientiPrincipali": [
+                32
+            ],
+            "ingredientiSecondari": [],
+            "viniProposti": [
+                4,
+                9,
+                11
+            ]
+        },
+        {
+            "id": 69,
+            "nome": "Sea ​​bream",
+            "tags": [
+                "Secondi"
+            ],
+            "ingredientiPrincipali": [
+                33
+            ],
+            "ingredientiSecondari": [],
+            "viniProposti": [
+                4,
+                9,
+                11
+            ]
+        },
+        {
+            "id": 70,
+            "nome": "Stuffed squid",
+            "tags": [
+                "Secondi"
+            ],
+            "ingredientiPrincipali": [
+                30
+            ],
+            "ingredientiSecondari": [],
+            "viniProposti": [
+                7,
+                9,
+                11
+            ]
+        },
+        {
+            "id": 71,
+            "nome": "Hot dog",
+            "tags": [
+                "Secondi"
+            ],
+            "ingredientiPrincipali": [
+                34
+            ],
+            "ingredientiSecondari": [
+                50
+            ],
+            "viniProposti": [
+                3,
+                1,
+                10
+            ]
+        },
+        {
+            "id": 72,
+            "nome": "Omelette",
+            "tags": [
+                "Secondi"
+            ],
+            "ingredientiPrincipali": [
+                5
+            ],
+            "ingredientiSecondari": [],
+            "viniProposti": [
+                3,
+                1,
+                11
+            ]
+        },
+        {
+            "id": 73,
+            "nome": "Almoond chicken",
+            "tags": [
+                "Secondi"
+            ],
+            "ingredientiPrincipali": [
+                24
+            ],
+            "ingredientiSecondari": [
+                52
+            ],
+            "viniProposti": [
+                1,
+                8,
+                3
+            ]
+        },
+        {
+            "id": 74,
+            "nome": "Stew",
+            "tags": [
+                "Secondi"
+            ],
+            "ingredientiPrincipali": [
+                19
+            ],
+            "ingredientiSecondari": [
+                2,
+                32
+            ],
+            "viniProposti": [
+                12,
+                8,
+                3
+            ]
+        },
+        {
+            "id": 75,
+            "nome": "Pepper steak.",
+            "tags": [
+                "Secondi"
+            ],
+            "ingredientiPrincipali": [
+                19
+            ],
+            "ingredientiSecondari": [
+                45,
+                53
+            ],
+            "viniProposti": [
+                12,
+                8,
+                3
+            ]
+        },
+        {
+            "id": 76,
+            "nome": "Quinoa with vegetables",
+            "tags": [
+                "Secondi"
+            ],
+            "ingredientiPrincipali": [
+                35
+            ],
+            "ingredientiSecondari": [
+                54
+            ],
+            "viniProposti": [
+                4,
+                3,
+                9
+            ]
+        },
+        {
+            "id": 77,
+            "nome": "Tempura",
+            "tags": [
+                "Secondi"
+            ],
+            "ingredientiPrincipali": [
+                36
+            ],
+            "ingredientiSecondari": [],
+            "viniProposti": [
+                11,
+                9,
+                7
+            ]
+        },
+        {
+            "id": 78,
+            "nome": "Lentils soup",
+            "tags": [
+                "Secondi"
+            ],
+            "ingredientiPrincipali": [
+                21
+            ],
+            "ingredientiSecondari": [],
+            "viniProposti": [
+                3,
+                1,
+                9
+            ]
+        },
+        {
+            "id": 79,
+            "nome": "Apple pie",
+            "tags": [
+                "Dessert"
+            ],
+            "ingredientiPrincipali": [
+                37
+            ],
+            "ingredientiSecondari": [
+                55
+            ],
+            "viniProposti": [
+                14,
+                15,
+                16
+            ]
+        },
+        {
+            "id": 80,
+            "nome": "Pancakes",
+            "tags": [
+                "Dessert"
+            ],
+            "ingredientiPrincipali": [],
+            "ingredientiSecondari": [],
+            "viniProposti": [
+                14,
+                17,
+                18
+            ]
+        },
+        {
+            "id": 81,
+            "nome": "Chocolate mud cake",
+            "tags": [
+                "Dessert"
+            ],
+            "ingredientiPrincipali": [
+                38
+            ],
+            "ingredientiSecondari": [],
+            "viniProposti": [
+                14,
+                15,
+                19
+            ]
+        },
+        {
+            "id": 82,
+            "nome": "Cheesecake",
+            "tags": [
+                "Dessert"
+            ],
+            "ingredientiPrincipali": [
+                39
+            ],
+            "ingredientiSecondari": [
+                56
+            ],
+            "viniProposti": [
+                20,
+                18,
+                14
+            ]
+        },
+        {
+            "id": 83,
+            "nome": "brownies",
+            "tags": [
+                "Dessert"
+            ],
+            "ingredientiPrincipali": [
+                38
+            ],
+            "ingredientiSecondari": [
+                39
+            ],
+            "viniProposti": [
+                19,
+                15,
+                17
+            ]
+        },
+        {
+            "id": 84,
+            "nome": "Carrot cake",
+            "tags": [
+                "Dessert"
+            ],
+            "ingredientiPrincipali": [
+                12
+            ],
+            "ingredientiSecondari": [
+                39
+            ],
+            "viniProposti": [
+                14,
+                2,
+                19
+            ]
+        },
+        {
+            "id": 85,
+            "nome": "Strawberry and chocolate",
+            "tags": [
+                "Dessert"
+            ],
+            "ingredientiPrincipali": [
+                40
+            ],
+            "ingredientiSecondari": [],
+            "viniProposti": [
+                14,
+                2,
+                21
+            ]
+        },
+        {
+            "id": 86,
+            "nome": "Tiramisu",
+            "tags": [
+                "Dessert"
+            ],
+            "ingredientiPrincipali": [
+                41
+            ],
+            "ingredientiSecondari": [
+                57
+            ],
+            "viniProposti": [
+                14,
+                20,
+                19
+            ]
+        },
+        {
+            "id": 87,
+            "nome": "ice cream",
+            "tags": [
+                "Dessert"
+            ],
+            "ingredientiPrincipali": [
+                42
+            ],
+            "ingredientiSecondari": [],
+            "viniProposti": [
+                19,
+                18,
+                22
+            ]
+        },
+        {
+            "id": 88,
+            "nome": "Carbonara",
+            "tags": [
+                "Ricette italiane"
+            ],
+            "ingredientiPrincipali": [
+                13
+            ],
+            "ingredientiSecondari": [
+                30,
+                4
+            ],
+            "viniProposti": [
+                3,
+                8,
+                10
+            ]
+        },
+        {
+            "id": 89,
+            "nome": "Matriciana",
+            "tags": [
+                "Ricette italiane"
+            ],
+            "ingredientiPrincipali": [
+                13
+            ],
+            "ingredientiSecondari": [
+                3,
+                4
+            ],
+            "viniProposti": [
+                3,
+                8,
+                10
+            ]
+        },
+        {
+            "id": 90,
+            "nome": "Gricia",
+            "tags": [
+                "Ricette italiane"
+            ],
+            "ingredientiPrincipali": [
+                13
+            ],
+            "ingredientiSecondari": [
+                4
+            ],
+            "viniProposti": [
+                8,
+                3,
+                1
+            ]
+        },
+        {
+            "id": 91,
+            "nome": "cacio e pepe",
+            "tags": [
+                "Ricette italiane"
+            ],
+            "ingredientiPrincipali": [
+                13
+            ],
+            "ingredientiSecondari": [
+                58,
+                45
+            ],
+            "viniProposti": []
+        },
+        {
+            "id": 92,
+            "nome": "Pasta al pesto",
+            "tags": [
+                "Ricette italiane"
+            ],
+            "ingredientiPrincipali": [
+                13
+            ],
+            "ingredientiSecondari": [
+                14,
+                21
+            ],
+            "viniProposti": []
+        },
+        {
+            "id": 93,
+            "nome": "Spaghetti allo scoglio",
+            "tags": [
+                "Ricette italiane"
+            ],
+            "ingredientiPrincipali": [
+                13
+            ],
+            "ingredientiSecondari": [
+                59,
+                38
+            ],
+            "viniProposti": []
+        },
+        {
+            "id": 94,
+            "nome": "Pasta al ragu",
+            "tags": [
+                "Ricette italiane"
+            ],
+            "ingredientiPrincipali": [
+                13
+            ],
+            "ingredientiSecondari": [
+                22
+            ],
+            "viniProposti": [
+                3,
+                8,
+                10
+            ]
+        },
+        {
+            "id": 95,
+            "nome": "Tortellini in brodo",
+            "tags": [
+                "Ricette italiane"
+            ],
+            "ingredientiPrincipali": [
+                43
+            ],
+            "ingredientiSecondari": [
+                60
+            ],
+            "viniProposti": []
+        },
+        {
+            "id": 96,
+            "nome": "Ravioli al sugo",
+            "tags": [
+                "Ricette italiane"
+            ],
+            "ingredientiPrincipali": [
+                13
+            ],
+            "ingredientiSecondari": [
+                35,
+                3
+            ],
+            "viniProposti": []
+        },
+        {
+            "id": 97,
+            "nome": "spaghetti aglio e olio",
+            "tags": [
+                "Ricette italiane"
+            ],
+            "ingredientiPrincipali": [
+                13
+            ],
+            "ingredientiSecondari": [
+                61,
+                1
+            ],
+            "viniProposti": []
+        },
+        {
+            "id": 98,
+            "nome": "Pasta al forno",
+            "tags": [
+                "Ricette italiane"
+            ],
+            "ingredientiPrincipali": [
+                13
+            ],
+            "ingredientiSecondari": [
+                22,
+                46
+            ],
+            "viniProposti": []
+        },
+        {
+            "id": 99,
+            "nome": "Pasta alla norma",
+            "tags": [
+                "Ricette italiane"
+            ],
+            "ingredientiPrincipali": [
+                13
+            ],
+            "ingredientiSecondari": [
+                35,
+                62
+            ],
+            "viniProposti": []
+        },
+        {
+            "id": 100,
+            "nome": "Parma ham and mozzarella",
+            "tags": [
+                "Ricette italiane"
+            ],
+            "ingredientiPrincipali": [
+                44
+            ],
+            "ingredientiSecondari": [
+                46
+            ],
+            "viniProposti": []
+        },
+        {
+            "id": 101,
+            "nome": "gnocchi alla sorrentina",
+            "tags": [
+                "Ricette italiane"
+            ],
+            "ingredientiPrincipali": [
+                45
+            ],
+            "ingredientiSecondari": [
+                3,
+                63
+            ],
+            "viniProposti": []
+        },
+        {
+            "id": 102,
+            "nome": "arrosto",
+            "tags": [
+                "Ricette italiane"
+            ],
+            "ingredientiPrincipali": [
+                46
+            ],
+            "ingredientiSecondari": [],
+            "viniProposti": []
+        },
+        {
+            "id": 103,
+            "nome": "risotto alla milanese",
+            "tags": [
+                "Ricette italiane"
+            ],
+            "ingredientiPrincipali": [
+                17
+            ],
+            "ingredientiSecondari": [
+                64,
+                12
+            ],
+            "viniProposti": []
+        },
+        {
+            "id": 104,
+            "nome": "risotto agli scampi",
+            "tags": [
+                "Ricette italiane"
+            ],
+            "ingredientiPrincipali": [
+                17
+            ],
+            "ingredientiSecondari": [
+                65
+            ],
+            "viniProposti": [
+                2,
+                9,
+                11
+            ]
+        },
+        {
+            "id": 105,
+            "nome": "Cannelloni",
+            "tags": [
+                "Ricette italiane"
+            ],
+            "ingredientiPrincipali": [
+                13
+            ],
+            "ingredientiSecondari": [
+                22
+            ],
+            "viniProposti": []
+        },
+        {
+            "id": 106,
+            "nome": "Polenta",
+            "tags": [
+                "Ricette italiane"
+            ],
+            "ingredientiPrincipali": [],
+            "ingredientiSecondari": [],
+            "viniProposti": []
+        },
+        {
+            "id": 107,
+            "nome": "Vitello tonnato",
+            "tags": [
+                "Ricette italiane"
+            ],
+            "ingredientiPrincipali": [
+                47
+            ],
+            "ingredientiSecondari": [
+                66
+            ],
+            "viniProposti": []
+        },
+        {
+            "id": 108,
+            "nome": "Saltimbocca alla romana",
+            "tags": [
+                "Ricette italiane"
+            ],
+            "ingredientiPrincipali": [
+                47
+            ],
+            "ingredientiSecondari": [
+                67
+            ],
+            "viniProposti": []
+        },
+        {
+            "id": 109,
+            "nome": "pollo alla cacciatora",
+            "tags": [
+                "Ricette italiane"
+            ],
+            "ingredientiPrincipali": [
+                24
+            ],
+            "ingredientiSecondari": [
+                68,
+                20
+            ],
+            "viniProposti": []
+        },
+        {
+            "id": 110,
+            "nome": "Brasato",
+            "tags": [
+                "Ricette italiane"
+            ],
+            "ingredientiPrincipali": [
+                19
+            ],
+            "ingredientiSecondari": [],
+            "viniProposti": []
+        },
+        {
+            "id": 111,
+            "nome": "Impepata di cozze",
+            "tags": [
+                "Ricette italiane"
+            ],
+            "ingredientiPrincipali": [
+                22
+            ],
+            "ingredientiSecondari": [],
+            "viniProposti": []
+        },
+        {
+            "id": 112,
+            "nome": "lasagne",
+            "tags": [
+                "Ricette italiane"
+            ],
+            "ingredientiPrincipali": [
+                13
+            ],
+            "ingredientiSecondari": [
+                22,
+                46
+            ],
+            "viniProposti": [
+                3,
+                8,
+                12
+            ]
+        },
+        {
+            "id": 113,
+            "nome": "Parmigiana",
+            "tags": [
+                "Ricette italiane"
+            ],
+            "ingredientiPrincipali": [
+                48
+            ],
+            "ingredientiSecondari": [
+                13,
+                21
+            ],
+            "viniProposti": [
+                4,
+                2,
+                7
+            ]
+        },
+        {
+            "id": 114,
+            "nome": "spaghetti alla puttanesca",
+            "tags": [
+                "Ricette italiane"
+            ],
+            "ingredientiPrincipali": [
+                13
+            ],
+            "ingredientiSecondari": [
+                3,
+                31
+            ],
+            "viniProposti": [
+                2,
+                7,
+                9
+            ]
+        },
+        {
+            "id": 115,
+            "nome": "polpettone",
+            "tags": [
+                "Ricette italiane"
+            ],
+            "ingredientiPrincipali": [
+                19
+            ],
+            "ingredientiSecondari": [],
+            "viniProposti": []
+        },
+        {
+            "id": 116,
+            "nome": "Crostata",
+            "tags": [
+                "Ricette italiane"
+            ],
+            "ingredientiPrincipali": [
+                49
+            ],
+            "ingredientiSecondari": [
+                69
+            ],
+            "viniProposti": []
+        },
+        {
+            "id": 117,
+            "nome": "Tiramisu",
+            "tags": [
+                "Ricette italiane"
+            ],
+            "ingredientiPrincipali": [
+                41
+            ],
+            "ingredientiSecondari": [
+                57
+            ],
+            "viniProposti": [
+                14,
+                20,
+                19
+            ]
+        }
+    ],
+    "listaAbbinamentiPerTipologia": [
+        {
+            "id": 1,
+            "nome": "white meat",
+            "tags": [
+                "chicken",
+                "rabbit",
+                "turkey",
+                "lamb",
+                "veal"
+            ],
+            "viniProposti": []
+        },
+        {
+            "id": 2,
+            "nome": "red meat",
+            "tags": [
+                "beef",
+                "horse",
+                "pork",
+                "horsemeat",
+                "boar meat",
+                "game"
+            ],
+            "viniProposti": []
+        },
+        {
+            "id": 3,
+            "nome": "fish",
+            "tags": [
+                "bream",
+                "sea bass",
+                "swordfish",
+                "tuna",
+                "salmon",
+                "sole",
+                "mackerel",
+                "squids"
+            ],
+            "viniProposti": []
+        },
+        {
+            "id": 4,
+            "nome": "shellfishes",
+            "tags": [
+                "mussels",
+                "clams",
+                "oyster",
+                "crayfish",
+                "lobster",
+                "shrimp",
+                "prawn",
+                "sea urchins"
+            ],
+            "viniProposti": []
+        },
+        {
+            "id": 5,
+            "nome": "cheese",
+            "tags": [
+                "cheddar",
+                "gorgonzola",
+                "emmental",
+                "mozzarella cheese",
+                "parmesan",
+                "pecorino"
+            ],
+            "viniProposti": []
+        },
+        {
+            "id": 6,
+            "nome": "vegetables",
+            "tags": [
+                "aubergines",
+                "eggplants",
+                "zucchini",
+                "courgettes",
+                "peppers",
+                "salad",
+                "fennel",
+                " ",
+                "broccoli",
+                "carrots",
+                "tomatoes",
+                "garlic",
+                "onion",
+                "beens",
+                "chcikpeas",
+                "peas"
+            ],
+            "viniProposti": []
+        }
+    ],
+    "listaAbbinamentiGenerali": [
+        {
+            "id": 1,
+            "nome": "carne bianca",
+            "tags": [
+                "abbinamenti generali",
+                "antipasto/contorno"
+            ],
+            "viniProposti": [
+                4,
+                5,
+                6
+            ]
+        },
+        {
+            "id": 2,
+            "nome": "carne rossa",
+            "tags": [
+                "abbinamenti generali",
+                "antipasto/contorno"
+            ],
+            "viniProposti": [
+                3,
+                1,
+                10
+            ]
+        },
+        {
+            "id": 3,
+            "nome": "pesce",
+            "tags": [
+                "abbinamenti generali",
+                "antipasto/contorno"
+            ],
+            "viniProposti": [
+                4,
+                2,
+                7
+            ]
+        },
+        {
+            "id": 4,
+            "nome": "formaggio",
+            "tags": [
+                "abbinamenti generali",
+                "antipasto/contorno"
+            ],
+            "viniProposti": [
+                1,
+                3,
+                8
+            ]
+        },
+        {
+            "id": 5,
+            "nome": "verdure",
+            "tags": [
+                "abbinamenti generali",
+                "antipasto/contorno"
+            ],
+            "viniProposti": [
+                2,
+                6,
+                1
+            ]
+        },
+        {
+            "id": 6,
+            "nome": "uova",
+            "tags": [
+                "abbinamenti generali",
+                "antipasto/contorno"
+            ],
+            "viniProposti": [
+                1,
+                3,
+                8
+            ]
+        },
+        {
+            "id": 7,
+            "nome": "crostacei",
+            "tags": [
+                "abbinamenti generali",
+                "antipasto/contorno"
+            ],
+            "viniProposti": [
+                4,
+                5,
+                2
+            ]
+        },
+        {
+            "id": 8,
+            "nome": "molluschi",
+            "tags": [
+                "abbinamenti generali",
+                "antipasto/contorno"
+            ],
+            "viniProposti": [
+                4,
+                5,
+                2
+            ]
+        },
+        {
+            "id": 9,
+            "nome": "carne bianca",
+            "tags": [
+                "abbinamenti generali",
+                "primo"
+            ],
+            "viniProposti": [
+                3,
+                12,
+                2
+            ]
+        },
+        {
+            "id": 10,
+            "nome": "carne rossa",
+            "tags": [
+                "abbinamenti generali",
+                "primo"
+            ],
+            "viniProposti": [
+                8,
+                3,
+                1
+            ]
+        },
+        {
+            "id": 11,
+            "nome": "pesce",
+            "tags": [
+                "abbinamenti generali",
+                "primo"
+            ],
+            "viniProposti": [
+                4,
+                5,
+                2
+            ]
+        },
+        {
+            "id": 12,
+            "nome": "formaggio",
+            "tags": [
+                "abbinamenti generali",
+                "primo"
+            ],
+            "viniProposti": [
+                1,
+                3,
+                8
+            ]
+        },
+        {
+            "id": 13,
+            "nome": "verdure",
+            "tags": [
+                "abbinamenti generali",
+                "primo"
+            ],
+            "viniProposti": [
+                4,
+                2,
+                7
+            ]
+        },
+        {
+            "id": 14,
+            "nome": "uova",
+            "tags": [
+                "abbinamenti generali",
+                "primo"
+            ],
+            "viniProposti": [
+                1,
+                3,
+                8
+            ]
+        },
+        {
+            "id": 15,
+            "nome": "crostacei",
+            "tags": [
+                "abbinamenti generali",
+                "primo"
+            ],
+            "viniProposti": [
+                4,
+                6,
+                2
+            ]
+        },
+        {
+            "id": 16,
+            "nome": "molluschi",
+            "tags": [
+                "abbinamenti generali",
+                "primo"
+            ],
+            "viniProposti": [
+                4,
+                5,
+                2
+            ]
+        },
+        {
+            "id": 17,
+            "nome": "carne bianca",
+            "tags": [
+                "abbinamenti generali",
+                "secondo"
+            ],
+            "viniProposti": [
+                8,
+                3,
+                1
+            ]
+        },
+        {
+            "id": 18,
+            "nome": "carne rossa",
+            "tags": [
+                "abbinamenti generali",
+                "secondo"
+            ],
+            "viniProposti": [
+                12,
+                8,
+                10
+            ]
+        },
+        {
+            "id": 19,
+            "nome": "pesce",
+            "tags": [
+                "abbinamenti generali",
+                "secondo"
+            ],
+            "viniProposti": [
+                4,
+                5,
+                2
+            ]
+        },
+        {
+            "id": 20,
+            "nome": "pesce",
+            "tags": [
+                "abbinamenti generali",
+                "secondo"
+            ],
+            "viniProposti": [
+                7,
+                23,
+                24
+            ]
+        },
+        {
+            "id": 21,
+            "nome": "pesce",
+            "tags": [
+                "abbinamenti generali",
+                "secondo"
+            ],
+            "viniProposti": [
+                9,
+                11,
+                6
+            ]
+        },
+        {
+            "id": 22,
+            "nome": "pesce",
+            "tags": [
+                "abbinamenti generali",
+                "secondo"
+            ],
+            "viniProposti": []
+        },
+        {
+            "id": 23,
+            "nome": "pesce",
+            "tags": [
+                "abbinamenti generali",
+                "secondo"
+            ],
+            "viniProposti": []
+        },
+        {
+            "id": 24,
+            "nome": "pesce",
+            "tags": [
+                "abbinamenti generali",
+                "secondo"
+            ],
+            "viniProposti": []
+        },
+        {
+            "id": 25,
+            "nome": "pesce",
+            "tags": [
+                "abbinamenti generali",
+                "secondo"
+            ],
+            "viniProposti": []
+        },
+        {
+            "id": 26,
+            "nome": "pesce",
+            "tags": [
+                "abbinamenti generali",
+                "secondo"
+            ],
+            "viniProposti": []
+        },
+        {
+            "id": 27,
+            "nome": "pesce",
+            "tags": [
+                "abbinamenti generali",
+                "secondo"
+            ],
+            "viniProposti": []
+        },
+        {
+            "id": 28,
+            "nome": "torta",
+            "tags": [
+                "abbinamenti generali",
+                "dolce"
+            ],
+            "viniProposti": [
+                14,
+                15,
+                25
+            ]
+        }
+    ],
+    "listaIngredientiPrincipali": [
+        {
+            "id": 1,
+            "nome": "mushroom",
+            "ricette": [
+                1
+            ]
+        },
+        {
+            "id": 2,
+            "nome": "beans",
+            "ricette": [
+                2
+            ]
+        },
+        {
+            "id": 3,
+            "nome": "Cheese",
+            "ricette": [
+                3
+            ]
+        },
+        {
+            "id": 4,
+            "nome": "beef",
+            "ricette": [
+                4
+            ]
+        },
+        {
+            "id": 5,
+            "nome": "eggs",
+            "ricette": [
+                5,
+                7,
+                72
+            ]
+        },
+        {
+            "id": 6,
+            "nome": "bread",
+            "ricette": [
+                6,
+                8,
+                11,
+                49
+            ]
+        },
+        {
+            "id": 7,
+            "nome": "salmon/tuna",
+            "ricette": [
+                9
+            ]
+        },
+        {
+            "id": 8,
+            "nome": "salmon",
+            "ricette": [
+                10,
+                17
+            ]
+        },
+        {
+            "id": 9,
+            "nome": "tomatoes",
+            "ricette": [
+                12,
+                13
+            ]
+        },
+        {
+            "id": 10,
+            "nome": "potatoes",
+            "ricette": [
+                14,
+                16
+            ]
+        },
+        {
+            "id": 11,
+            "nome": "chickpeas",
+            "ricette": [
+                15
+            ]
+        },
+        {
+            "id": 12,
+            "nome": "carrot",
+            "ricette": [
+                18,
+                84
+            ]
+        },
+        {
+            "id": 13,
+            "nome": "pasta",
+            "ricette": [
+                19,
+                23,
+                24,
+                25,
+                33,
+                35,
+                37,
+                88,
+                89,
+                90,
+                91,
+                92,
+                93,
+                94,
+                96,
+                97,
+                98,
+                99,
+                105,
+                112,
+                114
+            ]
+        },
+        {
+            "id": 14,
+            "nome": "tomato sauce",
+            "ricette": [
+                20,
+                21
+            ]
+        },
+        {
+            "id": 15,
+            "nome": "shimprs",
+            "ricette": [
+                22
+            ]
+        },
+        {
+            "id": 16,
+            "nome": "spaghetti",
+            "ricette": [
+                26
+            ]
+        },
+        {
+            "id": 17,
+            "nome": "rice",
+            "ricette": [
+                27,
+                29,
+                31,
+                32,
+                38,
+                57,
+                103,
+                104
+            ]
+        },
+        {
+            "id": 18,
+            "nome": "rise",
+            "ricette": [
+                28,
+                30
+            ]
+        },
+        {
+            "id": 19,
+            "nome": "meat",
+            "ricette": [
+                34,
+                46,
+                48,
+                51,
+                53,
+                56,
+                58,
+                60,
+                61,
+                62,
+                63,
+                67,
+                74,
+                75,
+                110,
+                115
+            ]
+        },
+        {
+            "id": 20,
+            "nome": "pizza",
+            "ricette": [
+                36
+            ]
+        },
+        {
+            "id": 21,
+            "nome": "lentils",
+            "ricette": [
+                39,
+                78
+            ]
+        },
+        {
+            "id": 22,
+            "nome": "mussels",
+            "ricette": [
+                40,
+                111
+            ]
+        },
+        {
+            "id": 23,
+            "nome": "noodles",
+            "ricette": [
+                41
+            ]
+        },
+        {
+            "id": 24,
+            "nome": "chicken",
+            "ricette": [
+                42,
+                44,
+                47,
+                52,
+                59,
+                73,
+                109
+            ]
+        },
+        {
+            "id": 25,
+            "nome": "oysters",
+            "ricette": [
+                43
+            ]
+        },
+        {
+            "id": 26,
+            "nome": "lobster",
+            "ricette": [
+                45
+            ]
+        },
+        {
+            "id": 27,
+            "nome": "sausages",
+            "ricette": [
+                50
+            ]
+        },
+        {
+            "id": 28,
+            "nome": "white meat",
+            "ricette": [
+                54
+            ]
+        },
+        {
+            "id": 29,
+            "nome": "pastrami",
+            "ricette": [
+                55
+            ]
+        },
+        {
+            "id": 30,
+            "nome": "squid",
+            "ricette": [
+                64,
+                70
+            ]
+        },
+        {
+            "id": 31,
+            "nome": "mussel",
+            "ricette": [
+                65
+            ]
+        },
+        {
+            "id": 32,
+            "nome": "sea bass",
+            "ricette": [
+                68
+            ]
+        },
+        {
+            "id": 33,
+            "nome": "sea bream",
+            "ricette": [
+                69
+            ]
+        },
+        {
+            "id": 34,
+            "nome": "wurstel",
+            "ricette": [
+                71
+            ]
+        },
+        {
+            "id": 35,
+            "nome": "quinoa",
+            "ricette": [
+                76
+            ]
+        },
+        {
+            "id": 36,
+            "nome": "vegetables",
+            "ricette": [
+                77
+            ]
+        },
+        {
+            "id": 37,
+            "nome": "apple",
+            "ricette": [
+                79
+            ]
+        },
+        {
+            "id": 38,
+            "nome": "chocolate",
+            "ricette": [
+                81,
+                83
+            ]
+        },
+        {
+            "id": 39,
+            "nome": "Fresh cheese",
+            "ricette": [
+                82
+            ]
+        },
+        {
+            "id": 40,
+            "nome": "strawberry",
+            "ricette": [
+                85
+            ]
+        },
+        {
+            "id": 41,
+            "nome": "mascarpone cheese",
+            "ricette": [
+                86,
+                117
+            ]
+        },
+        {
+            "id": 42,
+            "nome": "milk",
+            "ricette": [
+                87
+            ]
+        },
+        {
+            "id": 43,
+            "nome": "tornellini",
+            "ricette": [
+                95
+            ]
+        },
+        {
+            "id": 44,
+            "nome": "parmaham",
+            "ricette": [
+                100
+            ]
+        },
+        {
+            "id": 45,
+            "nome": "gnocchi",
+            "ricette": [
+                101
+            ]
+        },
+        {
+            "id": 46,
+            "nome": "veal meat",
+            "ricette": [
+                102
+            ]
+        },
+        {
+            "id": 47,
+            "nome": "veal",
+            "ricette": [
+                107,
+                108
+            ]
+        },
+        {
+            "id": 48,
+            "nome": "aubregines",
+            "ricette": [
+                113
+            ]
+        },
+        {
+            "id": 49,
+            "nome": "shortcrust pastry",
+            "ricette": [
+                116
+            ]
+        }
+    ],
+    "listaIngredientiSecondari": [
+        {
+            "id": 1,
+            "nome": "garlic",
+            "ricette": [
+                1,
+                11,
+                21,
+                65,
+                97
+            ]
+        },
+        {
+            "id": 2,
+            "nome": "onion",
+            "ricette": [
+                2,
+                4,
+                34,
+                46,
+                74
+            ]
+        },
+        {
+            "id": 3,
+            "nome": "tomato sauce",
+            "ricette": [
+                2,
+                31,
+                33,
+                35,
+                47,
+                51,
+                62,
+                89,
+                96,
+                101,
+                114
+            ]
+        },
+        {
+            "id": 4,
+            "nome": "bacon",
+            "ricette": [
+                5,
+                88,
+                89,
+                90
+            ]
+        },
+        {
+            "id": 5,
+            "nome": "chicken",
+            "ricette": [
+                6,
+                7
+            ]
+        },
+        {
+            "id": 6,
+            "nome": "cesear dressing",
+            "ricette": [
+                6
+            ]
+        },
+        {
+            "id": 7,
+            "nome": "mayonnaise",
+            "ricette": [
+                7,
+                18,
+                45
+            ]
+        },
+        {
+            "id": 8,
+            "nome": "avocado",
+            "ricette": [
+                8,
+                17
+            ]
+        },
+        {
+            "id": 9,
+            "nome": "mango",
+            "ricette": [
+                9
+            ]
+        },
+        {
+            "id": 10,
+            "nome": "edamame beans",
+            "ricette": [
+                9
+            ]
+        },
+        {
+            "id": 11,
+            "nome": "cheese",
+            "ricette": [
+                10,
+                24
+            ]
+        },
+        {
+            "id": 12,
+            "nome": "butter",
+            "ricette": [
+                11,
+                16,
+                23,
+                27,
+                43,
+                103
+            ]
+        },
+        {
+            "id": 13,
+            "nome": "mozzarella cheese",
+            "ricette": [
+                13,
+                36,
+                113
+            ]
+        },
+        {
+            "id": 14,
+            "nome": "basil",
+            "ricette": [
+                13,
+                20,
+                92
+            ]
+        },
+        {
+            "id": 15,
+            "nome": "milk",
+            "ricette": [
+                16
+            ]
+        },
+        {
+            "id": 16,
+            "nome": "cabbage",
+            "ricette": [
+                18
+            ]
+        },
+        {
+            "id": 17,
+            "nome": "meat",
+            "ricette": [
+                19
+            ]
+        },
+        {
+            "id": 18,
+            "nome": "tomatosauce",
+            "ricette": [
+                19,
+                44
+            ]
+        },
+        {
+            "id": 19,
+            "nome": "origan",
+            "ricette": [
+                21
+            ]
+        },
+        {
+            "id": 20,
+            "nome": "tomato",
+            "ricette": [
+                22,
+                109
+            ]
+        },
+        {
+            "id": 21,
+            "nome": "parmesan",
+            "ricette": [
+                23,
+                24,
+                92,
+                113
+            ]
+        },
+        {
+            "id": 22,
+            "nome": "ragu",
+            "ricette": [
+                25,
+                94,
+                98,
+                105,
+                112
+            ]
+        },
+        {
+            "id": 23,
+            "nome": "clams",
+            "ricette": [
+                26,
+                28
+            ]
+        },
+        {
+            "id": 24,
+            "nome": "mushroom",
+            "ricette": [
+                27
+            ]
+        },
+        {
+            "id": 25,
+            "nome": "squid",
+            "ricette": [
+                28
+            ]
+        },
+        {
+            "id": 26,
+            "nome": "gorgonzola",
+            "ricette": [
+                29
+            ]
+        },
+        {
+            "id": 27,
+            "nome": "radicchio",
+            "ricette": [
+                29
+            ]
+        },
+        {
+            "id": 28,
+            "nome": "truffle",
+            "ricette": [
+                30
+            ]
+        },
+        {
+            "id": 29,
+            "nome": "peas",
+            "ricette": [
+                32
+            ]
+        },
+        {
+            "id": 30,
+            "nome": "eggs",
+            "ricette": [
+                32,
+                88
+            ]
+        },
+        {
+            "id": 31,
+            "nome": "anchovies",
+            "ricette": [
+                33,
+                114
+            ]
+        },
+        {
+            "id": 32,
+            "nome": "carrot",
+            "ricette": [
+                34,
+                74
+            ]
+        },
+        {
+            "id": 33,
+            "nome": "tuna",
+            "ricette": [
+                35
+            ]
+        },
+        {
+            "id": 34,
+            "nome": "salame",
+            "ricette": [
+                36
+            ]
+        },
+        {
+            "id": 35,
+            "nome": "ricotta",
+            "ricette": [
+                37,
+                96,
+                99
+            ]
+        },
+        {
+            "id": 36,
+            "nome": "pumpkin",
+            "ricette": [
+                38
+            ]
+        },
+        {
+            "id": 37,
+            "nome": "calamari",
+            "ricette": [
+                40
+            ]
+        },
+        {
+            "id": 38,
+            "nome": "shrimp",
+            "ricette": [
+                41,
+                93
+            ]
+        },
+        {
+            "id": 39,
+            "nome": "walnuts",
+            "ricette": [
+                41,
+                83,
+                84
+            ]
+        },
+        {
+            "id": 40,
+            "nome": "curry",
+            "ricette": [
+                42
+            ]
+        },
+        {
+            "id": 41,
+            "nome": "yogurt",
+            "ricette": [
+                42
+            ]
+        },
+        {
+            "id": 42,
+            "nome": "parsley",
+            "ricette": [
+                43
+            ]
+        },
+        {
+            "id": 43,
+            "nome": "cheddar",
+            "ricette": [
+                44,
+                49
+            ]
+        },
+        {
+            "id": 44,
+            "nome": "celery",
+            "ricette": [
+                45
+            ]
+        },
+        {
+            "id": 45,
+            "nome": "pepper",
+            "ricette": [
+                46,
+                75,
+                91
+            ]
+        },
+        {
+            "id": 46,
+            "nome": "mozzarella",
+            "ricette": [
+                47,
+                98,
+                100,
+                112
+            ]
+        },
+        {
+            "id": 47,
+            "nome": "barbecue sauce",
+            "ricette": [
+                48
+            ]
+        },
+        {
+            "id": 48,
+            "nome": "hambuger",
+            "ricette": [
+                49
+            ]
+        },
+        {
+            "id": 49,
+            "nome": "hot pepper and onion",
+            "ricette": [
+                51
+            ]
+        },
+        {
+            "id": 50,
+            "nome": "bread",
+            "ricette": [
+                55,
+                71
+            ]
+        },
+        {
+            "id": 51,
+            "nome": "fish",
+            "ricette": [
+                57
+            ]
+        },
+        {
+            "id": 52,
+            "nome": "almond",
+            "ricette": [
+                73
+            ]
+        },
+        {
+            "id": 53,
+            "nome": "fresh cream",
+            "ricette": [
+                75
+            ]
+        },
+        {
+            "id": 54,
+            "nome": "vegetables",
+            "ricette": [
+                76
+            ]
+        },
+        {
+            "id": 55,
+            "nome": "sugar",
+            "ricette": [
+                79
+            ]
+        },
+        {
+            "id": 56,
+            "nome": "fruits",
+            "ricette": [
+                82
+            ]
+        },
+        {
+            "id": 57,
+            "nome": "coffee",
+            "ricette": [
+                86,
+                117
+            ]
+        },
+        {
+            "id": 58,
+            "nome": "pecorino",
+            "ricette": [
+                91
+            ]
+        },
+        {
+            "id": 59,
+            "nome": "mussels",
+            "ricette": [
+                93
+            ]
+        },
+        {
+            "id": 60,
+            "nome": "meat broth",
+            "ricette": [
+                95
+            ]
+        },
+        {
+            "id": 61,
+            "nome": "olive oil",
+            "ricette": [
+                97
+            ]
+        },
+        {
+            "id": 62,
+            "nome": "aubergines",
+            "ricette": [
+                99
+            ]
+        },
+        {
+            "id": 63,
+            "nome": "Mozzarella",
+            "ricette": [
+                101
+            ]
+        },
+        {
+            "id": 64,
+            "nome": "saffron",
+            "ricette": [
+                103
+            ]
+        },
+        {
+            "id": 65,
+            "nome": "scampi",
+            "ricette": [
+                104
+            ]
+        },
+        {
+            "id": 66,
+            "nome": "tuna sauce",
+            "ricette": [
+                107
+            ]
+        },
+        {
+            "id": 67,
+            "nome": "parma ham",
+            "ricette": [
+                108
+            ]
+        },
+        {
+            "id": 68,
+            "nome": "olives",
+            "ricette": [
+                109
+            ]
+        },
+        {
+            "id": 69,
+            "nome": "jam",
+            "ricette": [
+                116
+            ]
+        }
+    ],
+    "listaOccasioni": [
+        {
+            "id": 1,
+            "nome": "indipendence day",
+            "viniProposti": [
+                26,
+                27,
+                28
+            ]
+        },
+        {
+            "id": 2,
+            "nome": "baby shower",
+            "viniProposti": [
+                29,
+                30,
+                31
+            ]
+        },
+        {
+            "id": 3,
+            "nome": "matrimonio",
+            "viniProposti": [
+                17,
+                28,
+                30
+            ]
+        },
+        {
+            "id": 4,
+            "nome": "addio al nubilato/celibato",
+            "viniProposti": [
+                17,
+                14,
+                15
+            ]
+        },
+        {
+            "id": 5,
+            "nome": "pool party / barbeque",
+            "viniProposti": [
+                32,
+                33,
+                34
+            ]
+        },
+        {
+            "id": 6,
+            "nome": "compleanno",
+            "viniProposti": [
+                32,
+                28,
+                35
+            ]
+        },
+        {
+            "id": 7,
+            "nome": "valentine’s day",
+            "viniProposti": [
+                14,
+                17,
+                27
+            ]
+        },
+        {
+            "id": 8,
+            "nome": "international women’s day",
+            "viniProposti": [
+                14,
+                15,
+                7
+            ]
+        },
+        {
+            "id": 9,
+            "nome": "first day of spring",
+            "viniProposti": [
+                36,
+                5,
+                4
+            ]
+        },
+        {
+            "id": 10,
+            "nome": "easter",
+            "viniProposti": [
+                33,
+                34,
+                37
+            ]
+        },
+        {
+            "id": 11,
+            "nome": "mother’s day",
+            "viniProposti": [
+                14,
+                27,
+                17
+            ]
+        },
+        {
+            "id": 12,
+            "nome": "memorial day",
+            "viniProposti": [
+                26,
+                27,
+                38
+            ]
+        },
+        {
+            "id": 13,
+            "nome": "father’s day",
+            "viniProposti": [
+                12,
+                39,
+                13
+            ]
+        },
+        {
+            "id": 14,
+            "nome": "first day of summer",
+            "viniProposti": [
+                40,
+                36,
+                5
+            ]
+        },
+        {
+            "id": 15,
+            "nome": "labor day",
+            "viniProposti": [
+                26,
+                27,
+                25
+            ]
+        },
+        {
+            "id": 16,
+            "nome": "halloween",
+            "viniProposti": [
+                25,
+                32,
+                27
+            ]
+        },
+        {
+            "id": 17,
+            "nome": "thanksgiving day",
+            "viniProposti": [
+                33,
+                34,
+                32
+            ]
+        },
+        {
+            "id": 18,
+            "nome": "christmas day",
+            "viniProposti": [
+                17,
+                14,
+                25
+            ]
+        },
+        {
+            "id": 19,
+            "nome": "new year’s eve",
+            "viniProposti": [
+                17,
+                28,
+                32
+            ]
+        },
+        {
+            "id": 20,
+            "nome": "super bowl",
+            "viniProposti": [
+                32,
+                35,
+                28
+            ]
+        }
+    ],
+    "listaVini": [
+        {
+            "id": 1,
+            "nome": "Perlè",
+            "ricette": [
+                1,
+                2,
+                5,
+                19,
+                27,
+                29,
+                37,
+                39,
+                42,
+                49,
+                52,
+                59,
+                71,
+                72,
+                73,
+                78,
+                90
+            ]
+        },
+        {
+            "id": 2,
+            "nome": "Prosecco",
+            "ricette": [
+                1,
+                3,
+                4,
+                6,
+                7,
+                8,
+                9,
+                10,
+                11,
+                12,
+                13,
+                14,
+                15,
+                16,
+                17,
+                18,
+                20,
+                21,
+                22,
+                23,
+                24,
+                26,
+                31,
+                33,
+                38,
+                40,
+                41,
+                43,
+                45,
+                47,
+                57,
+                59,
+                84,
+                85,
+                104,
+                113,
+                114
+            ]
+        },
+        {
+            "id": 3,
+            "nome": "Libero Chianti",
+            "ricette": [
+                1,
+                2,
+                5,
+                19,
+                20,
+                21,
+                24,
+                25,
+                27,
+                36,
+                38,
+                39,
+                47,
+                48,
+                49,
+                50,
+                52,
+                53,
+                54,
+                55,
+                56,
+                58,
+                59,
+                60,
+                61,
+                62,
+                63,
+                66,
+                67,
+                71,
+                72,
+                73,
+                74,
+                75,
+                76,
+                78,
+                88,
+                89,
+                90,
+                94,
+                112
+            ]
+        },
+        {
+            "id": 4,
+            "nome": "Volare",
+            "ricette": [
+                2,
+                3,
+                4,
+                5,
+                6,
+                8,
+                9,
+                10,
+                11,
+                12,
+                13,
+                14,
+                15,
+                16,
+                17,
+                18,
+                20,
+                21,
+                22,
+                26,
+                28,
+                35,
+                36,
+                41,
+                43,
+                45,
+                57,
+                64,
+                65,
+                68,
+                69,
+                76,
+                113
+            ]
+        },
+        {
+            "id": 5,
+            "nome": "Hugo",
+            "ricette": [
+                3,
+                4,
+                7,
+                9,
+                11,
+                12,
+                13,
+                14,
+                15,
+                16,
+                17,
+                18
+            ]
+        },
+        {
+            "id": 6,
+            "nome": "Libero Bianco",
+            "ricette": [
+                6,
+                22
+            ]
+        },
+        {
+            "id": 7,
+            "nome": "Rosé Monogram",
+            "ricette": [
+                7,
+                8,
+                10,
+                31,
+                33,
+                37,
+                57,
+                66,
+                70,
+                77,
+                113,
+                114
+            ]
+        },
+        {
+            "id": 8,
+            "nome": "Riserva di Famiglia",
+            "ricette": [
+                19,
+                23,
+                24,
+                25,
+                27,
+                29,
+                30,
+                38,
+                39,
+                42,
+                48,
+                49,
+                50,
+                53,
+                54,
+                55,
+                56,
+                58,
+                60,
+                61,
+                62,
+                63,
+                67,
+                73,
+                74,
+                75,
+                88,
+                89,
+                90,
+                94,
+                112
+            ]
+        },
+        {
+            "id": 9,
+            "nome": "Pinot Grigio",
+            "ricette": [
+                23,
+                26,
+                28,
+                31,
+                33,
+                35,
+                36,
+                37,
+                40,
+                42,
+                43,
+                45,
+                47,
+                64,
+                65,
+                66,
+                68,
+                69,
+                70,
+                76,
+                77,
+                78,
+                104,
+                114
+            ]
+        },
+        {
+            "id": 10,
+            "nome": "Albergaccio",
+            "ricette": [
+                25,
+                29,
+                52,
+                58,
+                71,
+                88,
+                89,
+                94
+            ]
+        },
+        {
+            "id": 11,
+            "nome": "Chardonnay",
+            "ricette": [
+                28,
+                35,
+                40,
+                41,
+                64,
+                65,
+                68,
+                69,
+                70,
+                72,
+                77,
+                104
+            ]
+        },
+        {
+            "id": 12,
+            "nome": "Libero Toscana IGT",
+            "ricette": [
+                30,
+                48,
+                50,
+                53,
+                54,
+                55,
+                56,
+                60,
+                61,
+                62,
+                63,
+                67,
+                74,
+                75,
+                112
+            ]
+        },
+        {
+            "id": 13,
+            "nome": "Il Principe",
+            "ricette": [
+                30
+            ]
+        },
+        {
+            "id": 14,
+            "nome": "Amor diVino",
+            "ricette": [
+                79,
+                80,
+                81,
+                82,
+                84,
+                85,
+                86,
+                117
+            ]
+        },
+        {
+            "id": 15,
+            "nome": "Splendia",
+            "ricette": [
+                79,
+                81,
+                83
+            ]
+        },
+        {
+            "id": 16,
+            "nome": "Crema di Grappa",
+            "ricette": [
+                79
+            ]
+        },
+        {
+            "id": 17,
+            "nome": "Blumond",
+            "ricette": [
+                80,
+                83
+            ]
+        },
+        {
+            "id": 18,
+            "nome": "Crema di cioccolato",
+            "ricette": [
+                80,
+                82,
+                87
+            ]
+        },
+        {
+            "id": 19,
+            "nome": "Crema di caffè",
+            "ricette": [
+                81,
+                83,
+                84,
+                86,
+                87,
+                117
+            ]
+        },
+        {
+            "id": 20,
+            "nome": "Crema di Limoncino",
+            "ricette": [
+                82,
+                86,
+                117
+            ]
+        },
+        {
+            "id": 21,
+            "nome": "Limoncello",
+            "ricette": [
+                85
+            ]
+        },
+        {
+            "id": 22,
+            "nome": "Crema di Pistacchio",
+            "ricette": [
+                87
+            ]
+        },
+        {
+            "id": 23,
+            "nome": "Blanc de Blancs",
+            "ricette": []
+        },
+        {
+            "id": 24,
+            "nome": "Satèn",
+            "ricette": []
+        },
+        {
+            "id": 25,
+            "nome": "Cream liquors pack",
+            "ricette": []
+        },
+        {
+            "id": 26,
+            "nome": "Red, White and Blue Bubbles pack",
+            "ricette": []
+        },
+        {
+            "id": 27,
+            "nome": "Iconic Sparklers",
+            "ricette": []
+        },
+        {
+            "id": 28,
+            "nome": "Blumond Magnum",
+            "ricette": []
+        },
+        {
+            "id": 29,
+            "nome": "Baby sparklers pack",
+            "ricette": []
+        },
+        {
+            "id": 30,
+            "nome": "Baby Blumond",
+            "ricette": []
+        },
+        {
+            "id": 31,
+            "nome": "Baby Splendia",
+            "ricette": []
+        },
+        {
+            "id": 32,
+            "nome": "Let's Celebrate",
+            "ricette": []
+        },
+        {
+            "id": 33,
+            "nome": "Private tasting room",
+            "ricette": []
+        },
+        {
+            "id": 34,
+            "nome": "Made in Tuscany with love",
+            "ricette": []
+        },
+        {
+            "id": 35,
+            "nome": "Baby sparklers Party kit",
+            "ricette": []
+        },
+        {
+            "id": 36,
+            "nome": "Bottled sunshine",
+            "ricette": []
+        },
+        {
+            "id": 37,
+            "nome": "Signature Collection",
+            "ricette": []
+        },
+        {
+            "id": 38,
+            "nome": "Riserva di famiglia",
+            "ricette": []
+        },
+        {
+            "id": 39,
+            "nome": "Family's treasure pack",
+            "ricette": []
+        },
+        {
+            "id": 40,
+            "nome": "Hello Summer pack",
+            "ricette": []
+        }
+    ],
+    "listaParoleChiave": [
+        "Garlic Mushrooms",
+        "Antipasticontorni",
+        "Baked beans",
+        "Nachos",
+        "Tacos",
+        "Eggs and bacon",
+        "Cesear salad",
+        "Club sandwich",
+        "Avocado Toast",
+        "Poke",
+        "Bagel with cheese and salmon",
+        "Garlic bread",
+        "Fried green tomatoes",
+        "Caprese",
+        "French fries",
+        "Hummus",
+        "Mashed potatoes",
+        "Salmon tartare with avocado",
+        "Coleslaw",
+        "Spaghetti with meatballs",
+        "Primi",
+        "Spaghetti with tomato sauce",
+        "Spaghetti alla marinara",
+        "Spaghetti with shrimps",
+        "Fettucine alfredo",
+        "Mac and Cheese",
+        "Spaghetti bolognese",
+        "spaghetti with clams",
+        "risotto with mushrooms",
+        "seafood risotto",
+        "risotto with gorgonzola and radicchio",
+        "Risotto with truffle",
+        "risotto with tomato sauce",
+        "Cantonese fried rice",
+        "spaghetti alla puttanesca",
+        "spring rolls",
+        "spaghetti with tuna",
+        "Pizza stromboli",
+        "pasta with ricotta",
+        "pumpkin risotto",
+        "Lentils soup",
+        "Fish soup",
+        "Pad thai",
+        "Chicken masala",
+        "Secondi",
+        "Oysters Rockefeller",
+        "Enchiladas",
+        "Lobster rolls",
+        "Fajitas",
+        "Chicken parmesan",
+        "Barbecue ribs",
+        "Cheeseburger",
+        "Sausages",
+        "Chilli",
+        "Fried chicken",
+        "Pulled Pork",
+        "Turkey",
+        "Pastrami sandwich",
+        "Lamb",
+        "Sushi",
+        "Smoked Ham",
+        "Burrito",
+        "American barbecue",
+        "Steak with french fries",
+        "Meatballs",
+        "Cotoletta alla milanese",
+        "fried squid",
+        "Mussel saute",
+        "Baked potatoes",
+        "Roastbeef",
+        "Sea bass",
+        "Sea ​​bream",
+        "Stuffed squid",
+        "Hot dog",
+        "Omelette",
+        "Almoond chicken",
+        "Stew",
+        "Pepper steak.",
+        "Quinoa with vegetables",
+        "Tempura",
+        "Lentils soup",
+        "Apple pie",
+        "Dessert",
+        "Pancakes",
+        "Chocolate mud cake",
+        "Cheesecake",
+        "brownies",
+        "Carrot cake",
+        "Strawberry and chocolate",
+        "Tiramisu",
+        "ice cream",
+        "Carbonara",
+        "Ricette italiane",
+        "Matriciana",
+        "Gricia",
+        "cacio e pepe",
+        "Pasta al pesto",
+        "Spaghetti allo scoglio",
+        "Pasta al ragu",
+        "Tortellini in brodo",
+        "Ravioli al sugo",
+        "spaghetti aglio e olio",
+        "Pasta al forno",
+        "Pasta alla norma",
+        "Parma ham and mozzarella",
+        "gnocchi alla sorrentina",
+        "arrosto",
+        "risotto alla milanese",
+        "risotto agli scampi",
+        "Cannelloni",
+        "Polenta",
+        "Vitello tonnato",
+        "Saltimbocca alla romana",
+        "pollo alla cacciatora",
+        "Brasato",
+        "Impepata di cozze",
+        "lasagne",
+        "Parmigiana",
+        "spaghetti alla puttanesca",
+        "polpettone",
+        "Crostata",
+        "Tiramisu",
+        "white meat",
+        "chicken",
+        "rabbit",
+        "turkey",
+        "lamb",
+        "veal",
+        "red meat",
+        "beef",
+        "horse",
+        "pork",
+        "horsemeat",
+        "boar meat",
+        "game",
+        "fish",
+        "bream",
+        "sea bass",
+        "swordfish",
+        "tuna",
+        "salmon",
+        "sole",
+        "mackerel",
+        "squids",
+        "shellfishes",
+        "mussels",
+        "clams",
+        "oyster",
+        "crayfish",
+        "lobster",
+        "shrimp",
+        "prawn",
+        "sea urchins",
+        "cheese",
+        "cheddar",
+        "gorgonzola",
+        "emmental",
+        "mozzarella cheese",
+        "parmesan",
+        "pecorino",
+        "vegetables",
+        "aubergines",
+        "eggplants",
+        "zucchini",
+        "courgettes",
+        "peppers",
+        "salad",
+        "fennel",
+        " ",
+        "broccoli",
+        "carrots",
+        "tomatoes",
+        "garlic",
+        "onion",
+        "beens",
+        "chcikpeas",
+        "peas",
+        "mushroom",
+        "beans",
+        "Cheese",
+        "beef",
+        "eggs",
+        "bread",
+        "salmon/tuna",
+        "salmon",
+        "tomatoes",
+        "potatoes",
+        "chickpeas",
+        "carrot",
+        "pasta",
+        "tomato sauce",
+        "shimprs",
+        "spaghetti",
+        "rice",
+        "rise",
+        "meat",
+        "pizza",
+        "lentils",
+        "mussels",
+        "noodles",
+        "chicken",
+        "oysters",
+        "lobster",
+        "sausages",
+        "white meat",
+        "pastrami",
+        "squid",
+        "mussel",
+        "sea bass",
+        "sea bream",
+        "wurstel",
+        "quinoa",
+        "vegetables",
+        "apple",
+        "chocolate",
+        "Fresh cheese",
+        "strawberry",
+        "mascarpone cheese",
+        "milk",
+        "tornellini",
+        "parmaham",
+        "gnocchi",
+        "veal meat",
+        "veal",
+        "aubregines",
+        "shortcrust pastry",
+        "garlic",
+        "onion",
+        "tomato sauce",
+        "bacon",
+        "chicken",
+        "cesear dressing",
+        "mayonnaise",
+        "avocado",
+        "mango",
+        "edamame beans",
+        "cheese",
+        "butter",
+        "mozzarella cheese",
+        "basil",
+        "milk",
+        "cabbage",
+        "meat",
+        "tomatosauce",
+        "origan",
+        "tomato",
+        "parmesan",
+        "ragu",
+        "clams",
+        "mushroom",
+        "squid",
+        "gorgonzola",
+        "radicchio",
+        "truffle",
+        "peas",
+        "eggs",
+        "anchovies",
+        "carrot",
+        "tuna",
+        "salame",
+        "ricotta",
+        "pumpkin",
+        "calamari",
+        "shrimp",
+        "walnuts",
+        "curry",
+        "yogurt",
+        "parsley",
+        "cheddar",
+        "celery",
+        "pepper",
+        "mozzarella",
+        "barbecue sauce",
+        "hambuger",
+        "hot pepper and onion",
+        "bread",
+        "fish",
+        "almond",
+        "fresh cream",
+        "vegetables",
+        "sugar",
+        "fruits",
+        "coffee",
+        "pecorino",
+        "mussels",
+        "meat broth",
+        "olive oil",
+        "aubergines",
+        "Mozzarella",
+        "saffron",
+        "scampi",
+        "tuna sauce",
+        "parma ham",
+        "olives",
+        "jam",
+        "indipendence day",
+        "baby shower",
+        "matrimonio",
+        "addio al nubilato/celibato",
+        "pool party / barbeque",
+        "compleanno",
+        "valentine’s day",
+        "international women’s day",
+        "first day of spring",
+        "easter",
+        "mother’s day",
+        "memorial day",
+        "father’s day",
+        "first day of summer",
+        "labor day",
+        "halloween",
+        "thanksgiving day",
+        "christmas day",
+        "new year’s eve",
+        "super bowl"
+    ],
+    "listaParoleChiavePerCategoria": {
+        "antipastiContorni": [
+            "Garlic Mushrooms",
+            "Baked beans",
+            "Nachos",
+            "Tacos",
+            "Eggs and bacon",
+            "Cesear salad",
+            "Club sandwich",
+            "Avocado Toast",
+            "Poke",
+            "Bagel with cheese and salmon",
+            "Garlic bread",
+            "Fried green tomatoes",
+            "Caprese",
+            "French fries",
+            "Hummus",
+            "Mashed potatoes",
+            "Salmon tartare with avocado",
+            "Coleslaw"
+        ],
+        "primi": [
+            "Spaghetti with meatballs",
+            "Spaghetti with tomato sauce",
+            "Spaghetti alla marinara",
+            "Spaghetti with shrimps",
+            "Fettucine alfredo",
+            "Mac and Cheese",
+            "Spaghetti bolognese",
+            "spaghetti with clams",
+            "risotto with mushrooms",
+            "seafood risotto",
+            "risotto with gorgonzola and radicchio",
+            "Risotto with truffle",
+            "risotto with tomato sauce",
+            "Cantonese fried rice",
+            "spaghetti alla puttanesca",
+            "spring rolls",
+            "spaghetti with tuna",
+            "Pizza stromboli",
+            "pasta with ricotta",
+            "pumpkin risotto",
+            "Lentils soup",
+            "Fish soup",
+            "Pad thai"
+        ],
+        "secondi": [
+            "Chicken masala",
+            "Oysters Rockefeller",
+            "Enchiladas",
+            "Lobster rolls",
+            "Fajitas",
+            "Chicken parmesan",
+            "Barbecue ribs",
+            "Cheeseburger",
+            "Sausages",
+            "Chilli",
+            "Fried chicken",
+            "Pulled Pork",
+            "Turkey",
+            "Pastrami sandwich",
+            "Lamb",
+            "Sushi",
+            "Smoked Ham",
+            "Burrito",
+            "American barbecue",
+            "Steak with french fries",
+            "Meatballs",
+            "Cotoletta alla milanese",
+            "fried squid",
+            "Mussel saute",
+            "Baked potatoes",
+            "Roastbeef",
+            "Sea bass",
+            "Sea ​​bream",
+            "Stuffed squid",
+            "Hot dog",
+            "Omelette",
+            "Almoond chicken",
+            "Stew",
+            "Pepper steak.",
+            "Quinoa with vegetables",
+            "Tempura",
+            "Lentils soup"
+        ],
+        "dessert": [
+            "Apple pie",
+            "Pancakes",
+            "Chocolate mud cake",
+            "Cheesecake",
+            "brownies",
+            "Carrot cake",
+            "Strawberry and chocolate",
+            "Tiramisu",
+            "ice cream"
+        ],
+        "ricetteItaliane": [
+            "Carbonara",
+            "Matriciana",
+            "Gricia",
+            "cacio e pepe",
+            "Pasta al pesto",
+            "Spaghetti allo scoglio",
+            "Pasta al ragu",
+            "Tortellini in brodo",
+            "Ravioli al sugo",
+            "spaghetti aglio e olio",
+            "Pasta al forno",
+            "Pasta alla norma",
+            "Parma ham and mozzarella",
+            "gnocchi alla sorrentina",
+            "arrosto",
+            "risotto alla milanese",
+            "risotto agli scampi",
+            "Cannelloni",
+            "Polenta",
+            "Vitello tonnato",
+            "Saltimbocca alla romana",
+            "pollo alla cacciatora",
+            "Brasato",
+            "Impepata di cozze",
+            "lasagne",
+            "Parmigiana",
+            "spaghetti alla puttanesca",
+            "polpettone",
+            "Crostata",
+            "Tiramisu"
+        ],
+        "ingredientiPrincipali": [
+            "mushroom",
+            "beans",
+            "Cheese",
+            "beef",
+            "eggs",
+            "bread",
+            "salmon/tuna",
+            "salmon",
+            "tomatoes",
+            "potatoes",
+            "chickpeas",
+            "carrot",
+            "pasta",
+            "tomato sauce",
+            "shimprs",
+            "spaghetti",
+            "rice",
+            "rise",
+            "meat",
+            "pizza",
+            "lentils",
+            "mussels",
+            "noodles",
+            "chicken",
+            "oysters",
+            "lobster",
+            "sausages",
+            "white meat",
+            "pastrami",
+            "squid",
+            "mussel",
+            "sea bass",
+            "sea bream",
+            "wurstel",
+            "quinoa",
+            "vegetables",
+            "apple",
+            "chocolate",
+            "Fresh cheese",
+            "strawberry",
+            "mascarpone cheese",
+            "milk",
+            "tornellini",
+            "parmaham",
+            "gnocchi",
+            "veal meat",
+            "veal",
+            "aubregines",
+            "shortcrust pastry"
+        ],
+        "ingredientiSecondari": [
+            "garlic",
+            "onion",
+            "tomato sauce",
+            "bacon",
+            "chicken",
+            "cesear dressing",
+            "mayonnaise",
+            "avocado",
+            "mango",
+            "edamame beans",
+            "cheese",
+            "butter",
+            "mozzarella cheese",
+            "basil",
+            "milk",
+            "cabbage",
+            "meat",
+            "tomatosauce",
+            "origan",
+            "tomato",
+            "parmesan",
+            "ragu",
+            "clams",
+            "mushroom",
+            "squid",
+            "gorgonzola",
+            "radicchio",
+            "truffle",
+            "peas",
+            "eggs",
+            "anchovies",
+            "carrot",
+            "tuna",
+            "salame",
+            "ricotta",
+            "pumpkin",
+            "calamari",
+            "shrimp",
+            "walnuts",
+            "curry",
+            "yogurt",
+            "parsley",
+            "cheddar",
+            "celery",
+            "pepper",
+            "mozzarella",
+            "barbecue sauce",
+            "hambuger",
+            "hot pepper and onion",
+            "bread",
+            "fish",
+            "almond",
+            "fresh cream",
+            "vegetables",
+            "sugar",
+            "fruits",
+            "coffee",
+            "pecorino",
+            "mussels",
+            "meat broth",
+            "olive oil",
+            "aubergines",
+            "Mozzarella",
+            "saffron",
+            "scampi",
+            "tuna sauce",
+            "parma ham",
+            "olives",
+            "jam"
+        ],
+        "listaVini": [
+            "Perlè",
+            "Prosecco",
+            "Libero Chianti",
+            "Volare",
+            "Hugo",
+            "Libero Bianco",
+            "Rosé Monogram",
+            "Riserva di Famiglia",
+            "Pinot Grigio",
+            "Albergaccio",
+            "Chardonnay",
+            "Libero Toscana IGT",
+            "Il Principe",
+            "Amor diVino",
+            "Splendia",
+            "Crema di Grappa",
+            "Blumond",
+            "Crema di cioccolato",
+            "Crema di caffè",
+            "Crema di Limoncino",
+            "Limoncello",
+            "Crema di Pistacchio",
+            "Blanc de Blancs",
+            "Satèn",
+            "Cream liquors pack",
+            "Red, White and Blue Bubbles pack",
+            "Iconic Sparklers",
+            "Blumond Magnum",
+            "Baby sparklers pack",
+            "Baby Blumond",
+            "Baby Splendia",
+            "Let's Celebrate",
+            "Private tasting room",
+            "Made in Tuscany with love",
+            "Baby sparklers Party kit",
+            "Bottled sunshine",
+            "Signature Collection",
+            "Riserva di famiglia",
+            "Family's treasure pack",
+            "Hello Summer pack"
+        ]
+    }
+}

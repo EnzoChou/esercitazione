@@ -28,6 +28,7 @@ router.get('/employeesOver/:age', function (req, res, next) {
   return generic_request.processing(options)
     .then(data => {
       if (data) {
+        data = data.data;
         var age = req.params.age;
         data = data.filter(employee => employee.employee_age>age);
         res.status(200).json({
@@ -61,6 +62,7 @@ router.get('/employees_salary/:sum', function (req, res, next) {
   return generic_request.processing(options)
     .then(data => {
       if (data) {
+        data = data.data;
         var salary = req.params.sum;
         data = data.filter(employee => employee.employee_salary>salary);
         res.status(200).json({
@@ -98,6 +100,49 @@ router.post('/creaNuovaPersona', function (req, res, next) {
     .then(data => {
       if (data) {
         console.log("data", data);
+        res.status(200).json({
+          data: data
+        });
+      } else {
+        console.log("client error", data);
+        res.status(500).json({
+          error: "SERVIZIO CLIENTE SOSPESO"
+        });
+      }
+    })
+    .catch(error => {
+      console.log("\n\n\n\nserver error", error);
+      res.status(500).json({
+        error: "SERVIZIO HEJ SOSPESO"
+      });
+    });
+
+});
+
+router.put('/ricchiEPoveri/:paga', function (req, res, next) {
+  var paga = req.params.paga;
+  var options = {
+
+    'method': 'PUT',
+    'url': 'https://jsonplaceholder.typicode.com/posts/1', //https://jsonplaceholder.typicode.com/todos
+    'headers': {    'Content-Type': 'application/json; charset=UTF-8'   }
+  };
+
+  return generic_request.processing(options)
+    .then(data => {
+      if (data) {
+        console.log("data", data);
+        var ricchiEPoveri = { ricchi : 0,
+                              poveri : 0 }
+        data.map(employee =>
+          (employee > paga) ?
+            {
+              ricchiEPoveri.ricchi++;
+              employee.rich = true;
+            } :
+            {
+              ricchiEPoveri.poveri++;
+              employee.rich = false; );
         res.status(200).json({
           data: data
         });
