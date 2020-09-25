@@ -72,7 +72,8 @@ var matchIngredientiPrincipali = function (arrayParole) {
 };
 
 var ricetteTrovateDaIngredientiPrincipali = function (arrayParole) {
-  return funzioniGeneriche.ricetteDaIngredienti(matchIngredientiPrincipali(arrayParole), listaRicette);
+  var a = matchIngredientiPrincipali(arrayParole);
+  return funzioniGeneriche.ricetteDaIngredienti(a, listaRicette);
 };
 
 // METODI DI RICERCA DALLA LISTA DEGLI INGREDIENTI SECONDARI
@@ -83,7 +84,8 @@ var matchIngredientiSecondari = function (arrayParole) {
 };
 
 var ricetteTrovateDaIngredientiSecondari = function (arrayParole) {
-  return funzioniGeneriche.ricetteDaIngredienti(matchIngredientiSecondari(arrayParole), listaRicette);
+  var a = matchIngredientiSecondari(arrayParole);
+  return funzioniGeneriche.ricetteDaIngredienti(a, listaRicette);
 };
 
 // METODI DI RICERCA PER ABBINAMENTI GENERALI
