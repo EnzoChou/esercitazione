@@ -47,7 +47,7 @@ var anagrammaParole = function (arrayParole, oggettoNome) {
   } else {
     return arrayParole;
   }
-}
+};
 
 var filtroListaDalNome = function (arrayParole, lista) {
   return lista.filter(function (oggetto) {
@@ -56,13 +56,13 @@ var filtroListaDalNome = function (arrayParole, lista) {
       natural.JaroWinklerDistance(oggetto.nome, parolaAnagrammata, undefined, true) > 0.8
     );
   });
-}
+};
 
 var filtroPerTag = function (arrayParole, lista) {
   return lista.filter(oggetto =>
     oggetto.tags.some(tag => natural.JaroWinklerDistance(tag, arrayParole.join(), undefined, true) > 0.8)
   );
-}
+};
 
 var ricercaIngredientiPapabili = function (arrayParole, listaIngredienti) {
   var listaOrdinata = listaIngredienti.filter(function (ingrediente) {
