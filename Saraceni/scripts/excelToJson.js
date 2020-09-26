@@ -11,6 +11,70 @@ const strutturaIniziale = excelToJson({
 
 // var varToString = varObj => Object.keys(varObj)[0];
 
+/*
+Macrocategorie importanti : 'carne / pesce / verdure',
+'antipasto / primo / secondo',
+'cucina occidentale / orientale', --> 'italiana / messicana / cinese / francese'
+'evento / festa',
+'dolce / dessert'
+
+carnePesceVerdure = {
+'carne' : [[primi], [secondi], [antipasti/contorni]],
+'pesce' : [[primi], [secondi], [antipasti/contorni]],
+'verdure' : [[primi], [secondi], [antipasti/contorni]]
+}
+
+*/
+
+/*
+struttura antipastiContorni / primi / secondi / ricetteItaliane
+
+NOMEPAGINA : [
+{ B: 'NOMEPAGINA' },
+{
+B: 'Note introduttive: Segue la proposta di elenco NOMEPAGINA con cui istruire il Bot nel flusso Foodpairing.'
+},
+{
+B: 'NOME RICETTA',
+D: 'INGREDIENTI', //principale - optional
+E: 'INGREDIENTI', //optional
+F: 'INGREDIENTI', //optional
+G: 'ABBINAMENTO VINO',
+H: 'ABBINAMENTO VINO',
+I: 'ABBINAMENTO VINO',
+J: 'MOTIVAZIONE ABBINAMENTO( Max 120/150caratteri)'
+},
+{ RICETTA },
+...,
+{ C: 'Leggenda:' },
+{ D: 'optional' },
+{ D: 'optional' },
+{ D: 'optional' },
+{ D: 'optional' },
+{ D: 'optional' }
+]
+*/
+
+/*
+{ "id" : "numeroID",
+  "nomeRicetta" : "nomeRicettaA",
+  "tags" : ["tagA", "tagB", "tagC"],
+  "ingredienti" : ["ingredienteA","ingredienteB", "ingredienteC"],
+  "viniProposti" : [{"nome" : "nomeVinoA",
+                     "id" : "idVino"},{...},{...}]
+}
+*/
+/*
+function StrutturaRicetta(id,nomeRicetta,tags,ingredientiPrincipali,ingredientiSecondari,viniProposti) {
+  this.id = id;
+  this.ricetta = ricetta;
+  this.tags = tags;
+  this.ingredientiPrincipali = ingredientiPrincipali;
+  this.ingredientiSecondari = ingredientiSecondari;
+  this.viniProposti = viniProposti;
+}
+*/
+
 var idRicetta = 1;
 var idIngredientePrincipale = 1;
 var idIngredienteSecondario = 1;

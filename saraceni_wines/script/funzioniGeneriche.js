@@ -25,7 +25,7 @@ var ricercaTipoIngredientePapabile = function (arrayParole, tipoIngredienti) {
   return listaDiRitorno;
 };
 
-function anagrammaParole (arrayParole, oggettoNome) {
+var anagrammaParole = function (arrayParole, oggettoNome) {
   // esempio arrayParole = ['banana', 'papaya', 'ciquita']
   // numeroParole = 2
   // paroleAnaGrammate = ['banana papaya', 'papaya ciquita']
@@ -49,7 +49,7 @@ function anagrammaParole (arrayParole, oggettoNome) {
   }
 }
 
-function filtroListaDalNome (arrayParole, lista) {
+var filtroListaDalNome = function (arrayParole, lista) {
   return lista.filter(function (oggetto) {
     var paroleAnagrammate = anagrammaParole(arrayParole, oggetto.nome);
     return paroleAnagrammate.some(parolaAnagrammata =>
@@ -58,7 +58,7 @@ function filtroListaDalNome (arrayParole, lista) {
   });
 }
 
-function filtroPerTag (arrayParole, lista) {
+var filtroPerTag = function (arrayParole, lista) {
   return lista.filter(oggetto =>
     oggetto.tags.some(tag => natural.JaroWinklerDistance(tag, arrayParole.join(), undefined, true) > 0.8)
   );
@@ -96,24 +96,6 @@ var ricercaViniProposti = function (listaIdVini, listaVini) {
   return listaVini.filter(vino => listaIdVini.some(id => vino.id === id));
 };
 
-var indiceMassimoAccoppiamento = function (arr) {
-  if (arr.length === 0) {
-    return -1;
-  }
-
-  var max = arr[0];
-  var maxIndex = 0;
-
-  for (var i = 1; i < arr.length; i++) {
-    if (arr[i] > max) {
-      maxIndex = i;
-      max = arr[i];
-    }
-  }
-
-  return maxIndex;
-};
-
 var concatTags = function (lista) {
   var listaTmp = [];
   for (let i = 0; i < lista.length; i++) {
@@ -136,7 +118,6 @@ funzioniPerRicercaParole.ricetteDaIDs = ricetteDaIDs;
 funzioniPerRicercaParole.ricetteDaIngrediente = ricetteDaIngrediente;
 funzioniPerRicercaParole.ricetteDaIngredienti = ricetteDaIngredienti;
 funzioniPerRicercaParole.somiglianzaParoleArray = somiglianzaParoleArray;
-funzioniPerRicercaParole.indiceMassimoAccoppiamento = indiceMassimoAccoppiamento;
 funzioniPerRicercaParole.ricercaIngredientiPapabili = ricercaIngredientiPapabili;
 funzioniPerRicercaParole.ricercaViniProposti = ricercaViniProposti;
 funzioniPerRicercaParole.ricercaTipoIngredientePapabile = ricercaTipoIngredientePapabile;

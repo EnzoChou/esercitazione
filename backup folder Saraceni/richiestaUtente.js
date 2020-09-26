@@ -1,5 +1,5 @@
 var natural = require('natural');
-var metodoDiRicerca = require('./ricercaRicettaDaStringa');
+var metodoDiRicerca = require('./scripts/ricercaRicettaDaStringa');
 natural.PorterStemmer.attach(); // english language set -> 'words'.tokenizeAndStem() toSingularizeAndTurnIntoArrayOfWords
 
 console.log('process.env.PHRASE', process.env.PHRASE);
