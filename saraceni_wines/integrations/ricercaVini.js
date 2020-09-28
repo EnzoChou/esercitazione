@@ -1,5 +1,8 @@
 var funzioniGeneriche = require('../script/funzioniGeneriche');
 var natural = require('natural');
+const {
+  performance
+} = require('perf_hooks');
 
 // METODI DI RICERCA DALLA LISTA RICETTE
 
@@ -59,7 +62,7 @@ var metodoScelto = function (richiestaUtente) {
   var listaRicette = data.listaRicette;
   var listaVini = data.listaVini;
   var listaParoleChiavePerCategoria = data.listaParoleChiavePerCategoria;
-  var listaAbbinamentiGenerali = data.listaAbbinamentiGenerali;
+  // var listaAbbinamentiGenerali = data.listaAbbinamentiGenerali;
   var listaOccasioni = data.listaOccasioni;
   var listaAbbinamentiPerTipologia = data.listaAbbinamentiPerTipologia;
   var listaParoleChiave = data.listaParoleChiave;
@@ -70,9 +73,9 @@ var metodoScelto = function (richiestaUtente) {
 
   // console.log(natural.PorterStemmer.stem(utente));
   // console.log(natural.JaroWinklerDistance("dixon","dicksonx", undefined, true));
-  
+
   var nomiRicette = listaRicette.map(ricetta => ricetta.nome.tokenizeAndStem());
-  var abbinamentiGenerali = listaAbbinamentiGenerali.map(tipo => tipo.nome.tokenizeAndStem());
+  // var abbinamentiGenerali = listaAbbinamentiGenerali.map(tipo => tipo.nome.tokenizeAndStem()); //abbinamenti generali non usato
   var abbinamentiPerTipologiaTags = funzioniGeneriche.concatTags(listaAbbinamentiPerTipologia);
   var abbinamentiPerTipologia = listaAbbinamentiPerTipologia.map(tipo => tipo.nome.tokenizeAndStem());
   abbinamentiPerTipologia = abbinamentiPerTipologia.concat(abbinamentiPerTipologiaTags);
@@ -86,7 +89,7 @@ var metodoScelto = function (richiestaUtente) {
   // PULIZIA ARRAY DAGLI ARRAY VUOTI
 
   nomiRicette = nomiRicette.filter(array => array.length !== 0);
-  abbinamentiGenerali = abbinamentiGenerali.filter(array => array.length !== 0);
+  // abbinamentiGenerali = abbinamentiGenerali.filter(array => array.length !== 0);
   abbinamentiPerTipologiaTags = abbinamentiPerTipologiaTags.filter(array => array.length !== 0);
   abbinamentiPerTipologia = abbinamentiPerTipologia.filter(array => array.length !== 0);
   ingredientiPrincipali = ingredientiPrincipali.filter(array => array.length !== 0);
@@ -126,33 +129,31 @@ var metodoScelto = function (richiestaUtente) {
   // var g = ricetteTrovateDaIngredienti(paroleDaCercareFiltrate, listaIngredientiSecondari, listaRicette);
   // var h = occasioneTrovata(paroleDaCercareFiltrate, listaOccasioni);
 
-  // var arrayAlgoritmoScelto = {
-  //   '-1': laRicercaNonHaProdottoRisultatiSoddisfacenti(),
-  //   '0': matchRicetta(paroleDaCercareFiltrate, nomiRicette),
-  //   '1': abbinamentoTrovatoPerTipologia(paroleDaCercareFiltrate, listaAbbinamentiPerTipologia),
-  //   '2': ricercaPerAbbinamentiGenerali(paroleDaCercareFiltrate, listaVini), // non implementata, questo abbinamento non torna mai perchè lo stesso della tipologia
-  //   '3': ricetteTrovateDaPortate(paroleDaCercareFiltrate), // FORSE DA IMPLEMENTARE
-  //   '4': ricetteTrovateDaIngredienti(paroleDaCercareFiltrate, listaIngredientiPrincipali, listaRicette),
-  //   '5': ricetteTrovateDaIngredienti(paroleDaCercareFiltrate, listaIngredientiSecondari, listaRicette),
-  //   '6': occasioneTrovata(paroleDaCercareFiltrate, listaOccasioni)
-  // };
+  var arrayAlgoritmoScelto = {
+    '-1': laRicercaNonHaProdottoRisultatiSoddisfacenti(),
+    '0': matchRicetta(paroleDaCercareFiltrate, listaRicette),
+    '1': abbinamentoTrovatoPerTipologia(paroleDaCercareFiltrate, listaAbbinamentiPerTipologia),
+    '2': ricetteTrovateDaIngredienti(paroleDaCercareFiltrate, listaIngredientiPrincipali, listaRicette),
+    '3': ricetteTrovateDaIngredienti(paroleDaCercareFiltrate, listaIngredientiSecondari, listaRicette),
+    '4': occasioneTrovata(paroleDaCercareFiltrate, listaOccasioni)
+  };
 
-  // var listaPapabile = arrayAlgoritmoScelto[indexScelto];
-
-  if (indexScelto == '-1') {
+  var listaPapabile = arrayAlgoritmoScelto[indexScelto];
+  /*
+  if (indexScelto === '-1') {
     var listaPapabile = laRicercaNonHaProdottoRisultatiSoddisfacenti();
-  } else if (indexScelto == '0') {
+  } else if (indexScelto === '0') {
     var listaPapabile = matchRicetta(paroleDaCercareFiltrate, listaRicette);
-  } else if (indexScelto == '1') {
+  } else if (indexScelto === '1') {
     var listaPapabile = abbinamentoTrovatoPerTipologia(paroleDaCercareFiltrate, listaAbbinamentiPerTipologia);
-  } else if (indexScelto == '2') {
+  } else if (indexScelto === '2') {
     var listaPapabile = ricetteTrovateDaIngredienti(paroleDaCercareFiltrate, listaIngredientiPrincipali, listaRicette);
-  } else if (indexScelto == '3') {
+  } else if (indexScelto === '3') {
     var listaPapabile = ricetteTrovateDaIngredienti(paroleDaCercareFiltrate, listaIngredientiSecondari, listaRicette);
-  } else if (indexScelto == '4') {
+  } else if (indexScelto === '4') {
     var listaPapabile = occasioneTrovata(paroleDaCercareFiltrate, listaOccasioni);
   }
-
+  */
   console.log('listaPapabile', listaPapabile);
 
   if (listaPapabile.length > 0 && listaPapabile[0] !== undefined) {
@@ -167,8 +168,10 @@ var metodoScelto = function (richiestaUtente) {
 exports.metodoScelto = metodoScelto;
 
 // var modulo = {};
-
+var t0 = performance.now();
 metodoScelto('i\'m watching harry potter tonight and i\'d like something for my oyster rockfeller');
+var t1 = performance.now();
+console.log('\n\n\nl\'algoritmo ci ha impiegato:', t1 - t0, 'millisecondi\n\n\n');
 
 // // modulo.matchRicetta = matchRicetta;
 // // modulo.ricetteTrovateDaIngredientiPrincipali = ricetteTrovateDaIngredientiPrincipali;
