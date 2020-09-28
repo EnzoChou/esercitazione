@@ -1,8 +1,9 @@
-var funzioniGeneriche = require('../script/funzioniGeneriche');
+var funzioniGeneriche = require('./funzioniGeneriche');
 var natural = require('natural');
 const {
   performance
 } = require('perf_hooks');
+var data = null;
 
 // METODI DI RICERCA DALLA LISTA RICETTE
 
@@ -14,7 +15,6 @@ var matchRicetta = function (arrayParole, listaRicette) {
 };
 
 // METODI DI RICERCA DALLA LISTA DEGLI INGREDIENTI PRINCIPALI
-
 
 var ricetteTrovateDaIngredienti = function (arrayParole, obj, obj2) {
   // var funzioniGeneriche = external_services.saraceni_wines.integrations.funzioniGeneriche;
@@ -55,7 +55,9 @@ var laRicercaNonHaProdottoRisultatiSoddisfacenti = function (arrayParole) {
 var metodoScelto = function (richiestaUtente) {
   // var strutture = external_services.saraceni_wines.data.ricette;
   // var funzioniGeneriche = external_services.saraceni_wines.integrations.funzioniGeneriche;
-  var data = require('../json/ricette.json');
+  if (!data) {
+    data = require('../json/ricette.json');
+  }
   natural.PorterStemmer.attach(); // english language set -> 'words'.tokenizeAndStem() toSingularizeAndTurnIntoArrayOfWords
 
   // RICETTE.JSON

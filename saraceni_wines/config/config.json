@@ -1,0 +1,10 @@
+{
+    "dev": {
+        "domain": "test-hej.myshopify.com",
+        "storefrontAccessToken": "ab5232770d3011658fd90b0cf536a8c0"
+    },
+    "prod": {
+        "domain": "",
+        "storefrontAccessToken": ""
+    }
+}
