@@ -1,7 +1,6 @@
 'use strict';
 const excelToJson = require('convert-excel-to-json');
 const fs = require('fs');
-var recuperoIdVini = require('./recuperoIdVini');
 var inputFile = '../others/ricette.xlsx';
 var outputFile = '../json/ricette.json';
 
@@ -338,7 +337,6 @@ ricetteItaliane = estrazioneListaRicette('Ricette italiane');
 listaAbbinamentiGenerali = estrazioneAbbinamentiGenerali('Abbinamenti generali');
 listaAbbinamentiPerTipologia = estrazioneAbbinamentiPerTipologia('Ingredienti Principali');
 listaOccasioni = estrazioneListaOccasioni('Abbinamenti occasioni');
-listaVini = recuperoIdVini(listaVini);
 listaCompletaRicette = antipastiContorni.concat(primi, secondi, dessert, ricetteItaliane);
 aggiornamentoListeVarieDaRicette(listaCompletaRicette);
 estrazioneParoleChiave(listaCompletaRicette);

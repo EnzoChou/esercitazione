@@ -169,17 +169,18 @@ var metodoScelto = function (richiestaUtente) {
 
 exports.metodoScelto = metodoScelto;
 
-var modulo = {};
+// var modulo = {};
+/*
 var t0 = performance.now();
 metodoScelto('i\'m watching harry potter tonight and i\'d like something for my oyster rockfeller');
 var t1 = performance.now();
 console.log('\n\n\nl\'algoritmo ci ha impiegato:', t1 - t0, 'millisecondi\n\n\n');
-
+*/
 // // modulo.matchRicetta = matchRicetta;
 // // modulo.ricetteTrovateDaIngredientiPrincipali = ricetteTrovateDaIngredientiPrincipali;
 // // modulo.ricetteTrovateDaIngredientiSecondari = ricetteTrovateDaIngredientiSecondari;
 // // modulo.laRicercaNonHaProdottoRisultatiSoddisfacenti = laRicercaNonHaProdottoRisultatiSoddisfacenti;
 // // modulo.ricetteTrovateDaPortate = ricetteTrovateDaPortate;
-modulo.scegliMetodo = metodoScelto;
+// // modulo.scegliMetodo = metodoScelto;
 
-// module.exports = modulo;
+module.exports = metodoScelto;
