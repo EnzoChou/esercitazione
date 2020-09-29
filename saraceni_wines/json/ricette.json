@@ -13,9 +13,9 @@
                 1
             ],
             "viniProposti": [
-                1,
-                2,
-                3
+                "Perlè",
+                "Prosecco",
+                "Libero Chianti"
             ]
         },
         {
@@ -32,9 +32,9 @@
                 3
             ],
             "viniProposti": [
-                3,
-                1,
-                4
+                "Libero Chianti",
+                "Perlè",
+                "Volare"
             ]
         },
         {
@@ -48,9 +48,9 @@
             ],
             "ingredientiSecondari": [],
             "viniProposti": [
-                4,
-                5,
-                2
+                "Volare",
+                "Hugo",
+                "Prosecco"
             ]
         },
         {
@@ -66,9 +66,9 @@
                 2
             ],
             "viniProposti": [
-                4,
-                5,
-                2
+                "Volare",
+                "Hugo",
+                "Prosecco"
             ]
         },
         {
@@ -84,9 +84,9 @@
                 4
             ],
             "viniProposti": [
-                1,
-                4,
-                3
+                "Perlè",
+                "Volare",
+                "Libero Chianti"
             ]
         },
         {
@@ -103,9 +103,9 @@
                 6
             ],
             "viniProposti": [
-                2,
-                4,
-                6
+                "Prosecco",
+                "Volare",
+                "Libero Bianco"
             ]
         },
         {
@@ -122,9 +122,9 @@
                 7
             ],
             "viniProposti": [
-                2,
-                5,
-                7
+                "Prosecco",
+                "Hugo",
+                "Rosé Monogram"
             ]
         },
         {
@@ -140,9 +140,9 @@
                 8
             ],
             "viniProposti": [
-                4,
-                2,
-                7
+                "Volare",
+                "Prosecco",
+                "Rosé Monogram"
             ]
         },
         {
@@ -159,9 +159,9 @@
                 10
             ],
             "viniProposti": [
-                4,
-                2,
-                5
+                "Volare",
+                "Prosecco",
+                "Hugo"
             ]
         },
         {
@@ -177,9 +177,9 @@
                 11
             ],
             "viniProposti": [
-                4,
-                2,
-                7
+                "Volare",
+                "Prosecco",
+                "Rosé Monogram"
             ]
         },
         {
@@ -196,9 +196,9 @@
                 1
             ],
             "viniProposti": [
-                2,
-                4,
-                5
+                "Prosecco",
+                "Volare",
+                "Hugo"
             ]
         },
         {
@@ -212,9 +212,9 @@
             ],
             "ingredientiSecondari": [],
             "viniProposti": [
-                2,
-                4,
-                5
+                "Prosecco",
+                "Volare",
+                "Hugo"
             ]
         },
         {
@@ -231,9 +231,9 @@
                 14
             ],
             "viniProposti": [
-                4,
-                2,
-                5
+                "Volare",
+                "Prosecco",
+                "Hugo"
             ]
         },
         {
@@ -247,9 +247,9 @@
             ],
             "ingredientiSecondari": [],
             "viniProposti": [
-                4,
-                2,
-                5
+                "Volare",
+                "Prosecco",
+                "Hugo"
             ]
         },
         {
@@ -263,9 +263,9 @@
             ],
             "ingredientiSecondari": [],
             "viniProposti": [
-                4,
-                2,
-                5
+                "Volare",
+                "Prosecco",
+                "Hugo"
             ]
         },
         {
@@ -282,9 +282,9 @@
                 15
             ],
             "viniProposti": [
-                4,
-                2,
-                5
+                "Volare",
+                "Prosecco",
+                "Hugo"
             ]
         },
         {
@@ -300,9 +300,9 @@
                 8
             ],
             "viniProposti": [
-                4,
-                2,
-                5
+                "Volare",
+                "Prosecco",
+                "Hugo"
             ]
         },
         {
@@ -319,9 +319,9 @@
                 7
             ],
             "viniProposti": [
-                4,
-                2,
-                5
+                "Volare",
+                "Prosecco",
+                "Hugo"
             ]
         },
         {
@@ -338,9 +338,9 @@
                 18
             ],
             "viniProposti": [
-                3,
-                1,
-                8
+                "Libero Chianti",
+                "Perlè",
+                "Riserva di Famiglia"
             ]
         },
         {
@@ -356,9 +356,9 @@
                 14
             ],
             "viniProposti": [
-                4,
-                2,
-                3
+                "Volare",
+                "Prosecco",
+                "Libero Chianti"
             ]
         },
         {
@@ -375,9 +375,9 @@
                 19
             ],
             "viniProposti": [
-                4,
-                2,
-                3
+                "Volare",
+                "Prosecco",
+                "Libero Chianti"
             ]
         },
         {
@@ -393,9 +393,9 @@
                 20
             ],
             "viniProposti": [
-                4,
-                6,
-                2
+                "Volare",
+                "Libero Bianco",
+                "Prosecco"
             ]
         },
         {
@@ -412,9 +412,9 @@
                 21
             ],
             "viniProposti": [
-                8,
-                2,
-                9
+                "Riserva di Famiglia",
+                "Prosecco",
+                "Pinot Grigio"
             ]
         },
         {
@@ -431,9 +431,9 @@
                 21
             ],
             "viniProposti": [
-                3,
-                8,
-                2
+                "Libero Chianti",
+                "Riserva di Famiglia",
+                "Prosecco"
             ]
         },
         {
@@ -449,9 +449,9 @@
                 22
             ],
             "viniProposti": [
-                3,
-                8,
-                10
+                "Libero Chianti",
+                "Riserva di Famiglia",
+                "Albergaccio"
             ]
         },
         {
@@ -467,9 +467,9 @@
                 23
             ],
             "viniProposti": [
-                4,
-                9,
-                2
+                "Volare",
+                "Pinot Grigio",
+                "Prosecco"
             ]
         },
         {
@@ -486,9 +486,9 @@
                 12
             ],
             "viniProposti": [
-                8,
-                3,
-                1
+                "Riserva di Famiglia",
+                "Libero Chianti",
+                "Perlè"
             ]
         },
         {
@@ -505,9 +505,9 @@
                 25
             ],
             "viniProposti": [
-                4,
-                9,
-                11
+                "Volare",
+                "Pinot Grigio",
+                "Chardonnay"
             ]
         },
         {
@@ -524,9 +524,9 @@
                 27
             ],
             "viniProposti": [
-                1,
-                8,
-                10
+                "Perlè",
+                "Riserva di Famiglia",
+                "Albergaccio"
             ]
         },
         {
@@ -542,9 +542,9 @@
                 28
             ],
             "viniProposti": [
-                12,
-                8,
-                13
+                "Libero Toscana IGT",
+                "Riserva di Famiglia",
+                "Il Principe"
             ]
         },
         {
@@ -560,9 +560,9 @@
                 3
             ],
             "viniProposti": [
-                2,
-                7,
-                9
+                "Prosecco",
+                "Rosé Monogram",
+                "Pinot Grigio"
             ]
         },
         {
@@ -594,9 +594,9 @@
                 31
             ],
             "viniProposti": [
-                2,
-                7,
-                9
+                "Prosecco",
+                "Rosé Monogram",
+                "Pinot Grigio"
             ]
         },
         {
@@ -628,9 +628,9 @@
                 3
             ],
             "viniProposti": [
-                4,
-                9,
-                11
+                "Volare",
+                "Pinot Grigio",
+                "Chardonnay"
             ]
         },
         {
@@ -647,9 +647,9 @@
                 13
             ],
             "viniProposti": [
-                4,
-                9,
-                3
+                "Volare",
+                "Pinot Grigio",
+                "Libero Chianti"
             ]
         },
         {
@@ -665,9 +665,9 @@
                 35
             ],
             "viniProposti": [
-                1,
-                9,
-                7
+                "Perlè",
+                "Pinot Grigio",
+                "Rosé Monogram"
             ]
         },
         {
@@ -683,9 +683,9 @@
                 36
             ],
             "viniProposti": [
-                3,
-                8,
-                2
+                "Libero Chianti",
+                "Riserva di Famiglia",
+                "Prosecco"
             ]
         },
         {
@@ -699,9 +699,9 @@
             ],
             "ingredientiSecondari": [],
             "viniProposti": [
-                3,
-                8,
-                1
+                "Libero Chianti",
+                "Riserva di Famiglia",
+                "Perlè"
             ]
         },
         {
@@ -717,9 +717,9 @@
                 37
             ],
             "viniProposti": [
-                2,
-                9,
-                11
+                "Prosecco",
+                "Pinot Grigio",
+                "Chardonnay"
             ]
         },
         {
@@ -736,9 +736,9 @@
                 39
             ],
             "viniProposti": [
-                4,
-                2,
-                11
+                "Volare",
+                "Prosecco",
+                "Chardonnay"
             ]
         },
         {
@@ -755,9 +755,9 @@
                 41
             ],
             "viniProposti": [
-                1,
-                9,
-                8
+                "Perlè",
+                "Pinot Grigio",
+                "Riserva di Famiglia"
             ]
         },
         {
@@ -774,9 +774,9 @@
                 42
             ],
             "viniProposti": [
-                4,
-                2,
-                9
+                "Volare",
+                "Prosecco",
+                "Pinot Grigio"
             ]
         },
         {
@@ -808,9 +808,9 @@
                 44
             ],
             "viniProposti": [
-                4,
-                2,
-                9
+                "Volare",
+                "Prosecco",
+                "Pinot Grigio"
             ]
         },
         {
@@ -842,9 +842,9 @@
                 46
             ],
             "viniProposti": [
-                2,
-                3,
-                9
+                "Prosecco",
+                "Libero Chianti",
+                "Pinot Grigio"
             ]
         },
         {
@@ -860,9 +860,9 @@
                 47
             ],
             "viniProposti": [
-                12,
-                8,
-                3
+                "Libero Toscana IGT",
+                "Riserva di Famiglia",
+                "Libero Chianti"
             ]
         },
         {
@@ -879,9 +879,9 @@
                 43
             ],
             "viniProposti": [
-                3,
-                1,
-                8
+                "Libero Chianti",
+                "Perlè",
+                "Riserva di Famiglia"
             ]
         },
         {
@@ -895,9 +895,9 @@
             ],
             "ingredientiSecondari": [],
             "viniProposti": [
-                12,
-                8,
-                3
+                "Libero Toscana IGT",
+                "Riserva di Famiglia",
+                "Libero Chianti"
             ]
         },
         {
@@ -926,9 +926,9 @@
             ],
             "ingredientiSecondari": [],
             "viniProposti": [
-                3,
-                1,
-                10
+                "Libero Chianti",
+                "Perlè",
+                "Albergaccio"
             ]
         },
         {
@@ -942,9 +942,9 @@
             ],
             "ingredientiSecondari": [],
             "viniProposti": [
-                12,
-                8,
-                3
+                "Libero Toscana IGT",
+                "Riserva di Famiglia",
+                "Libero Chianti"
             ]
         },
         {
@@ -958,9 +958,9 @@
             ],
             "ingredientiSecondari": [],
             "viniProposti": [
-                12,
-                8,
-                3
+                "Libero Toscana IGT",
+                "Riserva di Famiglia",
+                "Libero Chianti"
             ]
         },
         {
@@ -976,9 +976,9 @@
                 50
             ],
             "viniProposti": [
-                12,
-                8,
-                3
+                "Libero Toscana IGT",
+                "Riserva di Famiglia",
+                "Libero Chianti"
             ]
         },
         {
@@ -992,9 +992,9 @@
             ],
             "ingredientiSecondari": [],
             "viniProposti": [
-                12,
-                8,
-                3
+                "Libero Toscana IGT",
+                "Riserva di Famiglia",
+                "Libero Chianti"
             ]
         },
         {
@@ -1010,9 +1010,9 @@
                 51
             ],
             "viniProposti": [
-                4,
-                2,
-                7
+                "Volare",
+                "Prosecco",
+                "Rosé Monogram"
             ]
         },
         {
@@ -1026,9 +1026,9 @@
             ],
             "ingredientiSecondari": [],
             "viniProposti": [
-                3,
-                8,
-                10
+                "Libero Chianti",
+                "Riserva di Famiglia",
+                "Albergaccio"
             ]
         },
         {
@@ -1042,9 +1042,9 @@
             ],
             "ingredientiSecondari": [],
             "viniProposti": [
-                3,
-                1,
-                2
+                "Libero Chianti",
+                "Perlè",
+                "Prosecco"
             ]
         },
         {
@@ -1058,9 +1058,9 @@
             ],
             "ingredientiSecondari": [],
             "viniProposti": [
-                12,
-                8,
-                3
+                "Libero Toscana IGT",
+                "Riserva di Famiglia",
+                "Libero Chianti"
             ]
         },
         {
@@ -1074,9 +1074,9 @@
             ],
             "ingredientiSecondari": [],
             "viniProposti": [
-                12,
-                8,
-                3
+                "Libero Toscana IGT",
+                "Riserva di Famiglia",
+                "Libero Chianti"
             ]
         },
         {
@@ -1092,9 +1092,9 @@
                 3
             ],
             "viniProposti": [
-                12,
-                8,
-                3
+                "Libero Toscana IGT",
+                "Riserva di Famiglia",
+                "Libero Chianti"
             ]
         },
         {
@@ -1108,9 +1108,9 @@
             ],
             "ingredientiSecondari": [],
             "viniProposti": [
-                12,
-                8,
-                3
+                "Libero Toscana IGT",
+                "Riserva di Famiglia",
+                "Libero Chianti"
             ]
         },
         {
@@ -1124,9 +1124,9 @@
             ],
             "ingredientiSecondari": [],
             "viniProposti": [
-                4,
-                9,
-                11
+                "Volare",
+                "Pinot Grigio",
+                "Chardonnay"
             ]
         },
         {
@@ -1142,9 +1142,9 @@
                 1
             ],
             "viniProposti": [
-                4,
-                9,
-                11
+                "Volare",
+                "Pinot Grigio",
+                "Chardonnay"
             ]
         },
         {
@@ -1156,9 +1156,9 @@
             "ingredientiPrincipali": [],
             "ingredientiSecondari": [],
             "viniProposti": [
-                3,
-                7,
-                9
+                "Libero Chianti",
+                "Rosé Monogram",
+                "Pinot Grigio"
             ]
         },
         {
@@ -1172,9 +1172,9 @@
             ],
             "ingredientiSecondari": [],
             "viniProposti": [
-                12,
-                8,
-                3
+                "Libero Toscana IGT",
+                "Riserva di Famiglia",
+                "Libero Chianti"
             ]
         },
         {
@@ -1188,9 +1188,9 @@
             ],
             "ingredientiSecondari": [],
             "viniProposti": [
-                4,
-                9,
-                11
+                "Volare",
+                "Pinot Grigio",
+                "Chardonnay"
             ]
         },
         {
@@ -1204,9 +1204,9 @@
             ],
             "ingredientiSecondari": [],
             "viniProposti": [
-                4,
-                9,
-                11
+                "Volare",
+                "Pinot Grigio",
+                "Chardonnay"
             ]
         },
         {
@@ -1220,9 +1220,9 @@
             ],
             "ingredientiSecondari": [],
             "viniProposti": [
-                7,
-                9,
-                11
+                "Rosé Monogram",
+                "Pinot Grigio",
+                "Chardonnay"
             ]
         },
         {
@@ -1238,9 +1238,9 @@
                 50
             ],
             "viniProposti": [
-                3,
-                1,
-                10
+                "Libero Chianti",
+                "Perlè",
+                "Albergaccio"
             ]
         },
         {
@@ -1254,9 +1254,9 @@
             ],
             "ingredientiSecondari": [],
             "viniProposti": [
-                3,
-                1,
-                11
+                "Libero Chianti",
+                "Perlè",
+                "Chardonnay"
             ]
         },
         {
@@ -1272,9 +1272,9 @@
                 52
             ],
             "viniProposti": [
-                1,
-                8,
-                3
+                "Perlè",
+                "Riserva di Famiglia",
+                "Libero Chianti"
             ]
         },
         {
@@ -1291,9 +1291,9 @@
                 32
             ],
             "viniProposti": [
-                12,
-                8,
-                3
+                "Libero Toscana IGT",
+                "Riserva di Famiglia",
+                "Libero Chianti"
             ]
         },
         {
@@ -1310,9 +1310,9 @@
                 53
             ],
             "viniProposti": [
-                12,
-                8,
-                3
+                "Libero Toscana IGT",
+                "Riserva di Famiglia",
+                "Libero Chianti"
             ]
         },
         {
@@ -1328,9 +1328,9 @@
                 54
             ],
             "viniProposti": [
-                4,
-                3,
-                9
+                "Volare",
+                "Libero Chianti",
+                "Pinot Grigio"
             ]
         },
         {
@@ -1344,9 +1344,9 @@
             ],
             "ingredientiSecondari": [],
             "viniProposti": [
-                11,
-                9,
-                7
+                "Chardonnay",
+                "Pinot Grigio",
+                "Rosé Monogram"
             ]
         },
         {
@@ -1360,9 +1360,9 @@
             ],
             "ingredientiSecondari": [],
             "viniProposti": [
-                3,
-                1,
-                9
+                "Libero Chianti",
+                "Perlè",
+                "Pinot Grigio"
             ]
         },
         {
@@ -1378,9 +1378,9 @@
                 55
             ],
             "viniProposti": [
-                14,
-                15,
-                16
+                "Amor diVino",
+                "Splendia",
+                "Crema di Grappa"
             ]
         },
         {
@@ -1392,9 +1392,9 @@
             "ingredientiPrincipali": [],
             "ingredientiSecondari": [],
             "viniProposti": [
-                14,
-                17,
-                18
+                "Amor diVino",
+                "Blumond",
+                "Crema di cioccolato"
             ]
         },
         {
@@ -1408,9 +1408,9 @@
             ],
             "ingredientiSecondari": [],
             "viniProposti": [
-                14,
-                15,
-                19
+                "Amor diVino",
+                "Splendia",
+                "Crema di caffè"
             ]
         },
         {
@@ -1426,9 +1426,9 @@
                 56
             ],
             "viniProposti": [
-                20,
-                18,
-                14
+                "Crema di Limoncino",
+                "Crema di cioccolato",
+                "Amor diVino"
             ]
         },
         {
@@ -1444,9 +1444,9 @@
                 39
             ],
             "viniProposti": [
-                19,
-                15,
-                17
+                "Crema di caffè",
+                "Splendia",
+                "Blumond"
             ]
         },
         {
@@ -1462,9 +1462,9 @@
                 39
             ],
             "viniProposti": [
-                14,
-                2,
-                19
+                "Amor diVino",
+                "Prosecco",
+                "Crema di caffè"
             ]
         },
         {
@@ -1478,9 +1478,9 @@
             ],
             "ingredientiSecondari": [],
             "viniProposti": [
-                14,
-                2,
-                21
+                "Amor diVino",
+                "Prosecco",
+                "Limoncello"
             ]
         },
         {
@@ -1496,9 +1496,9 @@
                 57
             ],
             "viniProposti": [
-                14,
-                20,
-                19
+                "Amor diVino",
+                "Crema di Limoncino",
+                "Crema di caffè"
             ]
         },
         {
@@ -1512,9 +1512,9 @@
             ],
             "ingredientiSecondari": [],
             "viniProposti": [
-                19,
-                18,
-                22
+                "Crema di caffè",
+                "Crema di cioccolato",
+                "Crema di Pistacchio"
             ]
         },
         {
@@ -1531,9 +1531,9 @@
                 4
             ],
             "viniProposti": [
-                3,
-                8,
-                10
+                "Libero Chianti",
+                "Riserva di Famiglia",
+                "Albergaccio"
             ]
         },
         {
@@ -1550,9 +1550,9 @@
                 4
             ],
             "viniProposti": [
-                3,
-                8,
-                10
+                "Libero Chianti",
+                "Riserva di Famiglia",
+                "Albergaccio"
             ]
         },
         {
@@ -1568,9 +1568,9 @@
                 4
             ],
             "viniProposti": [
-                8,
-                3,
-                1
+                "Riserva di Famiglia",
+                "Libero Chianti",
+                "Perlè"
             ]
         },
         {
@@ -1631,9 +1631,9 @@
                 22
             ],
             "viniProposti": [
-                3,
-                8,
-                10
+                "Libero Chianti",
+                "Riserva di Famiglia",
+                "Albergaccio"
             ]
         },
         {
@@ -1779,9 +1779,9 @@
                 65
             ],
             "viniProposti": [
-                2,
-                9,
-                11
+                "Prosecco",
+                "Pinot Grigio",
+                "Chardonnay"
             ]
         },
         {
@@ -1889,9 +1889,9 @@
                 46
             ],
             "viniProposti": [
-                3,
-                8,
-                12
+                "Libero Chianti",
+                "Riserva di Famiglia",
+                "Libero Toscana IGT"
             ]
         },
         {
@@ -1908,9 +1908,9 @@
                 21
             ],
             "viniProposti": [
-                4,
-                2,
-                7
+                "Volare",
+                "Prosecco",
+                "Rosé Monogram"
             ]
         },
         {
@@ -1927,9 +1927,9 @@
                 31
             ],
             "viniProposti": [
-                2,
-                7,
-                9
+                "Prosecco",
+                "Rosé Monogram",
+                "Pinot Grigio"
             ]
         },
         {
@@ -1971,9 +1971,9 @@
                 57
             ],
             "viniProposti": [
-                14,
-                20,
-                19
+                "Amor diVino",
+                "Crema di Limoncino",
+                "Crema di caffè"
             ]
         }
     ],
@@ -2079,9 +2079,9 @@
                 "antipasto/contorno"
             ],
             "viniProposti": [
-                4,
-                5,
-                6
+                "Volare",
+                "Hugo",
+                "Libero Bianco"
             ]
         },
         {
@@ -2092,9 +2092,9 @@
                 "antipasto/contorno"
             ],
             "viniProposti": [
-                3,
-                1,
-                10
+                "Libero Chianti",
+                "Perlè",
+                "Albergaccio"
             ]
         },
         {
@@ -2105,9 +2105,9 @@
                 "antipasto/contorno"
             ],
             "viniProposti": [
-                4,
-                2,
-                7
+                "Volare",
+                "Prosecco",
+                "Rosé Monogram"
             ]
         },
         {
@@ -2118,9 +2118,9 @@
                 "antipasto/contorno"
             ],
             "viniProposti": [
-                1,
-                3,
-                8
+                "Perlè",
+                "Libero Chianti",
+                "Riserva di Famiglia"
             ]
         },
         {
@@ -2131,9 +2131,9 @@
                 "antipasto/contorno"
             ],
             "viniProposti": [
-                2,
-                6,
-                1
+                "Prosecco",
+                "Libero Bianco",
+                "Perlè"
             ]
         },
         {
@@ -2144,9 +2144,9 @@
                 "antipasto/contorno"
             ],
             "viniProposti": [
-                1,
-                3,
-                8
+                "Perlè",
+                "Libero Chianti",
+                "Riserva di Famiglia"
             ]
         },
         {
@@ -2157,9 +2157,9 @@
                 "antipasto/contorno"
             ],
             "viniProposti": [
-                4,
-                5,
-                2
+                "Volare",
+                "Hugo",
+                "Prosecco"
             ]
         },
         {
@@ -2170,9 +2170,9 @@
                 "antipasto/contorno"
             ],
             "viniProposti": [
-                4,
-                5,
-                2
+                "Volare",
+                "Hugo",
+                "Prosecco"
             ]
         },
         {
@@ -2183,9 +2183,9 @@
                 "primo"
             ],
             "viniProposti": [
-                3,
-                12,
-                2
+                "Libero Chianti",
+                "Libero Toscana IGT",
+                "Prosecco"
             ]
         },
         {
@@ -2196,9 +2196,9 @@
                 "primo"
             ],
             "viniProposti": [
-                8,
-                3,
-                1
+                "Riserva di Famiglia",
+                "Libero Chianti",
+                "Perlè"
             ]
         },
         {
@@ -2209,9 +2209,9 @@
                 "primo"
             ],
             "viniProposti": [
-                4,
-                5,
-                2
+                "Volare",
+                "Hugo",
+                "Prosecco"
             ]
         },
         {
@@ -2222,9 +2222,9 @@
                 "primo"
             ],
             "viniProposti": [
-                1,
-                3,
-                8
+                "Perlè",
+                "Libero Chianti",
+                "Riserva di Famiglia"
             ]
         },
         {
@@ -2235,9 +2235,9 @@
                 "primo"
             ],
             "viniProposti": [
-                4,
-                2,
-                7
+                "Volare",
+                "Prosecco",
+                "Rosé Monogram"
             ]
         },
         {
@@ -2248,9 +2248,9 @@
                 "primo"
             ],
             "viniProposti": [
-                1,
-                3,
-                8
+                "Perlè",
+                "Libero Chianti",
+                "Riserva di Famiglia"
             ]
         },
         {
@@ -2261,9 +2261,9 @@
                 "primo"
             ],
             "viniProposti": [
-                4,
-                6,
-                2
+                "Volare",
+                "Libero Bianco",
+                "Prosecco"
             ]
         },
         {
@@ -2274,9 +2274,9 @@
                 "primo"
             ],
             "viniProposti": [
-                4,
-                5,
-                2
+                "Volare",
+                "Hugo",
+                "Prosecco"
             ]
         },
         {
@@ -2287,9 +2287,9 @@
                 "secondo"
             ],
             "viniProposti": [
-                8,
-                3,
-                1
+                "Riserva di Famiglia",
+                "Libero Chianti",
+                "Perlè"
             ]
         },
         {
@@ -2300,9 +2300,9 @@
                 "secondo"
             ],
             "viniProposti": [
-                12,
-                8,
-                10
+                "Libero Toscana IGT",
+                "Riserva di Famiglia",
+                "Albergaccio"
             ]
         },
         {
@@ -2313,9 +2313,9 @@
                 "secondo"
             ],
             "viniProposti": [
-                4,
-                5,
-                2
+                "Volare",
+                "Hugo",
+                "Prosecco"
             ]
         },
         {
@@ -2326,9 +2326,9 @@
                 "secondo"
             ],
             "viniProposti": [
-                7,
-                23,
-                24
+                "Rosé Monogram",
+                "Blanc de Blancs",
+                "Satèn"
             ]
         },
         {
@@ -2339,9 +2339,9 @@
                 "secondo"
             ],
             "viniProposti": [
-                9,
-                11,
-                6
+                "Pinot Grigio",
+                "Chardonnay",
+                "Libero Bianco"
             ]
         },
         {
@@ -2406,9 +2406,9 @@
                 "dolce"
             ],
             "viniProposti": [
-                14,
-                15,
-                25
+                "Amor diVino",
+                "Splendia",
+                "Cream liquors pack"
             ]
         }
     ],
@@ -3373,588 +3373,293 @@
             "id": 1,
             "nome": "indipendence day",
             "viniProposti": [
-                26,
-                27,
-                28
+                "Red, White and Blue Bubbles pack",
+                "Iconic Sparklers",
+                "Blumond Magnum"
             ]
         },
         {
             "id": 2,
             "nome": "baby shower",
             "viniProposti": [
-                29,
-                30,
-                31
+                "Baby sparklers pack",
+                "Baby Blumond",
+                "Baby Splendia"
             ]
         },
         {
             "id": 3,
             "nome": "matrimonio",
             "viniProposti": [
-                17,
-                28,
-                30
+                "Blumond",
+                "Blumond Magnum",
+                "Baby Blumond"
             ]
         },
         {
             "id": 4,
             "nome": "addio al nubilato/celibato",
             "viniProposti": [
-                17,
-                14,
-                15
+                "Blumond",
+                "Amor diVino",
+                "Splendia"
             ]
         },
         {
             "id": 5,
             "nome": "pool party / barbeque",
             "viniProposti": [
-                32,
-                33,
-                34
+                "Let's Celebrate",
+                "Private tasting room",
+                "Made in Tuscany with love"
             ]
         },
         {
             "id": 6,
             "nome": "compleanno",
             "viniProposti": [
-                32,
-                28,
-                35
+                "Let's Celebrate",
+                "Blumond Magnum",
+                "Baby sparklers Party kit"
             ]
         },
         {
             "id": 7,
             "nome": "valentine’s day",
             "viniProposti": [
-                14,
-                17,
-                27
+                "Amor diVino",
+                "Blumond",
+                "Iconic Sparklers"
             ]
         },
         {
             "id": 8,
             "nome": "international women’s day",
             "viniProposti": [
-                14,
-                15,
-                7
+                "Amor diVino",
+                "Splendia",
+                "Rosé Monogram"
             ]
         },
         {
             "id": 9,
             "nome": "first day of spring",
             "viniProposti": [
-                36,
-                5,
-                4
+                "Bottled sunshine",
+                "Hugo",
+                "Volare"
             ]
         },
         {
             "id": 10,
             "nome": "easter",
             "viniProposti": [
-                33,
-                34,
-                37
+                "Private tasting room",
+                "Made in Tuscany with love",
+                "Signature Collection"
             ]
         },
         {
             "id": 11,
             "nome": "mother’s day",
             "viniProposti": [
-                14,
-                27,
-                17
+                "Amor diVino",
+                "Iconic Sparklers",
+                "Blumond"
             ]
         },
         {
             "id": 12,
             "nome": "memorial day",
             "viniProposti": [
-                26,
-                27,
-                38
+                "Red, White and Blue Bubbles pack",
+                "Iconic Sparklers",
+                "Riserva di famiglia"
             ]
         },
         {
             "id": 13,
             "nome": "father’s day",
             "viniProposti": [
-                12,
-                39,
-                13
+                "Libero Toscana IGT",
+                "Family's treasure pack",
+                "Il Principe"
             ]
         },
         {
             "id": 14,
             "nome": "first day of summer",
             "viniProposti": [
-                40,
-                36,
-                5
+                "Hello Summer pack",
+                "Bottled sunshine",
+                "Hugo"
             ]
         },
         {
             "id": 15,
             "nome": "labor day",
             "viniProposti": [
-                26,
-                27,
-                25
+                "Red, White and Blue Bubbles pack",
+                "Iconic Sparklers",
+                "Cream liquors pack"
             ]
         },
         {
             "id": 16,
             "nome": "halloween",
             "viniProposti": [
-                25,
-                32,
-                27
+                "Cream liquors pack",
+                "Let's Celebrate",
+                "Iconic Sparklers"
             ]
         },
         {
             "id": 17,
             "nome": "thanksgiving day",
             "viniProposti": [
-                33,
-                34,
-                32
+                "Private tasting room",
+                "Made in Tuscany with love",
+                "Let's Celebrate"
             ]
         },
         {
             "id": 18,
             "nome": "christmas day",
             "viniProposti": [
-                17,
-                14,
-                25
+                "Blumond",
+                "Amor diVino",
+                "Cream liquors pack"
             ]
         },
         {
             "id": 19,
             "nome": "new year’s eve",
             "viniProposti": [
-                17,
-                28,
-                32
+                "Blumond",
+                "Blumond Magnum",
+                "Let's Celebrate"
             ]
         },
         {
             "id": 20,
             "nome": "super bowl",
             "viniProposti": [
-                32,
-                35,
-                28
+                "Let's Celebrate",
+                "Baby sparklers Party kit",
+                "Blumond Magnum"
             ]
         }
     ],
     "listaVini": [
         {
-            "id": 1,
+            "id": "Z2lkOi8vc2hvcGlmeS9Qcm9kdWN0LzU3NzUzMjc5MjAyOTQ=",
             "nome": "Perlè",
-            "ricette": [
-                1,
-                2,
-                5,
-                19,
-                27,
-                29,
-                37,
-                39,
-                42,
-                49,
-                52,
-                59,
-                71,
-                72,
-                73,
-                78,
-                90
-            ]
+            "ricette": []
         },
         {
             "id": 2,
             "nome": "Prosecco",
-            "ricette": [
-                1,
-                3,
-                4,
-                6,
-                7,
-                8,
-                9,
-                10,
-                11,
-                12,
-                13,
-                14,
-                15,
-                16,
-                17,
-                18,
-                20,
-                21,
-                22,
-                23,
-                24,
-                26,
-                31,
-                33,
-                38,
-                40,
-                41,
-                43,
-                45,
-                47,
-                57,
-                59,
-                84,
-                85,
-                104,
-                113,
-                114
-            ]
+            "ricette": []
         },
         {
-            "id": 3,
+            "id": "Z2lkOi8vc2hvcGlmeS9Qcm9kdWN0LzU3NzUzMzAxMTU3NTA=",
             "nome": "Libero Chianti",
-            "ricette": [
-                1,
-                2,
-                5,
-                19,
-                20,
-                21,
-                24,
-                25,
-                27,
-                36,
-                38,
-                39,
-                47,
-                48,
-                49,
-                50,
-                52,
-                53,
-                54,
-                55,
-                56,
-                58,
-                59,
-                60,
-                61,
-                62,
-                63,
-                66,
-                67,
-                71,
-                72,
-                73,
-                74,
-                75,
-                76,
-                78,
-                88,
-                89,
-                90,
-                94,
-                112
-            ]
+            "ricette": []
         },
         {
             "id": 4,
             "nome": "Volare",
-            "ricette": [
-                2,
-                3,
-                4,
-                5,
-                6,
-                8,
-                9,
-                10,
-                11,
-                12,
-                13,
-                14,
-                15,
-                16,
-                17,
-                18,
-                20,
-                21,
-                22,
-                26,
-                28,
-                35,
-                36,
-                41,
-                43,
-                45,
-                57,
-                64,
-                65,
-                68,
-                69,
-                76,
-                113
-            ]
+            "ricette": []
         },
         {
-            "id": 5,
+            "id": "Z2lkOi8vc2hvcGlmeS9Qcm9kdWN0LzU3NzA5ODUwNDYxODI=",
             "nome": "Hugo",
-            "ricette": [
-                3,
-                4,
-                7,
-                9,
-                11,
-                12,
-                13,
-                14,
-                15,
-                16,
-                17,
-                18
-            ]
+            "ricette": []
         },
         {
             "id": 6,
             "nome": "Libero Bianco",
-            "ricette": [
-                6,
-                22
-            ]
+            "ricette": []
         },
         {
             "id": 7,
             "nome": "Rosé Monogram",
-            "ricette": [
-                7,
-                8,
-                10,
-                31,
-                33,
-                37,
-                57,
-                66,
-                70,
-                77,
-                113,
-                114
-            ]
+            "ricette": []
         },
         {
             "id": 8,
             "nome": "Riserva di Famiglia",
-            "ricette": [
-                19,
-                23,
-                24,
-                25,
-                27,
-                29,
-                30,
-                38,
-                39,
-                42,
-                48,
-                49,
-                50,
-                53,
-                54,
-                55,
-                56,
-                58,
-                60,
-                61,
-                62,
-                63,
-                67,
-                73,
-                74,
-                75,
-                88,
-                89,
-                90,
-                94,
-                112
-            ]
+            "ricette": []
         },
         {
             "id": 9,
             "nome": "Pinot Grigio",
-            "ricette": [
-                23,
-                26,
-                28,
-                31,
-                33,
-                35,
-                36,
-                37,
-                40,
-                42,
-                43,
-                45,
-                47,
-                64,
-                65,
-                66,
-                68,
-                69,
-                70,
-                76,
-                77,
-                78,
-                104,
-                114
-            ]
+            "ricette": []
         },
         {
             "id": 10,
             "nome": "Albergaccio",
-            "ricette": [
-                25,
-                29,
-                52,
-                58,
-                71,
-                88,
-                89,
-                94
-            ]
+            "ricette": []
         },
         {
             "id": 11,
             "nome": "Chardonnay",
-            "ricette": [
-                28,
-                35,
-                40,
-                41,
-                64,
-                65,
-                68,
-                69,
-                70,
-                72,
-                77,
-                104
-            ]
+            "ricette": []
         },
         {
             "id": 12,
             "nome": "Libero Toscana IGT",
-            "ricette": [
-                30,
-                48,
-                50,
-                53,
-                54,
-                55,
-                56,
-                60,
-                61,
-                62,
-                63,
-                67,
-                74,
-                75,
-                112
-            ]
+            "ricette": []
         },
         {
             "id": 13,
             "nome": "Il Principe",
-            "ricette": [
-                30
-            ]
+            "ricette": []
         },
         {
             "id": 14,
             "nome": "Amor diVino",
-            "ricette": [
-                79,
-                80,
-                81,
-                82,
-                84,
-                85,
-                86,
-                117
-            ]
+            "ricette": []
         },
         {
             "id": 15,
             "nome": "Splendia",
-            "ricette": [
-                79,
-                81,
-                83
-            ]
+            "ricette": []
         },
         {
             "id": 16,
             "nome": "Crema di Grappa",
-            "ricette": [
-                79
-            ]
+            "ricette": []
         },
         {
             "id": 17,
             "nome": "Blumond",
-            "ricette": [
-                80,
-                83
-            ]
+            "ricette": []
         },
         {
             "id": 18,
             "nome": "Crema di cioccolato",
-            "ricette": [
-                80,
-                82,
-                87
-            ]
+            "ricette": []
         },
         {
             "id": 19,
             "nome": "Crema di caffè",
-            "ricette": [
-                81,
-                83,
-                84,
-                86,
-                87,
-                117
-            ]
+            "ricette": []
         },
         {
             "id": 20,
             "nome": "Crema di Limoncino",
-            "ricette": [
-                82,
-                86,
-                117
-            ]
+            "ricette": []
         },
         {
             "id": 21,
             "nome": "Limoncello",
-            "ricette": [
-                85
-            ]
+            "ricette": []
         },
         {
             "id": 22,
             "nome": "Crema di Pistacchio",
-            "ricette": [
-                87
-            ]
+            "ricette": []
         },
         {
             "id": 23,

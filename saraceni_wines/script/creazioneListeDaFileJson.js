@@ -1,7 +1,7 @@
 'use strict';
 const excelToJson = require('convert-excel-to-json');
 const fs = require('fs');
-
+var recuperoIdVini = require('./recuperoIdVini');
 var inputFile = '../others/ricette.xlsx';
 var outputFile = '../json/ricette.json';
 
@@ -158,7 +158,7 @@ function estrazioneViniConAggiornamentoListaVini(riga, colonneVini) {
   colonneVini.forEach(function (colonna) {
     if (riga[colonna]) {
       estrazioneListaVini(riga[colonna]);
-      listaViniTmp.push(ricercaOggetto(riga[colonna], listaVini));
+      listaViniTmp.push(riga[colonna]);
     }
   });
   return listaViniTmp;
@@ -338,6 +338,7 @@ ricetteItaliane = estrazioneListaRicette('Ricette italiane');
 listaAbbinamentiGenerali = estrazioneAbbinamentiGenerali('Abbinamenti generali');
 listaAbbinamentiPerTipologia = estrazioneAbbinamentiPerTipologia('Ingredienti Principali');
 listaOccasioni = estrazioneListaOccasioni('Abbinamenti occasioni');
+listaVini = recuperoIdVini(listaVini);
 listaCompletaRicette = antipastiContorni.concat(primi, secondi, dessert, ricetteItaliane);
 aggiornamentoListeVarieDaRicette(listaCompletaRicette);
 estrazioneParoleChiave(listaCompletaRicette);
@@ -379,15 +380,15 @@ var strutture = {
   listaParoleChiavePerCategoria: listaParoleChiavePerCategoria
 };
 
-function toJsonFile (result) {
-    var json = JSON.stringify(result, null, 4);
-    fs.writeFile(outputFile, json, function (err) {
-      if (err) throw err;
-      console.log('Results saved in', outputFile);
-    });
-  }
-  
-  toJsonFile(strutture);
-  
+function toJsonFile(result) {
+  var json = JSON.stringify(result, null, 4);
+  fs.writeFile(outputFile, json, function (err) {
+    if (err) throw err;
+    console.log('Results saved in', outputFile);
+  });
+}
+
+toJsonFile(strutture);
+
 
 module.exports = strutture;

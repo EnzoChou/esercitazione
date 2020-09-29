@@ -92,8 +92,8 @@ var somiglianzaParoleArray = function (arrayParole, arrayDiConfronto) {
   return contatore / (arrayDiConfronto.length);
 };
 
-var ricercaViniProposti = function (listaIdVini, listaVini) {
-  return listaVini.filter(vino => listaIdVini.some(id => vino.id === id));
+var ricercaViniProposti = function (listaNomiVini, listaVini) {
+  return listaVini.filter(vino => listaNomiVini.some(nome => vino.nome === nome));
 };
 
 var concatTags = function (lista) {
