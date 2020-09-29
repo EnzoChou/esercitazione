@@ -3554,27 +3554,32 @@
         {
             "id": "Z2lkOi8vc2hvcGlmeS9Qcm9kdWN0LzU3NzUzMjc5MjAyOTQ=",
             "nome": "Perlè",
-            "ricette": []
+            "ricette": [],
+            "prezzo": "15.99"
         },
         {
-            "id": 2,
+            "id": "Z2lkOi8vc2hvcGlmeS9Qcm9kdWN0LzU3NzYwMTA1MTA1MDI=",
             "nome": "Prosecco",
-            "ricette": []
+            "ricette": [],
+            "prezzo": "15.99"
         },
         {
             "id": "Z2lkOi8vc2hvcGlmeS9Qcm9kdWN0LzU3NzUzMzAxMTU3NTA=",
             "nome": "Libero Chianti",
-            "ricette": []
+            "ricette": [],
+            "prezzo": "19.99"
         },
         {
-            "id": 4,
+            "id": "Z2lkOi8vc2hvcGlmeS9Qcm9kdWN0LzU3NzYwMDc4ODkwNjI=",
             "nome": "Volare",
-            "ricette": []
+            "ricette": [],
+            "prezzo": "9.99"
         },
         {
             "id": "Z2lkOi8vc2hvcGlmeS9Qcm9kdWN0LzU3NzA5ODUwNDYxODI=",
             "nome": "Hugo",
-            "ricette": []
+            "ricette": [],
+            "prezzo": "13.99"
         },
         {
             "id": 6,
