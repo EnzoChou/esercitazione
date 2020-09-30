@@ -25,14 +25,20 @@ const lineItemsToAdd = [{
 }];
 
 // Add an item to the checkout
-return client.checkout.addLineItems(checkoutId, lineItemsToAdd).then((checkout) => {
-    // Do something with the updated checkout
-    console.log('checkout.id  ---> ', checkout.id); // Array with one additional line item
-    console.log('checkout.lineItems 1  ---> ', checkout.lineItems); // Array with one additional line item
-    console.log('checkout.lineItems[0].quantity  ---> ', checkout.lineItems[0].quantity); // Array with one additional line item
-    // console.log('checkout function ---> ', checkout);
-    return;
-})
-    .catch(error =>
-        console.log('error', error)
-    )
+var addLineItems = function (checkoutId, lineItemsToAdd) {
+    return client.checkout.addLineItems(checkoutId, lineItemsToAdd).then((checkout) => {
+            // Do something with the updated checkout
+            console.log('checkout.id  ---> ', checkout.id); // Array with one additional line item
+            console.log('checkout.lineItems 1  ---> ', checkout.lineItems); // Array with one additional line item
+            console.log('checkout.lineItems[0].quantity  ---> ', checkout.lineItems[0].quantity); // Array with one additional line item
+            // console.log('checkout function ---> ', checkout);
+            return;
+        })
+        .catch(error =>
+            console.log('error', error)
+        );
+};
+
+// addLineItems(checkoutId, lineItemsToAdd);
+
+module.exports = addLineItems;
