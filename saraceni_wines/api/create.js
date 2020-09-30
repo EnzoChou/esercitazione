@@ -16,17 +16,19 @@ var productVariantId;
 var productInfo;
 
 var createCheckout = function () {
-  return client.checkout.create()
+  return new Promise ((resolve, reject) => { client.checkout.create()
     .then((checkout) => {
       // Do something with the checkout
       checkoutId = checkout.id;
       console.log('checkout.webUrl ---> ', checkout.webUrl);
       console.log('checkoutId ---> ', checkoutId);
+      resolve(checkout)
       return checkout;
     })
     .catch(error =>
       console.log('error', error)
     );
+  })
 };
 
 // createCheckout();

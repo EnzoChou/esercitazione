@@ -67,7 +67,6 @@ function processing(text) {
         .then(risultatoArrayVini => {
             return create_foodpairing_messages(risultatoArrayVini);
         });
-
 }
 
 exports.processing = processing;
