@@ -27,6 +27,7 @@ var recuperoIdVini = function (data) {
                             data.listaVini[index].id = element.id;
                             data.listaVini[index].variantsId = element.variants[0].id;
                             data.listaVini[index].prezzo = element.variants[0].price;
+                            data.listaVini[index].immagine = element.variants[0].image.src;
                         } else {
                             var vinoTmp = {};
                             vinoTmp.id = element.id;
@@ -34,6 +35,7 @@ var recuperoIdVini = function (data) {
                             vinoTmp.ricette = [];
                             vinoTmp.variantId = element.variants[0].id;
                             vinoTmp.prezzo = element.variants[0].price;
+                            vinoTmp.immagine = element.variants[0].image.src;
                             data.listaVini.push(vinoTmp);
                         }
                     });
