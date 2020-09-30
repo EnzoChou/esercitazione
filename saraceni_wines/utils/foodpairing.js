@@ -1,6 +1,5 @@
 var Promise = require('bluebird');
 var fetch = require('../api/fetch');
-var request = require('request');
 var ricercaVini = require('../script/ricercaVini');
 const {
     func
@@ -16,7 +15,7 @@ var cercaArrayVini = function (parole) {
 var create_foodpairing_messages = function (risultatoArrayVini) {
     return new Promise((resolve, reject) => {
         var messages = [{
-            "text": "Ecco a te i vini che ho trovato in base alla tua ricetta:"
+            "text": "Ecco a te i vini che ho trovato in base alla tua ricerca:"
         }, {
             "attachment": {
                 "type": "template",
@@ -27,38 +26,49 @@ var create_foodpairing_messages = function (risultatoArrayVini) {
             }
         }];
 
-        var arrayDiRitorno = [];
+        var arrayDiElements = [];
 
         risultatoArrayVini.forEach(vino => {
-            var button = {};
+            var postbackButton = {};
             var buttons = [];
-            button.type = 'postback';
-            button.title = 'discover more';
-            button.payload = '000action:12345,12345||[\"add_to_cart=>' + vino.id + ',1\"]000';
-            buttons.push(button);
+            postbackButton.type = 'postback';
+            postbackButton.title = 'find out';
+            postbackButton.payload = '000action:12345,12345||[\"add_to_cart=>' + vino.id + ',1\"]000';
+            var webUrlButton = {};
+            webUrlButton.type = 'web_url';
+            webUrlButton.url = 'www.urlToSend.com';
+            webUrlButton.title = 'Add 1 bottle';
+            anotherWebUrlButton = {};
+            anotherWebUrlButton.type = 'web_url';
+            anotherWebUrlButton.url = 'www.urlToSend2Avenge.com';
+            anotherWebUrlButton.title = 'add ' + 3 + ' bottles';
+            buttons.push(postbackButton);
+            buttons.push(webUrlButton);
+            buttons.push(anotherWebUrlButton);
             var element = {};
             element.title = vino.nome;
-            element.image_url = 'https://upload.wikimedia.org/wikipedia/commons/8/88/Glass_of_Red_Wine_with_a_bottle_of_Red_Wine_-_Evan_Swigart.jpg';
+            element.image_url = vino.immagine;
             element.subtitle = 'Prezzo: ' + vino.prezzo;
             element.buttons = buttons;
-            arrayDiRitorno.push(element);
+            arrayDiElements.push(element);
         });
 
-        messages[1].attachment.payload.elements = arrayDiRitorno;
+        messages[1].attachment.payload.elements = arrayDiElements;
 
         resolve(messages)
             .catch(error => {
-                reject();
+                reject(error);
             });
     });
 }
 
-function processing(id_recipient, text) {
+function processing(text) {
     return cercaArrayVini(text)
         .then(risultatoArrayVini => {
             return create_foodpairing_messages(risultatoArrayVini);
         });
 
 }
+
 exports.processing = processing;
 

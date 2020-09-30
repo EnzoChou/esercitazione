@@ -38,3 +38,9 @@ add_to_cart (API Shopify che aggiunge al carrello)
     - se l'utente non ha un id checkout
         - creo un checkout per l'utente
         - aggiungi prodotto con la quantità indicata
+
+ricerca e ritorno vini
+foodpairing(../integrations) -> foodpairing(../utils) -> send_messages(../utils)
+
+show cart
+show_cart(../integrations) -> 

@@ -13,12 +13,13 @@ function processing(user, event, param) {
 
     console.log('id_recipient', id_recipient);
 
-    return utils_foodpairing.processing(id_recipient, message_text)
+    return utils_foodpairing.processing(message_text)
       .then(messages => {
         return send_message.all_messages(id_recipient, messages);
       })
       .then(res_final => {
         console.log("Fine");
+        resolve(res_final);
         return;
       })
       .catch(error => {
@@ -28,4 +29,7 @@ function processing(user, event, param) {
 
   });
 }
+
+processing({},{}, 'banana');
+
 exports.processing = processing;

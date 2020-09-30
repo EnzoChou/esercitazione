@@ -13,7 +13,8 @@ var bodyJson = {
         "attachment": {
             "type": "template",
             "payload": {
-                "template_type": "generic"
+                "template_type": "generic",
+                "elements": []
             }
         }
     }
@@ -74,23 +75,6 @@ request(options, function (error, response) {
 
 */
 
-/*
-var request = require('request');
-var options = {
-  'method': 'POST',
-  'url': 'https://graph.facebook.com/v2.6/me/messages?access_token=EAADtbsZAAQL8BAPB3g0Nam6WKFMQZAQJyw0R2pHfjWiv4AKvScx1G5rFLv2pa1NpJlju2rUab3rqZBEuhtCy9pFwZAn1ZCYOXuowLHdbJZCxKepsNo8qmig7R1sw0qRLZBBJbKUdxhVCvaegZBY9H3hP8DEnys2eavXV9SLhxQLjGcSSfZCbuJrKEjdU7OPFdNqAZD',
-  'headers': {
-    'Content-Type': 'application/json'
-  },
-  body: JSON.stringify({"recipient":{"id":"3581882641842282"},"message":{"attachment":{"type":"template","payload":{"template_type":"generic","elements":[{"title":"Vino 1","image_url":"https://upload.wikimedia.org/wikipedia/commons/8/88/Glass_of_Red_Wine_with_a_bottle_of_Red_Wine_-_Evan_Swigart.jpg","subtitle":"Prezzo: 50$","buttons":[{"type":"postback","title":"Start Chatting","payload":"000action:12345,12345||[\"add_to_cart=>1234567890,1\"]000"}]}]}}}})
-
-};
-request(options, function (error, response) {
-  if (error) throw new Error(error);
-  console.log(response.body);
-});
-*/
-
 var parseJsonDiRispostaAlgoritmoPerMessenger = function () {
     return new Promise(function (resolve, reject) {
 
@@ -114,10 +98,11 @@ var richiesta = function (options) {
         console.log(response.body);
     });
 };
-
+/*
 cercaArrayVini(parole)
     .then(risultatoArrayVini =>
         costruzioneBody(risultatoArrayVini))
     .then(options =>
         richiesta(options))
     .catch(error => console.log(error));
+*/
