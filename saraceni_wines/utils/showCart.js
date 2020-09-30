@@ -67,8 +67,8 @@ var processing = function (user) {
     var id = user.checkoutId;
     if (id) {
         console.log('entra nella condizione');
-        console.log('id ---> ', id);
-        return checkoutFetch(id)
+        console.log('id ---> ', typeof(id));
+        checkoutFetch(id)
             .then(checkoutCart => {
                 console.log(checkoutCart);
                 console.log('entra nella seconda condizione');
@@ -161,7 +161,7 @@ var processing = function (user) {
 };
 */
 processing({
-    checkoutId: 'Z2lkOi8vc2hvcGlmeS9DaGVja291dC9hZDczZTZhMWMyNDEzZTRkM2U0ZDNmZjY1MDJjMzI2NT9rZXk9YWQ1ZGRhNjU2ODdjOTk3NTA0MDFhYzRiNDJhOWMzNGI'
+    checkoutId: 'Z2lkOi8vc2hvcGlmeS9DaGVja291dC83Mjk4NDhlZDVhZTg2YmU3NmNlNzdlNjg3Y2Y1OWVmZT9rZXk9ZDE4ZjgwZWU2NjgxMDYyZDk3ODMxMmJkMzIwZDY4OTI='
 });
 
 module.exports = processing;

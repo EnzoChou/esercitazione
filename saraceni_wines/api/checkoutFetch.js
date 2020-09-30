@@ -16,14 +16,15 @@ var productVariantId = 'Z2lkOi8vc2hvcGlmeS9Qcm9kdWN0VmFyaWFudC8zNjI2MjA1MjU5Mzgz
 var productInfo;
 
 var checkoutFetch = function (checkoutId) {
+  console.log('ID MANDATO PER IL CHECKOUT ---> ', checkoutId);
   return new Promise((resolve, reject) => {
     return client.checkout.fetch(checkoutId)
       .then((checkout) => {
         // Do something with the checkout
         console.log('checkout ---> ', checkout);
         console.log('checkout.id ---> ', checkout.id);
-        console.log('checkout.lineItems[0].id ---> ', checkout.lineItems[0].id);
-        console.log('checkout.lineItems[0].quantity ---> ', checkout.lineItems[0].quantity);
+        //console.log('checkout.lineItems[0].id ---> ', checkout.lineItems[0].id);
+        //console.log('checkout.lineItems[0].quantity ---> ', checkout.lineItems[0].quantity);
         //  console.log('checkout.lineItems.title --->', checkout.lineItems.title);
         console.log('checkout.order --->', checkout.order);
         resolve(checkout);
