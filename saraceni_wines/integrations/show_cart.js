@@ -18,7 +18,7 @@ function processing(user, event, param) {
         user.checkoutId = checkoutId;
 
         console.log('id_recipient', id_recipient);
-        return utils_show_cart.processing(user)
+        return utils_show_cart(user)
             .then(messages => {
                 return send_message.all_messages(id_recipient, messages);
             })

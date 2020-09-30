@@ -31,6 +31,6 @@ var fetch = function (productId) {
     })
 };
 
-fetch(checkoutId);
+// fetch(checkoutId);
 
 module.exports = fetch;

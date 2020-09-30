@@ -65,60 +65,65 @@ var createShowCartMessages = function (text) {
 
 var processing = function (user) {
     var id = user.checkoutId;
-    if (id) {
-        console.log('entra nella condizione');
-        console.log('id ---> ', typeof(id));
-        checkoutFetch(id)
-            .then(checkoutCart => {
-                console.log(checkoutCart);
-                console.log('entra nella seconda condizione');
-                if (checkoutCart.lineItems.length < 3) {
-                    var text = nonPuoiCompletareLAcquisto;
-                    createShowCartMessages(text)
-                        .then(mess => {
-                            return mess;
-                        })
-                        .catch(err => console.log('err', err));
-                } else {
-                    console.log('entra nel secondo else');
-                    return createShowCartMessages()
-                        .then(mess => {
-                            return mess
-                        })
-                        .catch(err => console.log('err', err));
-                }
-            })
-            .catch(err => {
-                console.log('err', err);
-                return createCheckout()
-                    .then(checkoutCart => {
-                        var text = nonAveviIlCarrello;
-                        user.checkoutId = checkoutCart.id;
+    return new Promise((resolve, reject) => {
+        if (id) {
+            console.log('entra nella condizione');
+            console.log('id ---> ', typeof (id));
+            return checkoutFetch(id)
+                .then(checkoutCart => {
+                    console.log(checkoutCart);
+                    console.log('entra nella seconda condizione');
+                    if (checkoutCart.lineItems.length < 3) {
+                        var text = nonPuoiCompletareLAcquisto;
                         createShowCartMessages(text)
                             .then(mess => {
                                 console.log('messaggio di ritorno', mess)
                                 return mess;
-                            });
-                    })
-                    .catch(err => {
-                        console.log('err', err);
-                    })
-            })
-    } else {
-        console.log('entra nell\' else');
-        return createCheckout()
-            .then(checkoutCart => {
-                var text = nonAveviIlCarrello;
-                user.checkoutId = checkoutCart.id;
-                createShowCartMessages(text)
-                    .then(mess => {
-                        return mess;
-                    });
-            })
-            .catch(err => {
-                console.log('err', err);
-            })
-    }
+                            })
+                            .catch(err => console.log('err', err));
+                    } else {
+                        console.log('entra nel secondo else');
+                        return createShowCartMessages()
+                            .then(mess => {
+                                console.log('messaggio di ritorno', mess)
+                                return mess
+                            })
+                            .catch(err => console.log('err', err));
+                    }
+                })
+                .catch(err => {
+                    console.log('err', err);
+                    return createCheckout()
+                        .then(checkoutCart => {
+                            var text = nonAveviIlCarrello;
+                            user.checkoutId = checkoutCart.id;
+                            createShowCartMessages(text)
+                                .then(mess => {
+                                    console.log('messaggio di ritorno', mess)
+                                    return mess;
+                                });
+                        })
+                        .catch(err => {
+                            console.log('err', err);
+                        })
+                })
+        } else {
+            console.log('entra nell\' else');
+            return createCheckout()
+                .then(checkoutCart => {
+                    var text = nonAveviIlCarrello;
+                    user.checkoutId = checkoutCart.id;
+                    createShowCartMessages(text)
+                        .then(mess => {
+                            console.log('messaggio di ritorno', mess)
+                            return mess;
+                        });
+                })
+                .catch(err => {
+                    console.log('err', err);
+                })
+        }
+    })
 }
 /*
 var processing = function (user) {
@@ -160,8 +165,6 @@ var processing = function (user) {
     })
 };
 */
-processing({
-    checkoutId: 'Z2lkOi8vc2hvcGlmeS9DaGVja291dC83Mjk4NDhlZDVhZTg2YmU3NmNlNzdlNjg3Y2Y1OWVmZT9rZXk9ZDE4ZjgwZWU2NjgxMDYyZDk3ODMxMmJkMzIwZDY4OTI='
-});
+//processing({checkoutId: 'Z2lkOi8vc2hvcGlmeS9DaGVja291dC83Mjk4NDhlZDVhZTg2YmU3NmNlNzdlNjg3Y2Y1OWVmZT9rZXk9ZDE4ZjgwZWU2NjgxMDYyZDk3ODMxMmJkMzIwZDY4OTI='});
 
 module.exports = processing;
