@@ -64,17 +64,20 @@ var createShowCartMessages = function (text) {
 // createShowCartMessages().then(sms => console.log('sms', sms));
 
 var processing = function (user) {
-    if (user.checkoutId) {
+    var id = user.checkoutId;
+    if (id) {
         console.log('entra nella condizione');
-        return checkoutFetch(user.checkoutId)
+        console.log('id ---> ', id);
+        return checkoutFetch(id)
             .then(checkoutCart => {
+                console.log(checkoutCart);
                 console.log('entra nella seconda condizione');
                 if (checkoutCart.lineItems.length < 3) {
                     var text = nonPuoiCompletareLAcquisto;
                     createShowCartMessages(text)
-                    .then(mess => {
-                        return mess;
-                    })
+                        .then(mess => {
+                            return mess;
+                        })
                         .catch(err => console.log('err', err));
                 } else {
                     console.log('entra nel secondo else');
@@ -87,6 +90,19 @@ var processing = function (user) {
             })
             .catch(err => {
                 console.log('err', err);
+                return createCheckout()
+                    .then(checkoutCart => {
+                        var text = nonAveviIlCarrello;
+                        user.checkoutId = checkoutCart.id;
+                        createShowCartMessages(text)
+                            .then(mess => {
+                                console.log('messaggio di ritorno', mess)
+                                return mess;
+                            });
+                    })
+                    .catch(err => {
+                        console.log('err', err);
+                    })
             })
     } else {
         console.log('entra nell\' else');
@@ -95,9 +111,9 @@ var processing = function (user) {
                 var text = nonAveviIlCarrello;
                 user.checkoutId = checkoutCart.id;
                 createShowCartMessages(text)
-                .then(mess => {
-                    return mess;
-                });
+                    .then(mess => {
+                        return mess;
+                    });
             })
             .catch(err => {
                 console.log('err', err);
@@ -144,6 +160,8 @@ var processing = function (user) {
     })
 };
 */
-processing({checkoutId: 'Z2lkOi8vc2hvcGlmeS9DaGVja291dC9hZDczZTZhMWMyNDEzZTRkM2U0ZDNmZjY1MDJjMzI2NT9rZXk9YWQ1ZGRhNjU2ODdjOTk3NTA0MDFhYzRiNDJhOWMzNGI'});
+processing({
+    checkoutId: 'Z2lkOi8vc2hvcGlmeS9DaGVja291dC9hZDczZTZhMWMyNDEzZTRkM2U0ZDNmZjY1MDJjMzI2NT9rZXk9YWQ1ZGRhNjU2ODdjOTk3NTA0MDFhYzRiNDJhOWMzNGI'
+});
 
 module.exports = processing;

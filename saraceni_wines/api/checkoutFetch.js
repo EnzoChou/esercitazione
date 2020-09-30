@@ -27,6 +27,11 @@ var checkoutFetch = function (checkoutId) {
         //  console.log('checkout.lineItems.title --->', checkout.lineItems.title);
         console.log('checkout.order --->', checkout.order);
         resolve(checkout);
+        return checkout;
+      })
+      .catch(err => {
+        console.log('errore in checkout fetch', err);
+        reject(err);
       });
   })
 };

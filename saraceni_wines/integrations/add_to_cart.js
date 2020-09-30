@@ -2,7 +2,7 @@ function processing(user, event, param) {
     return new Promise((resolve, reject) => {
         console.log('param', param);
 
-        var utils_add_to_cart = require('../utils/add_to_cart');
+        var utils_add_to_cart = require('./add_to_cart');
         var send_message = require('../utils/send_message');
 
         var message_text = 'i\'m watching harry potter tonight and i\'d like some nachos';
