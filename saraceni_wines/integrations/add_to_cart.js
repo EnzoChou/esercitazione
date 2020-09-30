@@ -19,6 +19,7 @@ function processing(user, event, param) {
             })
             .then(res_final => {
                 console.log("Fine");
+                resolve(res_final);
                 return;
             })
             .catch(error => {
@@ -27,4 +28,7 @@ function processing(user, event, param) {
             });
     });
 }
+
+processing({},{}, 'banana');
+
 exports.processing = processing;

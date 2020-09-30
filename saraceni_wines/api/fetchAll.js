@@ -44,6 +44,8 @@ var fetchAll = function () {
       products.forEach(product => {
         console.log('single product ---> ', product,
           '\nproduct.variants.length', product.variants.length,
+          '\nproduct.variants[0]', product.variants[0],
+          '\nproduct.images', product.variants[0].image.src,
           '\nproduct.id', product.id,
           '\nproduct.title', product.title);
       })
@@ -53,5 +55,7 @@ var fetchAll = function () {
       console.log('error', error)
     )
 }
+
+// fetchAll(); 
 
 module.exports = fetchAll;

@@ -15,14 +15,20 @@ var productId;
 var productVariantId;
 var productInfo;
 
-return client.checkout.create()
-  .then((checkout) => {
-    // Do something with the checkout
-    checkoutId = checkout.id;
-    console.log('checkout.webUrl ---> ', checkout.webUrl);
-    console.log('checkoutId ---> ', checkoutId);
-    return;
-  })
-  .catch(error =>
-    console.log('error', error)
-)
+var createCheckout = function () {
+  return client.checkout.create()
+    .then((checkout) => {
+      // Do something with the checkout
+      checkoutId = checkout.id;
+      console.log('checkout.webUrl ---> ', checkout.webUrl);
+      console.log('checkoutId ---> ', checkoutId);
+      return checkout;
+    })
+    .catch(error =>
+      console.log('error', error)
+    );
+};
+
+// createCheckout();
+
+module.exports = createCheckout;
