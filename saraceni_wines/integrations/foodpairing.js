@@ -1,59 +1,31 @@
-function processing (user, event, param) {
+function processing(user, event, param) {
   return new Promise((resolve, reject) => {
-    console.log('event.message.text', event.message.text);
     console.log('param', param);
 
-    var message_text = event.message.text;
+    var utils_foodpairing = require('../utils/foodpairing');
+    var send_message = require('../utils/send_message');
+
+    var message_text = 'i\'m watching harry potter tonight and i\'d like some nachos';
+
     console.log('message_text', message_text);
 
-    var foodpairing_seach = external_services.saraceni_wines.integrations.ricercaVini;
-    var result = foodpairing_seach.metodoScelto(message_text);
+    var id_recipient = "3581882641842282";
 
-    console.log('result', result);
-    var messages = [{
-      text: 'Ecco a te i vini:'
-    }];
-    result.forEach(elem => {
-      messages.push({
-        title: elem.title,
-        // subtitle: element['streetAddress'] + ", " + element['locality'],
-        // image_url: "https://s3-eu-west-1.amazonaws.com/media-hej/Renault%20Dealer/image/1591968591175.png",
-        buttons: [{
-          type: 'web_url',
-          title: 'SELEZIONA',
-          url: 'https://www.saraceniwines.com/'
-        }]
+    console.log('id_recipient', id_recipient);
+
+    return utils_foodpairing.processing(id_recipient, message_text)
+      .then(messages => {
+        return send_message.all_messages(id_recipient, messages);
+      })
+      .then(res_final => {
+        console.log("Fine");
+        return;
+      })
+      .catch(error => {
+        console.log(error);
+        return;
       });
-    });
 
-    resolve({
-      replace: true,
-      msg: messages
-    });
-
-    // return yeah(event)
-    //     .find_content_plus(user, event, {
-    //         "payload": "RESULTS_FOODPAIRING",
-    //         "context.context": user.id_context
-    //     })
-    //     .then(content_found => {
-    //         console.log("saraceni foodparing content_found", content_found);
-    //         if (content_found) {
-    //             content_found.messages.unshift({
-    //                 'text': 'Vino: ' + result
-    //             });
-    //             resolve({
-    //                 'content_found': content_found,
-    //             });
-    //         } else {
-    //             resolve({
-    //                 replace: true,
-    //                 msg: {
-    //                     "text": "Non ho trovato il messaggio in cui stampare le ricette"
-    //                 }
-    //             });
-    //         }
-    // });
   });
 }
 exports.processing = processing;

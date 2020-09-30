@@ -1,0 +1,40 @@
+var user = {
+    "_id": "1234567890",
+    "checkout_id" "1234567890"
+}
+
+foodpairing
+- estraggo vini
+- carosello con 3 card con 3 bottoni
+    - retrieve_details:id_vino
+    - add_to_cart:id_vino,quantity (1)
+    - add_to_cart:id_vino,quantity (3)
+
+show_cart (API Shopify per la creazione/visualizzazione del carrello)
+    - se l'utente ha un checkout reupero l'id del checkout
+        - se l'utente ha meno di 3 vini
+            - mando un messaggio che gli dice "non puoi completare l'acquisto"
+        - se l'utente ha più di 3 vini
+            - creo una card con all'interno:
+                - immagine logo di saraceni
+                - title "Carrello"
+                - un bottone (type web_url) con all'interno il link del checkout utente
+    - se l'utente non ha un id checkout
+        - creo un checkout tramite il servizio Shopify
+        - mando un messaggio che gli dice "carrello creato"
+        
+retrieve_details
+    - tramite l'id del vino scarica le informazioni da Shopify
+        - creo un messaggio che contiene:
+            - bubble immagine del vino (https://developers.facebook.com/docs/messenger-platform/send-messages#sending_attachments - Attaching from URL)
+            - bubble test con la descrizione del vino
+            - bubble modello con pulsante con all'interno: (https://developers.facebook.com/docs/messenger-platform/send-messages/template/button)
+                - add_to_cart:id_vino,quantity (1)
+                - add_to_cart:id_vino,quantity (3)
+
+add_to_cart (API Shopify che aggiunge al carrello)
+    - se l'utente ha un checkout reupero l'id del checkout
+        - aggiungi prodotto con la quantità indicata
+    - se l'utente non ha un id checkout
+        - creo un checkout per l'utente
+        - aggiungi prodotto con la quantità indicata
