@@ -25,7 +25,16 @@ var recuperoIdVini = function (data) {
                         if (~index) {
                             console.log('indice vino da modificare', index);
                             data.listaVini[index].id = element.id;
+                            data.listaVini[index].variantsId = element.variants[0].id;
                             data.listaVini[index].prezzo = element.variants[0].price;
+                        } else {
+                            var vinoTmp = {};
+                            vinoTmp.id = element.id;
+                            vinoTmp.nome = element.title;
+                            vinoTmp.ricette = [];
+                            vinoTmp.variantId = element.variants[0].id;
+                            vinoTmp.prezzo = element.variants[0].price;
+                            data.listaVini.push(vinoTmp);
                         }
                     });
                     console.log('lista vini con id modificata', data.listaVini);
@@ -53,6 +62,6 @@ var modificaIdVini = function () {
     recuperoIdVini(data);
 }
 
-// modificaIdVini();
+modificaIdVini();
 
 module.exports = recuperoIdVini;
