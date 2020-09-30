@@ -28,7 +28,10 @@ var options = {
 };
 
 var cercaArrayVini = function (parole) {
-    return ricercaVini(parole);
+    return new Promise((resolve, reject) => {
+        resolve(ricercaVini(parole))
+            .catch(error => reject(console.log('c\'è stato un errore', error)));
+    })
 };
 // var arrayTrovati = cercaArrayVini(parole);
 // console.log('cercaArrayVini ---> ', arrayTrovati);
@@ -94,18 +97,15 @@ var parseJsonDiRispostaAlgoritmoPerMessenger = function () {
     })
 };
 
-var costruzioneBody = function (parole) {
-    var risultatoArrayVini = cercaArrayVini(parole);
-    console.log('\n\n\nrisultato primo passo', risultatoArrayVini);
-    console.log('secondo passo');
-    var elements = popolaElements(risultatoArrayVini);
-    console.log('\n\n\n\nstampa elementi ---> ', elements);
-    console.log('\n\n\n\nstampa i bottoni ---> ', elements[0].buttons);
-    bodyJson.message.attachment.payload.elements = elements;
-    console.log('\n\n\n\nstampa bodyJSON', bodyJson);
-    options.body = JSON.stringify(bodyJson);
-    console.log('\n\n\n\nstampa options --->', options);
-    return options;
+var costruzioneBody = function (risultatoArrayVini) {
+    return new Promise((resolve, reject) => {
+        bodyJson.message.attachment.payload.elements = popolaElements(risultatoArrayVini);
+        options.body = JSON.stringify(bodyJson);
+        resolve(options)
+            .catch(error => {
+                reject(error);
+            });
+    })
 }
 
 var richiesta = function (options) {
@@ -115,4 +115,9 @@ var richiesta = function (options) {
     });
 };
 
-richiesta(costruzioneBody(parole));
+cercaArrayVini(parole)
+    .then(risultatoArrayVini =>
+        costruzioneBody(risultatoArrayVini))
+    .then(options =>
+        richiesta(options))
+    .catch(error => console.log(error));
