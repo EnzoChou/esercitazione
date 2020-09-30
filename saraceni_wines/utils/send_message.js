@@ -1,3 +1,6 @@
+var Promise = require('bluebird');
+var request = require('request');
+
 function single_message(id, message) {
     return new Promise(function (resolve, reject) {
         var body = {
@@ -24,21 +27,22 @@ function single_message(id, message) {
         });
     });
 }
-exports.single_message = single_message;
 
 function all_messages(id, messages) {
     return new Promise(function (resolve, reject) {
         return Promise.each(messages, function (message) {
-                return send_message(id, message);
+                return single_message(id, message);
             })
             .then(message_sended => {
                 console.log("message_sended", message_sended);
                 resolve();
             })
             .catch(err => {
-                console.log("Si è verificato un errore");
+                console.log("Si è verificato un errore", err);
                 reject();
             });
     });
 };
+
+exports.single_message = single_message;
 exports.all_messages = all_messages;
