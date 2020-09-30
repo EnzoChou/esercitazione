@@ -4,9 +4,11 @@ const fs = require('fs');
 var inputFile = '../others/ricette.xlsx';
 var outputFile = '../json/ricette.json';
 
-const ricette_json = excelToJson({
-  sourceFile: inputFile
-});
+const ricette_json = function () {
+  return excelToJson({
+    sourceFile: inputFile
+  });
+}
 
 
 /*
@@ -73,7 +75,7 @@ function StrutturaRicetta(id,nomeRicetta,tags,ingredientiPrincipali,ingredientiS
 }
 */
 
-const listaRicetteDaFileJson = ricette_json;
+var listaRicetteDaFileJson = null;
 var antipastiContorni;
 var primi;
 var secondi;
@@ -187,6 +189,9 @@ function estrazioneIngredientiSecondariConAggiornamentoLista(riga) {
 
 function estrazioneListaRicette(nomePagina) {
   var listaRicette = [];
+  if (!listaRicetteDaFileJson) {
+    listaRicetteDaFileJson = ricette_json();
+  }
   var listaPagina = listaRicetteDaFileJson[nomePagina];
   var colonneVini = recuperoColonneVini(listaPagina[2]);
   for (let i = 3; i < listaPagina.length; i++) {

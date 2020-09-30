@@ -3555,36 +3555,36 @@
             "id": "Z2lkOi8vc2hvcGlmeS9Qcm9kdWN0LzU3NzUzMjc5MjAyOTQ=",
             "nome": "Perlè",
             "ricette": [],
-            "prezzo": "15.99",
-            "variantsId": "Z2lkOi8vc2hvcGlmeS9Qcm9kdWN0VmFyaWFudC8zNjQyNzczNjE1NDI3OA=="
+            "variantsId": "Z2lkOi8vc2hvcGlmeS9Qcm9kdWN0VmFyaWFudC8zNjQyNzczNjE1NDI3OA==",
+            "prezzo": "15.99"
         },
         {
             "id": "Z2lkOi8vc2hvcGlmeS9Qcm9kdWN0LzU3NzYwMTA1MTA1MDI=",
             "nome": "Prosecco",
             "ricette": [],
-            "prezzo": "15.99",
-            "variantsId": "Z2lkOi8vc2hvcGlmeS9Qcm9kdWN0VmFyaWFudC8zNjQzMjM5MjQyMTU0Mg=="
+            "variantsId": "Z2lkOi8vc2hvcGlmeS9Qcm9kdWN0VmFyaWFudC8zNjQzMjM5MjQyMTU0Mg==",
+            "prezzo": "15.99"
         },
         {
             "id": "Z2lkOi8vc2hvcGlmeS9Qcm9kdWN0LzU3NzUzMzAxMTU3NTA=",
             "nome": "Libero Chianti",
             "ricette": [],
-            "prezzo": "19.99",
-            "variantsId": "Z2lkOi8vc2hvcGlmeS9Qcm9kdWN0VmFyaWFudC8zNjQyNzc3NjM2MDYxNA=="
+            "variantsId": "Z2lkOi8vc2hvcGlmeS9Qcm9kdWN0VmFyaWFudC8zNjQyNzc3NjM2MDYxNA==",
+            "prezzo": "19.99"
         },
         {
             "id": "Z2lkOi8vc2hvcGlmeS9Qcm9kdWN0LzU3NzYwMDc4ODkwNjI=",
             "nome": "Volare",
             "ricette": [],
-            "prezzo": "9.99",
-            "variantsId": "Z2lkOi8vc2hvcGlmeS9Qcm9kdWN0VmFyaWFudC8zNjQzMjM4NTI0NTM1MA=="
+            "variantsId": "Z2lkOi8vc2hvcGlmeS9Qcm9kdWN0VmFyaWFudC8zNjQzMjM4NTI0NTM1MA==",
+            "prezzo": "9.99"
         },
         {
             "id": "Z2lkOi8vc2hvcGlmeS9Qcm9kdWN0LzU3NzA5ODUwNDYxODI=",
             "nome": "Hugo",
             "ricette": [],
-            "prezzo": "13.99",
-            "variantsId": "Z2lkOi8vc2hvcGlmeS9Qcm9kdWN0VmFyaWFudC8zNjQwMzUzNzk2OTMxOA=="
+            "variantsId": "Z2lkOi8vc2hvcGlmeS9Qcm9kdWN0VmFyaWFudC8zNjQwMzUzNzk2OTMxOA==",
+            "prezzo": "13.99"
         },
         {
             "id": 6,
@@ -3763,11 +3763,10 @@
         },
         {
             "id": "Z2lkOi8vc2hvcGlmeS9Qcm9kdWN0LzU3MzMxMjk0NTM3MzQ=",
-            "variantId": "Z2lkOi8vc2hvcGlmeS9Qcm9kdWN0VmFyaWFudC8zNjI2MjA1MjU5MzgzMA==",
             "nome": "Vino 1",
-            "prezzo": "20.00",
             "ricette": [],
-            "variantsId": "Z2lkOi8vc2hvcGlmeS9Qcm9kdWN0VmFyaWFudC8zNjI2MjA1MjU5MzgzMA=="
+            "variantId": "Z2lkOi8vc2hvcGlmeS9Qcm9kdWN0VmFyaWFudC8zNjI2MjA1MjU5MzgzMA==",
+            "prezzo": "20.00"
         }
     ],
     "listaParoleChiave": [

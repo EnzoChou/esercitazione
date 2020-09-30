@@ -62,6 +62,6 @@ var modificaIdVini = function () {
     recuperoIdVini(data);
 }
 
-modificaIdVini();
+// modificaIdVini();
 
 module.exports = recuperoIdVini;
