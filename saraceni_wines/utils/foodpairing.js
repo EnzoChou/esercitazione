@@ -1,9 +1,6 @@
 var Promise = require('bluebird');
 var fetch = require('../api/fetch');
 var ricercaVini = require('../script/ricercaVini');
-const {
-    func
-} = require('joi');
 
 var cercaArrayVini = function (parole) {
     return new Promise((resolve, reject) => {
@@ -15,7 +12,7 @@ var cercaArrayVini = function (parole) {
 var create_foodpairing_messages = function (risultatoArrayVini) {
     return new Promise((resolve, reject) => {
         var messages = [{
-            "text": "Ecco a te i vini che ho trovato in base alla tua ricerca:"
+            "text": "These wines look perfect for you:"
         }, {
             "attachment": {
                 "type": "template",

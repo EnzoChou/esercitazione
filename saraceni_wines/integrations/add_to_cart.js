@@ -20,7 +20,7 @@ function processing(user, event, param) {
 
         return controlloId(user.id)
             .then(checkoutId => {
-                utils_add_to_cart(idVino, checkoutId, quantity)
+                 utils_add_to_cart.processing(idVino, checkoutId, quantity)
             })
             .then(messages => {
                 console.log('entrato nel lato messaggi da inviare -->',

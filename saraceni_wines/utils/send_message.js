@@ -19,7 +19,7 @@ function single_message(id, message) {
         };
 
         options.body = JSON.stringify(body);
-
+        console.log('\n\n\noptions', options,'\n\n\n\n');
         request(options, function (error, response) {
             if (error) reject();
             console.log(response.body);
@@ -35,11 +35,11 @@ function all_messages(id, messages) {
             })
             .then(message_sended => {
                 console.log("message_sended", message_sended);
-                resolve();
+                resolve(message_sended);
             })
             .catch(err => {
                 console.log("Si è verificato un errore", err);
-                reject();
+                reject(err);
             });
     });
 };

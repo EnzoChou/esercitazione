@@ -1,3 +1,5 @@
+var Promise = require('bluebird');
+
 function processing(user, event, param) {
   return new Promise((resolve, reject) => {
     console.log('param', param);
@@ -30,6 +32,6 @@ function processing(user, event, param) {
   });
 }
 
-processing({},{}, 'banana');
+processing({},{}, 'ciao');
 
 exports.processing = processing;
