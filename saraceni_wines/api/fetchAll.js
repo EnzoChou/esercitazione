@@ -40,16 +40,14 @@ var fetchAll = function () {
       console.log('products[0].variants[0] --->', products[0].variants[0]);
       console.log('products[0].variants[0].id ---> ', products[0].variants[0].id);
       console.log('productId ---> ', productId);
-      console.log('productId.quantity ---> ', productId.quantity);
       products.forEach(product => {
         console.log('single product ---> ', product,
           '\nproduct.variants.length', product.variants.length,
-          '\nproduct.variants[0]', product.variants[0],
+          '\nproduct.variants[0].id', product.variants[0].id,
           '\nproduct.images', product.variants[0].image.src,
           '\nproduct.id', product.id,
           '\nproduct.title', product.title,
-          '\nproduct.description', product.description,
-          '\nproduct.descriptionHtml', product.descriptionHtml
+          '\nproduct.description', product.description
         );
       })
       return products;
@@ -59,6 +57,6 @@ var fetchAll = function () {
     )
 }
 
-// fetchAll(); 
+fetchAll(); 
 
 module.exports = fetchAll;

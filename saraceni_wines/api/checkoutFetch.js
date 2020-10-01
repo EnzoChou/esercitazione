@@ -30,6 +30,7 @@ var checkoutFetch = function (checkoutId) {
           checkout.lineItems.forEach(elem => {
             console.log('\n\ntitolo', elem.title);
             console.log('\n\nquantity', elem.quantity);
+            console.log('\n\nlineItem id', elem.id);
           })
         }
         console.log('checkout.order --->', checkout.order);

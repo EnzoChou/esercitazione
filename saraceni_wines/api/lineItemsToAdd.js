@@ -17,11 +17,7 @@ var productInfo;
 
 const lineItemsToAdd = [{
     variantId: productVariantId,
-    quantity: 5,
-    customAttributes: [{
-        key: 'MyKey',
-        value: 'MyValue'
-    }]
+    quantity: 5
 }];
 
 // Add an item to the checkout
@@ -45,6 +41,6 @@ var addLineItems = function (checkoutId, lineItemsToAdd) {
     })
 };
 
-// addLineItems(checkoutId, lineItemsToAdd);
+addLineItems(checkoutId, lineItemsToAdd);
 
 module.exports = addLineItems;

@@ -19,7 +19,7 @@ function processing(user, event, param) {
         user.checkoutId = checkoutId;
 
         console.log('id_recipient', id_recipient);
-        return controlloCheckoutId(user.checkoutId)
+        return controlloCheckoutId(user.checkoutId, id_recipient)
             .then(idRitornato => {
                 user.checkoutId = idRitornato;
                 return utils_show_cart.processing(user.checkoutId);

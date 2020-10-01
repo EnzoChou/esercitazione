@@ -1,4 +1,5 @@
 var Promise = require('bluebird');
+var controlloCheckoutId = require('../utils/controlloCheckoutId');
 
 function processing(user, event, param) {
   return new Promise((resolve, reject) => {
@@ -15,7 +16,10 @@ function processing(user, event, param) {
 
     console.log('id_recipient', id_recipient);
 
-    return utils_foodpairing.processing(message_text)
+    return controlloCheckoutId(user.checkoutId, id_recipient)
+      .then(checkoutId => {
+        return utils_foodpairing.processing(message_text, checkoutId)
+      })
       .then(messages => {
         return send_message.all_messages(id_recipient, messages);
       })
@@ -32,6 +36,6 @@ function processing(user, event, param) {
   });
 }
 
-processing({},{}, 'ciao');
+processing({checkoutId:'Z2lkOi8vc2hvcGlmeS9DaGVja291dC9hZDczZTZhMWMyNDEzZTRkM2U0ZDNmZjY1MDJjMzI2NT9rZXk9YWQ1ZGRhNjU2ODdjOTk3NTA0MDFhYzRiNDJhOWMzNGI='}, {}, 'ciao');
 
 exports.processing = processing;

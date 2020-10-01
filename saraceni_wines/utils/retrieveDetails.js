@@ -26,14 +26,14 @@ var retrieveDetails = function (idVino) {
                         "text": "Wanna get some?",
                         "buttons": [
                             {
-                                "type": "web_url",
-                                "url": "https://www.urltoGet1bottle.com",
-                                "title": "get 1 bottle"
+                                "type": "postback",
+                                "title": "get 1 bottle",
+                                "payload": "payloadToBePlayed"
                             },
                             {
-                                "type": "web_url",
-                                "url": "https://www.urltoGet3bottle.com",
-                                "title": "get 3 bottles"
+                                "type": "postback",
+                                "title": "get 3 bottles",
+                                "payload": "payloadTobePlayed"
                             }]
                     }
                 }];

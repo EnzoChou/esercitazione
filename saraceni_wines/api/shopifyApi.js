@@ -11,8 +11,8 @@ const client = Client.buildClient({
 // console.log("client", client);
 
 var checkoutId = 'Z2lkOi8vc2hvcGlmeS9DaGVja291dC9hZDczZTZhMWMyNDEzZTRkM2U0ZDNmZjY1MDJjMzI2NT9rZXk9YWQ1ZGRhNjU2ODdjOTk3NTA0MDFhYzRiNDJhOWMzNGI=';
-var productId;
-var productVariantId = 'Z2lkOi8vc2hvcGlmeS9Qcm9kdWN0VmFyaWFudC8zNjI2MjA1MjU5MzgzMA==';
+var productId = 'Z2lkOi8vc2hvcGlmeS9Qcm9kdWN0LzU3NzA5ODUwNDYxODI=';
+var productVariantId = 'Z2lkOi8vc2hvcGlmeS9Qcm9kdWN0VmFyaWFudC8zNjQwMzUzNzk2OTMxOA==';
 var productInfo;
 
 var createCheckout = function () {
@@ -34,6 +34,23 @@ var createCheckout = function () {
 };
 
 // createCheckout();
+
+// Remove an item from the checkout
+var removeLineItems = function (checkoutId, lineItemIdsToRemove) {
+    return new Promise((resolve, reject) => {
+        client.checkout.removeLineItems(checkoutId, lineItemIdsToRemove).then((checkout) => {
+            // Do something with the updated checkout
+            console.log(checkout.lineItems); // Checkout with line item 'Z2lkOi8vc2hvcGlmeS9Qcm9kdWN0Lzc4NTc5ODkzODQ=' removed
+            resolve(checkout);
+        })
+        .catch(err => {
+            console.log('qualcosa non è andato nella rimozione dell\'elemento', err);
+            reject(err);
+        })
+    });
+};
+
+// removeLineItems(checkoutId, 'Z2lkOi8vc2hvcGlmeS9DaGVja291dExpbmVJdGVtLzM2MjYyMDUyNTkzODMwMD9jaGVja291dD1hZDczZTZhMWMyNDEzZTRkM2U0ZDNmZjY1MDJjMzI2NQ==');
 
 var shopify = {};
 
