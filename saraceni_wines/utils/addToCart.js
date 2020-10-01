@@ -5,24 +5,24 @@ var inviaMessaggio = require('./creazioneMessaggioDiRitorno');
 var addToCart = function (idVino, idCheckout, quantity) {
     var lineItemsToAdd = [{
         variantId: idVino,
-        quantity: quantity,
+        quantity: quantity
     }];
     return new Promise((resolve, reject) => {
         return addLineItem(idCheckout, lineItemsToAdd)
-        .then(checkout => {
-            console.log('carrello aggiornato', checkout);
-            var messaggi = ['vino inserito', 'posso fare altro per te?'];
-            return inviaMessaggio(messaggi);
-        })
-        .then(messaggioDiRitorno => {
-            resolve(messaggioDiRitorno);
-            return messaggioDiRitorno;
-        })
-        .catch(err => {
-            console.log('c\'è stato un errore nell\'addToCart', err);
-            reject(err);
-        })
+            .then((checkout) => {
+                var messaggi = ["vino inserito", "posso fare altro per te?"];
+                console.log('carrello aggiornato', checkout);
+                return inviaMessaggio(messaggi);
+            })
+            .then((messaggioDiRitorno) => {
+                resolve(messaggioDiRitorno);
+                return messaggioDiRitorno;
+            })
+            .catch((err) => {
+                console.log('c\'è stato un errore nell\'addToCart', err);
+                reject(err);
+            })
     })
 };
 
-module.exports = addToCart;
+module.exports.processing = addToCart;
