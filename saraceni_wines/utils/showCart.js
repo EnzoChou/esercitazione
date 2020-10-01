@@ -1,6 +1,7 @@
 var Promise = require('bluebird');
 var checkoutFetch = require('../api/checkoutFetch');
 var createCheckout = require('../api/create');
+var costruttoreMessaggio = require('./creazioneMessaggioDiRitorno');
 
 var nonAveviIlCarrello =
     'Non avevi il carrello, così ne ho creato uno per te adesso';
@@ -8,116 +9,72 @@ var nonPuoiCompletareLAcquisto =
     'Devi acquistare almeno tre vini per poter fare il checkout';
 var url = 'https://il-saraceno.it/wp-content/uploads/2020/08/photo_2020-08-04_12-17-54.jpg';
 
-var costruttoreMessaggio = function (text) {
-    return new Promise((resolve, reject) => {
-        var messaggi = [];
-        var messaggio = {};
-        if (text) {
-            messaggio.text = text;
-        } else {
-            messaggio = {
-                "attachment": {
-                    "type": "template",
-                    "payload": {
-                        "template_type": "generic",
-                        "elements": []
-                    }
-                }
-            };
-            var arrayDiElements = [];
-            var buttons = [];
-            var webUrlButton = {};
-            webUrlButton.type = 'web_url';
-            webUrlButton.url = 'www.urlToSend.com';
-            webUrlButton.title = 'go to cart';
-            anotherWebUrlButton = {};
-            buttons.push(webUrlButton);
-            var element = {};
-            element.title = 'Cart';
-            element.image_url = url;
-            element.subtitle = '';
-            element.buttons = buttons;
-            arrayDiElements.push(element);
-            messaggio.attachment.payload.elements = arrayDiElements;
-        }
-        messaggi.push(messaggio);
-        resolve(messaggi);
-        return messaggi;
-    })
+var controlloViniInCheckout = function (checkout) {
+    var cont = 0;
+    if(checkout.lineItems.length>0) {
+        checkout.lineItems.forEach(vino => {
+            cont += vino.quantity;
+        })
+    }
+    return cont;
 };
 
-// console.log('costruttoreMessaggio', costruttoreMessaggio('ciao'));
-
-var createShowCartMessages = function (text) {
+var processing = function (checkoutId) {
+    var messaggiDaInviare = [];
     return new Promise((resolve, reject) => {
-        var messages = [];
-        costruttoreMessaggio(text)
-            .then(messaggio => {
-                messages.push(messaggio);
-                resolve(messages);
-                return messages;
-            })
-            .catch(err => console.log(err));
-    });
-}
-
-// createShowCartMessages().then(sms => console.log('sms', sms));
-
-var processing = function (user) {
-    var id = user.checkoutId;
-    return new Promise((resolve, reject) => {
-        if (id) {
+        if (checkoutId) {
             console.log('entra nella condizione');
-            console.log('id ---> ', typeof (id));
-            return checkoutFetch(id)
+            console.log('checkoutId ---> ', typeof (checkoutId));
+            return checkoutFetch(checkoutId)
                 .then(checkoutCart => {
                     console.log(checkoutCart);
                     console.log('entra nella seconda condizione');
-                    if (checkoutCart.lineItems.length < 3) {
-                        var text = nonPuoiCompletareLAcquisto;
-                        createShowCartMessages(text)
-                            .then(mess => {
-                                console.log('messaggio di ritorno', mess)
-                                return mess;
-                            })
-                            .catch(err => console.log('err', err));
+                    if (controlloViniInCheckout(checkoutCart) < 3) {
+                        messaggiDaInviare.push(nonPuoiCompletareLAcquisto);
                     } else {
                         console.log('entra nel secondo else');
-                        return createShowCartMessages()
-                            .then(mess => {
-                                console.log('messaggio di ritorno', mess)
-                                return mess
-                            })
-                            .catch(err => console.log('err', err));
+                        messaggiDaInviare.push({
+                            "type": "template",
+                            "payload": {
+                                "template_type": "generic",
+                                "elements": [
+                                    {
+                                        "title": "Cart",
+                                        "image_url": url,
+                                        "buttons": [
+                                            {
+                                                "type": "web_url",
+                                                "url": checkoutCart.webUrl,
+                                                "title": "go to checkout"
+                                            }
+                                        ]
+
+                                    }
+                                ]
+                            }
+                        });
                     }
+                    return costruttoreMessaggio(messaggiDaInviare);
                 })
-                .catch(err => {
-                    console.log('err', err);
-                    return createCheckout()
-                        .then(checkoutCart => {
-                            var text = nonAveviIlCarrello;
-                            user.checkoutId = checkoutCart.id;
-                            createShowCartMessages(text)
-                                .then(mess => {
-                                    console.log('messaggio di ritorno', mess)
-                                    return mess;
-                                });
-                        })
-                        .catch(err => {
-                            console.log('err', err);
-                        })
+                .then(mess => {
+                    console.log('messaggio finale prima di tornare in integrations --->',
+                        mess);
+                    resolve(mess);
+                    return mess;
                 })
         } else {
-            console.log('entra nell\' else');
+            console.log('entra nel primo else');
             return createCheckout()
                 .then(checkoutCart => {
-                    var text = nonAveviIlCarrello;
-                    user.checkoutId = checkoutCart.id;
-                    createShowCartMessages(text)
-                        .then(mess => {
-                            console.log('messaggio di ritorno', mess)
-                            return mess;
-                        });
+                    messaggiDaInviare.push(nonAveviIlCarrello);
+                    user.checkoutId = checkoutCart.checkoutId;
+                    return createShowCartMessages(messaggiDaInviare);
+                })
+                .then(mess => {
+                    console.log('messaggio finale prima di tornare in integrations --->',
+                        mess);
+                    resolve(mess);
+                    return mess;
                 })
                 .catch(err => {
                     console.log('err', err);
@@ -125,46 +82,7 @@ var processing = function (user) {
         }
     })
 }
-/*
-var processing = function (user) {
-    console.log('sto processando show cart');
-    return new Promise((resolve, reject) => {
-        if (user.checkoutId) {
-            console.log('sono entrato nell\'if');
-            return checkoutFetch(user.checkoutId)
-                .then(checkoutCart => {
-                    var text;
-                    if (checkoutCart.lineItems.length < 3) {
-                        text = nonPuoiCompletareLAcquisto;
-                    }
-                    console.log('checkoutCart ---> ', checkoutCart);
-                    resolve(createShowCartMessages(text));
-                    return createShowCartMessages(text);
-                })
-                .catch(
-                    error => {
-                        console.log('c\'è stato un errore nel processing di showCart',
-                            error);
-                        reject(error);
-                    }
-                );
-        } else {
-            console.log('sono entrato nell\'else');
-            return createCheckout()
-                .then(checkoutCart => {
-                    var text = nonAveviIlCarrello;
-                    user.checkoutId = checkoutCart;
-                    resolve(createShowCartMessages(text));
-                    return createShowCartMessages(text);
-                })
-                .catch(err => {
-                    console.log('c\'è stato un errore alla creazione del checkout',
-                        err);
-                })
-        }
-    })
-};
-*/
+
 //processing({checkoutId: 'Z2lkOi8vc2hvcGlmeS9DaGVja291dC83Mjk4NDhlZDVhZTg2YmU3NmNlNzdlNjg3Y2Y1OWVmZT9rZXk9ZDE4ZjgwZWU2NjgxMDYyZDk3ODMxMmJkMzIwZDY4OTI='});
 
-module.exports = processing;
+module.exports.processing = processing;
