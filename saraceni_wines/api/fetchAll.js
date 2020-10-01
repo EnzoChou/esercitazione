@@ -47,7 +47,10 @@ var fetchAll = function () {
           '\nproduct.variants[0]', product.variants[0],
           '\nproduct.images', product.variants[0].image.src,
           '\nproduct.id', product.id,
-          '\nproduct.title', product.title);
+          '\nproduct.title', product.title,
+          '\nproduct.description', product.description,
+          '\nproduct.descriptionHtml', product.descriptionHtml
+        );
       })
       return products;
     })

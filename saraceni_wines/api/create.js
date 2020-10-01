@@ -16,7 +16,8 @@ var productVariantId;
 var productInfo;
 
 var createCheckout = function () {
-  return new Promise ((resolve, reject) => { client.checkout.create()
+  return new Promise((resolve, reject) => {
+    client.checkout.create()
     .then((checkout) => {
       // Do something with the checkout
       checkoutId = checkout.id;
@@ -28,7 +29,7 @@ var createCheckout = function () {
     .catch(error =>
       console.log('error', error)
     );
-  })
+  });
 };
 
 // createCheckout();

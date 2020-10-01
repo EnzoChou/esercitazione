@@ -16,21 +16,30 @@ var productVariantId;
 var productInfo;
 
 var fetch = function (productId) {
-  client.product.fetch(productId)
-    .then((product) => {
-      // Do something with the product
-      productInfo = product.id;
-      console.log('product.type ---> ', product.type);
-      console.log('product ---> ', product);
-      console.log('productInfo ---> ', productInfo);
-      return product;
-    })
-    .catch(error =>{
-      console.log('error', error);
-      return [];
-    })
+  return new Promise((resolve, reject) => {
+    client.product.fetch(productId)
+      .then((product) => {
+        var vino = {};
+        vino.id = product.id;
+        vino.description = product.description;
+        vino.descriptionHtml = product.descriptionHtml;
+        vino.title = product.title;
+
+        // Do something with the product
+        productInfo = product.id;
+        console.log('product.type ---> ', product.type);
+        console.log('product ---> ', product);
+        console.log('productInfo ---> ', productInfo);
+        resolve(product);
+        return product;
+      })
+      .catch(error => {
+        console.log('error', error);
+        return [];
+      });
+  })
 };
 
-// fetch(checkoutId);
+// fetch(productId);
 
 module.exports = fetch;
