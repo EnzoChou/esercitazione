@@ -1,7 +1,6 @@
-const {
-    resolve
-} = require('bluebird');
-var fetchAll = require('../api/fetchAll');
+var Promise = require('bluebird');
+var natural = require('natural');
+var shopifyApi = require('../api/shopifyApi');
 var fs = require('fs');
 var outputFile = '../json/ricette.json';
 var data = null;
@@ -16,41 +15,48 @@ var toJsonFile = function (result) {
 
 var recuperoIdVini = function (data) {
     return new Promise(function (resolve, reject) {
-            fetchAll()
-                .then(result => {
-                    result.forEach(element => {
-                        console.log('prezzo dell\'elemento ---> ', element.variants[0].price);
-                        var index = data.listaVini.map(el => el.nome).indexOf(element.title);
-                        console.log('indice vino con questo nome', element.title, ': ---> ', index);
-                        if (~index) {
-                            console.log('indice vino da modificare', index);
-                            data.listaVini[index].id = element.id;
-                            data.listaVini[index].variantsId = element.variants[0].id;
-                            data.listaVini[index].prezzo = element.variants[0].price;
-                            data.listaVini[index].immagine = element.variants[0].image.src;
-                        } else {
-                            var vinoTmp = {};
-                            vinoTmp.id = element.id;
-                            vinoTmp.nome = element.title;
-                            vinoTmp.ricette = [];
-                            vinoTmp.variantId = element.variants[0].id;
-                            vinoTmp.prezzo = element.variants[0].price;
-                            vinoTmp.immagine = element.variants[0].image.src;
-                            data.listaVini.push(vinoTmp);
+        shopifyApi.fetchAll()
+            .then(result => {
+                result.forEach(element => {
+                    console.log('\n\nprezzo dell\'elemento ---> ', element.variants[0].price);
+                    var cond = false;
+                    for (let i = 0; i < data.listaVini.length && !cond; i++) {
+                        console.log('controllo somiglianza tra',
+                            element.title,
+                            'e',
+                            data.listaVini[i].nome,
+                            '---> ',
+                            natural.JaroWinklerDistance(element.title, data.listaVini[i].nome, undefined, true));
+                        if (natural.JaroWinklerDistance(element.title, data.listaVini[i].nome, undefined, true) > 0.8) {
+                            cond = true;
+                            data.listaVini[i].id = element.id;
+                            data.listaVini[i].variantsId = element.variants[0].id;
+                            console.log('match vino ' + data.listaVini[i].nome + ' e modificato --> ', data.listaVini[i]);
                         }
-                    });
-                    console.log('lista vini con id modificata', data.listaVini);
-                    resolve(data);
-                })
-                .catch(error => {
-                    console.log('error del fetch all ---> ', error);
-                    reject();
+                    }; if (!cond) {
+                        var vinoTmp = {};
+                        vinoTmp.id = element.id;
+                        vinoTmp.nome = element.title;
+                        vinoTmp.ricette = [];
+                        vinoTmp.variantId = element.variants[0].id;
+                        vinoTmp.prezzo = element.variants[0].price;
+                        vinoTmp.immagine = element.variants[0].image.src;
+                        console.log('vino non matchato, lo aggiungo ---> ', vinoTmp);
+                        data.listaVini.push(vinoTmp);
+                    }
                 });
-        })
-        .then(data => {
-            toJsonFile(data);
-            resolve(data);
-        })
+                console.log('lista vini con id modificata', data.listaVini);
+                return (data);
+            })
+            .then(data => {
+                toJsonFile(data);
+                resolve(data);
+            })
+            .catch(error => {
+                console.log('error del fetch all ---> ', error);
+                reject();
+            });
+    })
         .catch(error => {
             console.log('error prima promise ---> ', error);
             reject();
@@ -64,6 +70,6 @@ var modificaIdVini = function () {
     recuperoIdVini(data);
 }
 
-// modificaIdVini();
+modificaIdVini();
 
 module.exports = recuperoIdVini;
