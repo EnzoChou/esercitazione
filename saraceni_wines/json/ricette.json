@@ -2057,7 +2057,6 @@
                 "peppers",
                 "salad",
                 "fennel",
-                " ",
                 "broccoli",
                 "carrots",
                 "tomatoes",
@@ -3762,8 +3761,7 @@
             "ricette": [],
             "variantId": "Z2lkOi8vc2hvcGlmeS9Qcm9kdWN0VmFyaWFudC8zNjI2MjA1MjU5MzgzMA==",
             "prezzo": "20.00",
-            "immagine": "https://cdn.shopify.com/s/files/1/0485/2105/2326/products/vino-alla-mandorla-biancomandorla-martinez_3ff5c381-edeb-4227-8268-11725bc98e7d.jpg?v=1601467714",
-            "variantsId": "Z2lkOi8vc2hvcGlmeS9Qcm9kdWN0VmFyaWFudC8zNjI2MjA1MjU5MzgzMA=="
+            "immagine": "https://cdn.shopify.com/s/files/1/0485/2105/2326/products/vino-alla-mandorla-biancomandorla-martinez_3ff5c381-edeb-4227-8268-11725bc98e7d.jpg?v=1601467714"
         }
     ],
     "listaParoleChiave": [
@@ -3935,7 +3933,6 @@
         "peppers",
         "salad",
         "fennel",
-        " ",
         "broccoli",
         "carrots",
         "tomatoes",

@@ -110,6 +110,7 @@ function recuperoColonneVini(legenda) {
       colonneVini.push(key);
     }
   }
+  // console.log('\ncolonne da cui recuperare vini ---> ', colonneVini);
   return colonneVini;
 }
 
@@ -306,7 +307,7 @@ function estrazioneAbbinamentiPerTipologia(nomePagina) {
       strutturaAbbinamentoPerTipologia.nome = listaPagina[i].B.toLowerCase();
       strutturaAbbinamentoPerTipologia.tags = [];
       if (listaPagina[i].D) {
-        const regexFieldSpace = /[.,\/\n-]/;
+        const regexFieldSpace = /[.,\/\n-\r]/;
         strutturaAbbinamentoPerTipologia.tags = listaPagina[i].D.split(regexFieldSpace);
       }
       strutturaAbbinamentoPerTipologia.viniProposti = estrazioneViniConAggiornamentoListaVini(listaPagina[i], colonneVini);
