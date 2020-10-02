@@ -12,57 +12,56 @@ var cercaArrayVini = function (parole) {
 
 var create_foodpairing_messages = function (risultatoArrayVini, param) {
     return new Promise((resolve, reject) => {
+        var messages = [];
         if (risultatoArrayVini.length > 0) {
-            var messages = [{
-                "text": "These wines look perfect for you:"
-            }, {
-                "attachment": {
-                    "type": "template",
-                    "payload": {
-                        "template_type": "generic",
-                        "elements": []
-                    }
+            messages.push({ "text": "These wines look perfect for you:" });
+
+            var attachment = {
+                "type": "template",
+                "payload": {
+                    "template_type": "generic",
+                    "elements": []
                 }
+            };
 
-            }];
-
-            var arrayDiElements = [];
+            var arrayOfElements = [];
 
             risultatoArrayVini.forEach(vino => {
-                var postbackButton = {};
-                var buttons = [];
-                postbackButton.type = 'postback';
-                postbackButton.title = 'add 1 to cart';
-                postbackButton.payload = '000action:12345,12345||[\"add_to_cart=>' + vino.variants[0].id + ',1\"]000';
-                var postBackButton2 = {};
-                postBackButton2.type = 'postback';
-                postBackButton2.title = 'add 3 to cart';
-                postBackButton2.payload = '000action:12345,12345||[\"add_to_cart=>' + vino.variants[0].id + ',3\"]000';
-                var postBackButton3 = {};
-                postBackButton3.type = 'postback';
-                postBackButton3.title = 'find out more';
-                postBackButton3.payload = '000action:12345,12345||[\"retrieveDetails=>' + vino.id + ',1\"]000';
-                buttons.push(postbackButton);
-                buttons.push(postBackButton2);
-                buttons.push(postBackButton3);
-                var element = {};
-                element.title = vino.title;
-                element.image_url = vino.variants[0].image.src;
-                element.subtitle = 'Price: ' + vino.variants[0].price;
-                element.buttons = buttons;
-                arrayDiElements.push(element);
-            });
+                var element = {
+                    'title': vino.title,
+                    'image_url': vino.variants[0].image.src,
+                    'subtitle': 'Price: ' + vino.variants[0].price,
+                    'buttons': [
+                        {
+                            'type': 'postback',
+                            'title': 'add 1 to cart',
+                            'payload': '000action:12345,12345||[\"add_to_cart=>' + vino.variants[0].id + ',1\"]000'
 
-            messages[1].attachment.payload.elements = arrayDiElements;
-
-            resolve(messages);
+                        },
+                        {
+                            'type': 'postback',
+                            'title': 'add 3 to cart',
+                            'payload': '000action:12345,12345||[\"add_to_cart=>' + vino.variants[0].id + ',3\"]000'
+                        },
+                        {
+                            'type': 'postback',
+                            'title': 'find out more',
+                            'payload': '000action:12345,12345||[\"retrieveDetails=>' + vino.id + ',1\"]000'
+                        }
+                    ]
+                };
+                arrayOfElements.push(element);
+            })
+            attachment.payload.elements = arrayOfElements;
+            messages.push(attachment);
+            console.log('attachment to be sent ----> ', attachment);
         } else {
-            var messages = ['Sorry, I haven\'t found any wines'];
-            return creazioneMessaggioDiRitorno(messages)
+            messages.push('Sorry, I haven\'t found any wines');
+        }
+        return creazioneMessaggioDiRitorno(messages)
             .then(messages => {
                 resolve(messages);
             });
-        }
     });
 };
 
