@@ -15,3 +15,15 @@ Cartelle:
 - script: script chiave per la preparazione dei dati dell'integrazione
 - utils: file con gestione di supporto alle integrazioni
 - integrations: integrazioni utilizzate dal bot
+
+strutturazione servizio attraverso la struttura api integrations others scripts utils
+
+comunicazione attraverso api con strutture esterne
+
+comunicazione attraverso integrations con il bot
+
+appoggio di integrations attraverso funzioni presenti in utils
+
+funzioni in utils comunicano con api o scripts per info
+
+

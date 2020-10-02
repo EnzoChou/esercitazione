@@ -13,7 +13,7 @@ function processing(user, event, param) {
   
       var id_recipient = "3581882641842282";
 
-      var idVino = 'Z2lkOi8vc2hvcGlmeS9Qcm9kdWN0LzU3MzMxMjk0NTM3MzQ=';
+      var idVino = 'Z2lkOi8vc2hvcGlmeS9Qcm9kdWN0LzU3NzA5ODUwNDYxODI=';
   
       console.log('id_recipient', id_recipient);
   
