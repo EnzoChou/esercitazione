@@ -26,7 +26,6 @@ function processing(user, event, param) {
       .then(res_final => {
         console.log("Fine");
         resolve(res_final);
-        return;
       })
       .catch(error => {
         console.log(error);

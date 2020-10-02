@@ -22,7 +22,7 @@ function processing(user, event, param) {
         return controlloCheckoutId(user.checkoutId, id_recipient)
             .then(idRitornato => {
                 user.checkoutId = idRitornato;
-                return utils_show_cart.processing(user.checkoutId);
+                return utils_show_cart.processing(idRitornato);
             })
             .then(messages => {
                 console.log('messaggi arrivati in show_cart("./integrations") ---> ',
