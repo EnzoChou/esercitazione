@@ -12,7 +12,7 @@ const client = Client.buildClient({
 
 var checkoutId = 'Z2lkOi8vc2hvcGlmeS9DaGVja291dC9hZDczZTZhMWMyNDEzZTRkM2U0ZDNmZjY1MDJjMzI2NT9rZXk9YWQ1ZGRhNjU2ODdjOTk3NTA0MDFhYzRiNDJhOWMzNGI=';
 var productId = 'Z2lkOi8vc2hvcGlmeS9Qcm9kdWN0LzU3MzMxMjk0NTM3MzQ=';
-var productVariantId = 'Z2lkOi8vc2hvcGlmeS9Qcm9kdWN0VmFyaWFudC8zNjI2MjA1MjU5MzgzMA==';
+var productVariantId = 'Z2lkOi8vc2hvcGlmeS9Qcm9kdWN0VmFyaWFudC8zNjQwMzUzNzk2OTMxOA==';
 var productInfo;
 
 const lineItemsToAdd = [{
@@ -41,6 +41,6 @@ var addLineItems = function (checkoutId, lineItemsToAdd) {
     })
 };
 
-// addLineItems(checkoutId, lineItemsToAdd);
+addLineItems(checkoutId, lineItemsToAdd);
 
 module.exports = addLineItems;

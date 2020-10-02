@@ -63,7 +63,6 @@ var processing = function (checkoutId) {
                     console.log('messaggio finale prima di tornare in integrations --->',
                         mess);
                     resolve(mess);
-                    return mess;
                 })
         } else {
             console.log('entra nel primo else');
@@ -77,7 +76,6 @@ var processing = function (checkoutId) {
                     console.log('messaggio finale prima di tornare in integrations --->',
                         mess);
                     resolve(mess);
-                    return mess;
                 })
                 .catch(err => {
                     console.log('err', err);

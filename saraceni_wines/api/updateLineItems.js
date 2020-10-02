@@ -27,11 +27,14 @@ var updateLineItems = function (checkoutId, lineItemsToUpdate) {
     return client.checkout.updateLineItems(checkoutId, lineItemsToUpdate).then((checkout) => {
       // Do something with the updated checkout
       console.log('id we need to remember to update this particular lineitem');
-      console.log('checkout.lineItems[0].id ---> ', checkout.lineItems[0].id);// Array with one additional line item
-      resolve (checkout);
+      // console.log('checkout.lineItems[0].id ---> ', checkout.lineItems[0].id);// Array with one additional line item
+      resolve(checkout);
     })
-      .catch(error =>
-        console.log('error ---> ', error)
-      )
+      .catch(error => {
+        console.log('error ---> ', error);
+        reject(error);
+      })
   })
 }
+
+updateLineItems(checkoutId, lineItemsToUpdate);
