@@ -11,7 +11,7 @@ var addToCart = function (variantsIdVIno, idCheckout, quantity) {
     return new Promise((resolve, reject) => {
         return shopifyApi.fetchById(variantsIdVIno)
             .then(vino => {
-                if (!vino) {
+                if (vino) {
                     return addLineItem(idCheckout, lineItemsToAdd)
                         .then((checkout) => {
                             var messaggi = ["Wine added", "What else can I do for you?"];

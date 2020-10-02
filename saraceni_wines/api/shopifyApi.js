@@ -77,6 +77,11 @@ var fetchById = function (productId) {
           console.log('product.type ---> ', product.type);
           console.log('product ---> ', product);
           console.log('productInfo ---> ', productInfo);
+          if(product.variants) {
+            console.log('\n\nquesto è un product ID\n\n');
+          } else {
+            console.log('\n\nquesto è un product variants ID\n\n')
+          }
           if(product.image) {
             console.log('immagine url', product.image);
           }
