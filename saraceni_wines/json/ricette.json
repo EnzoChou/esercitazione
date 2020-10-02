@@ -3555,41 +3555,31 @@
             "id": "Z2lkOi8vc2hvcGlmeS9Qcm9kdWN0LzU3NzUzMjc5MjAyOTQ=",
             "nome": "Perlè",
             "ricette": [],
-            "variantsId": "Z2lkOi8vc2hvcGlmeS9Qcm9kdWN0VmFyaWFudC8zNjQyNzczNjE1NDI3OA==",
-            "prezzo": "15.99",
-            "immagine": "https://cdn.shopify.com/s/files/1/0485/2105/2326/products/6_1024x1024_561dd847-a3b3-4025-a45a-af726f3720fc.png?v=1601467840"
+            "variantsId": "Z2lkOi8vc2hvcGlmeS9Qcm9kdWN0VmFyaWFudC8zNjQyNzczNjE1NDI3OA=="
         },
         {
             "id": "Z2lkOi8vc2hvcGlmeS9Qcm9kdWN0LzU3NzYwMTA1MTA1MDI=",
             "nome": "Prosecco",
             "ricette": [],
-            "variantsId": "Z2lkOi8vc2hvcGlmeS9Qcm9kdWN0VmFyaWFudC8zNjQzMjM5MjQyMTU0Mg==",
-            "prezzo": "15.99",
-            "immagine": "https://cdn.shopify.com/s/files/1/0485/2105/2326/products/Prosecco-DOC.png?v=1601467800"
+            "variantsId": "Z2lkOi8vc2hvcGlmeS9Qcm9kdWN0VmFyaWFudC8zNjQzMjM5MjQyMTU0Mg=="
         },
         {
             "id": "Z2lkOi8vc2hvcGlmeS9Qcm9kdWN0LzU3NzUzMzAxMTU3NTA=",
             "nome": "Libero Chianti",
             "ricette": [],
-            "variantsId": "Z2lkOi8vc2hvcGlmeS9Qcm9kdWN0VmFyaWFudC8zNjQyNzc3NjM2MDYxNA==",
-            "prezzo": "19.99",
-            "immagine": "https://cdn.shopify.com/s/files/1/0485/2105/2326/products/7_grande_e79aeeef-e302-4703-9563-a8982d8b8078.png?v=1601467869"
+            "variantsId": "Z2lkOi8vc2hvcGlmeS9Qcm9kdWN0VmFyaWFudC8zNjQyNzc3NjM2MDYxNA=="
         },
         {
             "id": "Z2lkOi8vc2hvcGlmeS9Qcm9kdWN0LzU3NzYwMDc4ODkwNjI=",
             "nome": "Volare",
             "ricette": [],
-            "variantsId": "Z2lkOi8vc2hvcGlmeS9Qcm9kdWN0VmFyaWFudC8zNjQzMjM4NTI0NTM1MA==",
-            "prezzo": "9.99",
-            "immagine": "https://cdn.shopify.com/s/files/1/0485/2105/2326/products/saraceni-volare-sparkling.jpg?v=1601467755"
+            "variantsId": "Z2lkOi8vc2hvcGlmeS9Qcm9kdWN0VmFyaWFudC8zNjQzMjM4NTI0NTM1MA=="
         },
         {
             "id": "Z2lkOi8vc2hvcGlmeS9Qcm9kdWN0LzU3NzA5ODUwNDYxODI=",
             "nome": "Hugo",
             "ricette": [],
-            "variantsId": "Z2lkOi8vc2hvcGlmeS9Qcm9kdWN0VmFyaWFudC8zNjQwMzUzNzk2OTMxOA==",
-            "prezzo": "13.99",
-            "immagine": "https://cdn.shopify.com/s/files/1/0485/2105/2326/products/18_1024x1024_219cb97d-e792-4709-8684-8922074b7904.png?v=1601467917"
+            "variantsId": "Z2lkOi8vc2hvcGlmeS9Qcm9kdWN0VmFyaWFudC8zNjQwMzUzNzk2OTMxOA=="
         },
         {
             "id": 6,
@@ -3772,8 +3762,8 @@
             "ricette": [],
             "variantId": "Z2lkOi8vc2hvcGlmeS9Qcm9kdWN0VmFyaWFudC8zNjI2MjA1MjU5MzgzMA==",
             "prezzo": "20.00",
-            "variantsId": "Z2lkOi8vc2hvcGlmeS9Qcm9kdWN0VmFyaWFudC8zNjI2MjA1MjU5MzgzMA==",
-            "immagine": "https://cdn.shopify.com/s/files/1/0485/2105/2326/products/vino-alla-mandorla-biancomandorla-martinez_3ff5c381-edeb-4227-8268-11725bc98e7d.jpg?v=1601467714"
+            "immagine": "https://cdn.shopify.com/s/files/1/0485/2105/2326/products/vino-alla-mandorla-biancomandorla-martinez_3ff5c381-edeb-4227-8268-11725bc98e7d.jpg?v=1601467714",
+            "variantsId": "Z2lkOi8vc2hvcGlmeS9Qcm9kdWN0VmFyaWFudC8zNjI2MjA1MjU5MzgzMA=="
         }
     ],
     "listaParoleChiave": [

@@ -40,6 +40,6 @@ var fetch = function (productId) {
   })
 };
 
-//fetch(productVariantId);
+fetch(productId);
 
 module.exports = fetch;

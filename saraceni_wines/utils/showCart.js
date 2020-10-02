@@ -1,6 +1,5 @@
 var Promise = require('bluebird');
-var checkoutFetch = require('../api/checkoutFetch');
-var createCheckout = require('../api/create');
+var shopifyApi = require('../api/shopifyApi');
 var costruttoreMessaggio = require('./creazioneMessaggioDiRitorno');
 
 var nonAveviIlCarrello =
@@ -11,7 +10,7 @@ var url = 'https://il-saraceno.it/wp-content/uploads/2020/08/photo_2020-08-04_12
 
 var controlloViniInCheckout = function (checkout) {
     var cont = 0;
-    if(checkout.lineItems.length>0) {
+    if (checkout.lineItems.length > 0) {
         checkout.lineItems.forEach(vino => {
             cont += vino.quantity;
         })
@@ -25,15 +24,19 @@ var processing = function (checkoutId) {
         if (checkoutId) {
             console.log('entra nella condizione');
             console.log('checkoutId ---> ', typeof (checkoutId));
-            return checkoutFetch(checkoutId)
+            return shopifyApi.checkoutFetch(checkoutId)
                 .then(checkoutCart => {
-                    console.log(checkoutCart);
+                    console.log('cassa ---> ', checkoutCart);
+                    console.log('cassa.totalPrice', checkoutCart.totalPrice);
                     console.log('entra nella seconda condizione');
                     if (controlloViniInCheckout(checkoutCart) < 3) {
                         messaggiDaInviare.push(nonPuoiCompletareLAcquisto);
                     } else {
                         console.log('entra nel secondo else');
-                        messaggiDaInviare.push({
+                        messaggiDaInviare.push('total price of cart ' + 
+                        checkoutCart.totalPrice + 
+                        ' ' +
+                        checkoutCart.totalPriceV2.currencyCode, {
                             "type": "template",
                             "payload": {
                                 "template_type": "generic",
@@ -64,7 +67,7 @@ var processing = function (checkoutId) {
                 })
         } else {
             console.log('entra nel primo else');
-            return createCheckout()
+            return shopifyApi.createCheckout()
                 .then(checkoutCart => {
                     messaggiDaInviare.push(nonAveviIlCarrello);
                     user.checkoutId = checkoutCart.checkoutId;

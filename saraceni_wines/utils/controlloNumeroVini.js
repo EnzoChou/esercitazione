@@ -1,9 +1,9 @@
 var Promise = require('bluebird');
-var checkoutFetch = require('../api/checkoutFetch');
+var shopifyApi = require('../api/shopifyApi');
 
 var controlloNumeroVini = function (checkoutId) {
     return new Promise((resolve, reject) => {
-        return checkoutFetch(checkoutId)
+        return shopifyApi.checkoutFetch(checkoutId)
             .then(checkout => {
                 var cont = 0;
                 if (checkout.lineItems.length > 0) {

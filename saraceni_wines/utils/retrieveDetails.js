@@ -1,10 +1,10 @@
 var Promise = require('bluebird');
-var fetch = require('../api/fetch');
+var shopifyApi = require('../api/shopifyApi');
 creazioneMessaggioDiRitorno = require('./creazioneMessaggioDiRitorno');
 
 var retrieveDetails = function (idVino) {
     return new Promise((resolve, reject) => {
-        return fetch(idVino)
+        return shopifyApi.fetchById(idVino)
             .then(vino => {
                 console.log('vino trovato ---> ', vino);
                 var vinoDescription = vino.description;
