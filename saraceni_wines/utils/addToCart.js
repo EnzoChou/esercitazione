@@ -1,5 +1,6 @@
 var Promise = require('bluebird');
 var addLineItem = require('../api/lineItemsToAdd');
+var shopifyApi = require('../api/shopifyApi');
 var inviaMessaggio = require('./creazioneMessaggioDiRitorno');
 
 var addToCart = function (idVino, idCheckout, quantity) {
@@ -8,11 +9,19 @@ var addToCart = function (idVino, idCheckout, quantity) {
         quantity: quantity
     }];
     return new Promise((resolve, reject) => {
-        return addLineItem(idCheckout, lineItemsToAdd)
-            .then((checkout) => {
-                var messaggi = ["vino inserito", "posso fare altro per te?"];
-                console.log('carrello aggiornato', checkout);
-                return inviaMessaggio(messaggi);
+        return shopifyApi.fetchById(idVino)
+            .then(vino => {
+                if (!vino) {
+                    return addLineItem(idCheckout, lineItemsToAdd)
+                        .then((checkout) => {
+                            var messaggi = ["Wine added", "What else can I do for you?"];
+                            console.log('carrello aggiornato', checkout);
+                            return inviaMessaggio(messaggi);
+                        })
+                } else {
+                    var messaggi = ["Sorry, I haven't found that specific wine", "Can I help you any other way?"];
+                    return inviaMessaggio(messaggi);
+                }
             })
             .then((messaggioDiRitorno) => {
                 resolve(messaggioDiRitorno);
@@ -21,7 +30,7 @@ var addToCart = function (idVino, idCheckout, quantity) {
             .catch((err) => {
                 console.log('c\'è stato un errore nell\'addToCart', err);
                 reject(err);
-            })
+            });
     })
 };
 
