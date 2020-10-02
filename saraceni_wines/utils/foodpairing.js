@@ -37,14 +37,14 @@ var create_foodpairing_messages = function (risultatoArrayVini, param) {
                 var postBackButton2 = {};
                 postBackButton2.type = 'postback';
                 postBackButton2.title = 'add 3 to cart';
-                postBackButton2.payload = '000action:12345,12345||[\"add_to_cart=>' + vino.variants[0].id + ',1\"]000';
+                postBackButton2.payload = '000action:12345,12345||[\"add_to_cart=>' + vino.variants[0].id + ',3\"]000';
                 var postBackButton3 = {};
-                postBackButton3.type = 'web_url';
+                postBackButton3.type = 'postback';
                 postBackButton3.title = 'find out more';
-                postBackButton3.payload = '000action:12345,12345||[\"add_to_cart=>' + vino.description + ',1\"]000';
+                postBackButton3.payload = '000action:12345,12345||[\"retrieveDetails=>' + vino.id + ',1\"]000';
                 buttons.push(postbackButton);
                 buttons.push(postBackButton2);
-                buttons.push(webUrlButton);
+                buttons.push(postBackButton3);
                 var element = {};
                 element.title = vino.title;
                 element.image_url = vino.variants[0].image.src;

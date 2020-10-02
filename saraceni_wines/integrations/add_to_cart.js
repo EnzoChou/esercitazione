@@ -12,7 +12,7 @@ function processing(user, event, param) {
 
         var id_recipient = "3581882641842282";
 
-        var idVino = 'Z2lkOi8vc2hvcGlmeS9Qcm9kdWN0VmFyaWFudC8zNjQwMzUzNzk2OTMxOA==';
+        var variantsIdVIno = 'Z2lkOi8vc2hvcGlmeS9Qcm9kdWN0VmFyaWFudC8zNjQwMzUzNzk2OTMxOA==';
 
         var quantity = 1;
 
@@ -20,8 +20,8 @@ function processing(user, event, param) {
 
         return controlloId(user.checkoutId, id_recipient)
             .then(checkoutId => {
-                console.log('invio idVino, checkoutId, quantity ---> ', idVino,'\n', checkoutId, '\n', quantity);
-                 return utils_add_to_cart.processing(idVino, checkoutId, quantity);
+                console.log('invio variantsIdVIno, checkoutId, quantity ---> ', variantsIdVIno,'\n', checkoutId, '\n', quantity);
+                 return utils_add_to_cart.processing(variantsIdVIno, checkoutId, quantity);
             })
             .then(messages => {
                 console.log('entrato nel lato messaggi da inviare -->',

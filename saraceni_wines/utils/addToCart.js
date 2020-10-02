@@ -3,13 +3,13 @@ var addLineItem = require('../api/lineItemsToAdd');
 var shopifyApi = require('../api/shopifyApi');
 var inviaMessaggio = require('./creazioneMessaggioDiRitorno');
 
-var addToCart = function (idVino, idCheckout, quantity) {
+var addToCart = function (variantsIdVIno, idCheckout, quantity) {
     var lineItemsToAdd = [{
-        variantId: idVino,
+        variantId: variantsIdVIno,
         quantity: quantity
     }];
     return new Promise((resolve, reject) => {
-        return shopifyApi.fetchById(idVino)
+        return shopifyApi.fetchById(variantsIdVIno)
             .then(vino => {
                 if (!vino) {
                     return addLineItem(idCheckout, lineItemsToAdd)
