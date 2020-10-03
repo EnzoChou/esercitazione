@@ -3,6 +3,9 @@ const excelToJson = require('convert-excel-to-json');
 const fs = require('fs');
 var inputFile = '../others/ricette.xlsx';
 var outputFile = '../json/ricette.json';
+var natural = require('natural');
+var Promise = require('bluebird');
+var shopifyApi = require('../api/shopifyApi');
 
 const ricette_json = function () {
   return excelToJson({
@@ -112,6 +115,24 @@ function recuperoColonneVini(legenda) {
   }
   // console.log('\ncolonne da cui recuperare vini ---> ', colonneVini);
   return colonneVini;
+}
+
+function popolaListaVini(viniDaShopify, listaVini) {
+  viniDaShopify.forEach(vinoShopify => {
+    if (!listaVini.some(vino => {
+      natural.JaroWinklerDistance(vinoShopify.title, vino.nome, undefined, true) > 0.8
+    })
+    ) {
+      var vinoTmp = {};
+      vinoTmp.nome = vinoShopify.title;
+      vinoTmp.id = vinoShopify.id;
+      vinoTmp.variantsId = vinoShopify.variants[0].id;
+      vinoTmp.prezzo = vinoShopify.price;
+      vinoTmp.immagine = vinoShopify.variants[0].image.src;
+      listaVini.add(vinoTmp);
+    }
+    return listaVini;
+  })
 }
 
 function estrazioneListaVini(nomeVino) {
@@ -335,55 +356,66 @@ function estrazioneListaOccasioni(nomePagina) {
   return listaAbbinamentiTmp;
 }
 
-antipastiContorni = estrazioneListaRicette('Antipasticontorni');
-primi = estrazioneListaRicette('Primi');
-secondi = estrazioneListaRicette('Secondi');
-dessert = estrazioneListaRicette('Dessert');
-ricetteItaliane = estrazioneListaRicette('Ricette italiane');
-listaAbbinamentiGenerali = estrazioneAbbinamentiGenerali('Abbinamenti generali');
-listaAbbinamentiPerTipologia = estrazioneAbbinamentiPerTipologia('Ingredienti Principali');
-listaOccasioni = estrazioneListaOccasioni('Abbinamenti occasioni');
-listaCompletaRicette = antipastiContorni.concat(primi, secondi, dessert, ricetteItaliane);
-aggiornamentoListeVarieDaRicette(listaCompletaRicette);
-estrazioneParoleChiave(listaCompletaRicette);
-listaParoleChiave = listaParoleChiave.concat(
-  estrazioneParoleChiave(listaCompletaRicette),
-  estrazioneParoleChiave(listaAbbinamentiPerTipologia),
-  estrazioneParoleChiave(ingredientiPrincipali),
-  estrazioneParoleChiave(ingredientiSecondari),
-  estrazioneParoleChiave(listaOccasioni)
-);
+var wrapUpFunction = function () {
+  return new Promise((resolve, reject) => {
+    return shopifyApi.fetchAll()
+      .then(viniShopify => {
+        popolaListaVini(viniShopify, listaVini)
+      })
+      .then(listaViniAggiornata => {
+        listaVini = listaViniAggiornata;
+        antipastiContorni = estrazioneListaRicette('Antipasticontorni');
+        primi = estrazioneListaRicette('Primi');
+        secondi = estrazioneListaRicette('Secondi');
+        dessert = estrazioneListaRicette('Dessert');
+        ricetteItaliane = estrazioneListaRicette('Ricette italiane');
+        listaAbbinamentiGenerali = estrazioneAbbinamentiGenerali('Abbinamenti generali');
+        listaAbbinamentiPerTipologia = estrazioneAbbinamentiPerTipologia('Ingredienti Principali');
+        listaOccasioni = estrazioneListaOccasioni('Abbinamenti occasioni');
+        listaCompletaRicette = antipastiContorni.concat(primi, secondi, dessert, ricetteItaliane);
+        aggiornamentoListeVarieDaRicette(listaCompletaRicette);
+        estrazioneParoleChiave(listaCompletaRicette);
+        listaParoleChiave = listaParoleChiave.concat(
+          estrazioneParoleChiave(listaCompletaRicette),
+          estrazioneParoleChiave(listaAbbinamentiPerTipologia),
+          estrazioneParoleChiave(ingredientiPrincipali),
+          estrazioneParoleChiave(ingredientiSecondari),
+          estrazioneParoleChiave(listaOccasioni)
+        );
 
-estrazioneParoleChiavePerCategoria(listaParoleChiavePerCategoria, antipastiContorni, 'antipastiContorni');
-estrazioneParoleChiavePerCategoria(listaParoleChiavePerCategoria, primi, 'primi');
-estrazioneParoleChiavePerCategoria(listaParoleChiavePerCategoria, secondi, 'secondi');
-estrazioneParoleChiavePerCategoria(listaParoleChiavePerCategoria, dessert, 'dessert');
-estrazioneParoleChiavePerCategoria(listaParoleChiavePerCategoria, ricetteItaliane, 'ricetteItaliane');
-estrazioneParoleChiavePerCategoria(listaParoleChiavePerCategoria, ingredientiPrincipali, 'ingredientiPrincipali');
-estrazioneParoleChiavePerCategoria(listaParoleChiavePerCategoria, ingredientiSecondari, 'ingredientiSecondari');
-estrazioneParoleChiavePerCategoria(listaParoleChiavePerCategoria, listaVini, 'listaVini');
-// estrazioneParoleChiavePerCategoria();
-// console.log('parole chiave per categoria',listaParoleChiavePerCategoria);
-// console.log('\nlista ricette:\n', listaCompletaRicette);
-// console.log('\nlista ingredienti principali:\n', ingredientiPrincipali);
-// console.log('\nlista ingredienti secondari:\n', ingredientiSecondari);
-// console.log('\nlista occasioni\n', listaOccasioni);
-// console.log('\nlista vini:\n', listaVini);
-// console.log('\nlista parole chiave\n', listaParoleChiave);
-// console.log('\nlista abbinamenti per tipologia\n', listaAbbinamentiPerTipologia);
+        estrazioneParoleChiavePerCategoria(listaParoleChiavePerCategoria, antipastiContorni, 'antipastiContorni');
+        estrazioneParoleChiavePerCategoria(listaParoleChiavePerCategoria, primi, 'primi');
+        estrazioneParoleChiavePerCategoria(listaParoleChiavePerCategoria, secondi, 'secondi');
+        estrazioneParoleChiavePerCategoria(listaParoleChiavePerCategoria, dessert, 'dessert');
+        estrazioneParoleChiavePerCategoria(listaParoleChiavePerCategoria, ricetteItaliane, 'ricetteItaliane');
+        estrazioneParoleChiavePerCategoria(listaParoleChiavePerCategoria, ingredientiPrincipali, 'ingredientiPrincipali');
+        estrazioneParoleChiavePerCategoria(listaParoleChiavePerCategoria, ingredientiSecondari, 'ingredientiSecondari');
+        estrazioneParoleChiavePerCategoria(listaParoleChiavePerCategoria, listaVini, 'listaVini');
+        // estrazioneParoleChiavePerCategoria();
+        // console.log('parole chiave per categoria',listaParoleChiavePerCategoria);
+        // console.log('\nlista ricette:\n', listaCompletaRicette);
+        // console.log('\nlista ingredienti principali:\n', ingredientiPrincipali);
+        // console.log('\nlista ingredienti secondari:\n', ingredientiSecondari);
+        // console.log('\nlista occasioni\n', listaOccasioni);
+        // console.log('\nlista vini:\n', listaVini);
+        // console.log('\nlista parole chiave\n', listaParoleChiave);
+        // console.log('\nlista abbinamenti per tipologia\n', listaAbbinamentiPerTipologia);
 
-var strutture = {
-  listaRicette: listaCompletaRicette,
-  listaAbbinamentiPerTipologia: listaAbbinamentiPerTipologia,
-  listaAbbinamentiGenerali: listaAbbinamentiGenerali,
-  listaIngredientiPrincipali: ingredientiPrincipali,
-  listaIngredientiSecondari: ingredientiSecondari,
-  listaOccasioni: listaOccasioni,
-  listaVini: listaVini,
-  listaParoleChiave: listaParoleChiave,
-  listaParoleChiavePerCategoria: listaParoleChiavePerCategoria
-};
+        var strutture = {
+          listaRicette: listaCompletaRicette,
+          listaAbbinamentiPerTipologia: listaAbbinamentiPerTipologia,
+          listaAbbinamentiGenerali: listaAbbinamentiGenerali,
+          listaIngredientiPrincipali: ingredientiPrincipali,
+          listaIngredientiSecondari: ingredientiSecondari,
+          listaOccasioni: listaOccasioni,
+          listaVini: listaVini,
+          listaParoleChiave: listaParoleChiave,
+          listaParoleChiavePerCategoria: listaParoleChiavePerCategoria
+        };
+      })
 
+  })
+}
 function toJsonFile(result) {
   var json = JSON.stringify(result, null, 4);
   fs.writeFile(outputFile, json, function (err) {
