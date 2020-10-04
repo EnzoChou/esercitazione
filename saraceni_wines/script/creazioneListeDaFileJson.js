@@ -119,21 +119,38 @@ function recuperoColonneVini(legenda) {
 
 function popolaListaVini(viniDaShopify, listaVini) {
   viniDaShopify.forEach(vinoShopify => {
-    if (!listaVini.some(vino => {
+    console.log((!listaVini.some(vino => {
+      console.log(natural.JaroWinklerDistance(vinoShopify.title, vino.nome, undefined, true));
       natural.JaroWinklerDistance(vinoShopify.title, vino.nome, undefined, true) > 0.8
     })
-    ) {
+    ))
+    if (vino && listaVini.some(vino => {
+      console.log(natural.JaroWinklerDistance(vinoShopify.title, vino.nome, undefined, true));
+      natural.JaroWinklerDistance(vinoShopify.title, vino.nome, undefined, true) > 0.8
+    })
+    ) { console.log('arriva alla creazione di vinoTmp');
       var vinoTmp = {};
       vinoTmp.nome = vinoShopify.title;
       vinoTmp.id = vinoShopify.id;
       vinoTmp.variantsId = vinoShopify.variants[0].id;
       vinoTmp.prezzo = vinoShopify.price;
       vinoTmp.immagine = vinoShopify.variants[0].image.src;
-      listaVini.add(vinoTmp);
+      console.log('vinoTmp è ', vinoTmp);
+      listaVini.push(vinoTmp);
+    } else {
+      vino =
     }
     return listaVini;
   })
 }
+
+popolaListaVini([{
+  title:'ribolla gialla',
+  id: 123,
+  price:1,
+  variants:[{id: 321, image:{src:'url'}}]
+}],listaVini);
+console.log(listaVini);
 
 function estrazioneListaVini(nomeVino) {
   if (listaVini.filter(vino => vino.nome === nomeVino).length === 0) {
@@ -401,21 +418,24 @@ var wrapUpFunction = function () {
         // console.log('\nlista parole chiave\n', listaParoleChiave);
         // console.log('\nlista abbinamenti per tipologia\n', listaAbbinamentiPerTipologia);
 
-        var strutture = {
-          listaRicette: listaCompletaRicette,
-          listaAbbinamentiPerTipologia: listaAbbinamentiPerTipologia,
-          listaAbbinamentiGenerali: listaAbbinamentiGenerali,
-          listaIngredientiPrincipali: ingredientiPrincipali,
-          listaIngredientiSecondari: ingredientiSecondari,
-          listaOccasioni: listaOccasioni,
-          listaVini: listaVini,
-          listaParoleChiave: listaParoleChiave,
-          listaParoleChiavePerCategoria: listaParoleChiavePerCategoria
-        };
+        
       })
 
   })
 }
+
+var strutture = {
+  listaRicette: listaCompletaRicette,
+  listaAbbinamentiPerTipologia: listaAbbinamentiPerTipologia,
+  listaAbbinamentiGenerali: listaAbbinamentiGenerali,
+  listaIngredientiPrincipali: ingredientiPrincipali,
+  listaIngredientiSecondari: ingredientiSecondari,
+  listaOccasioni: listaOccasioni,
+  listaVini: listaVini,
+  listaParoleChiave: listaParoleChiave,
+  listaParoleChiavePerCategoria: listaParoleChiavePerCategoria
+};
+
 function toJsonFile(result) {
   var json = JSON.stringify(result, null, 4);
   fs.writeFile(outputFile, json, function (err) {
@@ -424,7 +444,7 @@ function toJsonFile(result) {
   });
 }
 
-toJsonFile(strutture);
+// toJsonFile(strutture);
 
 
 module.exports = strutture;
