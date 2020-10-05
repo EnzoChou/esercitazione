@@ -100,10 +100,10 @@ var metodoScelto = function (richiestaUtente) {
 
   var arrayPunteggio = [
     nomiRicette,
-    abbinamentiPerTipologia,
+    occasioni,
     ingredientiPrincipali,
     ingredientiSecondari,
-    occasioni
+    abbinamentiPerTipologia
   ];
 
   var paroleDaCercare = richiestaUtente.tokenizeAndStem();
@@ -117,7 +117,7 @@ var metodoScelto = function (richiestaUtente) {
   );
 
   console.log(
-    'indice: \n[\n\t\'-1\': laRicercaNonHaProdottoRisultatiSoddisfacenti, \n\t0: matchRicetta,\n\t1: abbinamentoTrovatoPerTipologia,\n\t 2: ricetteTrovateDaIngredientiPrincipali,\n\t 3: ricetteTrovateDaIngredientiSecondari,\n\t 4: occasioneTrovata\n]');
+    'indice: \n[\n\t\'-1\': laRicercaNonHaProdottoRisultatiSoddisfacenti, \n\t0: matchRicetta,\n\t1: occasioneTrovata,\n\t 2: ricetteTrovateDaIngredientiPrincipali,\n\t 3: ricetteTrovateDaIngredientiSecondari,\n\t 4: abbinamentoTrovatoPerTipologia\n]');
   console.log('punteggi', punteggi);
   var indexScelto = punteggi.findIndex(elem => elem > 0.9);
   console.log('index scelto', indexScelto);
@@ -134,10 +134,10 @@ var metodoScelto = function (richiestaUtente) {
   var arrayAlgoritmoScelto = {
     '-1': laRicercaNonHaProdottoRisultatiSoddisfacenti(),
     '0': matchRicetta(paroleDaCercareFiltrate, listaRicette),
-    '1': abbinamentoTrovatoPerTipologia(paroleDaCercareFiltrate, listaAbbinamentiPerTipologia),
+    '1': occasioneTrovata(paroleDaCercareFiltrate, listaOccasioni),
     '2': ricetteTrovateDaIngredienti(paroleDaCercareFiltrate, listaIngredientiPrincipali, listaRicette),
     '3': ricetteTrovateDaIngredienti(paroleDaCercareFiltrate, listaIngredientiSecondari, listaRicette),
-    '4': occasioneTrovata(paroleDaCercareFiltrate, listaOccasioni)
+    '4': abbinamentoTrovatoPerTipologia(paroleDaCercareFiltrate, listaAbbinamentiPerTipologia)
   };
 
   var listaPapabile = arrayAlgoritmoScelto[indexScelto];
@@ -159,9 +159,9 @@ var metodoScelto = function (richiestaUtente) {
   console.log('listaPapabile', listaPapabile);
 
   if (listaPapabile.length > 0 && listaPapabile[0] !== undefined) {
-    var arrayDiRitorno = funzioniGeneriche.ricercaViniProposti(listaPapabile[0].viniProposti, listaVini);
+    // var arrayDiRitorno = funzioniGeneriche.ricercaViniProposti(listaPapabile[0].viniProposti, listaVini);
     console.log('arrayDiRitorno', arrayDiRitorno);
-    return arrayDiRitorno;
+    return listaPapabile[0].viniProposti;
   } else {
     return [];
   }
