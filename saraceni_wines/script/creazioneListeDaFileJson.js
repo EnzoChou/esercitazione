@@ -105,7 +105,7 @@ var idOccasioni = 1;
 
 // var varToString = varObj => Object.keys(varObj)[0];
 
-var objVino = function (id = idVini, variantsId = idVini, nome = 'dummy', prezzo = 0, immagine = 'url') {
+var ObjVino = function (id = idVini, variantsId = idVini, nome = 'dummy', prezzo = 0, immagine = 'url') {
   this.id = id;
   this.variantsId = variantsId;
   this.nome = nome;
@@ -132,7 +132,7 @@ var popolaListaVini = function (viniDaShopify, listaVini) {
     var cond = false;
     for (let i = 0; i < listaVini.length || cond; i++) {
       if (natural.JaroWinklerDistance(vinoShopify.title, listaVini[i].nome, undefined, true) > 0.8) {
-        listaVini[i] = new objVino(vinoShopify.id,
+        listaVini[i] = new ObjVino(vinoShopify.id,
           vinoShopify.variants[0].id,
           vinoShopify.title,
           vinoShopify.variants[0].price,
@@ -142,7 +142,7 @@ var popolaListaVini = function (viniDaShopify, listaVini) {
     }
     if (!cond) {
       console.log('\narriva alla creazione di vinoTmp');
-      var vinoTmp = new objVino(vinoShopify.id,
+      var vinoTmp = new ObjVino(vinoShopify.id,
         vinoShopify.variants[0].id,
         vinoShopify.title,
         vinoShopify.variants[0].price,
@@ -158,7 +158,7 @@ var popolaListaVini = function (viniDaShopify, listaVini) {
 function estrazioneListaVini(nomeVino) {
   var vinoTmp = listaVini.find(vino => natural.JaroWinklerDistance(vino.nome, nomeVino, undefined, true) > 0.8);
   if (!vinoTmp) {
-    vinoTmp = new objVino();
+    vinoTmp = new ObjVino();
     vinoTmp.nome = nomeVino;
     idVini++;
     console.log('\n\nvino non trovato, ne creo uno nuovo ---> ', vinoTmp);
@@ -451,6 +451,7 @@ var wrapUpFunction = function () {
         return strutture;
       })
       .then(strutture => {
+        console.log('sono stati inventati gli id di', idVini - 1, 'vini!');
         resolve(toJsonFile(strutture));
       })
 

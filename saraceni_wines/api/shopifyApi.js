@@ -1,12 +1,10 @@
 // import Client from 'shopify-buy';
 global.fetch = require('node-fetch');
 var Client = require('shopify-buy');
+var config = require('../config/config');
 
 // Initializing a client to return content in the store's primary language
-const client = Client.buildClient({
-  domain: 'test-hej.myshopify.com',
-  storefrontAccessToken: 'ab5232770d3011658fd90b0cf536a8c0'
-});
+const client = Client.buildClient(config.dev);
 
 // console.log("client", client);
 
@@ -77,12 +75,12 @@ var fetchById = function (productId) {
           console.log('product.type ---> ', product.type);
           console.log('product ---> ', product);
           console.log('productInfo ---> ', productInfo);
-          if(product.variants) {
+          if (product.variants) {
             console.log('\n\nquesto è un product ID\n\n');
           } else {
             console.log('\n\nquesto è un product variants ID\n\n')
           }
-          if(product.image) {
+          if (product.image) {
             console.log('immagine url', product.image);
           }
           resolve(product);
@@ -101,35 +99,37 @@ var fetchById = function (productId) {
 
 // Fetch all products in your shop
 var fetchAll = function () {
-  return client.product.fetchAll()
-    .then((products) => {
-      // Do something with the products
-      productId = products[0].id;
-      productVariantId = products[0].variants[0].id;
-      // console.log('number of products ---> ', products.length);
-      // console.log('products[0] ---> ', products[0]);
-      // console.log('products[0].title --->', products[0].title);
-      // console.log('products[0].variants[0] --->', products[0].variants[0]);
-      // console.log('products[0].variants[0].id ---> ', products[0].variants[0].id);
-      // console.log('productId ---> ', productId);
-      /*products.forEach(product => {
-        console.log('single product ---> ', product,
-          '\nproduct.variants.length', product.variants.length,
-          '\nproduct.variants[0].id', product.variants[0].id,
-          '\nproduct.images', product.variants[0].image.src,
-          '\nproduct.id', product.id,
-          '\nproduct.title', product.title,
-          '\nproduct.description', product.description
-        );
-      })*/
-      return products;
-    })
-    .catch(error =>
-      console.log('error', error)
-    )
+  return new Promise((resolve, reject) => {
+    return client.product.fetchAll()
+      .then((products) => {
+        // Do something with the products
+        productId = products[0].id;
+        productVariantId = products[0].variants[0].id;
+        // console.log('number of products ---> ', products.length);
+        // console.log('products[0] ---> ', products[0]);
+        // console.log('products[0].title --->', products[0].title);
+        // console.log('products[0].variants[0] --->', products[0].variants[0]);
+        // console.log('products[0].variants[0].id ---> ', products[0].variants[0].id);
+        // console.log('productId ---> ', productId);
+        /*products.forEach(product => {
+          console.log('single product ---> ', product,
+            '\nproduct.variants.length', product.variants.length,
+            '\nproduct.variants[0].id', product.variants[0].id,
+            '\nproduct.images', product.variants[0].image.src,
+            '\nproduct.id', product.id,
+            '\nproduct.title', product.title,
+            '\nproduct.description', product.description
+          );
+        })*/
+        resolve(products);
+      })
+      .catch(error =>
+        console.log('error', error)
+      )
+  })
 }
 
-// fetchAll();
+// fetchAll().then(vini => { console.log(vini) });
 
 // Add an item to the checkout
 var addLineItems = function (checkoutId, lineItemsToAdd) {
@@ -143,7 +143,6 @@ var addLineItems = function (checkoutId, lineItemsToAdd) {
         // console.log('checkout function ---> ', checkout);
         console.log('checkout successo');
         resolve(checkout);
-        return checkout;
       })
       .catch(error => {
         console.log('errore nella addLineItems', error);
