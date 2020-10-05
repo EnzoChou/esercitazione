@@ -23,11 +23,10 @@ var createCheckout = function () {
         console.log('checkout.webUrl ---> ', checkout.webUrl);
         console.log('checkoutId ---> ', checkoutId);
         resolve(checkout);
-        return checkout;
       })
       .catch(error => {
         console.log('error', error);
-        reject(error);
+        resolve();
       });
   });
 };
@@ -53,11 +52,10 @@ var checkoutFetch = function (checkoutId) {
         }
         console.log('checkout.order --->', checkout.order);
         resolve(checkout);
-        return checkout;
       })
       .catch(err => {
         console.log('errore in checkout fetch', err);
-        reject(err);
+        resolve();
       });
   })
 };
@@ -78,7 +76,7 @@ var fetchById = function (productId) {
           if (product.variants) {
             console.log('\n\nquesto è un product ID\n\n');
           } else {
-            console.log('\n\nquesto è un product variants ID\n\n')
+            console.log('\n\nquesto è un product variants ID\n\n');
           }
           if (product.image) {
             console.log('immagine url', product.image);
@@ -90,7 +88,7 @@ var fetchById = function (productId) {
       })
       .catch(error => {
         console.log('errorij ojaofjdsofjapohfeahpo', error);
-        reject(error);
+        resolve();
       });
   })
 };
@@ -123,9 +121,10 @@ var fetchAll = function () {
         })*/
         resolve(products);
       })
-      .catch(error =>
-        console.log('error', error)
-      )
+      .catch(error => {
+        console.log('error', error);
+        resolve();
+      })
   })
 }
 
@@ -146,7 +145,7 @@ var addLineItems = function (checkoutId, lineItemsToAdd) {
       })
       .catch(error => {
         console.log('errore nella addLineItems', error);
-        reject(error);
+        resolve();
       });
   })
 };
@@ -160,9 +159,10 @@ var updateLineItems = function (checkoutId, lineItemsToUpdate) {
       console.log('checkout.lineItems[0].id ---> ', checkout.lineItems[0].id);// Array with one additional line item
       resolve(checkout);
     })
-      .catch(error =>
-        console.log('error ---> ', error)
-      )
+      .catch(error => {
+        console.log('error ---> ', error);
+        resolve();
+      })
   })
 }
 
@@ -178,7 +178,7 @@ var removeLineItems = function (checkoutId, lineItemIdsToRemove) {
     })
       .catch(err => {
         console.log('qualcosa non è andato nella rimozione dell\'elemento', err);
-        reject(err);
+        resolve();
       })
   });
 };
