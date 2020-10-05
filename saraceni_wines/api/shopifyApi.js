@@ -106,13 +106,13 @@ var fetchAll = function () {
       // Do something with the products
       productId = products[0].id;
       productVariantId = products[0].variants[0].id;
-      console.log('number of products ---> ', products.length);
-      console.log('products[0] ---> ', products[0]);
-      console.log('products[0].title --->', products[0].title);
-      console.log('products[0].variants[0] --->', products[0].variants[0]);
-      console.log('products[0].variants[0].id ---> ', products[0].variants[0].id);
-      console.log('productId ---> ', productId);
-      products.forEach(product => {
+      // console.log('number of products ---> ', products.length);
+      // console.log('products[0] ---> ', products[0]);
+      // console.log('products[0].title --->', products[0].title);
+      // console.log('products[0].variants[0] --->', products[0].variants[0]);
+      // console.log('products[0].variants[0].id ---> ', products[0].variants[0].id);
+      // console.log('productId ---> ', productId);
+      /*products.forEach(product => {
         console.log('single product ---> ', product,
           '\nproduct.variants.length', product.variants.length,
           '\nproduct.variants[0].id', product.variants[0].id,
@@ -121,7 +121,7 @@ var fetchAll = function () {
           '\nproduct.title', product.title,
           '\nproduct.description', product.description
         );
-      })
+      })*/
       return products;
     })
     .catch(error =>
