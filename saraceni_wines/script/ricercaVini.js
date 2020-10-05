@@ -22,6 +22,18 @@ var ricetteTrovateDaIngredienti = function (arrayParole, obj, obj2) {
   return funzioniGeneriche.ricetteDaIngredienti(a, obj2);
 };
 
+// METODI DI RICERCA PER ABBINAMENTI GENERALI
+
+var ricercaPerAbbinamentiGenerali = function (arrayParole, listaAbbinamentiGenerali) {
+  console.log('è stato scelto il metodo di match da abbinamenti generali\n\n');
+  console.log('\n\n\nlistaAbbinamentiGenerali\n\n\n', listaAbbinamentiGenerali);
+  var risultatoTrovato = funzioniGeneriche.filtroListaDalNome(arrayParole, listaAbbinamentiGenerali);
+  console.log('risultato dopo il filtro per nome', risultatoTrovato);
+  risultatoTrovato = funzioniGeneriche.filtroPerTag(arrayParole, risultatoTrovato);
+  console.log('risultato dopo il filtro per tag', risultatoTrovato);
+  return risultatoTrovato;
+};
+
 // METODI DI RICERCA PER TIPOLOGIA
 
 var abbinamentoTrovatoPerTipologia = function (arrayParole, obj) {
@@ -64,7 +76,7 @@ var metodoScelto = function (richiestaUtente) {
   var listaRicette = data.listaRicette;
   var listaVini = data.listaVini;
   var listaParoleChiavePerCategoria = data.listaParoleChiavePerCategoria;
-  // var listaAbbinamentiGenerali = data.listaAbbinamentiGenerali;
+  var listaAbbinamentiGenerali = data.listaAbbinamentiGenerali;
   var listaOccasioni = data.listaOccasioni;
   var listaAbbinamentiPerTipologia = data.listaAbbinamentiPerTipologia;
   var listaParoleChiave = data.listaParoleChiave;
@@ -77,7 +89,7 @@ var metodoScelto = function (richiestaUtente) {
   // console.log(natural.JaroWinklerDistance("dixon","dicksonx", undefined, true));
 
   var nomiRicette = listaRicette.map(ricetta => ricetta.nome.tokenizeAndStem());
-  // var abbinamentiGenerali = listaAbbinamentiGenerali.map(tipo => tipo.nome.tokenizeAndStem()); //abbinamenti generali non usato
+  var abbinamentiGenerali = listaAbbinamentiGenerali.map(tipo => tipo.nome.tokenizeAndStem()); //abbinamenti generali non usato
   var abbinamentiPerTipologiaTags = funzioniGeneriche.concatTags(listaAbbinamentiPerTipologia);
   var abbinamentiPerTipologia = listaAbbinamentiPerTipologia.map(tipo => tipo.nome.tokenizeAndStem());
   abbinamentiPerTipologia = abbinamentiPerTipologia.concat(abbinamentiPerTipologiaTags);
@@ -91,7 +103,7 @@ var metodoScelto = function (richiestaUtente) {
   // PULIZIA ARRAY DAGLI ARRAY VUOTI
 
   nomiRicette = nomiRicette.filter(array => array.length !== 0);
-  // abbinamentiGenerali = abbinamentiGenerali.filter(array => array.length !== 0);
+  abbinamentiGenerali = abbinamentiGenerali.filter(array => array.length !== 0);
   abbinamentiPerTipologiaTags = abbinamentiPerTipologiaTags.filter(array => array.length !== 0);
   abbinamentiPerTipologia = abbinamentiPerTipologia.filter(array => array.length !== 0);
   ingredientiPrincipali = ingredientiPrincipali.filter(array => array.length !== 0);
@@ -100,6 +112,7 @@ var metodoScelto = function (richiestaUtente) {
 
   var arrayPunteggio = [
     nomiRicette,
+    abbinamentiGenerali,
     occasioni,
     ingredientiPrincipali,
     ingredientiSecondari,
@@ -117,7 +130,7 @@ var metodoScelto = function (richiestaUtente) {
   );
 
   console.log(
-    'indice: \n[\n\t\'-1\': laRicercaNonHaProdottoRisultatiSoddisfacenti, \n\t0: matchRicetta,\n\t1: occasioneTrovata,\n\t 2: ricetteTrovateDaIngredientiPrincipali,\n\t 3: ricetteTrovateDaIngredientiSecondari,\n\t 4: abbinamentoTrovatoPerTipologia\n]');
+    'indice: \n[\n\t\'-1\': laRicercaNonHaProdottoRisultatiSoddisfacenti, \n\t0: matchRicetta,\n\t1: abbinamentiGenerali, \n\t2: occasioneTrovata,\n\t 3: ricetteTrovateDaIngredientiPrincipali,\n\t 4: ricetteTrovateDaIngredientiSecondari,\n\t 5: abbinamentoTrovatoPerTipologia\n]');
   console.log('punteggi', punteggi);
   var indexScelto = punteggi.findIndex(elem => elem > 0.9);
   console.log('index scelto', indexScelto);
@@ -134,10 +147,11 @@ var metodoScelto = function (richiestaUtente) {
   var arrayAlgoritmoScelto = {
     '-1': laRicercaNonHaProdottoRisultatiSoddisfacenti(),
     '0': matchRicetta(paroleDaCercareFiltrate, listaRicette),
-    '1': occasioneTrovata(paroleDaCercareFiltrate, listaOccasioni),
-    '2': ricetteTrovateDaIngredienti(paroleDaCercareFiltrate, listaIngredientiPrincipali, listaRicette),
-    '3': ricetteTrovateDaIngredienti(paroleDaCercareFiltrate, listaIngredientiSecondari, listaRicette),
-    '4': abbinamentoTrovatoPerTipologia(paroleDaCercareFiltrate, listaAbbinamentiPerTipologia)
+    '1': ricercaPerAbbinamentiGenerali(paroleDaCercareFiltrate, listaAbbinamentiGenerali),
+    '2': occasioneTrovata(paroleDaCercareFiltrate, listaOccasioni),
+    '3': ricetteTrovateDaIngredienti(paroleDaCercareFiltrate, listaIngredientiPrincipali, listaRicette),
+    '4': ricetteTrovateDaIngredienti(paroleDaCercareFiltrate, listaIngredientiSecondari, listaRicette),
+    '5': abbinamentoTrovatoPerTipologia(paroleDaCercareFiltrate, listaAbbinamentiPerTipologia)
   };
 
   var listaPapabile = arrayAlgoritmoScelto[indexScelto];
@@ -160,7 +174,7 @@ var metodoScelto = function (richiestaUtente) {
 
   if (listaPapabile.length > 0 && listaPapabile[0] !== undefined) {
     // var arrayDiRitorno = funzioniGeneriche.ricercaViniProposti(listaPapabile[0].viniProposti, listaVini);
-    console.log('arrayDiRitorno', arrayDiRitorno);
+    console.log('arrayDiRitorno', listaPapabile[0].viniProposti);
     return listaPapabile[0].viniProposti;
   } else {
     return [];
@@ -170,17 +184,15 @@ var metodoScelto = function (richiestaUtente) {
 exports.metodoScelto = metodoScelto;
 
 // var modulo = {};
-/*
+
 var t0 = performance.now();
-metodoScelto('i\'m watching harry potter tonight and i\'d like something for my oyster rockfeller');
+metodoScelto('i\'m watching harry potter tonight and i\'d like something for my primo di carne rossa');
 var t1 = performance.now();
 console.log('\n\n\nl\'algoritmo ci ha impiegato:', t1 - t0, 'millisecondi\n\n\n');
-*/
+
 // // modulo.matchRicetta = matchRicetta;
 // // modulo.ricetteTrovateDaIngredientiPrincipali = ricetteTrovateDaIngredientiPrincipali;
 // // modulo.ricetteTrovateDaIngredientiSecondari = ricetteTrovateDaIngredientiSecondari;
 // // modulo.laRicercaNonHaProdottoRisultatiSoddisfacenti = laRicercaNonHaProdottoRisultatiSoddisfacenti;
 // // modulo.ricetteTrovateDaPortate = ricetteTrovateDaPortate;
 // // modulo.scegliMetodo = metodoScelto;
-
-module.exports = metodoScelto;
