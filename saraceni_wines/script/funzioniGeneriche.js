@@ -53,15 +53,19 @@ var filtroListaDalNome = function (arrayParole, lista) {
   return lista.filter(function (oggetto) {
     var paroleAnagrammate = anagrammaParole(arrayParole, oggetto.nome);
     return paroleAnagrammate.some(parolaAnagrammata =>
-      natural.JaroWinklerDistance(oggetto.nome, parolaAnagrammata, undefined, true) > 0.8
+      natural.JaroWinklerDistance(oggetto.nome, parolaAnagrammata, undefined, true) > 0.85
     );
   });
 };
 
 var filtroPerTag = function (arrayParole, lista) {
-  return lista.filter(oggetto =>
-    oggetto.tags.some(tag => natural.JaroWinklerDistance(tag, arrayParole.join(), undefined, true) > 0.8)
-  );
+  return lista.filter(oggetto => {
+    return oggetto.tags.some(tag => {
+      return arrayParole.some(parola => {
+        return natural.JaroWinklerDistance(parola, tag, undefined, true) > 0.8;
+      });
+    })
+  });
 };
 
 var ricercaIngredientiPapabili = function (arrayParole, listaIngredienti) {
