@@ -95,6 +95,7 @@ var ingredientiSecondari = [];
 var listaAbbinamentiGenerali = [];
 var listaAbbinamentiPerTipologia = [];
 var listaParoleChiavePerCategoria = {};
+var listaAggettiviVino = [];
 // var ricettaToVini = {};
 var listaVini = []; // LISTA VINI
 var idRicetta = 1;
@@ -107,10 +108,11 @@ var idOccasioni = 1;
 
 // var varToString = varObj => Object.keys(varObj)[0];
 
-var ObjVino = function (id = idVini, variantsId = idVini, nome = 'dummy', prezzo = 0, immagine = 'url', sicurezzaAbbinamento=0) {
+var ObjVino = function (id = idVini, variantsId = idVini, nome = 'dummy', prezzo = 0, immagine = 'url', sicurezzaAbbinamento = 0, tags = []) {
   this.id = id;
   this.variantsId = variantsId;
   this.nome = nome;
+  this.tags = tags;
   this.prezzo = prezzo;
   this.immagine = immagine;
   this.sicurezzaAbbinamento = sicurezzaAbbinamento;
@@ -135,12 +137,12 @@ var somiglianzaNomiVini = function (nomeVino, listaVini) {
     listaTmp = listaTmp.sort(function (a, b) {
       return (natural.JaroWinklerDistance(b.nome, nomeVino, undefined, true)) - (natural.JaroWinklerDistance(a.nome, nomeVino, undefined, true))
     });
-    console.log('listaVini per somiglianza\n', nomeVino, '\n', listaTmp[0].nome);
+    // console.log('listaVini per somiglianza\n', nomeVino, '\n', listaTmp[0].nome);
     listaTmp[0].sicurezzaAbbinamento = natural.JaroWinklerDistance(listaTmp[0].nome, nomeVino, undefined, true);
     return listaTmp[0];
   }
   if (listaTmp && listaTmp.length == 1) {
-    console.log('listaVini per somiglianza\n', nomeVino, '\n', listaTmp[0].nome);
+    // console.log('listaVini per somiglianza\n', nomeVino, '\n', listaTmp[0].nome);
     listaTmp[0].sicurezzaAbbinamento = natural.JaroWinklerDistance(listaTmp[0].nome, nomeVino, undefined, true);
     return listaTmp[0];
   }
@@ -273,6 +275,9 @@ function estrazioneListaRicette(nomePagina) {
       strutturaRicetta.ingredientiSecondari = estrazioneIngredientiSecondariConAggiornamentoLista(listaPagina[i]);
       strutturaRicetta.viniProposti = estrazioneViniConAggiornamentoListaVini(listaPagina[i], colonneVini);
       strutturaRicetta.motivazioneAbbinamento = listaPagina[i].J;
+      if(listaPagina[i].H) {
+        strutturaRicetta.motivazione = listaPagina[i].H;
+      }
       idRicetta++;
       listaRicette.push(strutturaRicetta);
     }
@@ -403,6 +408,35 @@ function estrazioneListaOccasioni(nomePagina) {
   return listaAbbinamentiTmp;
 }
 
+function estrazioneAggettiviVino(nomePagina) {
+  listaAggettiviVino = [];
+  var listaPagina = listaRicetteDaFileJson[nomePagina];
+  for (let i = 3; i < listaPagina.length; i++) {
+    if (listaPagina[i].B) {
+      var strutturaAggettiviVino = {};
+      strutturaAggettiviVino.nome = listaPagina[i].B;
+      const regexFieldSpace = /[.,\/\n-\r]/;
+      strutturaAggettiviVino.tags = listaPagina[i].D.split(regexFieldSpace);
+      strutturaAggettiviVino.tags = strutturaAggettiviVino.tags.map(tag => {
+        return tag.trim();
+      })
+      // console.log('aggiunta vino con aggettivo', strutturaAggettiviVino);
+      listaAggettiviVino.push(strutturaAggettiviVino);
+    }
+  }
+  return listaAggettiviVino;
+}
+
+function associazioneAggettiviAiVini (listaVini, listaAggettiviVino) {
+  listaAggettiviVino.forEach(element => {
+    var vinoTmp = somiglianzaNomiVini(element.nome, listaVini);
+    if(vinoTmp) {
+      vinoTmp.tags = element.tags;
+    }
+  });
+  return listaVini;
+}
+
 function toJsonFile(result) {
   var json = JSON.stringify(result, null, 4);
   fs.writeFile(outputFile, json, function (err) {
@@ -432,6 +466,9 @@ var wrapUpFunction = function () {
         listaAbbinamentiGenerali = estrazioneAbbinamentiGenerali('Abbinamenti generali');
         // listaAbbinamentiPerTipologia = estrazioneAbbinamentiPerTipologia('Ingredienti Principali');
         listaOccasioni = estrazioneListaOccasioni('Abbinamenti occasioni');
+        listaAggettiviVino = estrazioneAggettiviVino('Aggettivi vino');
+        associazioneAggettiviAiVini(listaVini, listaAggettiviVino);
+
         listaCompletaRicette = antipastiContorni.concat(primi, secondi, dessert, ricetteItaliane);
         aggiornamentoListeVarieDaRicette(listaCompletaRicette);
         estrazioneParoleChiave(listaCompletaRicette);
