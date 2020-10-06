@@ -102,10 +102,12 @@ var ricercaViniProposti = function (listaViniProposti, listaVini) {
 
 var concatTags = function (lista) {
   var listaTmp = [];
-  for (let i = 0; i < lista.length; i++) {
-    for (let j = 0; j < lista[i].tags.length; j++) {
-      var arrayizzazione = [lista[i].tags[j]];
-      listaTmp.push(arrayizzazione);
+  if (lista) {
+    for (let i = 0; i < lista.length; i++) {
+      for (let j = 0; j < lista[i].tags.length; j++) {
+        var arrayizzazione = [lista[i].tags[j]];
+        listaTmp.push(arrayizzazione);
+      }
     }
   }
   return listaTmp;

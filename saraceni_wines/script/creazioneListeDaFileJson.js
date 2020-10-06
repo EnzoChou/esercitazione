@@ -275,9 +275,6 @@ function estrazioneListaRicette(nomePagina) {
       strutturaRicetta.ingredientiSecondari = estrazioneIngredientiSecondariConAggiornamentoLista(listaPagina[i]);
       strutturaRicetta.viniProposti = estrazioneViniConAggiornamentoListaVini(listaPagina[i], colonneVini);
       strutturaRicetta.motivazioneAbbinamento = listaPagina[i].J;
-      if(listaPagina[i].H) {
-        strutturaRicetta.motivazione = listaPagina[i].H;
-      }
       idRicetta++;
       listaRicette.push(strutturaRicetta);
     }
@@ -361,7 +358,9 @@ function estrazioneAbbinamentiGenerali(nomePagina) {
       strutturaAbbinamento.nome = listaPagina[i].D.toLowerCase();
       strutturaAbbinamento.tags = [nomePagina.toLowerCase(), listaPagina[i].B.toLowerCase()];
       strutturaAbbinamento.viniProposti = estrazioneViniConAggiornamentoListaVini(listaPagina[i], colonneVini);
-      strutturaAbbinamento.motivazioneAbbinamento = listaPagina[i].H; // normalmente la motivazione sta in J
+      if(listaPagina[i].H) {
+        strutturaAbbinamento.motivazione = listaPagina[i].H; // normalmente la motivazione sta in J
+      }
       idAbbinamento++;
       listaAbbinamenti.push(strutturaAbbinamento);
     }
@@ -401,6 +400,9 @@ function estrazioneListaOccasioni(nomePagina) {
       strutturaOccasione.id = idOccasioni;
       strutturaOccasione.nome = listaPagina[i].B.toLowerCase();
       strutturaOccasione.viniProposti = estrazioneViniConAggiornamentoListaVini(listaPagina[i], colonneVini);
+      if(listaPagina[i].H) {
+        strutturaOccasione.motivazione = listaPagina[i].H;
+      }
       idOccasioni++;
       listaAbbinamentiTmp.push(strutturaOccasione);
     }
