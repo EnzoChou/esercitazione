@@ -6,7 +6,9 @@ var outputFile = '../json/ricette.json';
 var natural = require('natural');
 var Promise = require('bluebird');
 var shopifyApi = require('../api/shopifyApi');
-const { cond } = require('lodash');
+const {
+  cond
+} = require('lodash');
 
 const ricette_json = function () {
   return excelToJson({
@@ -105,12 +107,13 @@ var idOccasioni = 1;
 
 // var varToString = varObj => Object.keys(varObj)[0];
 
-var ObjVino = function (id = idVini, variantsId = idVini, nome = 'dummy', prezzo = 0, immagine = 'url') {
+var ObjVino = function (id = idVini, variantsId = idVini, nome = 'dummy', prezzo = 0, immagine = 'url', sicurezzaAbbinamento=0) {
   this.id = id;
   this.variantsId = variantsId;
   this.nome = nome;
   this.prezzo = prezzo;
   this.immagine = immagine;
+  this.sicurezzaAbbinamento = sicurezzaAbbinamento;
 };
 
 // POPOLA LISTA VINI
@@ -126,37 +129,59 @@ function recuperoColonneVini(legenda) {
   return colonneVini;
 }
 
+var somiglianzaNomiVini = function (nomeVino, listaVini) {
+  var listaTmp = listaVini.filter(vino => natural.JaroWinklerDistance(vino.nome, nomeVino, undefined, true) > 0.80);
+  if (listaTmp && listaTmp.length > 1) {
+    listaTmp = listaTmp.sort(function (a, b) {
+      return (natural.JaroWinklerDistance(b.nome, nomeVino, undefined, true)) - (natural.JaroWinklerDistance(a.nome, nomeVino, undefined, true))
+    });
+    console.log('listaVini per somiglianza\n', nomeVino, '\n', listaTmp[0].nome);
+    listaTmp[0].sicurezzaAbbinamento = natural.JaroWinklerDistance(listaTmp[0].nome, nomeVino, undefined, true);
+    return listaTmp[0];
+  }
+  if (listaTmp && listaTmp.length == 1) {
+    console.log('listaVini per somiglianza\n', nomeVino, '\n', listaTmp[0].nome);
+    listaTmp[0].sicurezzaAbbinamento = natural.JaroWinklerDistance(listaTmp[0].nome, nomeVino, undefined, true);
+    return listaTmp[0];
+  }
+  return undefined;
+};
+
 var popolaListaVini = function (viniDaShopify, listaVini) {
-  console.log('\nviniDaShopify', viniDaShopify, 'listaVini', listaVini);
+  // console.log('\nviniDaShopify\n', viniDaShopify.length, '\n\nlistaVini\n', listaVini);
   viniDaShopify.forEach(vinoShopify => {
     var cond = false;
     for (let i = 0; i < listaVini.length || cond; i++) {
-      if (natural.JaroWinklerDistance(vinoShopify.title, listaVini[i].nome, undefined, true) > 0.8) {
+      // console.log('\n\nconfronto tra', vinoShopify, 'e', listaVini[i],'\n\nla lista vini è', listaVini, '\n\nla lunghezza lista vini è', listaVini.length, 'e i è', i, '\n\n');
+
+      if (natural.JaroWinklerDistance(vinoShopify.title, listaVini[i].nome, undefined, true) > 0.9) {
+        // console.log('\nvicinanza nomi vini', vinoShopify.title, 'e',listaVini[i].nome, natural.JaroWinklerDistance(vinoShopify.title, listaVini[i].nome, undefined, true));
         listaVini[i] = new ObjVino(vinoShopify.id,
           vinoShopify.variants[0].id,
           vinoShopify.title,
           vinoShopify.variants[0].price,
           vinoShopify.variants[0].image.src);
         cond = true;
+        break;
       }
     }
     if (!cond) {
-      console.log('\narriva alla creazione di vinoTmp');
+      // console.log('\narriva alla creazione di vinoTmp');
       var vinoTmp = new ObjVino(vinoShopify.id,
         vinoShopify.variants[0].id,
         vinoShopify.title,
         vinoShopify.variants[0].price,
         vinoShopify.variants[0].image.src);
-      console.log('\nvinoTmp è ', vinoTmp);
+      // console.log('\nvinoTmp è ', vinoTmp);
       listaVini.push(vinoTmp);
     }
   })
-  console.log('\nlista vini di ritorno ---> ', listaVini);
+  // console.log('\nlista vini di ritorno ---> ', listaVini);
   return listaVini;
 };
 
 function estrazioneListaVini(nomeVino) {
-  var vinoTmp = listaVini.find(vino => natural.JaroWinklerDistance(vino.nome, nomeVino, undefined, true) > 0.8);
+  var vinoTmp = somiglianzaNomiVini(nomeVino, listaVini);
   if (!vinoTmp) {
     vinoTmp = new ObjVino();
     vinoTmp.nome = nomeVino;
@@ -164,7 +189,7 @@ function estrazioneListaVini(nomeVino) {
     console.log('\n\nvino non trovato, ne creo uno nuovo ---> ', vinoTmp);
     listaVini.push(vinoTmp);
   }
-  console.log('\n\nil vino associato è ---> ', vinoTmp);
+  // console.log('il vino associato è ---> ', vinoTmp.nome);
   return vinoTmp;
 }
 
@@ -309,9 +334,9 @@ function estrazioneParoleChiave(lista) {
   var arrayTmp = [];
   lista.forEach(elem => {
     arrayTmp.push(elem.nome);
-    if(elem.tags) {
+    if (elem.tags) {
       elem.tags.forEach(tag => {
-        if(!arrayTmp.includes(tag)) {
+        if (!arrayTmp.includes(tag)) {
           arrayTmp.push(tag);
         }
       });
@@ -390,6 +415,7 @@ var wrapUpFunction = function () {
   return new Promise((resolve, reject) => {
     return shopifyApi.fetchAll()
       .then(viniShopify => {
+        console.log('numero vini presi da shopify', viniShopify.length);
         return popolaListaVini(viniShopify, listaVini);
       })
       .then(listaViniAggiornata => {
@@ -411,7 +437,7 @@ var wrapUpFunction = function () {
         estrazioneParoleChiave(listaCompletaRicette);
         listaParoleChiave = listaParoleChiave.concat(
           estrazioneParoleChiave(listaCompletaRicette),
-        //  estrazioneParoleChiave(listaAbbinamentiPerTipologia),
+          //  estrazioneParoleChiave(listaAbbinamentiPerTipologia),
           estrazioneParoleChiave(ingredientiPrincipali),
           estrazioneParoleChiave(ingredientiSecondari),
           estrazioneParoleChiave(listaOccasioni)
@@ -437,6 +463,7 @@ var wrapUpFunction = function () {
         return;
       })
       .then(obj => {
+        console.log('vini totali in lista', listaVini.length);
         var strutture = {
           listaRicette: listaCompletaRicette,
           // listaAbbinamentiPerTipologia: listaAbbinamentiPerTipologia,
