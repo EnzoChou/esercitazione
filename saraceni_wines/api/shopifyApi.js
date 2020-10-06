@@ -4,7 +4,7 @@ var Client = require('shopify-buy');
 var config = require('../config/config');
 
 // Initializing a client to return content in the store's primary language
-const client = Client.buildClient(config.dev2);
+const client = Client.buildClient(config.dev);
 
 // console.log("client", client);
 
@@ -98,17 +98,11 @@ var fetchById = function (productId) {
 // Fetch all products in your shop
 var fetchAll = function () {
   return new Promise((resolve, reject) => {
-    return client.product.fetchAll(250)
+    return client.product.fetchAll()
       .then((products) => {
-        /*if (products) {
-          console.log('vini trovati su shopify', products.length);
-          products.forEach(product => {
-            console.log('nome vino:', product.title);
-          })
-        }*/
         // Do something with the products
-        // productId = products[0].id;
-        // productVariantId = products[0].variants[0].id;
+        productId = products[0].id;
+        productVariantId = products[0].variants[0].id;
         // console.log('number of products ---> ', products.length);
         // console.log('products[0] ---> ', products[0]);
         // console.log('products[0].title --->', products[0].title);
@@ -160,11 +154,11 @@ var addLineItems = function (checkoutId, lineItemsToAdd) {
 var updateLineItems = function (checkoutId, lineItemsToUpdate) {
   return new Promise((resolve, reject) => {
     return client.checkout.updateLineItems(checkoutId, lineItemsToUpdate).then((checkout) => {
-        // Do something with the updated checkout
-        console.log('id we need to remember to update this particular lineitem');
-        console.log('checkout.lineItems[0].id ---> ', checkout.lineItems[0].id); // Array with one additional line item
-        resolve(checkout);
-      })
+      // Do something with the updated checkout
+      console.log('id we need to remember to update this particular lineitem');
+      console.log('checkout.lineItems[0].id ---> ', checkout.lineItems[0].id);// Array with one additional line item
+      resolve(checkout);
+    })
       .catch(error => {
         console.log('error ---> ', error);
         resolve();
@@ -178,10 +172,10 @@ var updateLineItems = function (checkoutId, lineItemsToUpdate) {
 var removeLineItems = function (checkoutId, lineItemIdsToRemove) {
   return new Promise((resolve, reject) => {
     client.checkout.removeLineItems(checkoutId, lineItemIdsToRemove).then((checkout) => {
-        // Do something with the updated checkout
-        console.log(checkout.lineItems); // Checkout with line item 'Z2lkOi8vc2hvcGlmeS9Qcm9kdWN0Lzc4NTc5ODkzODQ=' removed
-        resolve(checkout);
-      })
+      // Do something with the updated checkout
+      console.log(checkout.lineItems); // Checkout with line item 'Z2lkOi8vc2hvcGlmeS9Qcm9kdWN0Lzc4NTc5ODkzODQ=' removed
+      resolve(checkout);
+    })
       .catch(err => {
         console.log('qualcosa non è andato nella rimozione dell\'elemento', err);
         resolve();
