@@ -10463,6 +10463,7 @@
     "listaParoleChiavePerCategoria": {
         "antipastiContorni": [
             "Garlic Mushrooms",
+            "Antipasticontorni",
             "Baked beans",
             "Nachos",
             "Tacos",
@@ -10483,6 +10484,7 @@
         ],
         "primi": [
             "Spaghetti with meatballs",
+            "Primi",
             "Spaghetti with tomato sauce",
             "Spaghetti alla marinara",
             "Spaghetti with shrimps",
@@ -10508,6 +10510,7 @@
         ],
         "secondi": [
             "Chicken masala",
+            "Secondi",
             "Oysters Rockefeller",
             "Enchiladas",
             "Lobster rolls",
@@ -10547,6 +10550,7 @@
         ],
         "dessert": [
             "Apple pie",
+            "Dessert",
             "Pancakes",
             "Chocolate mud cake",
             "Cheesecake",
@@ -10558,6 +10562,7 @@
         ],
         "ricetteItaliane": [
             "Carbonara",
+            "Ricette italiane",
             "Matriciana",
             "Gricia",
             "cacio e pepe",
@@ -10713,17 +10718,28 @@
         "listaVini": [
             "Mystery Box | 3 bottles",
             "SantElmo Conti Serristori",
+            "Sweet",
             "Coribante Castello Monaci",
+            "Velvety",
+            "Rich & elegant",
+            "Dry",
             "Cream Liquors LUXE pack | 6x 700ml",
             "Crema di Grappa",
             "Crema di Pistacchio",
             "Crema di Fragole",
+            "Fruity",
             "Crema di Cioccolato",
+            "Me time",
             "Crema di Caffè",
             "Crema di Limoncino",
+            "Refreshing",
             "Hello, Summer! 6-pack",
             "Amor diVino",
+            "Bubbly",
+            "Romantic",
             "Hugo",
+            "Floral",
+            "Easy drinking",
             "Conti Serristori Rosso di Toscana",
             "Vermouth Bianco Superiore",
             "Vermouth Rosso Superiore",
@@ -10736,6 +10752,7 @@
             "Blanc de Blancs Cuvée Monogram",
             "Family's Treasure | 3-pack Reds",
             "Libero RISERVA DI FAMIGLIA",
+            "Impressing",
             "Iconic Baby Blumond & Volare | 12x375mL pack",
             "Made in Tuscany, with Love ❤️ | 6-pack",
             "Pinot Grigio del Collio | Conti F.",
@@ -10767,7 +10784,24 @@
             "Libero Chianti DOCG",
             "Volare",
             "Splendia Fragolino",
-            "Blumond™ Blue Bubbly"
+            "Blumond™ Blue Bubbly",
+            "Celebratory"
+        ],
+        "listaAbbinamentiGenerali": [
+            "carne bianca",
+            "abbinamenti generali",
+            "antipasto/contorno",
+            "carne rossa",
+            "pesce",
+            "formaggio",
+            "verdure",
+            "uova",
+            "crostacei",
+            "molluschi",
+            "primo",
+            "secondo",
+            "torta",
+            "dolce"
         ]
     }
 }

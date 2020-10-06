@@ -325,8 +325,17 @@ function aggiornamentoListeVarieDaRicette(listaRicette) {
 
 function estrazioneParoleChiavePerCategoria(raccoglitore, lista, nomeCategoria) {
   var arrayTmp = [];
-  lista.forEach((item, i) => {
-    arrayTmp.push(item.nome);
+  lista.forEach((elem) => {
+    if (!arrayTmp.includes(elem.nome)) {
+      arrayTmp.push(elem.nome);
+    }
+    if (elem.tags) {
+      elem.tags.forEach(tag => {
+        if (!arrayTmp.includes(tag)) {
+          arrayTmp.push(tag);
+        }
+      });
+    }
   });
   raccoglitore[nomeCategoria] = arrayTmp;
   return arrayTmp;
@@ -358,7 +367,7 @@ function estrazioneAbbinamentiGenerali(nomePagina) {
       strutturaAbbinamento.nome = listaPagina[i].D.toLowerCase();
       strutturaAbbinamento.tags = [nomePagina.toLowerCase(), listaPagina[i].B.toLowerCase()];
       strutturaAbbinamento.viniProposti = estrazioneViniConAggiornamentoListaVini(listaPagina[i], colonneVini);
-      if(listaPagina[i].H) {
+      if (listaPagina[i].H) {
         strutturaAbbinamento.motivazione = listaPagina[i].H; // normalmente la motivazione sta in J
       }
       idAbbinamento++;
@@ -400,7 +409,7 @@ function estrazioneListaOccasioni(nomePagina) {
       strutturaOccasione.id = idOccasioni;
       strutturaOccasione.nome = listaPagina[i].B.toLowerCase();
       strutturaOccasione.viniProposti = estrazioneViniConAggiornamentoListaVini(listaPagina[i], colonneVini);
-      if(listaPagina[i].H) {
+      if (listaPagina[i].H) {
         strutturaOccasione.motivazione = listaPagina[i].H;
       }
       idOccasioni++;
@@ -429,10 +438,10 @@ function estrazioneAggettiviVino(nomePagina) {
   return listaAggettiviVino;
 }
 
-function associazioneAggettiviAiVini (listaVini, listaAggettiviVino) {
+function associazioneAggettiviAiVini(listaVini, listaAggettiviVino) {
   listaAggettiviVino.forEach(element => {
     var vinoTmp = somiglianzaNomiVini(element.nome, listaVini);
-    if(vinoTmp) {
+    if (vinoTmp) {
       vinoTmp.tags = element.tags;
     }
   });
@@ -490,6 +499,7 @@ var wrapUpFunction = function () {
         estrazioneParoleChiavePerCategoria(listaParoleChiavePerCategoria, ingredientiPrincipali, 'ingredientiPrincipali');
         estrazioneParoleChiavePerCategoria(listaParoleChiavePerCategoria, ingredientiSecondari, 'ingredientiSecondari');
         estrazioneParoleChiavePerCategoria(listaParoleChiavePerCategoria, listaVini, 'listaVini');
+        estrazioneParoleChiavePerCategoria(listaParoleChiavePerCategoria, listaAbbinamentiGenerali, 'listaAbbinamentiGenerali');
         // estrazioneParoleChiavePerCategoria();
         // console.log('parole chiave per categoria',listaParoleChiavePerCategoria);
         // console.log('\nlista ricette:\n', listaCompletaRicette);
