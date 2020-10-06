@@ -3,6 +3,11 @@
         "domain": "test-hej.myshopify.com",
         "storefrontAccessToken": "ab5232770d3011658fd90b0cf536a8c0"
     },
+    "dev2": {
+        "domain": "apac-saraceni-wines.myshopify.com",
+        "storefrontAccessToken": "70a2457eca91a8dc932ca858138992e1"
+
+    },
     "prod": {
         "domain": "",
         "storefrontAccessToken": ""
