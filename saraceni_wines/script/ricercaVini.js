@@ -82,7 +82,7 @@ var metodoScelto = function (richiestaUtente) {
   var listaParoleChiavePerCategoria = data.listaParoleChiavePerCategoria;
   var listaAbbinamentiGenerali = data.listaAbbinamentiGenerali;
   var listaOccasioni = data.listaOccasioni;
-  var listaAbbinamentiPerTipologia = data.listaAbbinamentiPerTipologia;
+  // var listaAbbinamentiPerTipologia = data.listaAbbinamentiPerTipologia;
   var listaParoleChiave = data.listaParoleChiave;
   var listaIngredientiPrincipali = data.listaIngredientiPrincipali;
   var listaIngredientiSecondari = data.listaIngredientiSecondari;
@@ -94,9 +94,9 @@ var metodoScelto = function (richiestaUtente) {
 
   var nomiRicette = listaRicette.map(ricetta => ricetta.nome.tokenizeAndStem());
   var abbinamentiGenerali = listaAbbinamentiGenerali.map(tipo => tipo.nome.tokenizeAndStem()); //abbinamenti generali non usato
-  var abbinamentiPerTipologiaTags = funzioniGeneriche.concatTags(listaAbbinamentiPerTipologia);
-  var abbinamentiPerTipologia = listaAbbinamentiPerTipologia.map(tipo => tipo.nome.tokenizeAndStem());
-  abbinamentiPerTipologia = abbinamentiPerTipologia.concat(abbinamentiPerTipologiaTags);
+  // var abbinamentiPerTipologiaTags = funzioniGeneriche.concatTags(listaAbbinamentiPerTipologia);
+  // var abbinamentiPerTipologia = listaAbbinamentiPerTipologia.map(tipo => tipo.nome.tokenizeAndStem());
+  // abbinamentiPerTipologia = abbinamentiPerTipologia.concat(abbinamentiPerTipologiaTags);
   // var antipastiContorni = listaParoleChiavePerCategoria.antipastiContorni.map(parola => parola.stem());
   // var primi = listaParoleChiavePerCategoria.primi.map(parola => parola.stem());
   // var secondi = listaParoleChiavePerCategoria.secondi.map(parola => parola.stem());
@@ -108,8 +108,8 @@ var metodoScelto = function (richiestaUtente) {
 
   nomiRicette = nomiRicette.filter(array => array.length !== 0);
   abbinamentiGenerali = abbinamentiGenerali.filter(array => array.length !== 0);
-  abbinamentiPerTipologiaTags = abbinamentiPerTipologiaTags.filter(array => array.length !== 0);
-  abbinamentiPerTipologia = abbinamentiPerTipologia.filter(array => array.length !== 0);
+  // abbinamentiPerTipologiaTags = abbinamentiPerTipologiaTags.filter(array => array.length !== 0);
+  // abbinamentiPerTipologia = abbinamentiPerTipologia.filter(array => array.length !== 0);
   ingredientiPrincipali = ingredientiPrincipali.filter(array => array.length !== 0);
   ingredientiSecondari = ingredientiSecondari.filter(array => array.length !== 0);
   // console.log('abbinamentipertipologiatags dopo l\'arrayizzazione dei vari tag', abbinamentiPerTipologiaTags);
@@ -119,8 +119,7 @@ var metodoScelto = function (richiestaUtente) {
     abbinamentiGenerali,
     occasioni,
     ingredientiPrincipali,
-    ingredientiSecondari,
-    abbinamentiPerTipologia
+    ingredientiSecondari
   ];
 
   var paroleDaCercare = richiestaUtente.tokenizeAndStem();
@@ -174,7 +173,7 @@ var metodoScelto = function (richiestaUtente) {
   } else if (indexScelto == '4') {
     var listaPapabile = ricetteTrovateDaIngredienti(paroleDaCercareFiltrate, listaIngredientiSecondari, listaRicette);
   } else if (indexScelto == '5') {
-    var listaPapabile = abbinamentoTrovatoPerTipologia(paroleDaCercareFiltrate, listaAbbinamentiPerTipologia);
+    //var listaPapabile = abbinamentoTrovatoPerTipologia(paroleDaCercareFiltrate, listaAbbinamentiPerTipologia);
   }
   
   console.log('listaPapabile', listaPapabile);
