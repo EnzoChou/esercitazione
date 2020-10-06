@@ -94,6 +94,7 @@ var metodoScelto = function (richiestaUtente) {
 
   var nomiRicette = listaRicette.map(ricetta => ricetta.nome.tokenizeAndStem());
   var abbinamentiGenerali = listaAbbinamentiGenerali.map(tipo => tipo.nome.tokenizeAndStem()); //abbinamenti generali non usato
+  var nomiVini = listaParoleChiavePerCategoria.listaVini.map(vino => vino.tokenizeAndStem());
   // var abbinamentiPerTipologiaTags = funzioniGeneriche.concatTags(listaAbbinamentiPerTipologia);
   // var abbinamentiPerTipologia = listaAbbinamentiPerTipologia.map(tipo => tipo.nome.tokenizeAndStem());
   // abbinamentiPerTipologia = abbinamentiPerTipologia.concat(abbinamentiPerTipologiaTags);
