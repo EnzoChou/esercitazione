@@ -162,8 +162,8 @@ function estrazioneListaVini(nomeVino) {
     vinoTmp.nome = nomeVino;
     idVini++;
     console.log('\n\nvino non trovato, ne creo uno nuovo ---> ', vinoTmp);
+    listaVini.push(vinoTmp);
   }
-  listaVini.push(vinoTmp);
   console.log('\n\nil vino associato è ---> ', vinoTmp);
   return vinoTmp;
 }
@@ -307,16 +307,16 @@ function estrazioneParoleChiavePerCategoria(raccoglitore, lista, nomeCategoria) 
 
 function estrazioneParoleChiave(lista) {
   var arrayTmp = [];
-  for (let i = 0; i < lista.length; i++) {
-    arrayTmp.push(lista[i].nome);
-    if (lista[i].tags) {
-      for (let j = 0; j < lista[i].tags.length; j++) {
-        if (!arrayTmp.includes(lista[i].tags[j])) {
-          arrayTmp = arrayTmp.concat(lista[i].tags[j]);
+  lista.forEach(elem => {
+    arrayTmp.push(elem.nome);
+    if(elem.tags) {
+      elem.tags.forEach(tag => {
+        if(!arrayTmp.includes(tag)) {
+          arrayTmp.push(tag);
         }
-      }
+      });
     }
-  }
+  })
   return arrayTmp;
 }
 
@@ -404,14 +404,14 @@ var wrapUpFunction = function () {
         dessert = estrazioneListaRicette('Dessert');
         ricetteItaliane = estrazioneListaRicette('Ricette italiane');
         listaAbbinamentiGenerali = estrazioneAbbinamentiGenerali('Abbinamenti generali');
-        listaAbbinamentiPerTipologia = estrazioneAbbinamentiPerTipologia('Ingredienti Principali');
+        // listaAbbinamentiPerTipologia = estrazioneAbbinamentiPerTipologia('Ingredienti Principali');
         listaOccasioni = estrazioneListaOccasioni('Abbinamenti occasioni');
         listaCompletaRicette = antipastiContorni.concat(primi, secondi, dessert, ricetteItaliane);
         aggiornamentoListeVarieDaRicette(listaCompletaRicette);
         estrazioneParoleChiave(listaCompletaRicette);
         listaParoleChiave = listaParoleChiave.concat(
           estrazioneParoleChiave(listaCompletaRicette),
-          estrazioneParoleChiave(listaAbbinamentiPerTipologia),
+        //  estrazioneParoleChiave(listaAbbinamentiPerTipologia),
           estrazioneParoleChiave(ingredientiPrincipali),
           estrazioneParoleChiave(ingredientiSecondari),
           estrazioneParoleChiave(listaOccasioni)
@@ -439,7 +439,7 @@ var wrapUpFunction = function () {
       .then(obj => {
         var strutture = {
           listaRicette: listaCompletaRicette,
-          listaAbbinamentiPerTipologia: listaAbbinamentiPerTipologia,
+          // listaAbbinamentiPerTipologia: listaAbbinamentiPerTipologia,
           listaAbbinamentiGenerali: listaAbbinamentiGenerali,
           listaIngredientiPrincipali: ingredientiPrincipali,
           listaIngredientiSecondari: ingredientiSecondari,
@@ -453,6 +453,9 @@ var wrapUpFunction = function () {
       .then(strutture => {
         console.log('sono stati inventati gli id di', idVini - 1, 'vini!');
         resolve(toJsonFile(strutture));
+      })
+      .catch(err => {
+        console.log('c\'è stato un errore', err);
       })
 
   })
