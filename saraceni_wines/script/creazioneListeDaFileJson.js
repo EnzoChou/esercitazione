@@ -98,6 +98,7 @@ var listaParoleChiavePerCategoria = {};
 var listaAggettiviVino = [];
 // var ricettaToVini = {};
 var listaVini = []; // LISTA VINI
+var listaViniConAggettivi = [];
 var idRicetta = 1;
 var idIngredientePrincipale = 1;
 var idIngredienteSecondario = 1;
@@ -479,6 +480,7 @@ var wrapUpFunction = function () {
         listaOccasioni = estrazioneListaOccasioni('Abbinamenti occasioni');
         listaAggettiviVino = estrazioneAggettiviVino('Aggettivi vino');
         associazioneAggettiviAiVini(listaVini, listaAggettiviVino);
+        listaViniConAggettivi = listaVini.filter(vino => vino.tags.length>0);
 
         listaCompletaRicette = antipastiContorni.concat(primi, secondi, dessert, ricetteItaliane);
         aggiornamentoListeVarieDaRicette(listaCompletaRicette);
@@ -488,7 +490,8 @@ var wrapUpFunction = function () {
           //  estrazioneParoleChiave(listaAbbinamentiPerTipologia),
           estrazioneParoleChiave(ingredientiPrincipali),
           estrazioneParoleChiave(ingredientiSecondari),
-          estrazioneParoleChiave(listaOccasioni)
+          estrazioneParoleChiave(listaOccasioni),
+          estrazioneParoleChiave(listaVini)
         );
 
         estrazioneParoleChiavePerCategoria(listaParoleChiavePerCategoria, antipastiContorni, 'antipastiContorni');
@@ -521,6 +524,7 @@ var wrapUpFunction = function () {
           listaIngredientiSecondari: ingredientiSecondari,
           listaOccasioni: listaOccasioni,
           listaVini: listaVini,
+          listaViniConAggettivi: listaViniConAggettivi,
           listaParoleChiave: listaParoleChiave,
           listaParoleChiavePerCategoria: listaParoleChiavePerCategoria
         };

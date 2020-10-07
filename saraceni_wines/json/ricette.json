@@ -10186,6 +10186,435 @@
             "sicurezzaAbbinamento": 1
         }
     ],
+    "listaViniConAggettivi": [
+        {
+            "id": "Z2lkOi8vc2hvcGlmeS9Qcm9kdWN0LzQ3MDQ1MDc0OTQ0ODE=",
+            "variantsId": "Z2lkOi8vc2hvcGlmeS9Qcm9kdWN0VmFyaWFudC8zMjY3NDkwMzI5NDAzMw==",
+            "nome": "SantElmo Conti Serristori",
+            "tags": [
+                "Sweet"
+            ],
+            "prezzo": "16.99",
+            "immagine": "https://cdn.shopify.com/s/files/1/0101/2416/5201/products/70.png?v=1601648609",
+            "sicurezzaAbbinamento": 1
+        },
+        {
+            "id": "Z2lkOi8vc2hvcGlmeS9Qcm9kdWN0LzQ3MDQ1MDc1NjAwMTc=",
+            "variantsId": "Z2lkOi8vc2hvcGlmeS9Qcm9kdWN0VmFyaWFudC8zMjY3NDkwMzM1OTU2OQ==",
+            "nome": "Coribante Castello Monaci",
+            "tags": [
+                "Velvety",
+                "Rich & elegant",
+                "Dry"
+            ],
+            "prezzo": "24.00",
+            "immagine": "https://cdn.shopify.com/s/files/1/0101/2416/5201/products/71.png?v=1601648612",
+            "sicurezzaAbbinamento": 1
+        },
+        {
+            "id": "Z2lkOi8vc2hvcGlmeS9Qcm9kdWN0LzQ3MDQ1MDc2MjU1NTM=",
+            "variantsId": "Z2lkOi8vc2hvcGlmeS9Qcm9kdWN0VmFyaWFudC8zMjY3NDkwMzQyNTEwNQ==",
+            "nome": "Crema di Grappa",
+            "tags": [
+                "Velvety",
+                "Sweet"
+            ],
+            "prezzo": "26.00",
+            "immagine": "https://cdn.shopify.com/s/files/1/0101/2416/5201/products/74.jpg?v=1601648616",
+            "sicurezzaAbbinamento": 1
+        },
+        {
+            "id": "Z2lkOi8vc2hvcGlmeS9Qcm9kdWN0LzQ3MDQ1MDc2NTgzMjE=",
+            "variantsId": "Z2lkOi8vc2hvcGlmeS9Qcm9kdWN0VmFyaWFudC8zMjY3NDkwMzQ5MDY0MQ==",
+            "nome": "Crema di Pistacchio",
+            "tags": [
+                "Velvety",
+                "Sweet"
+            ],
+            "prezzo": "26.00",
+            "immagine": "https://cdn.shopify.com/s/files/1/0101/2416/5201/products/75.jpg?v=1601648618",
+            "sicurezzaAbbinamento": 1
+        },
+        {
+            "id": "Z2lkOi8vc2hvcGlmeS9Qcm9kdWN0LzQ3MDQ1MDc3MjM4NTc=",
+            "variantsId": "Z2lkOi8vc2hvcGlmeS9Qcm9kdWN0VmFyaWFudC8zMjY3NDkwMzcyMDAxNw==",
+            "nome": "Crema di Fragole",
+            "tags": [
+                "Velvety",
+                "Sweet",
+                "Fruity"
+            ],
+            "prezzo": "26.00",
+            "immagine": "https://cdn.shopify.com/s/files/1/0101/2416/5201/products/73.jpg?v=1601648621",
+            "sicurezzaAbbinamento": 1
+        },
+        {
+            "id": "Z2lkOi8vc2hvcGlmeS9Qcm9kdWN0LzQ3MDQ1MDc3ODkzOTM=",
+            "variantsId": "Z2lkOi8vc2hvcGlmeS9Qcm9kdWN0VmFyaWFudC8zMjY3NDkwMzg1MTA4OQ==",
+            "nome": "Crema di Cioccolato",
+            "tags": [
+                "Velvety",
+                "Sweet",
+                "Me time"
+            ],
+            "prezzo": "26.00",
+            "immagine": "https://cdn.shopify.com/s/files/1/0101/2416/5201/products/72.jpg?v=1601648623",
+            "sicurezzaAbbinamento": 1
+        },
+        {
+            "id": "Z2lkOi8vc2hvcGlmeS9Qcm9kdWN0LzQ3MDQ1MDc4MjIxNjE=",
+            "variantsId": "Z2lkOi8vc2hvcGlmeS9Qcm9kdWN0VmFyaWFudC8zMjY3NDkwMzg4Mzg1Nw==",
+            "nome": "Crema di Caffè",
+            "tags": [
+                "Velvety",
+                "Sweet"
+            ],
+            "prezzo": "26.00",
+            "immagine": "https://cdn.shopify.com/s/files/1/0101/2416/5201/products/71.jpg?v=1601648625",
+            "sicurezzaAbbinamento": 0.9714285714285714
+        },
+        {
+            "id": "Z2lkOi8vc2hvcGlmeS9Qcm9kdWN0LzQ3MDQ1MDc4NTQ5Mjk=",
+            "variantsId": "Z2lkOi8vc2hvcGlmeS9Qcm9kdWN0VmFyaWFudC8zMjY3NDkwMzkxNjYyNQ==",
+            "nome": "Crema di Limoncino",
+            "tags": [
+                "Refreshing",
+                "Sweet",
+                "Fruity"
+            ],
+            "prezzo": "26.00",
+            "immagine": "https://cdn.shopify.com/s/files/1/0101/2416/5201/products/76.jpg?v=1601648627",
+            "sicurezzaAbbinamento": 1
+        },
+        {
+            "id": "Z2lkOi8vc2hvcGlmeS9Qcm9kdWN0LzQ3MDQ1MDgwMTg3Njk=",
+            "variantsId": "Z2lkOi8vc2hvcGlmeS9Qcm9kdWN0VmFyaWFudC8zMjY3NDkwNDE3ODc2OQ==",
+            "nome": "Amor diVino",
+            "tags": [
+                "Bubbly",
+                "Sweet",
+                "Romantic"
+            ],
+            "prezzo": "21.99",
+            "immagine": "https://cdn.shopify.com/s/files/1/0101/2416/5201/products/13_5c286235-1c99-444b-87a9-c013e7806e51.png?v=1601648636",
+            "sicurezzaAbbinamento": 1
+        },
+        {
+            "id": "Z2lkOi8vc2hvcGlmeS9Qcm9kdWN0LzQ3MDQ1MDgwODQzMDU=",
+            "variantsId": "Z2lkOi8vc2hvcGlmeS9Qcm9kdWN0VmFyaWFudC8zMjY3NDkwNDI3NzA3Mw==",
+            "nome": "Hugo",
+            "tags": [
+                "Refreshing",
+                "Bubbly",
+                "Floral",
+                "Easy drinking"
+            ],
+            "prezzo": "21.99",
+            "immagine": "https://cdn.shopify.com/s/files/1/0101/2416/5201/products/18_95622866-5cfc-452f-9c9a-a8e337db6b6a.png?v=1601648644",
+            "sicurezzaAbbinamento": 1
+        },
+        {
+            "id": "Z2lkOi8vc2hvcGlmeS9Qcm9kdWN0LzQ3MDQ1MDg2MDg1OTM=",
+            "variantsId": "Z2lkOi8vc2hvcGlmeS9Qcm9kdWN0VmFyaWFudC8zMjY3NDkwNDk5Nzk2OQ==",
+            "nome": "Conti Serristori Rosso di Toscana",
+            "tags": [
+                "Dry",
+                "Easy drinking"
+            ],
+            "prezzo": "20.00",
+            "immagine": "https://cdn.shopify.com/s/files/1/0101/2416/5201/products/Copy_of_Store_-_Pdt_images_3.png?v=1601648670",
+            "sicurezzaAbbinamento": 0.90208658008658
+        },
+        {
+            "id": "Z2lkOi8vc2hvcGlmeS9Qcm9kdWN0LzQ3MDQ1MDgyMTUzNzc=",
+            "variantsId": "Z2lkOi8vc2hvcGlmeS9Qcm9kdWN0VmFyaWFudC8zMjY3NDkwNDQ3MzY4MQ==",
+            "nome": "Vermouth Bianco Superiore",
+            "tags": [
+                "Sweet",
+                "Floral"
+            ],
+            "prezzo": "31.00",
+            "immagine": "https://cdn.shopify.com/s/files/1/0101/2416/5201/products/53.png?v=1601648652",
+            "sicurezzaAbbinamento": 1
+        },
+        {
+            "id": "Z2lkOi8vc2hvcGlmeS9Qcm9kdWN0LzQ3MDQ1MDgzNDY0NDk=",
+            "variantsId": "Z2lkOi8vc2hvcGlmeS9Qcm9kdWN0VmFyaWFudC8zMjY3NDkwNDgwMTM2MQ==",
+            "nome": "Vermouth Rosso Superiore",
+            "tags": [
+                "Sweet",
+                "Floral"
+            ],
+            "prezzo": "31.00",
+            "immagine": "https://cdn.shopify.com/s/files/1/0101/2416/5201/products/52.png?v=1601648660",
+            "sicurezzaAbbinamento": 1
+        },
+        {
+            "id": "Z2lkOi8vc2hvcGlmeS9Qcm9kdWN0LzQ3MDQ1MDg0NDQ3NTM=",
+            "variantsId": "Z2lkOi8vc2hvcGlmeS9Qcm9kdWN0VmFyaWFudC8zMjY3NDkwNDg5OTY2NQ==",
+            "nome": "Chardonnay del Collio | Conti F.",
+            "tags": [
+                "Floral",
+                "Dry"
+            ],
+            "prezzo": "22.00",
+            "immagine": "https://cdn.shopify.com/s/files/1/0101/2416/5201/products/Copy_of_Store_-_Pdt_images_5.png?v=1601648663",
+            "sicurezzaAbbinamento": 0.93125
+        },
+        {
+            "id": "Z2lkOi8vc2hvcGlmeS9Qcm9kdWN0LzQ3MDQ1MDg3Mzk2NjU=",
+            "variantsId": "Z2lkOi8vc2hvcGlmeS9Qcm9kdWN0VmFyaWFudC8zMjY3NDkwNTA5NjI3Mw==",
+            "nome": "Dosage Zéro Millesimato Cuvée Monogram",
+            "tags": [
+                "Bubbly",
+                "Dry"
+            ],
+            "prezzo": "32.00",
+            "immagine": "https://cdn.shopify.com/s/files/1/0101/2416/5201/products/25.png?v=1601648676",
+            "sicurezzaAbbinamento": 0.8726147264713509
+        },
+        {
+            "id": "Z2lkOi8vc2hvcGlmeS9Qcm9kdWN0LzQ3MDQ1MDg4MDUyMDE=",
+            "variantsId": "Z2lkOi8vc2hvcGlmeS9Qcm9kdWN0VmFyaWFudC8zMjY3NDkwNTE2MTgwOQ==",
+            "nome": "Rosé Cuvée Monogram",
+            "tags": [
+                "Bubbly",
+                "Dry"
+            ],
+            "prezzo": "26.00",
+            "immagine": "https://cdn.shopify.com/s/files/1/0101/2416/5201/products/23.png?v=1601648678",
+            "sicurezzaAbbinamento": 0.958421052631579
+        },
+        {
+            "id": "Z2lkOi8vc2hvcGlmeS9Qcm9kdWN0LzQ3MDQ1MDg4NzA3Mzc=",
+            "variantsId": "Z2lkOi8vc2hvcGlmeS9Qcm9kdWN0VmFyaWFudC8zMjY3NDkwNTIyNzM0NQ==",
+            "nome": "Satèn Cuvée Monogram",
+            "tags": [
+                "Bubbly",
+                "Dry"
+            ],
+            "prezzo": "28.00",
+            "immagine": "https://cdn.shopify.com/s/files/1/0101/2416/5201/products/24.png?v=1601648682",
+            "sicurezzaAbbinamento": 0.9398245614035088
+        },
+        {
+            "id": "Z2lkOi8vc2hvcGlmeS9Qcm9kdWN0LzQ3MDQ1MDg5MzYyNzM=",
+            "variantsId": "Z2lkOi8vc2hvcGlmeS9Qcm9kdWN0VmFyaWFudC8zMjY3NDkwNjQzOTc2MQ==",
+            "nome": "Blanc de Blancs Cuvée Monogram",
+            "tags": [
+                "Bubbly",
+                "Dry"
+            ],
+            "prezzo": "27.99",
+            "immagine": "https://cdn.shopify.com/s/files/1/0101/2416/5201/products/22.png?v=1601648685",
+            "sicurezzaAbbinamento": 1
+        },
+        {
+            "id": "Z2lkOi8vc2hvcGlmeS9Qcm9kdWN0LzQ3MDQ1MDkwMDE4MDk=",
+            "variantsId": "Z2lkOi8vc2hvcGlmeS9Qcm9kdWN0VmFyaWFudC8zMjY3NDkwNjU3MDgzMw==",
+            "nome": "Libero RISERVA DI FAMIGLIA",
+            "tags": [
+                "Rich & elegant",
+                "Me time",
+                "Impressing"
+            ],
+            "prezzo": "30.00",
+            "immagine": "https://cdn.shopify.com/s/files/1/0101/2416/5201/products/9.png?v=1601648695",
+            "sicurezzaAbbinamento": 0.9464882943143813
+        },
+        {
+            "id": "Z2lkOi8vc2hvcGlmeS9Qcm9kdWN0LzQ3MDQ1MDkxMzI4ODE=",
+            "variantsId": "Z2lkOi8vc2hvcGlmeS9Qcm9kdWN0VmFyaWFudC8zMjY3NDkwNzA5NTEyMQ==",
+            "nome": "Pinot Grigio del Collio | Conti F.",
+            "tags": [
+                "Floral",
+                "Dry"
+            ],
+            "prezzo": "22.00",
+            "immagine": "https://cdn.shopify.com/s/files/1/0101/2416/5201/products/Copy_of_Store_-_Pdt_images_4.png?v=1601648706",
+            "sicurezzaAbbinamento": 0.9352941176470588
+        },
+        {
+            "id": "Z2lkOi8vc2hvcGlmeS9Qcm9kdWN0LzQ3MDQ1MDk5MTkzMTM=",
+            "variantsId": "Z2lkOi8vc2hvcGlmeS9Qcm9kdWN0VmFyaWFudC8zMjY3NDkwODI0MjAwMQ==",
+            "nome": "Mario! The Sparkling Lemoncello",
+            "tags": [
+                "Refreshing",
+                "Bubbly"
+            ],
+            "prezzo": "21.99",
+            "immagine": "https://cdn.shopify.com/s/files/1/0101/2416/5201/products/4.png?v=1601648753",
+            "sicurezzaAbbinamento": 1
+        },
+        {
+            "id": "Z2lkOi8vc2hvcGlmeS9Qcm9kdWN0LzQ3MDQ1MDk5NTIwODE=",
+            "variantsId": "Z2lkOi8vc2hvcGlmeS9Qcm9kdWN0VmFyaWFudC8zMjY3NDkwODMwNzUzNw==",
+            "nome": "Limoncello d'Autore",
+            "tags": [
+                "Refreshing",
+                "Sweet"
+            ],
+            "prezzo": "25.00",
+            "immagine": "https://cdn.shopify.com/s/files/1/0101/2416/5201/products/20.png?v=1601648758",
+            "sicurezzaAbbinamento": 1
+        },
+        {
+            "id": "Z2lkOi8vc2hvcGlmeS9Qcm9kdWN0LzQ3MDQ1MTAwMTc2MTc=",
+            "variantsId": "Z2lkOi8vc2hvcGlmeS9Qcm9kdWN0VmFyaWFudC8zMjY3NDkwODUwNDE0NQ==",
+            "nome": "Albergaccio rosso di Toscana IGT",
+            "tags": [
+                "Dry",
+                "Easy drinking"
+            ],
+            "prezzo": "22.00",
+            "immagine": "https://cdn.shopify.com/s/files/1/0101/2416/5201/products/Copy_of_Store_-_Pdt_images_1_6ae761a5-8eb5-4d19-a49b-02cf70b84acd.png?v=1601648763",
+            "sicurezzaAbbinamento": 1
+        },
+        {
+            "id": "Z2lkOi8vc2hvcGlmeS9Qcm9kdWN0LzQ3MDQ1MTAxMTU5MjE=",
+            "variantsId": "Z2lkOi8vc2hvcGlmeS9Qcm9kdWN0VmFyaWFudC8zMjY3NDkwODYzNTIxNw==",
+            "nome": "Il Principe",
+            "tags": [
+                "Rich & elegant",
+                "Me time",
+                "Impressing",
+                "Dry"
+            ],
+            "prezzo": "32.00",
+            "immagine": "https://cdn.shopify.com/s/files/1/0101/2416/5201/products/Store_-_Pdt_images_3.png?v=1601648768",
+            "sicurezzaAbbinamento": 1
+        },
+        {
+            "id": "Z2lkOi8vc2hvcGlmeS9Qcm9kdWN0LzQ3MDQ1MTAxODE0NTc=",
+            "variantsId": "Z2lkOi8vc2hvcGlmeS9Qcm9kdWN0VmFyaWFudC8zMjY3NDkwODczMzUyMQ==",
+            "nome": "Fontalle Chianti Classico Gran Selezione",
+            "tags": [
+                "Rich & elegant",
+                "Me time",
+                "Impressing",
+                "Dry"
+            ],
+            "prezzo": "39.99",
+            "immagine": "https://cdn.shopify.com/s/files/1/0101/2416/5201/products/11.png?v=1601648774",
+            "sicurezzaAbbinamento": 1
+        },
+        {
+            "id": "Z2lkOi8vc2hvcGlmeS9Qcm9kdWN0LzQ3MDQ1MTAyNDY5OTM=",
+            "variantsId": "Z2lkOi8vc2hvcGlmeS9Qcm9kdWN0VmFyaWFudC8zMjY3NDkwODc5OTA1Nw==",
+            "nome": "Solatìo Chianti Classico",
+            "tags": [
+                "Rich & elegant",
+                "Me time",
+                "Dry"
+            ],
+            "prezzo": "28.00",
+            "immagine": "https://cdn.shopify.com/s/files/1/0101/2416/5201/products/13.png?v=1601648779",
+            "sicurezzaAbbinamento": 0.925
+        },
+        {
+            "id": "Z2lkOi8vc2hvcGlmeS9Qcm9kdWN0LzQ3MDQ1MTAzNzgwNjU=",
+            "variantsId": "Z2lkOi8vc2hvcGlmeS9Qcm9kdWN0VmFyaWFudC8zMjY3NDkwOTI1NzgwOQ==",
+            "nome": "Libero Bianco",
+            "tags": [
+                "Easy drinking",
+                "Dry"
+            ],
+            "prezzo": "18.00",
+            "immagine": "https://cdn.shopify.com/s/files/1/0101/2416/5201/products/10.png?v=1601648793",
+            "sicurezzaAbbinamento": 1
+        },
+        {
+            "id": "Z2lkOi8vc2hvcGlmeS9Qcm9kdWN0LzQ3MDQ1MTA0NzYzNjk=",
+            "variantsId": "Z2lkOi8vc2hvcGlmeS9Qcm9kdWN0VmFyaWFudC8zMjY3NDkwOTQyMTY0OQ==",
+            "nome": "Perlé Sparkling Red",
+            "tags": [
+                "Bubbly",
+                "Velvety"
+            ],
+            "prezzo": "21.99",
+            "immagine": "https://cdn.shopify.com/s/files/1/0101/2416/5201/products/6.png?v=1601648800",
+            "sicurezzaAbbinamento": 1
+        },
+        {
+            "id": "Z2lkOi8vc2hvcGlmeS9Qcm9kdWN0LzQ3MDQ1MTA1NzQ2NzM=",
+            "variantsId": "Z2lkOi8vc2hvcGlmeS9Qcm9kdWN0VmFyaWFudC8zMjY3NDkxMDYzNDA2NQ==",
+            "nome": "Prosecco DOC",
+            "tags": [
+                "Bubbly",
+                "Floral"
+            ],
+            "prezzo": "21.99",
+            "immagine": "https://cdn.shopify.com/s/files/1/0101/2416/5201/products/5.png?v=1601648807",
+            "sicurezzaAbbinamento": 1
+        },
+        {
+            "id": "Z2lkOi8vc2hvcGlmeS9Qcm9kdWN0LzQ3MDQ1MTA2MDc0NDE=",
+            "variantsId": "Z2lkOi8vc2hvcGlmeS9Qcm9kdWN0VmFyaWFudC8zMjY3NDkxMDY2NjgzMw==",
+            "nome": "Libero Toscana IGT",
+            "tags": [
+                "Rich & elegant",
+                "Velvety",
+                "Me time",
+                "Impressing"
+            ],
+            "prezzo": "31.00",
+            "immagine": "https://cdn.shopify.com/s/files/1/0101/2416/5201/products/8.png?v=1601648816",
+            "sicurezzaAbbinamento": 1
+        },
+        {
+            "id": "Z2lkOi8vc2hvcGlmeS9Qcm9kdWN0LzQ3MDQ1MTA2NzI5Nzc=",
+            "variantsId": "Z2lkOi8vc2hvcGlmeS9Qcm9kdWN0VmFyaWFudC8zMjY3NDkxMDc2NTEzNw==",
+            "nome": "Libero Chianti DOCG",
+            "tags": [
+                "Easy drinking",
+                "Velvety"
+            ],
+            "prezzo": "25.00",
+            "immagine": "https://cdn.shopify.com/s/files/1/0101/2416/5201/products/7_4e73b9f1-5748-4fd1-88de-838b6b3735a4.png?v=1601648824",
+            "sicurezzaAbbinamento": 0.9894736842105263
+        },
+        {
+            "id": "Z2lkOi8vc2hvcGlmeS9Qcm9kdWN0LzQ3MDQ1MTA3NzEyODE=",
+            "variantsId": "Z2lkOi8vc2hvcGlmeS9Qcm9kdWN0VmFyaWFudC8zMjY3NDkxMDg5NjIwOQ==",
+            "nome": "Volare",
+            "tags": [
+                "Refreshing",
+                "Bubbly",
+                "Easy drinking"
+            ],
+            "prezzo": "21.99",
+            "immagine": "https://cdn.shopify.com/s/files/1/0101/2416/5201/products/3.png?v=1601648833",
+            "sicurezzaAbbinamento": 1
+        },
+        {
+            "id": "Z2lkOi8vc2hvcGlmeS9Qcm9kdWN0LzQ3MDQ1MTA4Njk1ODU=",
+            "variantsId": "Z2lkOi8vc2hvcGlmeS9Qcm9kdWN0VmFyaWFudC8zMjY3NDkxMTAyNzI4MQ==",
+            "nome": "Splendia Fragolino",
+            "tags": [
+                "Sweet",
+                "Fruity",
+                "Bubbly",
+                "Romantic"
+            ],
+            "prezzo": "21.99",
+            "immagine": "https://cdn.shopify.com/s/files/1/0101/2416/5201/products/2.png?v=1601651163",
+            "sicurezzaAbbinamento": 1
+        },
+        {
+            "id": "Z2lkOi8vc2hvcGlmeS9Qcm9kdWN0LzQ3MDQ1MTA5MzUxMjE=",
+            "variantsId": "Z2lkOi8vc2hvcGlmeS9Qcm9kdWN0VmFyaWFudC8zMjY3NDkxMTA5MjgxNw==",
+            "nome": "Blumond™ Blue Bubbly",
+            "tags": [
+                "Bubbly",
+                "Sweet",
+                "Celebratory",
+                "Impressing"
+            ],
+            "prezzo": "21.99",
+            "immagine": "https://cdn.shopify.com/s/files/1/0101/2416/5201/products/1_9e15a519-1087-4160-a470-28f1942e1d40.png?v=1601648851",
+            "sicurezzaAbbinamento": 1
+        }
+    ],
     "listaParoleChiave": [
         "Garlic Mushrooms",
         "Antipasticontorni",
@@ -10458,7 +10887,77 @@
         "just the two of us",
         "celebrating good news",
         "winederlust",
-        "stop texting your ex"
+        "stop texting your ex",
+        "Mystery Box | 3 bottles",
+        "SantElmo Conti Serristori",
+        "Sweet",
+        "Coribante Castello Monaci",
+        "Velvety",
+        "Rich & elegant",
+        "Dry",
+        "Cream Liquors LUXE pack | 6x 700ml",
+        "Crema di Grappa",
+        "Crema di Pistacchio",
+        "Crema di Fragole",
+        "Fruity",
+        "Crema di Cioccolato",
+        "Me time",
+        "Crema di Caffè",
+        "Crema di Limoncino",
+        "Refreshing",
+        "Hello, Summer! 6-pack",
+        "Amor diVino",
+        "Bubbly",
+        "Romantic",
+        "Hugo",
+        "Floral",
+        "Easy drinking",
+        "Conti Serristori Rosso di Toscana",
+        "Vermouth Bianco Superiore",
+        "Vermouth Rosso Superiore",
+        "Chardonnay del Collio | Conti F.",
+        "Red, White and Blue... Bubbles! | 12x375mL pack",
+        "Franciacorta Discovery set",
+        "Dosage Zéro Millesimato Cuvée Monogram",
+        "Rosé Cuvée Monogram",
+        "Satèn Cuvée Monogram",
+        "Blanc de Blancs Cuvée Monogram",
+        "Family's Treasure | 3-pack Reds",
+        "Libero RISERVA DI FAMIGLIA",
+        "Impressing",
+        "Iconic Baby Blumond & Volare | 12x375mL pack",
+        "Made in Tuscany, with Love ❤️ | 6-pack",
+        "Pinot Grigio del Collio | Conti F.",
+        "Le Grillaie Vernaccia di S. Gimignano",
+        "'Bottled Sunshine' Baby Bubbly | 12x375mL pack",
+        "Baby Sparklers | 12x375mL pack",
+        "Baby Blumond® Party Kit",
+        "Baby Sparklers Party Kit",
+        "Baby Blumond® | 6x375ml pack",
+        "Let's Celebrate! 6-pack",
+        "Explore our World | 12-pack",
+        "Saraceni™ Private Tasting Room | 6-pack",
+        "Libero Signature Collection",
+        "Villa Machiavelli Jewels - Five Century of Chianti Classico History",
+        "Iconic Italian Sparklers | 3-pack",
+        "The Three Tuscan Tenors",
+        "Mario! The Sparkling Lemoncello",
+        "Limoncello d'Autore",
+        "Albergaccio rosso di Toscana IGT",
+        "Blumond MAGNUM Limited Edition",
+        "Il Principe",
+        "Fontalle Chianti Classico Gran Selezione",
+        "Solatìo Chianti Classico",
+        "Libero EVOO",
+        "Libero Bianco",
+        "Perlé Sparkling Red",
+        "Prosecco DOC",
+        "Libero Toscana IGT",
+        "Libero Chianti DOCG",
+        "Volare",
+        "Splendia Fragolino",
+        "Blumond™ Blue Bubbly",
+        "Celebratory"
     ],
     "listaParoleChiavePerCategoria": {
         "antipastiContorni": [

@@ -120,6 +120,24 @@ var filtroParoleInutili = function (listaParole, listaParoleChiave) {
   return listaParoleFiltrate;
 };
 
+var controlloAggettivi = function (arrayParole, viniProposti) {
+  console.log('viniProposti ----> ', viniProposti);
+  var viniConAggettivi = viniProposti.filter(vinoProposto => {
+    return vinoProposto.tags.some(tag => {
+      var paroleAnagrammate = anagrammaParole(arrayParole, tag);
+      return paroleAnagrammate.some(parolaAnagrammata => {
+        console.log('\nsomiglianza tra "' + parolaAnagrammata + '" e "' + tag + '" -----------> ', natural.JaroWinklerDistance(parolaAnagrammata, tag, undefined, true));
+        return natural.JaroWinklerDistance(parolaAnagrammata, tag, undefined, true) > 0.85;
+      })
+    })
+  })
+  if (viniConAggettivi.length > 0) {
+    return viniConAggettivi;
+  } else {
+    return viniProposti;
+  }
+};
+
 funzioniPerRicercaParole.ricetteDaIDs = ricetteDaIDs;
 funzioniPerRicercaParole.ricetteDaIngrediente = ricetteDaIngrediente;
 funzioniPerRicercaParole.ricetteDaIngredienti = ricetteDaIngredienti;
@@ -131,5 +149,6 @@ funzioniPerRicercaParole.filtroPerTag = filtroPerTag;
 funzioniPerRicercaParole.filtroListaDalNome = filtroListaDalNome;
 funzioniPerRicercaParole.concatTags = concatTags;
 funzioniPerRicercaParole.filtroParoleInutili = filtroParoleInutili;
+funzioniPerRicercaParole.controlloAggettivi = controlloAggettivi;
 
 module.exports = funzioniPerRicercaParole;
