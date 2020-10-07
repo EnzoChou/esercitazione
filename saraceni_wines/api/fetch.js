@@ -43,9 +43,9 @@ var fetch = function (productId) {
       });
   })
 };
-
+/*
 fetch(productId);
 fetch('Z2lkOi8vc2hvcGlmeS9Qcm9kdWN0LzQ3MDQ1MDc4ODc2OTc=');
 fetch('Z2lkOi8vc2hvcGlmeS9Qcm9kdWN0LzQ3MDQ1MDg0Nzc1MjE=');
-
+*/
 module.exports = fetch;

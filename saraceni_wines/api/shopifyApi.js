@@ -160,11 +160,11 @@ var addLineItems = function (checkoutId, lineItemsToAdd) {
 var updateLineItems = function (checkoutId, lineItemsToUpdate) {
   return new Promise((resolve, reject) => {
     return client.checkout.updateLineItems(checkoutId, lineItemsToUpdate).then((checkout) => {
-        // Do something with the updated checkout
-        console.log('id we need to remember to update this particular lineitem');
-        console.log('checkout.lineItems[0].id ---> ', checkout.lineItems[0].id); // Array with one additional line item
-        resolve(checkout);
-      })
+      // Do something with the updated checkout
+      console.log('id we need to remember to update this particular lineitem');
+      console.log('checkout.lineItems[0].id ---> ', checkout.lineItems[0].id); // Array with one additional line item
+      resolve(checkout);
+    })
       .catch(error => {
         console.log('error ---> ', error);
         resolve();
@@ -178,10 +178,10 @@ var updateLineItems = function (checkoutId, lineItemsToUpdate) {
 var removeLineItems = function (checkoutId, lineItemIdsToRemove) {
   return new Promise((resolve, reject) => {
     client.checkout.removeLineItems(checkoutId, lineItemIdsToRemove).then((checkout) => {
-        // Do something with the updated checkout
-        console.log(checkout.lineItems); // Checkout with line item 'Z2lkOi8vc2hvcGlmeS9Qcm9kdWN0Lzc4NTc5ODkzODQ=' removed
-        resolve(checkout);
-      })
+      // Do something with the updated checkout
+      console.log(checkout.lineItems); // Checkout with line item 'Z2lkOi8vc2hvcGlmeS9Qcm9kdWN0Lzc4NTc5ODkzODQ=' removed
+      resolve(checkout);
+    })
       .catch(err => {
         console.log('qualcosa non è andato nella rimozione dell\'elemento', err);
         resolve();
@@ -190,6 +190,42 @@ var removeLineItems = function (checkoutId, lineItemIdsToRemove) {
 };
 
 // removeLineItems(checkoutId, 'Z2lkOi8vc2hvcGlmeS9DaGVja291dExpbmVJdGVtLzM2MjYyMDUyNTkzODMwMD9jaGVja291dD1hZDczZTZhMWMyNDEzZTRkM2U0ZDNmZjY1MDJjMzI2NQ==');
+
+var fetchAllCollections = function () {
+  return new Promise((resolve, reject) => {
+    // Fetch all collections, including their products
+    client.collection.fetchAllWithProducts().then((collections) => {
+      // Do something with the collections
+      console.log(collections);
+      console.log(collections[0].products);
+      resolve(collections);
+    })
+    .catch(err => {
+      console.log('err in fetchAllWithProducts', err);
+      resolve(err);
+    });
+  })
+};
+
+var fetchCollectionById = function () {
+  return new Promise((resolve, reject) => {
+    
+    // Fetch a single collection by ID, including its products
+    const collectionId = 'Z2lkOi8vc2hvcGlmeS9Db2xsZWN0aW9uLzkzNzk5MTIwOTc3';
+    // Set a parameter for first x products, defaults to 20 if you don't provide a param
+
+    client.collection.fetchWithProducts(collectionId, { productsFirst: 10 }).then((collection) => {
+      // Do something with the collection
+      console.log(collection);
+      console.log(collection.products);
+      resolve(collection);
+    })
+    .catch(err => {
+      console.log('err in fetchWithProducts', err);
+      resolve(err);
+    });
+  })
+};
 
 var shopify = {};
 
@@ -200,5 +236,7 @@ shopify.fetchAll = fetchAll;
 shopify.addLineItems = addLineItems;
 shopify.updateLineItems = updateLineItems;
 shopify.removeLineItems = removeLineItems;
+shopify.fetchAllCollections = fetchAllCollections;
+shopify.fetchCollectionById = fetchCollectionById;
 
 module.exports = shopify;
