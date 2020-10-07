@@ -144,8 +144,8 @@ var metodoScelto = function (richiestaUtente) {
   console.log('parole inserite dall\'utente filtrate', paroleDaCercareFiltrate);
   var punteggi = arrayPunteggio.map(arrayDiArray =>
     Math.max(...arrayDiArray.map(array => {
-      console.log('somiglianza ' + paroleDaCercareFiltrate + ' - ' + array + ' ', funzioniGeneriche.somiglianzaParoleArray(paroleDaCercareFiltrate, array));
-      console.log('somiglianza ' + array + ' - ' + paroleDaCercareFiltrate + ' ', funzioniGeneriche.somiglianzaParoleArray(array, paroleDaCercareFiltrate));
+      // console.log('somiglianza ' + paroleDaCercareFiltrate + ' - ' + array + ' ', funzioniGeneriche.somiglianzaParoleArray(paroleDaCercareFiltrate, array));
+      // console.log('somiglianza ' + array + ' - ' + paroleDaCercareFiltrate + ' ', funzioniGeneriche.somiglianzaParoleArray(array, paroleDaCercareFiltrate));
       return Math.max(funzioniGeneriche.somiglianzaParoleArray(paroleDaCercareFiltrate, array),
         funzioniGeneriche.somiglianzaParoleArray(array, paroleDaCercareFiltrate));
     }))
@@ -219,7 +219,7 @@ exports.metodoScelto = metodoScelto;
 // var modulo = {};
 
 var t0 = performance.now();
-metodoScelto('Do you have any albergaccio');
+metodoScelto('do you have a hugo or blumond or albergaccio?');
 var t1 = performance.now();
 console.log('\n\n\nl\'algoritmo ci ha impiegato:', t1 - t0, 'millisecondi\n\n\n');
 

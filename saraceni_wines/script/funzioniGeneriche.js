@@ -48,13 +48,33 @@ var anagrammaParole = function (arrayParole, oggettoNome) {
     return arrayParole;
   }
 };
-
+/*
 var filtroListaDalNome = function (arrayParole, lista) {
   return lista.filter(function (oggetto) {
     var paroleAnagrammate = anagrammaParole(arrayParole, oggetto.nome);
     return paroleAnagrammate.some(parolaAnagrammata =>
       natural.JaroWinklerDistance(oggetto.nome, parolaAnagrammata, undefined, true) > 0.85
     );
+  });
+};
+*/
+var filtroListaDalNome = function (arrayParole, lista) {
+  return lista.filter(function (oggetto) {
+    var paroleAnagrammate = anagrammaParole(arrayParole, oggetto.nome);
+    var paroleAnagrammate2 = anagrammaParole(oggetto.nome.split(' '), arrayParole.join(' '));
+    return Math.max(paroleAnagrammate.some(parolaAnagrammata => {
+      if (natural.JaroWinklerDistance(oggetto.nome, parolaAnagrammata, undefined, true) > 0.7) {
+        console.log('[filtro nome]\nA probabilità "' + oggetto.nome + '" e "' + parolaAnagrammata + '" ---> ',
+          natural.JaroWinklerDistance(oggetto.nome, parolaAnagrammata, undefined, true));
+      }
+      return natural.JaroWinklerDistance(oggetto.nome, parolaAnagrammata, undefined, true) > 0.85
+    }), paroleAnagrammate2.some(parolaAnagrammata => {
+      if (natural.JaroWinklerDistance(arrayParole.join(' '), parolaAnagrammata, undefined, true) > 0.7) {
+        console.log('[filtro nome]\nB probabilità "' + arrayParole.join(' ') + '" e "' + parolaAnagrammata + '" ---> ',
+          natural.JaroWinklerDistance(arrayParole.join(' '), parolaAnagrammata, undefined, true));
+      }
+      return natural.JaroWinklerDistance(arrayParole.join(' '), parolaAnagrammata, undefined, true) > 0.85
+    }))
   });
 };
 
@@ -86,8 +106,8 @@ var ricercaIngredientiPapabili = function (arrayParole, listaIngredienti) {
 
 var somiglianzaParoleArray = function (arrayParole, arrayDiConfronto) {
   var contatore = 0;
-  arrayParole.forEach((item, i) => {
-    arrayDiConfronto.forEach((item2, j) => {
+  arrayParole.forEach((item) => {
+    arrayDiConfronto.forEach((item2) => {
       if (natural.JaroWinklerDistance(item, item2, undefined, true) > 0.8) {
         contatore += natural.JaroWinklerDistance(item, item2, undefined, true);
       }
@@ -114,19 +134,25 @@ var concatTags = function (lista) {
 };
 
 var filtroParoleInutili = function (listaParole, listaParoleChiave) {
-  var listaParoleFiltrate = listaParole.filter(parola =>
-    listaParoleChiave.some(parolaChiave =>
-      natural.JaroWinklerDistance(parola, parolaChiave, undefined, true) > 0.75));
+  var listaParoleFiltrate = listaParole.filter(parola => {
+    return listaParoleChiave.some((parolaChiave) => {
+      if (natural.JaroWinklerDistance(parola, parolaChiave, undefined, true) > 0.6) {
+        console.log('[filtro parole inutili]\nprobabilità "' + parola + '" e "' + parolaChiave + '" ---> ',
+          natural.JaroWinklerDistance(parola, parolaChiave, undefined, true));
+      }
+      return natural.JaroWinklerDistance(parola, parolaChiave, undefined, true) > 0.6;
+    })
+  });
   return listaParoleFiltrate;
 };
 
 var controlloAggettivi = function (arrayParole, viniProposti) {
-  console.log('viniProposti ----> ', viniProposti);
+  // console.log('viniProposti ----> ', viniProposti);
   var viniConAggettivi = viniProposti.filter(vinoProposto => {
     return vinoProposto.tags.some(tag => {
       var paroleAnagrammate = anagrammaParole(arrayParole, tag);
       return paroleAnagrammate.some(parolaAnagrammata => {
-        console.log('\nsomiglianza tra "' + parolaAnagrammata + '" e "' + tag + '" -----------> ', natural.JaroWinklerDistance(parolaAnagrammata, tag, undefined, true));
+        // console.log('\nsomiglianza tra "' + parolaAnagrammata + '" e "' + tag + '" -----------> ', natural.JaroWinklerDistance(parolaAnagrammata, tag, undefined, true));
         return natural.JaroWinklerDistance(parolaAnagrammata, tag, undefined, true) > 0.85;
       })
     })
