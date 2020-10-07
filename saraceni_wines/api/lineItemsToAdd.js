@@ -41,6 +41,6 @@ var addLineItems = function (checkoutId, lineItemsToAdd) {
     })
 };
 
-addLineItems(checkoutId, lineItemsToAdd);
+// addLineItems(checkoutId, lineItemsToAdd);
 
 module.exports = addLineItems;

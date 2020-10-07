@@ -44,6 +44,6 @@ var checkoutFetch = function (checkoutId) {
   })
 };
 
-checkoutFetch(checkoutId);
+// checkoutFetch(checkoutId);
 
 module.exports = checkoutFetch;

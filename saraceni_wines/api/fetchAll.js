@@ -57,6 +57,6 @@ var fetchAll = function () {
     )
 }
 
-fetchAll(); 
+// fetchAll(); 
 
 module.exports = fetchAll;

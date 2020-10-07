@@ -37,4 +37,4 @@ var updateLineItems = function (checkoutId, lineItemsToUpdate) {
   })
 }
 
-updateLineItems(checkoutId, lineItemsToUpdate);
+// updateLineItems(checkoutId, lineItemsToUpdate);
