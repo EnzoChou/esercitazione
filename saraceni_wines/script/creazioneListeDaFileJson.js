@@ -109,11 +109,12 @@ var idOccasioni = 1;
 
 // var varToString = varObj => Object.keys(varObj)[0];
 
-var ObjVino = function (id = idVini, variantsId = idVini, nome = 'dummy', prezzo = 0, immagine = 'url', sicurezzaAbbinamento = 0, tags = []) {
+var ObjVino = function (id = idVini, variantsId = idVini, nome = 'dummy', prezzo = 0, immagine = 'url', sicurezzaAbbinamento = 0, tags = [], quantity = 1) {
   this.id = id;
   this.variantsId = variantsId;
   this.nome = nome;
   this.tags = tags;
+  this.quantity = quantity;
   this.prezzo = prezzo;
   this.immagine = immagine;
   this.sicurezzaAbbinamento = sicurezzaAbbinamento;
@@ -150,20 +151,49 @@ var somiglianzaNomiVini = function (nomeVino, listaVini) {
   return undefined;
 };
 
+var calcoloQuantityVino = function (vinoShopify) {
+  var quantity = 1;
+  try {
+    var tipoVino = vinoShopify.productType;
+    tipoVino = tipoVino.split(',').map(caretteristica => caretteristica.trim());
+    tipoVino = tipoVino[1];
+    // console.log('sto lavorando su "' + tipoVino + '"');
+    var cond = tipoVino.includes('x');
+    if (cond) {
+      quantity = tipoVino.slice(0, tipoVino.indexOf('x'));
+      // console.log('quantity prima del parse', quantity);
+      quantity = parseInt(quantity, 10);
+      // console.log('quantity dopo il parse', quantity);
+    }
+  } catch (error) {
+    console.log('errore di "' + product.title + '" sulla quantità ---> ', error);
+    quantity = 1;
+  } finally {
+    return quantity;
+  }
+};
+
 var popolaListaVini = function (viniDaShopify, listaVini) {
   // console.log('\nviniDaShopify\n', viniDaShopify.length, '\n\nlistaVini\n', listaVini);
   viniDaShopify.forEach(vinoShopify => {
     var cond = false;
+    var quantity = 1;
+    if (vinoShopify.productType) {
+      // console.log('vino passato a popolaListaVini', vinoShopify.productType);
+      var quantity = calcoloQuantityVino(vinoShopify);
+    }
     for (let i = 0; i < listaVini.length || cond; i++) {
       // console.log('\n\nconfronto tra', vinoShopify, 'e', listaVini[i],'\n\nla lista vini è', listaVini, '\n\nla lunghezza lista vini è', listaVini.length, 'e i è', i, '\n\n');
 
       if (natural.JaroWinklerDistance(vinoShopify.title, listaVini[i].nome, undefined, true) > 0.9) {
         // console.log('\nvicinanza nomi vini', vinoShopify.title, 'e',listaVini[i].nome, natural.JaroWinklerDistance(vinoShopify.title, listaVini[i].nome, undefined, true));
-        listaVini[i] = new ObjVino(vinoShopify.id,
+        listaVini[i] = new ObjVino(
+          vinoShopify.id,
           vinoShopify.variants[0].id,
           vinoShopify.title,
           vinoShopify.variants[0].price,
           vinoShopify.variants[0].image.src);
+        listaVini[i].quantity = quantity;
         cond = true;
         break;
       }
@@ -176,6 +206,7 @@ var popolaListaVini = function (viniDaShopify, listaVini) {
         vinoShopify.variants[0].price,
         vinoShopify.variants[0].image.src);
       // console.log('\nvinoTmp è ', vinoTmp);
+      vinoTmp.quantity = quantity;
       listaVini.push(vinoTmp);
     }
   })
@@ -465,7 +496,7 @@ var wrapUpFunction = function () {
         return popolaListaVini(viniShopify, listaVini);
       })
       .then(listaViniAggiornata => {
-        console.log('\n\nlista vini aggiornata ---> ', listaViniAggiornata, '\n\n');
+        // console.log('\n\nlista vini aggiornata ---> ', listaViniAggiornata, '\n\n');
         listaVini = listaViniAggiornata;
         if (!inputFile) {
           inputFile = '../others/ricette.xlsx';
@@ -480,7 +511,7 @@ var wrapUpFunction = function () {
         listaOccasioni = estrazioneListaOccasioni('Abbinamenti occasioni');
         listaAggettiviVino = estrazioneAggettiviVino('Aggettivi vino');
         associazioneAggettiviAiVini(listaVini, listaAggettiviVino);
-        listaViniConAggettivi = listaVini.filter(vino => vino.tags.length>0);
+        listaViniConAggettivi = listaVini.filter(vino => vino.tags.length > 0);
 
         listaCompletaRicette = antipastiContorni.concat(primi, secondi, dessert, ricetteItaliane);
         aggiornamentoListeVarieDaRicette(listaCompletaRicette);
