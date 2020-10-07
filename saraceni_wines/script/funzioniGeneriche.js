@@ -147,12 +147,12 @@ var filtroParoleInutili = function (listaParole, listaParoleChiave) {
 };
 
 var controlloAggettivi = function (arrayParole, viniProposti) {
-  // console.log('viniProposti ----> ', viniProposti);
+  console.log('viniProposti ----> ', viniProposti);
   var viniConAggettivi = viniProposti.filter(vinoProposto => {
     return vinoProposto.tags.some(tag => {
       var paroleAnagrammate = anagrammaParole(arrayParole, tag);
       return paroleAnagrammate.some(parolaAnagrammata => {
-        // console.log('\nsomiglianza tra "' + parolaAnagrammata + '" e "' + tag + '" -----------> ', natural.JaroWinklerDistance(parolaAnagrammata, tag, undefined, true));
+        console.log('\nsomiglianza tra "' + parolaAnagrammata + '" e "' + tag + '" -----------> ', natural.JaroWinklerDistance(parolaAnagrammata, tag, undefined, true));
         return natural.JaroWinklerDistance(parolaAnagrammata, tag, undefined, true) > 0.85;
       })
     })

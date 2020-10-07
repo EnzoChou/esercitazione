@@ -152,7 +152,7 @@ var metodoScelto = function (richiestaUtente) {
   );
 
   console.log(
-    'indice: \n[\n\t\'-1\': laRicercaNonHaProdottoRisultatiSoddisfacenti, \n\t0: matchRicetta,\n\t1: abbinamentiGenerali, \n\t2: occasioneTrovata,\n\t 3: ricetteTrovateDaIngredientiPrincipali,\n\t 4: ricetteTrovateDaIngredientiSecondari,\n\t 5: abbinamentoDallaListaVini\n]');
+    'indice: \n[\n\t\'-1\': laRicercaNonHaProdottoRisultatiSoddisfacenti, \n\t0: matchRicetta,\n\t1: abbinamentiGenerali, \n\t2: occasioneTrovata,\n\t3: ricetteTrovateDaIngredientiPrincipali,\n\t4: ricetteTrovateDaIngredientiSecondari,\n\t5: abbinamentoDallaListaVini\n]');
   console.log('punteggi', punteggi);
   var indexScelto = punteggi.findIndex(elem => elem > 0.9);
   console.log('index scelto', indexScelto);
@@ -203,8 +203,8 @@ var metodoScelto = function (richiestaUtente) {
     // var arrayDiRitorno = funzioniGeneriche.ricercaViniProposti(listaPapabile[0].viniProposti, listaVini);
 
     // controllo aggettivi, se ce ne sono
-    const regexFieldSpace = /[.,\/\n-\r ]/;
-    var parolePerControlloAggettivi = richiestaUtente.split(regexFieldSpace);
+    // const regexFieldSpace = /[.,\/\n-\r ]/;
+    var parolePerControlloAggettivi = paroleDaCercareFiltrate //.split(regexFieldSpace);
     listaPapabile[0].viniProposti = funzioniGeneriche.controlloAggettivi(parolePerControlloAggettivi, listaPapabile[0].viniProposti);
 
     console.log('arrayDiRitorno', listaPapabile[0].viniProposti);
@@ -219,7 +219,7 @@ exports.metodoScelto = metodoScelto;
 // var modulo = {};
 
 var t0 = performance.now();
-metodoScelto('do you have a hugo or blumond or albergaccio?');
+metodoScelto('bubbly wine');
 var t1 = performance.now();
 console.log('\n\n\nl\'algoritmo ci ha impiegato:', t1 - t0, 'millisecondi\n\n\n');
 
