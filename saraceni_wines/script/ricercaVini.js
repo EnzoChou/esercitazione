@@ -62,10 +62,17 @@ var occasioneTrovata = function (arrayParole, obj) {
 // METODI DI RICERCA DIRETTAMENTE DALLA LISTA VINI
 
 var abbinamentoTrovatoDallaListaVini = function (arrayParole, listaVini) {
-  var obj = {viniProposti:[]};
+  var obj = {
+    viniProposti: []
+  };
   var listaViniTmp = [];
   listaViniTmp = funzioniGeneriche.filtroListaDalNome(arrayParole, listaVini);
   if (listaViniTmp.length === 0) {
+    console.log('la ricerca per nome non ha prodotto risultati');
+    listaViniTmp = funzioniGeneriche.filtroListaDalNomeApprofondito(arrayParole, listaVini);
+  }
+  if (listaViniTmp.length === 0) {
+    console.log('la ricerca per nome e nome approfondito non ha prodotto risultati');
     listaViniTmp = funzioniGeneriche.filtroPerTag(arrayParole, listaVini);
   }
   obj.viniProposti = listaViniTmp;
@@ -81,7 +88,22 @@ var laRicercaNonHaProdottoRisultatiSoddisfacenti = function (arrayParole) {
 
 // ELABORAZIONE DATI DALLA RICHIESTA UTENTE
 
-var metodoScelto = function (richiestaUtente) {
+var creazioneOggettoParametri = function (params) {
+  var parametri = {};
+  if (params) {
+    var parametriInArray = params.split(',');
+    parametriInArray.forEach(elem => {
+      var campo = [];
+      campo = elem.slice(elem.indexOf(':')+1, elem.length).split('-');
+      var chiave = elem.slice(0, elem.indexOf(':'));
+      return parametri[chiave] = campo;
+    })
+  }
+  console.log('oggetto di parametri ---> ', parametri);
+  return parametri;
+}
+
+var metodoScelto = function (richiestaUtente, params) {
   // var strutture = external_services.saraceni_wines.data.ricette;
   // var funzioniGeneriche = external_services.saraceni_wines.integrations.funzioniGeneriche;
   if (!data) {
@@ -89,6 +111,8 @@ var metodoScelto = function (richiestaUtente) {
   }
   natural.PorterStemmer.attach(); // english language set -> 'words'.tokenizeAndStem() toSingularizeAndTurnIntoArrayOfWords
 
+  // elaborazione suggerimenti
+  var parametri = creazioneOggettoParametri(params);
   // RICETTE.JSON
   var listaRicette = data.listaRicette;
   var listaVini = data.listaViniConAggettivi;
@@ -204,7 +228,11 @@ var metodoScelto = function (richiestaUtente) {
 
     // controllo aggettivi, se ce ne sono
     // const regexFieldSpace = /[.,\/\n-\r ]/;
-    var parolePerControlloAggettivi = paroleDaCercareFiltrate //.split(regexFieldSpace);
+    var parolePerControlloAggettivi = paroleDaCercareFiltrate; //.split(regexFieldSpace);
+    if(parametri.aggettivo) {
+      parolePerControlloAggettivi = parametri.aggettivo;
+    }
+    console.log('controllo per gli aggettivi con ', parolePerControlloAggettivi);
     listaPapabile[0].viniProposti = funzioniGeneriche.controlloAggettivi(parolePerControlloAggettivi, listaPapabile[0].viniProposti);
 
     console.log('arrayDiRitorno', listaPapabile[0].viniProposti);
@@ -219,7 +247,7 @@ exports.metodoScelto = metodoScelto;
 // var modulo = {};
 
 var t0 = performance.now();
-metodoScelto('bubbly wine');
+metodoScelto('lasagna', 'aggettivo:velvety,ricetta:gnocchi alla sorrentina,portata:primo');
 var t1 = performance.now();
 console.log('\n\n\nl\'algoritmo ci ha impiegato:', t1 - t0, 'millisecondi\n\n\n');
 
