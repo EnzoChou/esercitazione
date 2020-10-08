@@ -43,6 +43,6 @@ function processing(user, event, param) {
     });
 }
 
-processing({}, {}, 'ciao');
+// processing({}, {}, 'ciao');
 
 exports.processing = processing;

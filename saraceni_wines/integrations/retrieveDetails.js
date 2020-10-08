@@ -35,6 +35,6 @@ function processing(user, event, param) {
     });
   }
   
-  processing({},{}, 'banana');
+  // processing({},{}, 'banana');
   
   exports.processing = processing;

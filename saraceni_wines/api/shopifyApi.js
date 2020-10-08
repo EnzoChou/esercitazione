@@ -12,6 +12,7 @@ var checkoutId = 'Z2lkOi8vc2hvcGlmeS9DaGVja291dC9hZDczZTZhMWMyNDEzZTRkM2U0ZDNmZj
 var productId = 'Z2lkOi8vc2hvcGlmeS9Qcm9kdWN0LzU3NzA5ODUwNDYxODI=';
 var productVariantId = 'Z2lkOi8vc2hvcGlmeS9Qcm9kdWN0VmFyaWFudC8zNjQwMzUzNzk2OTMxOA==';
 var productInfo;
+const collectionId = 'Z2lkOi8vc2hvcGlmeS9Db2xsZWN0aW9uLzkzNzk5MTIwOTc3';
 
 // Create an empty checkout
 var createCheckout = function () {
@@ -207,14 +208,13 @@ var fetchAllCollections = function () {
   })
 };
 
-var fetchCollectionById = function () {
+var fetchCollectionById = function (collectionId) {
   return new Promise((resolve, reject) => {
     
     // Fetch a single collection by ID, including its products
-    const collectionId = 'Z2lkOi8vc2hvcGlmeS9Db2xsZWN0aW9uLzkzNzk5MTIwOTc3';
     // Set a parameter for first x products, defaults to 20 if you don't provide a param
 
-    client.collection.fetchWithProducts(collectionId, { productsFirst: 10 }).then((collection) => {
+    client.collection.fetchWithProducts(collectionId, { productsFirst: 20 }).then((collection) => {
       // Do something with the collection
       console.log(collection);
       console.log(collection.products);
