@@ -48,6 +48,26 @@ var anagrammaParole = function (arrayParole, oggettoNome) {
     return arrayParole;
   }
 };
+
+var combinazioniDiParole = function (frase) {
+  var arrayParole = frase.split(' ');
+  var numeroParole = arrayParole.length;
+  var arraySuCuiLavorare = arrayParole;
+  var arrayTmp = [];
+  if (numeroParole > 1) {
+    for (let i = 0; i < numeroParole; i++) {
+      for (let j = i + 1; j < numeroParole + 1; j++) {
+        arraySuCuiLavorare = arrayParole.slice(i, j)
+        var tmp = arraySuCuiLavorare.join(' ');
+        arrayTmp.push(tmp);
+      }
+    }
+  } else {
+    arrayTmp = arrayParole;
+  }
+  return arrayTmp;
+};
+
 /*
 var filtroListaDalNome = function (arrayParole, lista) {
   return lista.filter(function (oggetto) {
@@ -58,24 +78,42 @@ var filtroListaDalNome = function (arrayParole, lista) {
   });
 };
 */
+
 var filtroListaDalNome = function (arrayParole, lista) {
   return lista.filter(function (oggetto) {
     var paroleAnagrammate = anagrammaParole(arrayParole, oggetto.nome);
-    var paroleAnagrammate2 = anagrammaParole(oggetto.nome.split(' '), arrayParole.join(' '));
-    return Math.max(paroleAnagrammate.some(parolaAnagrammata => {
+    return paroleAnagrammate.some(parolaAnagrammata => {
       /* if (natural.JaroWinklerDistance(oggetto.nome, parolaAnagrammata, undefined, true) > 0.7) {
         console.log('[filtro nome]\nA probabilità "' + oggetto.nome + '" e "' + parolaAnagrammata + '" ---> ',
           natural.JaroWinklerDistance(oggetto.nome, parolaAnagrammata, undefined, true));
       }*/
       return natural.JaroWinklerDistance(oggetto.nome, parolaAnagrammata, undefined, true) > 0.85
-    }), paroleAnagrammate2.some(parolaAnagrammata => {
-      /*if (natural.JaroWinklerDistance(arrayParole.join(' '), parolaAnagrammata, undefined, true) > 0.7) {
-        console.log('[filtro nome]\nB probabilità "' + arrayParole.join(' ') + '" e "' + parolaAnagrammata + '" ---> ',
-          natural.JaroWinklerDistance(arrayParole.join(' '), parolaAnagrammata, undefined, true));
-      }*/
-      return natural.JaroWinklerDistance(arrayParole.join(' '), parolaAnagrammata, undefined, true) > 0.85
-    }))
+    })
   });
+};
+
+var arrSum = function (arr) {
+  return arr.reduce(function (a, b) {
+    return a + b
+  }, 0);
+}
+
+var filtroListaDalNomeApprofondito = function (arrayParole, lista) {
+  return lista.filter(oggetto => {
+    var parole = combinazioniDiParole(oggetto.nome);
+    var array = combinazioniDiParole(arrayParole.join(' '));
+    return parole.some(parteNome => {
+      return array.some(parteImmissioneUtente => {
+        return natural.JaroWinklerDistance(parteNome, parteImmissioneUtente, undefined, true) > 0.85
+      })
+    })
+  }).sort((a, b) => {
+    return (arrSum(arrayParole.map(elem => {
+      return natural.JaroWinklerDistance(b.nome, elem, undefined, true)
+    })) - arrSum(arrayParole.map(elem => {
+      return natural.JaroWinklerDistance(a.nome, elem, undefined, true)
+    })))
+  })
 };
 
 var filtroPerTag = function (arrayParole, lista) {
@@ -152,7 +190,7 @@ var controlloAggettivi = function (arrayParole, viniProposti) {
     return vinoProposto.tags.some(tag => {
       var paroleAnagrammate = anagrammaParole(arrayParole, tag);
       return paroleAnagrammate.some(parolaAnagrammata => {
-        console.log('\nsomiglianza tra "' + parolaAnagrammata + '" e "' + tag + '" -----------> ', natural.JaroWinklerDistance(parolaAnagrammata, tag, undefined, true));
+        console.log(parolaAnagrammata, tag, natural.JaroWinklerDistance(parolaAnagrammata, tag, undefined, true));
         return natural.JaroWinklerDistance(parolaAnagrammata, tag, undefined, true) > 0.85;
       })
     })
@@ -176,5 +214,6 @@ funzioniPerRicercaParole.filtroListaDalNome = filtroListaDalNome;
 funzioniPerRicercaParole.concatTags = concatTags;
 funzioniPerRicercaParole.filtroParoleInutili = filtroParoleInutili;
 funzioniPerRicercaParole.controlloAggettivi = controlloAggettivi;
+funzioniPerRicercaParole.filtroListaDalNomeApprofondito = filtroListaDalNomeApprofondito;
 
 module.exports = funzioniPerRicercaParole;
