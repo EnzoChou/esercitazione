@@ -201,16 +201,16 @@ var fetchAllCollections = function () {
       console.log(collections[0].products);
       resolve(collections);
     })
-    .catch(err => {
-      console.log('err in fetchAllWithProducts', err);
-      resolve(err);
-    });
+      .catch(err => {
+        console.log('err in fetchAllWithProducts', err);
+        resolve(err);
+      });
   })
 };
 
 var fetchCollectionById = function (collectionId) {
   return new Promise((resolve, reject) => {
-    
+
     // Fetch a single collection by ID, including its products
     // Set a parameter for first x products, defaults to 20 if you don't provide a param
 
@@ -220,10 +220,10 @@ var fetchCollectionById = function (collectionId) {
       console.log(collection.products);
       resolve(collection);
     })
-    .catch(err => {
-      console.log('err in fetchWithProducts', err);
-      resolve(err);
-    });
+      .catch(err => {
+        console.log('err in fetchWithProducts', err);
+        resolve(err);
+      });
   })
 };
 
