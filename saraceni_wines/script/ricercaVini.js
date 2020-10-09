@@ -91,13 +91,18 @@ var laRicercaNonHaProdottoRisultatiSoddisfacenti = function (arrayParole) {
 var creazioneOggettoParametri = function (params) {
   var parametri = {};
   if (params) {
-    var parametriInArray = params.split(',');
-    parametriInArray.forEach(elem => {
-      var campo = [];
-      campo = elem.slice(elem.indexOf(':')+1, elem.length).split('-');
-      var chiave = elem.slice(0, elem.indexOf(':'));
-      return parametri[chiave] = campo;
-    })
+    try {
+      var parametriInArray = params.split(',');
+      parametriInArray.forEach(elem => {
+        var chiave = elem.slice(0, elem.indexOf(':'));
+        var campo = [];
+        campo = elem.slice(elem.indexOf(':') + 1, elem.length).split('-');
+        return parametri[chiave] = campo;
+      })
+    } catch (err) {
+      console.log('errore nella creazione dell\'oggetto parametri, ritorno oggetto vuoto\n', err);
+      return parametri;
+    }
   }
   console.log('oggetto di parametri ---> ', parametri);
   return parametri;
@@ -229,7 +234,7 @@ var metodoScelto = function (richiestaUtente, params) {
     // controllo aggettivi, se ce ne sono
     // const regexFieldSpace = /[.,\/\n-\r ]/;
     var parolePerControlloAggettivi = paroleDaCercareFiltrate; //.split(regexFieldSpace);
-    if(parametri.aggettivo) {
+    if (parametri.aggettivo) {
       parolePerControlloAggettivi = parametri.aggettivo;
     }
     console.log('controllo per gli aggettivi con ', parolePerControlloAggettivi);
