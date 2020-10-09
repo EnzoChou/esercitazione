@@ -6,8 +6,6 @@ function processing(user, event, param) {
         var send_message = require('../utils/send_message');
         var controlloId = require('../utils/controlloCheckoutId');
 
-        var message_text = 'i\'m watching harry potter tonight and i\'d like some nachos';
-
         console.log('message_text', message_text);
 
         var id_recipient = "3581882641842282";
