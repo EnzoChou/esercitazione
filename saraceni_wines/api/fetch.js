@@ -32,7 +32,7 @@ var fetch = function (productId) {
         console.log('product ---> ', product);
         console.log('productInfo ---> ', productInfo);
         console.log('product variants [0]', product.variants[0]);
-        console.log('product handle', product.handle);
+        console.log('product image', product.images[product.images.length-1].src);
         */
 
         resolve(product);
