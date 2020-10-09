@@ -3,10 +3,7 @@ global.fetch = require('node-fetch');
 var Client = require('shopify-buy');
 
 // Initializing a client to return content in the store's primary language
-const client = Client.buildClient({
-  domain: 'test-hej.myshopify.com',
-  storefrontAccessToken: 'ab5232770d3011658fd90b0cf536a8c0'
-});
+const client = Client.buildClient(config.dev2);
 
 // console.log("client", client);
 
