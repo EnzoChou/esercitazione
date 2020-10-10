@@ -3,18 +3,20 @@ var shopifyApi = require('../api/shopifyApi');
 var ricercaVini = require('../script/ricercaVini');
 var creazioneMessaggioDiRitorno = require('../utils/creazioneMessaggioDiRitorno');
 
-var cercaArrayVini = function (parole) {
+var cercaArrayVini = function (parole, suggestions) {
     return new Promise((resolve, reject) => {
-        resolve(ricercaVini(parole))
+        resolve(ricercaVini.metodoScelto(parole, suggestions))
             .catch(error => reject(console.log('c\'è stato un errore', error)));
     })
 };
 
-var create_foodpairing_messages = function (risultatoArrayVini, param) {
+var create_foodpairing_messages = function (risultatoArrayVini, checkout) {
     return new Promise((resolve, reject) => {
         var messages = [];
         if (risultatoArrayVini.length > 0) {
-            messages.push({ "text": "These wines look perfect for you:" });
+            messages.push({
+                "text": "These wines look perfect for you:"
+            });
 
             var attachment = {
                 "type": "template",
@@ -31,8 +33,7 @@ var create_foodpairing_messages = function (risultatoArrayVini, param) {
                     'title': vino.title,
                     'image_url': vino.variants[0].image.src,
                     'subtitle': 'Price: ' + vino.variants[0].price,
-                    'buttons': [
-                        {
+                    'buttons': [{
                             'type': 'postback',
                             'title': 'add 1 to cart',
                             'payload': '000action:12345,12345||[\"add_to_cart=>' + vino.variants[0].id + ',1\"]000'
@@ -65,11 +66,23 @@ var create_foodpairing_messages = function (risultatoArrayVini, param) {
     });
 };
 
+var conteggioVini = function (risultatoArrayVini, checkout) {
+    var quantity = 0;
+    if (checkout.quantity) {
+        quantity = checkout.quantity;
+    }
+    risultatoArrayVini.forEach(vinoTrovato => {
+        quantity += vinoTrovato.quantity;
+    });
+    return quantity;
+};
 
-
-function processing(text, param) {
-    return cercaArrayVini(text)
+function processing(text, suggestions, checkout) {
+    return cercaArrayVini(text, suggestions)
         .then(risultatoArrayVini => {
+            checkout.quantity = conteggioVini(risultatoArrayVini, checkout);
+            // var reducer = (accumulator, currentValue) => accumulator + currentValue;
+            // var quantity = risultatoArrayVini.map(elem => elem.quantity).reduce(reducer);
             var promises = [];
             risultatoArrayVini.forEach(vino => {
                 promises.push(shopifyApi.fetchById(vino.id));
@@ -80,12 +93,15 @@ function processing(text, param) {
                         arrayViniDaShopify = arrayViniDaShopify.filter(elem => {
                             return elem !== undefined
                         });
+                        arrayViniDaShopify.map(vinoShopify => {
+                            var quantity = risultatoArrayVini.find(vino => vinoShopify.id == vino.id).quantity;
+                            vinoShopify.quantity = quantity;
+                        })
                         console.log('\n\narrayViniTornatiDaShopify ---> ', arrayViniDaShopify);
-                        return create_foodpairing_messages(arrayViniDaShopify, param);
+                        return create_foodpairing_messages(arrayViniDaShopify, checkout);
                     }
                 })
         });
 }
 
 exports.processing = processing;
-
