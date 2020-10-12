@@ -55,8 +55,11 @@ var checkoutFetch = function (checkoutId) {
         resolve(checkout);
       })
       .catch(err => {
-        console.log('errore in checkout fetch', err);
-        resolve();
+        console.log('errore in checkout fetch, id non valido, te ne creo uno nuovo', err);
+        return client.checkout.create()
+        .then(checkout => {
+        resolve(checkout);
+        })
       });
   })
 };
@@ -88,7 +91,7 @@ var fetchById = function (productId) {
         };
       })
       .catch(error => {
-        console.log('errorij ojaofjdsofjapohfeahpo', error);
+        console.log('errore nel fetch by id, vino non trovato', error);
         resolve();
       });
   })
