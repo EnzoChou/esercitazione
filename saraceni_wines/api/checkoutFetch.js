@@ -1,6 +1,7 @@
 // import Client from 'shopify-buy';
 global.fetch = require('node-fetch');
 var Client = require('shopify-buy');
+var config = require('../config/config');
 
 // Initializing a client to return content in the store's primary language
 const client = Client.buildClient(config.dev2);
@@ -20,6 +21,7 @@ var checkoutFetch = function (checkoutId) {
         // Do something with the checkout
         console.log('checkout ---> ', checkout);
         console.log('checkout.id ---> ', checkout.id);
+        console.log('lineItems', checkout.lineItems);
         // console.log('checkout.lineItems[0].id ---> ', checkout.lineItems[0].id);
         // console.log('checkout.lineItems[0].quantity ---> ', checkout.lineItems[0].quantity);
         console.log('checkout.lineItems.length --->', checkout.lineItems.length);
@@ -41,6 +43,6 @@ var checkoutFetch = function (checkoutId) {
   })
 };
 
-// checkoutFetch(checkoutId);
+checkoutFetch(checkoutId);
 
 module.exports = checkoutFetch;

@@ -8,7 +8,7 @@ const client = Client.buildClient(config.dev2);
 
 // console.log("client", client);
 
-var checkoutId = 'Z2lkOi8vc2hvcGlmeS9DaGVja291dC9hZDczZTZhMWMyNDEzZTRkM2U0ZDNmZjY1MDJjMzI2NT9rZXk9YWQ1ZGRhNjU2ODdjOTk3NTA0MDFhYzRiNDJhOWMzNGI=';
+var checkoutId = 'Z2lkOi8vc2hvcGlmeS9DaGVja291dC83Nzg4YTkxZGFkMzRjNzhmZWY5ZDk4ZWVhMjkwYzc3Mj9rZXk9NWE4ZjE0NjE1ZTcwMGMzNzU0MGU2MmZlYzRjYzhkY2M=';
 var productId = 'Z2lkOi8vc2hvcGlmeS9Qcm9kdWN0LzU3NzA5ODUwNDYxODI=';
 var productVariantId = 'Z2lkOi8vc2hvcGlmeS9Qcm9kdWN0VmFyaWFudC8zNjQwMzUzNzk2OTMxOA==';
 var productInfo;
@@ -58,6 +58,8 @@ var checkoutFetch = function (checkoutId) {
         console.log('errore in checkout fetch, id non valido, te ne creo uno nuovo', err);
         return client.checkout.create()
         .then(checkout => {
+          console.log('checkout.id', checkout.id);
+          console.log('checkout.lineItems', checkout.lineItems);
         resolve(checkout);
         })
       });
@@ -225,7 +227,13 @@ var fetchCollectionById = function (collectionId) {
     })
       .catch(err => {
         console.log('err in fetchWithProducts', err);
-        resolve(err);
+        return fetchAllCollections()
+        .then(collections => {
+          resolve(collections);
+        })
+        .catch(err => {
+          resolve(err);
+        })
       });
   })
 };

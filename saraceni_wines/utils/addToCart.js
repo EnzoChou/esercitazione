@@ -3,7 +3,7 @@ var addLineItem = require('../api/lineItemsToAdd');
 var shopifyApi = require('../api/shopifyApi');
 var inviaMessaggio = require('./creazioneMessaggioDiRitorno');
 
-var addToCart = function (variantsIdVIno, idCheckout, quantity) {
+var addToCart = function (user, event, variantsIdVIno, idCheckout, quantity) {
     var lineItemsToAdd = [{
         variantId: variantsIdVIno,
         quantity: quantity
