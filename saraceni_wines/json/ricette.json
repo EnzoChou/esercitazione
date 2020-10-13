@@ -11219,6 +11219,22 @@
             "sicurezzaAbbinamento": 1
         }
     ],
+    "listaAggettiviVino": [
+        "Bubbly",
+        "Sweet",
+        "Romantic",
+        "Celebratory",
+        "Impressing",
+        "Refreshing",
+        "Floral",
+        "Easy drinking",
+        "Fruity",
+        "Velvety",
+        "Me time",
+        "Rich & elegant",
+        "Dry",
+        "Aromatic"
+    ],
     "listaParoleChiave": [
         "Garlic Mushrooms",
         "Antipasticontorni",

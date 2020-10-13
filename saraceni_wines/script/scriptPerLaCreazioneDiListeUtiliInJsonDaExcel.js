@@ -452,7 +452,7 @@ function estrazioneListaOccasioni(nomePagina) {
 }
 
 function estrazioneAggettiviVino(nomePagina) {
-  listaAggettiviVino = [];
+  var listaAggettiviVino = [];
   var listaPagina = listaRicetteDaFileJson[nomePagina];
   for (let i = 3; i < listaPagina.length; i++) {
     if (listaPagina[i].B) {
@@ -478,6 +478,18 @@ function associazioneAggettiviAiVini(listaVini, listaAggettiviVino) {
     }
   });
   return listaVini;
+}
+
+function ritornaListaAggettiviNormale(listaAggettiviVino) {
+  var listaAggettivi = [];
+  listaAggettiviVino.forEach(elem => {
+    return elem.tags.forEach(tag => {
+      if(!listaAggettivi.includes(tag)) {
+        listaAggettivi.push(tag);
+      }
+    })
+  })
+  return listaAggettivi;
 }
 
 function toJsonFile(result) {
@@ -512,6 +524,7 @@ var wrapUpFunction = function () {
         listaAggettiviVino = estrazioneAggettiviVino('Aggettivi vino');
         associazioneAggettiviAiVini(listaVini, listaAggettiviVino);
         listaViniConAggettivi = listaVini.filter(vino => vino.tags.length > 0);
+        listaAggettiviVino = ritornaListaAggettiviNormale(listaAggettiviVino);
 
         listaCompletaRicette = antipastiContorni.concat(primi, secondi, dessert, ricetteItaliane);
         aggiornamentoListeVarieDaRicette(listaCompletaRicette);
@@ -556,6 +569,7 @@ var wrapUpFunction = function () {
           listaOccasioni: listaOccasioni,
           listaVini: listaVini,
           listaViniConAggettivi: listaViniConAggettivi,
+          listaAggettiviVino: listaAggettiviVino,
           listaParoleChiave: listaParoleChiave,
           listaParoleChiavePerCategoria: listaParoleChiavePerCategoria
         };
