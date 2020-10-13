@@ -28,7 +28,7 @@ var ricetteTrovateDaIngredienti = function (arrayParole = [], obj = [], obj2 = [
 
 var ricercaPerAbbinamentiGenerali = function (arrayParole = [], listaAbbinamentiGenerali = []) {
   console.log('è stato scelto il metodo di match da abbinamenti generali\n\n');
-  console.log('\n\n\nlistaAbbinamentiGenerali\n\n\n', listaAbbinamentiGenerali);
+  // console.log('\n\n\nlistaAbbinamentiGenerali\n\n\n', listaAbbinamentiGenerali);
   var risultatoTrovato = funzioniGeneriche.filtroListaDalNome(arrayParole, listaAbbinamentiGenerali);
   console.log('risultato dopo il filtro per nome', risultatoTrovato);
   risultatoTrovato = funzioniGeneriche.filtroPerTag(arrayParole, risultatoTrovato);
@@ -200,6 +200,14 @@ var metodoScelto = function (richiestaUtente = '', params = '') {
     console.log('parole inserite dall\'utente', paroleDaCercare);
     console.log('parole inserite dall\'utente filtrate', paroleDaCercareFiltrate);
     var indexScelto = 0;
+    if (parametri.portata) {
+      listaRicette = funzioniGeneriche.filtroPerTag([parametri.portata], listaRicette);
+      listaIngredientiPrincipali = funzioniGeneriche.filtroPerTag([parametri.portata], listaIngredientiPrincipali);
+      console.log('lista ricette dopo il filtro della portata', listaRicette);
+    }
+    if (parametri.tipologia) {
+      indexScelto = 1;
+    }
     if (parametri.occasione) {
       indexScelto = 2;
     } else {
@@ -265,12 +273,12 @@ var metodoScelto = function (richiestaUtente = '', params = '') {
 
       // controllo aggettivi, se ce ne sono
       // const regexFieldSpace = /[.,\/\n-\r ]/;
-      var parolePerControlloAggettivi = paroleDaCercareFiltrate; //.split(regexFieldSpace);
+      // var parolePerControlloAggettivi = paroleDaCercareFiltrate; //.split(regexFieldSpace);
       if (parametri.aggettivo && parametri.aggettivo.length > 0) {
-        parolePerControlloAggettivi = parametri.aggettivo;
+        var parolePerControlloAggettivi = parametri.aggettivo;
+        console.log('controllo per gli aggettivi con ', parolePerControlloAggettivi);
+        listaPapabile[0].viniProposti = funzioniGeneriche.controlloAggettivi(parolePerControlloAggettivi, listaPapabile[0].viniProposti);
       }
-      console.log('controllo per gli aggettivi con ', parolePerControlloAggettivi);
-      listaPapabile[0].viniProposti = funzioniGeneriche.controlloAggettivi(parolePerControlloAggettivi, listaPapabile[0].viniProposti);
 
       console.log('arrayDiRitorno', listaPapabile[0].viniProposti);
       resolve(listaPapabile[0].viniProposti);
@@ -285,7 +293,7 @@ exports.metodoScelto = metodoScelto;
 // var modulo = {};
 
 var t0 = performance.now();
-metodoScelto('birthday', 'aggettivo:false,portata:primo,tipologia:carne bianca,occasione:true');
+metodoScelto('spring rolls primo', 'aggettivo:false,portata:primo,occasione:false');
 var t1 = performance.now();
 console.log('\n\n\nl\'algoritmo ci ha impiegato:', t1 - t0, 'millisecondi\n\n\n');
 
