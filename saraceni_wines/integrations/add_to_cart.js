@@ -6,11 +6,12 @@ function processing(user, event, param) {
         var send_message = require('../utils/send_message');
         var controlloId = require('../utils/controlloCheckoutId');
 
-        console.log('message_text', message_text);
+        //console.log('message_text', message_text);
 
         var id_recipient = "3581882641842282";
 
-        var variantsIdVIno = 'Z2lkOi8vc2hvcGlmeS9Qcm9kdWN0VmFyaWFudC8zNjQwMzUzNzk2OTMxOA==';
+        var variantsIdVIno = 'Z2lkOi8vc2hvcGlmeS9Qcm9kdWN0VmFyaWFudC8zMjY3NDkwMzk0OTM5Mw==';
+        var idVino = 'Z2lkOi8vc2hvcGlmeS9Qcm9kdWN0LzQ3MDQ1MDc4ODc2OTc=';
 
         var quantity = 1;
 
@@ -19,7 +20,7 @@ function processing(user, event, param) {
         return controlloId(user.checkoutId, id_recipient)
             .then(checkoutId => {
                 console.log('invio variantsIdVIno, checkoutId, quantity ---> ', variantsIdVIno,'\n', checkoutId, '\n', quantity);
-                 return utils_add_to_cart.processing(variantsIdVIno, checkoutId, quantity);
+                 return utils_add_to_cart.processing(user, event, idVino, checkoutId, quantity);
             })
             .then(messages => {
                 console.log('entrato nel lato messaggi da inviare -->',
@@ -38,6 +39,6 @@ function processing(user, event, param) {
     });
 }
 
-// processing({checkoutId:'Z2lkOi8vc2hvcGlmeS9DaGVja291dC83Mjk4NDhlZDVhZTg2YmU3NmNlNzdlNjg3Y2Y1OWVmZT9rZXk9ZDE4ZjgwZWU2NjgxMDYyZDk3ODMxMmJkMzIwZDY4OTI='}, {}, 'banana');
+// processing({checkoutId:'Z2lkOi8vc2hvcGlmeS9DaGVja291dC83NDM0NGU1ZjA1MzUzZWQ2ZTI5NGU3NDA5OTg5YWJlNj9rZXk9NjVlZGU2MmU5YTdlNjdkMmRiN2EzZTUxY2FlODEzYjI='}, {}, 'banana');
 
 exports.processing = processing;
