@@ -80,7 +80,7 @@ var conteggioVini = function (risultatoArrayVini, checkout) {
 function processing(text, suggestions, checkout) {
     return cercaArrayVini(text, suggestions)
         .then(risultatoArrayVini => {
-            checkout.quantity = conteggioVini(risultatoArrayVini, checkout);
+            // ---> checkout.quantity = conteggioVini(risultatoArrayVini, checkout);
             // var reducer = (accumulator, currentValue) => accumulator + currentValue;
             // var quantity = risultatoArrayVini.map(elem => elem.quantity).reduce(reducer);
             var promises = [];
