@@ -10,7 +10,7 @@ const client = Client.buildClient(config.dev2);
 
 var checkoutId = 'Z2lkOi8vc2hvcGlmeS9DaGVja291dC9hZDczZTZhMWMyNDEzZTRkM2U0ZDNmZjY1MDJjMzI2NT9rZXk9YWQ1ZGRhNjU2ODdjOTk3NTA0MDFhYzRiNDJhOWMzNGI=';
 var productId = 'Z2lkOi8vc2hvcGlmeS9Qcm9kdWN0LzQ3MDQ1MDgwODQzMDU=';
-var productVariantId = 'Z2lkOi8vc2hvcGlmeS9Qcm9kdWN0VmFyaWFudC8zMjY3NDkwNDI3NzA3Mw==';
+var productVariantId = 'Z2lkOi8vc2hvcGlmeS9Qcm9kdWN0VmFyaWFudC8zMjY3NDkwOTQyMTY0OQ==';
 var productInfo;
 
 var fetch = function (productId) {
@@ -18,7 +18,7 @@ var fetch = function (productId) {
     client.product.fetch(productId)
       .then((product) => {
         // Do something with the product
-        /*
+        
         var vino = {};
         vino.id = product.id;
         vino.description = product.description;
@@ -31,9 +31,11 @@ var fetch = function (productId) {
         console.log('product.productType  ---> ', product.productType);
         console.log('product ---> ', product);
         console.log('productInfo ---> ', productInfo);
-        console.log('product variants [0]', product.variants[0]);
+        if(product.variants) {
+          console.log('product variants[0].id', product.variants[0].id);
+        }
         console.log('product image', product.images[product.images.length-1].src);
-        */
+        
 
         resolve(product);
       })
@@ -43,9 +45,10 @@ var fetch = function (productId) {
       });
   })
 };
-/*
-fetch(productId);
-fetch('Z2lkOi8vc2hvcGlmeS9Qcm9kdWN0LzQ3MDQ1MDc4ODc2OTc=');
-fetch('Z2lkOi8vc2hvcGlmeS9Qcm9kdWN0LzQ3MDQ1MDg0Nzc1MjE=');
-*/
+
+// fetch(productVariantId);
+// fetch('Z2lkOi8vc2hvcGlmeS9Qcm9kdWN0LzQ3MDQ1MDc4ODc2OTc=');
+// fetch('Z2lkOi8vc2hvcGlmeS9Qcm9kdWN0VmFyaWFudC8zMjY3NDkwMzk0OTM5Mw==');
+// fetch('Z2lkOi8vc2hvcGlmeS9Qcm9kdWN0LzQ3MDQ1MDg0Nzc1MjE=');
+
 module.exports = fetch;
