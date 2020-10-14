@@ -81,6 +81,15 @@ var fetchById = function (productId) {
           console.log('productInfo ---> ', productInfo);
           if (product.variants) {
             console.log('\n\nquesto è un product ID\n\n');
+            // client.product.fetch(product.variants[0].id)
+            // .then(product => {
+            //   console.log('questo è l\'id della variante del prodotto sopracitato', product.id);
+            //   return product;
+            // })
+            // .catch(err => {
+            //   console.log('c\'è stato un errore nel fetch del variant una volta trovato l\'id del prodotto\n', err);
+            //   resolve(err);
+            // })
           } else {
             console.log('\n\nquesto è un product variants ID\n\n');
           }
@@ -144,6 +153,7 @@ var fetchAll = function () {
 
 // Add an item to the checkout
 var addLineItems = function (checkoutId, lineItemsToAdd) {
+  console.log('parametri arrivati a addLineItems\n', checkoutId, lineItemsToAdd);
   return new Promise((resolve, reject) => {
     return client.checkout.addLineItems(checkoutId, lineItemsToAdd)
       .then((checkout) => {
@@ -168,7 +178,7 @@ var updateLineItems = function (checkoutId, lineItemsToUpdate) {
     return client.checkout.updateLineItems(checkoutId, lineItemsToUpdate).then((checkout) => {
       // Do something with the updated checkout
       console.log('id we need to remember to update this particular lineitem');
-      console.log('checkout.lineItems[0].id ---> ', checkout.lineItems[0].id); // Array with one additional line item
+      // console.log('checkout.lineItems[0].id ---> ', checkout.lineItems[0].id); // Array with one additional line item
       resolve(checkout);
     })
       .catch(error => {
