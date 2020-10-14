@@ -18,7 +18,7 @@ var fetch = function (productId) {
     client.product.fetch(productId)
       .then((product) => {
         // Do something with the product
-        
+
         var vino = {};
         vino.id = product.id;
         vino.description = product.description;
@@ -31,11 +31,11 @@ var fetch = function (productId) {
         console.log('product.productType  ---> ', product.productType);
         console.log('product ---> ', product);
         console.log('productInfo ---> ', productInfo);
-        if(product.variants) {
+        if (product.variants) {
           console.log('product variants[0].id', product.variants[0].id);
+        } else {
+          //console.log('product image', product.images[product.images.length - 1].src);
         }
-        console.log('product image', product.images[product.images.length-1].src);
-        
 
         resolve(product);
       })
@@ -47,7 +47,8 @@ var fetch = function (productId) {
 };
 
 // fetch(productVariantId);
-// fetch('Z2lkOi8vc2hvcGlmeS9Qcm9kdWN0LzQ3MDQ1MDc4ODc2OTc=');
+// fetch('Z2lkOi8vc2hvcGlmeS9Qcm9kdWN0LzQ3MDQ1MDc4ODc2OTc='); // id Sparkling wine, 6x750ml, 7.0% abv
+// fetch('Z2lkOi8vc2hvcGlmeS9Qcm9kdWN0VmFyaWFudC8zMjY3NDkwMzk0OTM5Mw=='); // variantsId Sparkling wine, 6x750ml, 7.0% abv
 // fetch('Z2lkOi8vc2hvcGlmeS9Qcm9kdWN0VmFyaWFudC8zMjY3NDkwMzk0OTM5Mw==');
 // fetch('Z2lkOi8vc2hvcGlmeS9Qcm9kdWN0LzQ3MDQ1MDg0Nzc1MjE=');
 
