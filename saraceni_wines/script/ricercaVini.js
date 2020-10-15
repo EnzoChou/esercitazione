@@ -188,7 +188,7 @@ var metodoScelto = function (richiestaUtente = '', params = '') {
       paroleDaCercareFiltrate = funzioniGeneriche.filtroParoleInutili(paroleDaCercare, listaParoleChiave);
     }
 
-    // elaborazione suggerimenti
+    // ELABORAZIONE SUGGERIMENTI
     var parametri = creazioneOggettoParametri(paroleDaCercare, params);
     if (parametri.aggettivo) {
       var oggettoFunzione = funzioniGeneriche.manipolazioneParoleDaCercareEAggettivi(paroleDaCercareFiltrate, listaAggettivi);
