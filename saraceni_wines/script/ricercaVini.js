@@ -202,7 +202,7 @@ var metodoScelto = function (richiestaUtente = '', params = '') {
     var indexScelto = 0;
     if (parametri.portata) {
       listaRicette = funzioniGeneriche.filtroPerTag([parametri.portata], listaRicette);
-      listaIngredientiPrincipali = funzioniGeneriche.filtroPerTag([parametri.portata], listaIngredientiPrincipali);
+      // listaIngredientiPrincipali = funzioniGeneriche.filtroPerTag([parametri.portata], listaIngredientiPrincipali);
       console.log('lista ricette dopo il filtro della portata', listaRicette);
     }
     if (parametri.tipologia) {
@@ -215,8 +215,7 @@ var metodoScelto = function (richiestaUtente = '', params = '') {
         Math.max(...arrayDiArray.map(array => {
           // console.log('somiglianza ' + paroleDaCercareFiltrate + ' - ' + array + ' ', funzioniGeneriche.somiglianzaParoleArray(paroleDaCercareFiltrate, array));
           // console.log('somiglianza ' + array + ' - ' + paroleDaCercareFiltrate + ' ', funzioniGeneriche.somiglianzaParoleArray(array, paroleDaCercareFiltrate));
-          return Math.max(funzioniGeneriche.somiglianzaParoleArray(paroleDaCercareFiltrate, array),
-            funzioniGeneriche.somiglianzaParoleArray(array, paroleDaCercareFiltrate));
+          return funzioniGeneriche.somiglianzaParoleArray(paroleDaCercareFiltrate, array);
         }))
       );
 
@@ -280,6 +279,17 @@ var metodoScelto = function (richiestaUtente = '', params = '') {
         listaPapabile[0].viniProposti = funzioniGeneriche.controlloAggettivi(parolePerControlloAggettivi, listaPapabile[0].viniProposti);
       }
 
+      if (parametri.occasione) {
+        listaPapabile[0].viniProposti.forEach(vino => {
+          try {
+            vino.motivazione = listaPapabile[0].motivazione;
+          } catch (error) {
+            console.log('errore, motivazione non trovata e occasione risulta true', error);
+            return;
+          } 
+        })
+      }
+
       console.log('arrayDiRitorno', listaPapabile[0].viniProposti);
       resolve(listaPapabile[0].viniProposti);
     } else {
@@ -293,7 +303,7 @@ exports.metodoScelto = metodoScelto;
 // var modulo = {};
 
 var t0 = performance.now();
-metodoScelto('spring rolls primo', 'aggettivo:false,portata:primo,occasione:false');
+metodoScelto('birthday', 'aggettivo:false,occasione:true');
 var t1 = performance.now();
 console.log('\n\n\nl\'algoritmo ci ha impiegato:', t1 - t0, 'millisecondi\n\n\n');
 

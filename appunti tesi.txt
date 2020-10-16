@@ -27,3 +27,11 @@ appoggio di integrations attraverso funzioni presenti in utils
 funzioni in utils comunicano con api o scripts per info
 
 
+
+
+
+
+modalità per far partire bot facebook
+far partire bot (porta default 3333)
+far partire ngrok con la stessa porta del bot (porta 3333)
+andare dentro l'app di facebook, inserire il link di ngrok nel webhook
