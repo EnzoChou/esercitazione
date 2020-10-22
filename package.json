@@ -6,6 +6,7 @@
     "start": "node ./bin/www"
   },
   "dependencies": {
+    "axios": "^0.20.0",
     "bluebird": "^3.7.2",
     "convert-excel-to-json": "^1.7.0",
     "cookie-parser": "~1.4.4",
@@ -20,7 +21,7 @@
     "natural": "^2.1.5",
     "node-fetch": "^2.6.1",
     "nodemon": "^2.0.4",
-    "request": "^2.88.2",
+    "query-string": "^6.13.6",
     "request-promise": "^4.2.6",
     "semistandard": "^14.2.3",
     "shopify-buy": "^2.11.0"

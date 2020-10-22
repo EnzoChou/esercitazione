@@ -8,6 +8,11 @@
         "storefrontAccessToken": "70a2457eca91a8dc932ca858138992e1"
 
     },
+    "dev_v2": {
+        "username": "40f22f8f724a0f0711a36fc751ebbaa7",
+        "password": "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",
+        "host": "https://@apac-saraceni-wines.myshopify.com"
+    },
     "prod": {
         "domain": "",
         "storefrontAccessToken": ""

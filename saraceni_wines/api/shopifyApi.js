@@ -57,11 +57,11 @@ var checkoutFetch = function (checkoutId) {
       .catch(err => {
         console.log('errore in checkout fetch, id non valido, te ne creo uno nuovo', err);
         return client.checkout.create()
-        .then(checkout => {
-          console.log('checkout.id', checkout.id);
-          console.log('checkout.lineItems', checkout.lineItems);
-        resolve(checkout);
-        })
+          .then(checkout => {
+            console.log('checkout.id', checkout.id);
+            console.log('checkout.lineItems', checkout.lineItems);
+            resolve(checkout);
+          })
       });
   })
 };
@@ -76,6 +76,7 @@ var fetchById = function (productId) {
         if (product) {
           // Do something with the product
           productInfo = product.id;
+          console.log('il nome del vino è', product.title);
           console.log('product.type ---> ', product.type);
           console.log('product ---> ', product);
           console.log('productInfo ---> ', productInfo);
@@ -108,7 +109,39 @@ var fetchById = function (productId) {
   })
 };
 
-//fetchById(productVariantId);
+// fetchById('Z2lkOi8vc2hvcGlmeS9Qcm9kdWN0LzQ3MDQ1MTAwMTc2MTc=');
+
+var unoptimizedQuery = function () {
+  const productsQuery = client.graphQLClient.query((root) => {
+    root.addConnection('products', { args: { first: 1} }, (product) => {
+      product.add('title');
+      product.add('tags');// Add fields to be returned
+      product.add('createdAt');
+      product.add('updatedAt');
+      product.add('descriptionHtml');
+      product.add('description');
+      product.add('handle');
+      product.add('productType');
+      product.add('vendor');
+      product.add('publishedAt');
+      product.add('onlineStoreUrl');
+      product.add('options');
+      // product.add('image');
+      // product.add('images');
+      // product.add('variants');
+      // product.add('status');
+
+    });
+  });
+// Call the send method with the custom products query
+client.graphQLClient.send(productsQuery).then(({model, data}) => {
+  // Do something with the products
+  console.log('stampa del model.products', model.products);
+  console.log('stampa dei dati', data);
+});
+};
+
+// unoptimizedQuery();
 
 // Fetch all products in your shop
 var fetchAll = function () {
@@ -149,7 +182,7 @@ var fetchAll = function () {
   })
 }
 
-// fetchAll().then(vini => { console.log(vini) });
+// fetchAll().then(vini => { console.log(JSON.stringify(vini[0])) }).catch(err => { console.log('err', err); return err; });
 
 // Add an item to the checkout
 var addLineItems = function (checkoutId, lineItemsToAdd) {
@@ -212,8 +245,8 @@ var fetchAllCollections = function () {
     // Fetch all collections, including their products
     client.collection.fetchAllWithProducts().then((collections) => {
       // Do something with the collections
-      console.log(collections);
-      console.log(collections[0].products);
+      // console.log(collections);
+      // console.log(collections[0].products);
       resolve(collections);
     })
       .catch(err => {
@@ -238,12 +271,12 @@ var fetchCollectionById = function (collectionId) {
       .catch(err => {
         console.log('err in fetchWithProducts', err);
         return fetchAllCollections()
-        .then(collections => {
-          resolve(collections);
-        })
-        .catch(err => {
-          resolve(err);
-        })
+          .then(collections => {
+            resolve(collections);
+          })
+          .catch(err => {
+            resolve(err);
+          })
       });
   })
 };
