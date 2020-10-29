@@ -133,6 +133,17 @@ function recuperoColonneVini(legenda) {
   return colonneVini;
 }
 
+function recuperoColonnaMotivazione(legenda) {
+  var colonnaMotivazione;
+  for (const [key, value] of Object.entries(legenda)) {
+    if (value === 'MOTIVAZIONE ABBINAMENTO( Max 120/150caratteri)') {
+      colonnaMotivazione = key;
+    }
+  }
+  // console.log('\ncolonne da cui recuperare vini ---> ', colonneMotivazione);
+  return colonnaMotivazione;
+}
+
 var somiglianzaNomiVini = function (nomeVino, listaVini) {
   var listaTmp = listaVini.filter(vino => natural.JaroWinklerDistance(vino.nome, nomeVino, undefined, true) > 0.80);
   if (listaTmp && listaTmp.length > 1) {
@@ -210,7 +221,6 @@ var popolaListaVini = function (viniDaShopify, listaVini) {
       listaVini.push(vinoTmp);
     }
   })
-  // console.log('\nlista vini di ritorno ---> ', listaVini);
   return listaVini;
 };
 
@@ -297,6 +307,7 @@ function estrazioneListaRicette(nomePagina) {
   }
   var listaPagina = listaRicetteDaFileJson[nomePagina];
   var colonneVini = recuperoColonneVini(listaPagina[2]);
+  var colonnaMotivazione = recuperoColonnaMotivazione(listaPagina[2]);
   for (let i = 3; i < listaPagina.length; i++) {
     if (listaPagina[i].B) {
       var strutturaRicetta = {}; // come uscirà fuori l'oggetto RICETTA
@@ -306,7 +317,9 @@ function estrazioneListaRicette(nomePagina) {
       strutturaRicetta.ingredientiPrincipali = estrazioneIngredientiPrincipaliConAggiornamentoLista(listaPagina[i]);
       strutturaRicetta.ingredientiSecondari = estrazioneIngredientiSecondariConAggiornamentoLista(listaPagina[i]);
       strutturaRicetta.viniProposti = estrazioneViniConAggiornamentoListaVini(listaPagina[i], colonneVini);
-      strutturaRicetta.motivazioneAbbinamento = listaPagina[i].J;
+      if (listaPagina[i][colonnaMotivazione]) {
+        strutturaRicetta.motivazione = listaPagina[i][colonnaMotivazione];
+      }
       idRicetta++;
       listaRicette.push(strutturaRicetta);
     }
@@ -392,6 +405,7 @@ function estrazioneAbbinamentiGenerali(nomePagina) {
   var listaAbbinamenti = [];
   var listaPagina = listaRicetteDaFileJson[nomePagina];
   var colonneVini = recuperoColonneVini(listaPagina[2]);
+  var colonnaMotivazione = recuperoColonnaMotivazione(listaPagina[2]);
   for (let i = 3; i < listaPagina.length; i++) {
     if (listaPagina[i].B) {
       var strutturaAbbinamento = {}; // come uscirà fuori l'oggetto ABBINAMENTO
@@ -399,8 +413,8 @@ function estrazioneAbbinamentiGenerali(nomePagina) {
       strutturaAbbinamento.nome = listaPagina[i].D.toLowerCase();
       strutturaAbbinamento.tags = [nomePagina.toLowerCase(), listaPagina[i].B.toLowerCase()];
       strutturaAbbinamento.viniProposti = estrazioneViniConAggiornamentoListaVini(listaPagina[i], colonneVini);
-      if (listaPagina[i].H) {
-        strutturaAbbinamento.motivazione = listaPagina[i].H; // normalmente la motivazione sta in J
+      if (listaPagina[i][colonnaMotivazione]) {
+        strutturaAbbinamento.motivazione = listaPagina[i][colonnaMotivazione]; // normalmente la motivazione sta in J
       }
       idAbbinamento++;
       listaAbbinamenti.push(strutturaAbbinamento);
@@ -435,14 +449,15 @@ function estrazioneListaOccasioni(nomePagina) {
   var listaAbbinamentiTmp = [];
   var listaPagina = listaRicetteDaFileJson[nomePagina];
   var colonneVini = recuperoColonneVini(listaPagina[2]);
+  var colonnaMotivazione = recuperoColonnaMotivazione(listaPagina[2]);
   for (let i = 3; i < listaPagina.length; i++) {
     if (listaPagina[i].B) {
       var strutturaOccasione = {};
       strutturaOccasione.id = idOccasioni;
       strutturaOccasione.nome = listaPagina[i].B.toLowerCase();
       strutturaOccasione.viniProposti = estrazioneViniConAggiornamentoListaVini(listaPagina[i], colonneVini);
-      if (listaPagina[i].H) {
-        strutturaOccasione.motivazione = listaPagina[i].H;
+      if (listaPagina[i][colonnaMotivazione]) {
+        strutturaOccasione.motivazione = listaPagina[i][colonnaMotivazione];
       }
       idOccasioni++;
       listaAbbinamentiTmp.push(strutturaOccasione);
@@ -484,7 +499,7 @@ function ritornaListaAggettiviNormale(listaAggettiviVino) {
   var listaAggettivi = [];
   listaAggettiviVino.forEach(elem => {
     return elem.tags.forEach(tag => {
-      if(!listaAggettivi.includes(tag)) {
+      if (!listaAggettivi.includes(tag)) {
         listaAggettivi.push(tag);
       }
     })
@@ -505,7 +520,23 @@ var wrapUpFunction = function () {
     return shopifyApi.fetchAll()
       .then(viniShopify => {
         console.log('numero vini presi da shopify', viniShopify.length);
+        // var listaAggiornata = popolaListaVini(viniShopify, listaVini);
+        // console.log('\n\nlista vini di ritorno ---> \n\n');
+        // var controlloVini = viniShopify.filter(vinoShopify => {
+        //   listaAggiornata.some(vino => {
+        //     if (vino.nome == vinoShopify.title) {
+        //       return true;
+        //     }
+        //     return false;
+        //   })
+        // })
+        // controlloVini.forEach(vino => {
+        //   console.log(vino.title);
+        // })
+
+
         return popolaListaVini(viniShopify, listaVini);
+
       })
       .then(listaViniAggiornata => {
         // console.log('\n\nlista vini aggiornata ---> ', listaViniAggiornata, '\n\n');
