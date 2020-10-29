@@ -106,15 +106,20 @@ var creazioneOggettoParametri = function (richiestaUtente, params = '', listaAgg
       })
     } catch (err) {
       console.log('errore nella creazione dell\'oggetto parametri, ritorno oggetto vuoto\n', err);
-      console.log('parametri inseriti ---> ', params);
-      console.log('oggetto di parametri ---> ', parametri);
       return parametri;
     }
   }
   console.log('parametri inseriti ---> ', params);
   console.log('oggetto di parametri ---> ', parametri);
   return parametri;
-}
+};
+
+var tokenizeERiassemblamentoNomiDaLista = function (lista) {
+  return lista.map(elem => {
+    elem.nome.tokenizeAndStem().join(' ');
+    return elem;
+  })
+};
 
 var metodoScelto = function (richiestaUtente = '', params = '') {
   // var strutture = external_services.saraceni_wines.data.ricette;
@@ -145,6 +150,14 @@ var metodoScelto = function (richiestaUtente = '', params = '') {
 
     // console.log(natural.PorterStemmer.stem(utente));
     // console.log(natural.JaroWinklerDistance("dixon","dicksonx", undefined, true));
+
+    // TOKENIZZO E RIMONTO I NOMI
+    listaRicette = tokenizeERiassemblamentoNomiDaLista(listaRicette);
+    listaAbbinamentiGenerali = tokenizeERiassemblamentoNomiDaLista(listaAbbinamentiGenerali);
+    listaIngredientiPrincipali = tokenizeERiassemblamentoNomiDaLista(listaIngredientiPrincipali);
+    listaIngredientiSecondari = tokenizeERiassemblamentoNomiDaLista(listaIngredientiSecondari);
+    listaOccasioni = tokenizeERiassemblamentoNomiDaLista(listaOccasioni);
+
 
     var nomiRicette = listaRicette.map(ricetta => ricetta.nome.tokenizeAndStem());
     var abbinamentiGenerali = listaAbbinamentiGenerali.map(tipo => tipo.nome.tokenizeAndStem()); //abbinamenti generali non usato
@@ -204,13 +217,17 @@ var metodoScelto = function (richiestaUtente = '', params = '') {
       listaRicette = funzioniGeneriche.filtroPerTag([parametri.portata], listaRicette);
       // listaIngredientiPrincipali = funzioniGeneriche.filtroPerTag([parametri.portata], listaIngredientiPrincipali);
       console.log('lista ricette dopo il filtro della portata', listaRicette);
-    }
-    if (parametri.tipologia) {
+    } else if (parametri.tipologia) {  // suggerimento tipologia
       indexScelto = 1;
-    }
-    if (parametri.occasione) {
+    } else if (parametri.occasione) {  // suggerimento occasione
       indexScelto = 2;
-    } else {
+    } else if (Math.max(...nomiVini.map(nomeVino => {  // controllo più stretto per il vino
+      return Math.max(funzioniGeneriche.somiglianzaParoleArray(paroleDaCercareFiltrate, nomeVino),
+        funzioniGeneriche.somiglianzaParoleArray(nomeVino, paroleDaCercareFiltrate))
+    })) > 0.9) {
+      indexScelto = 5;
+    } else {  // opzione di default che ricerca nelle varie liste
+      console.log('entra nella ricerca di default');
       var punteggi = arrayPunteggio.map(arrayDiArray =>
         Math.max(...arrayDiArray.map(array => {
           // console.log('somiglianza ' + paroleDaCercareFiltrate + ' - ' + array + ' ', funzioniGeneriche.somiglianzaParoleArray(paroleDaCercareFiltrate, array));
@@ -286,7 +303,7 @@ var metodoScelto = function (richiestaUtente = '', params = '') {
           } catch (error) {
             console.log('errore, motivazione non trovata e occasione risulta true', error);
             return;
-          } 
+          }
         })
       }
 
@@ -302,10 +319,10 @@ exports.metodoScelto = metodoScelto;
 
 // var modulo = {};
 
-var t0 = performance.now();
-metodoScelto('birthday', 'aggettivo:false,occasione:true');
-var t1 = performance.now();
-console.log('\n\n\nl\'algoritmo ci ha impiegato:', t1 - t0, 'millisecondi\n\n\n');
+// var t0 = performance.now();
+// metodoScelto('taco tuesday', 'aggettivo:false,occasione:false');
+// var t1 = performance.now();
+// console.log('\n\n\nl\'algoritmo ci ha impiegato:', t1 - t0, 'millisecondi\n\n\n');
 
 // // modulo.matchRicetta = matchRicetta;
 // // modulo.ricetteTrovateDaIngredientiPrincipali = ricetteTrovateDaIngredientiPrincipali;
