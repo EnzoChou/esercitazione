@@ -31,13 +31,12 @@ var anagrammaParole = function (arrayParole, oggettoNome) {
   // paroleAnaGrammate = ['banana papaya', 'papaya ciquita']
   var arrayNome = oggettoNome.split(' ');
   var numeroParole = arrayNome.length;
-
-  if (arrayParole.length > numeroParole) {
+  if (arrayParole.length >= numeroParole) {
     var paroleAnagrammate = [];
-    for (let i = 0; i < arrayParole.length && arrayParole.length >= numeroParole + i; i++) {
-      var parola = [arrayParole[i]];
+    for (let i = 0; i < arrayParole.length && arrayParole.length - i >= numeroParole; i++) {
+      var parola = [];
       var paroleUnite;
-      for (let j = i + 1; j < i + numeroParole; j++) {
+      for (let j = i; j < i + numeroParole; j++) {
         parola.push(arrayParole[j]);
       }
       paroleUnite = parola.join(' ');
@@ -148,10 +147,14 @@ var somiglianzaParoleArray = function (arrayParole, arrayDiConfronto) {
     arrayDiConfronto.forEach((item2) => {
       if (natural.JaroWinklerDistance(item, item2, undefined, true) > 0.8) {
         contatore += natural.JaroWinklerDistance(item, item2, undefined, true);
+        // console.log('arrayDiConfronto', arrayDiConfronto, '\nitem --->', item, 'item2 --->', item2, 'distance --->', natural.JaroWinklerDistance(item, item2, undefined, true));
+        // console.log('valore contatore', contatore);
       }
     });
   });
-  return contatore / (arrayDiConfronto.length);
+  var valoreDiRitorno = contatore / (arrayDiConfronto.length);
+  // if (valoreDiRitorno > 0.5) { console.log(arrayDiConfronto, 'ritorno valore di somiglianza', valoreDiRitorno); }
+  return valoreDiRitorno;
 };
 
 var ricercaViniProposti = function (listaViniProposti, listaVini) {
