@@ -86,7 +86,7 @@ var filtroListaDalNome = function (arrayParole, lista) {
         console.log('[filtro nome]\nA probabilità "' + oggetto.nome + '" e "' + parolaAnagrammata + '" ---> ',
           natural.JaroWinklerDistance(oggetto.nome, parolaAnagrammata, undefined, true));
       }*/
-      console.log('ricetta', oggetto.nome, 'parolaAnagrammata', parolaAnagrammata, natural.JaroWinklerDistance(oggetto.nome, parolaAnagrammata, undefined, true));
+      // console.log('ricetta', oggetto.nome, 'parolaAnagrammata', parolaAnagrammata, natural.JaroWinklerDistance(oggetto.nome, parolaAnagrammata, undefined, true));
       return natural.JaroWinklerDistance(oggetto.nome, parolaAnagrammata, undefined, true) > 0.85
     })
   });
