@@ -80,6 +80,7 @@ var filtroListaDalNome = function (arrayParole, lista) {
 
 var filtroListaDalNome = function (arrayParole, lista) {
   return lista.filter(function (oggetto) {
+    oggetto.gradoSomiglianza = 0;
     var paroleAnagrammate = anagrammaParole(arrayParole, oggetto.nome);
     return paroleAnagrammate.some(parolaAnagrammata => {
       /* if (natural.JaroWinklerDistance(oggetto.nome, parolaAnagrammata, undefined, true) > 0.7) {
@@ -87,7 +88,11 @@ var filtroListaDalNome = function (arrayParole, lista) {
           natural.JaroWinklerDistance(oggetto.nome, parolaAnagrammata, undefined, true));
       }*/
       // console.log('ricetta', oggetto.nome, 'parolaAnagrammata', parolaAnagrammata, natural.JaroWinklerDistance(oggetto.nome, parolaAnagrammata, undefined, true));
-      return natural.JaroWinklerDistance(oggetto.nome, parolaAnagrammata, undefined, true) > 0.85
+
+      oggetto.gradoSomiglianza = Math.max(oggetto.gradoSomiglianza,
+        natural.JaroWinklerDistance(oggetto.nome, parolaAnagrammata, undefined, true));
+
+      return natural.JaroWinklerDistance(oggetto.nome, parolaAnagrammata, undefined, true) > 0.85;
     })
   });
 };
@@ -118,8 +123,10 @@ var filtroListaDalNomeApprofondito = function (arrayParole, lista) {
 
 var filtroPerTag = function (arrayParole, lista) {
   return lista.filter(oggetto => {
+    oggetto.gradoSomiglianza = 0;
     return oggetto.tags.some(tag => {
       return arrayParole.some(parola => {
+        oggetto.gradoSomiglianza = Math.max(oggetto.gradoSomiglianza, natural.JaroWinklerDistance(parola, tag, undefined, true));
         return natural.JaroWinklerDistance(parola, tag, undefined, true) > 0.8;
       });
     })

@@ -285,6 +285,12 @@ var metodoScelto = function (richiestaUtente = '', params = '') {
     console.log('listaPapabile', listaPapabile);
 
     if (listaPapabile.length > 0 && listaPapabile[0] !== undefined) {
+      // se i prodotti hanno un grado di somiglianza provo a ordinarli
+      if (listaPapabile[0].gradoSomiglianza) {
+        listaPapabile.sort((a, b) => {
+          return b.gradoSomiglianza - a.gradoSomiglianza;
+        });
+      }
       // var arrayDiRitorno = funzioniGeneriche.ricercaViniProposti(listaPapabile[0].viniProposti, listaVini);
 
       // controllo aggettivi, se ce ne sono
@@ -320,7 +326,7 @@ exports.metodoScelto = metodoScelto;
 // var modulo = {};
 
 var t0 = performance.now();
-metodoScelto('mac and cheese', 'aggettivo:false,occasione:false');
+metodoScelto('taco tuesday', 'aggettivo:false,occasione:false');
 var t1 = performance.now();
 console.log('\n\n\nl\'algoritmo ci ha impiegato:', t1 - t0, 'millisecondi\n\n\n');
 
