@@ -116,7 +116,7 @@ var creazioneOggettoParametri = function (richiestaUtente, params = '', listaAgg
 
 var tokenizeERiassemblamentoNomiDaLista = function (lista) {
   return lista.map(elem => {
-    elem.nome.tokenizeAndStem().join(' ');
+    elem.nome = elem.nome.tokenizeAndStem().join(' ');
     return elem;
   })
 };
@@ -319,10 +319,10 @@ exports.metodoScelto = metodoScelto;
 
 // var modulo = {};
 
-// var t0 = performance.now();
-// metodoScelto('taco tuesday', 'aggettivo:false,occasione:false');
-// var t1 = performance.now();
-// console.log('\n\n\nl\'algoritmo ci ha impiegato:', t1 - t0, 'millisecondi\n\n\n');
+var t0 = performance.now();
+metodoScelto('mac and cheese', 'aggettivo:false,occasione:false');
+var t1 = performance.now();
+console.log('\n\n\nl\'algoritmo ci ha impiegato:', t1 - t0, 'millisecondi\n\n\n');
 
 // // modulo.matchRicetta = matchRicetta;
 // // modulo.ricetteTrovateDaIngredientiPrincipali = ricetteTrovateDaIngredientiPrincipali;
