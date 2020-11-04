@@ -10,19 +10,11 @@ var ricetteDaIngrediente = function (ingrediente, listaRicette) {
 };
 
 var ricetteDaIngredienti = function (ingredienti, listaRicette) {
-  var arrayRicette = [];
-  ingredienti.forEach((item, i) => {
-    arrayRicette = arrayRicette.concat(ricetteDaIngrediente(item, listaRicette));
-  });
-  return arrayRicette;
-};
-
-var ricercaTipoIngredientePapabile = function (arrayParole, tipoIngredienti) {
-  var listaDiRitorno = [];
-  listaDiRitorno = tipoIngredienti.find(tipoIngrediente =>
-    somiglianzaParoleArray(arrayParole, tipoIngrediente) > 0.5
-  );
-  return listaDiRitorno;
+  return listaRicette.filter(ricetta => {
+    return ingredienti.some(elem => {
+      return elem.ricette.includes(ricetta.id);
+    })
+  })
 };
 
 var anagrammaParole = function (arrayParole, oggettoNome) {
@@ -234,7 +226,6 @@ funzioniPerRicercaParole.ricetteDaIngredienti = ricetteDaIngredienti;
 funzioniPerRicercaParole.somiglianzaParoleArray = somiglianzaParoleArray;
 funzioniPerRicercaParole.ricercaIngredientiPapabili = ricercaIngredientiPapabili;
 funzioniPerRicercaParole.ricercaViniProposti = ricercaViniProposti;
-funzioniPerRicercaParole.ricercaTipoIngredientePapabile = ricercaTipoIngredientePapabile;
 funzioniPerRicercaParole.filtroPerTag = filtroPerTag;
 funzioniPerRicercaParole.filtroListaDalNome = filtroListaDalNome;
 funzioniPerRicercaParole.concatTags = concatTags;

@@ -17,11 +17,13 @@ var matchRicetta = function (arrayParole = [], listaRicette = []) {
 
 // METODI DI RICERCA DALLA LISTA DEGLI INGREDIENTI PRINCIPALI
 
-var ricetteTrovateDaIngredienti = function (arrayParole = [], obj = [], obj2 = []) {
+var ricetteTrovateDaIngredienti = function (arrayParole = [], listaIngredienti = [], listaRicette = []) {
   console.log('è stata chiamata la funzione ricette dagli ingredienti');
   // var funzioniGeneriche = external_services.saraceni_wines.integrations.funzioniGeneriche;
-  var a = funzioniGeneriche.ricercaIngredientiPapabili(arrayParole, obj);
-  return funzioniGeneriche.ricetteDaIngredienti(a, obj2);
+  var ingredientiTrovati = funzioniGeneriche.filtroListaDalNome(arrayParole, listaIngredienti).sort((a, b) => {
+    return b.gradoSomiglianza - a.gradoSomiglianza;
+  });
+  return funzioniGeneriche.ricetteDaIngrediente(ingredientiTrovati[0], listaRicette);
 };
 
 // METODI DI RICERCA PER ABBINAMENTI GENERALI
@@ -217,7 +219,8 @@ var metodoScelto = function (richiestaUtente = '', params = '') {
       listaRicette = funzioniGeneriche.filtroPerTag([parametri.portata], listaRicette);
       // listaIngredientiPrincipali = funzioniGeneriche.filtroPerTag([parametri.portata], listaIngredientiPrincipali);
       console.log('lista ricette dopo il filtro della portata', listaRicette);
-    } else if (parametri.tipologia) {  // suggerimento tipologia
+    }
+    if (parametri.tipologia) {  // suggerimento tipologia
       indexScelto = 1;
     } else if (parametri.occasione) {  // suggerimento occasione
       indexScelto = 2;
@@ -326,7 +329,7 @@ exports.metodoScelto = metodoScelto;
 // var modulo = {};
 
 var t0 = performance.now();
-metodoScelto('taco tuesday', 'aggettivo:false,occasione:false');
+metodoScelto('eat', 'aggettivo:false,occasione:false');
 var t1 = performance.now();
 console.log('\n\n\nl\'algoritmo ci ha impiegato:', t1 - t0, 'millisecondi\n\n\n');
 

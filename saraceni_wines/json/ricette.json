@@ -3406,7 +3406,7 @@
                 "Secondi"
             ],
             "ingredientiPrincipali": [
-                19
+                30
             ],
             "ingredientiSecondari": [],
             "viniProposti": [
@@ -3576,7 +3576,7 @@
                 "Secondi"
             ],
             "ingredientiPrincipali": [
-                30
+                31
             ],
             "ingredientiSecondari": [],
             "viniProposti": [
@@ -3630,7 +3630,7 @@
                 "Secondi"
             ],
             "ingredientiPrincipali": [
-                31
+                32
             ],
             "ingredientiSecondari": [
                 1
@@ -3793,7 +3793,7 @@
                 "Secondi"
             ],
             "ingredientiPrincipali": [
-                32
+                33
             ],
             "ingredientiSecondari": [],
             "viniProposti": [
@@ -3847,7 +3847,7 @@
                 "Secondi"
             ],
             "ingredientiPrincipali": [
-                33
+                34
             ],
             "ingredientiSecondari": [],
             "viniProposti": [
@@ -3901,7 +3901,7 @@
                 "Secondi"
             ],
             "ingredientiPrincipali": [
-                30
+                31
             ],
             "ingredientiSecondari": [],
             "viniProposti": [
@@ -3954,7 +3954,7 @@
                 "Secondi"
             ],
             "ingredientiPrincipali": [
-                34
+                35
             ],
             "ingredientiSecondari": [
                 50
@@ -4177,7 +4177,7 @@
                 "Secondi"
             ],
             "ingredientiPrincipali": [
-                19
+                30
             ],
             "ingredientiSecondari": [
                 45,
@@ -4236,7 +4236,7 @@
                 "Secondi"
             ],
             "ingredientiPrincipali": [
-                35
+                36
             ],
             "ingredientiSecondari": [
                 54
@@ -4292,7 +4292,7 @@
                 "Secondi"
             ],
             "ingredientiPrincipali": [
-                36
+                37
             ],
             "ingredientiSecondari": [],
             "viniProposti": [
@@ -4398,7 +4398,7 @@
                 "Dessert"
             ],
             "ingredientiPrincipali": [
-                37
+                38
             ],
             "ingredientiSecondari": [
                 55
@@ -4511,7 +4511,7 @@
                 "Dessert"
             ],
             "ingredientiPrincipali": [
-                38
+                39
             ],
             "ingredientiSecondari": [],
             "viniProposti": [
@@ -4567,7 +4567,7 @@
                 "Dessert"
             ],
             "ingredientiPrincipali": [
-                39
+                40
             ],
             "ingredientiSecondari": [
                 56
@@ -4625,7 +4625,7 @@
                 "Dessert"
             ],
             "ingredientiPrincipali": [
-                38
+                39
             ],
             "ingredientiSecondari": [
                 39
@@ -4740,7 +4740,7 @@
                 "Dessert"
             ],
             "ingredientiPrincipali": [
-                40
+                41
             ],
             "ingredientiSecondari": [],
             "viniProposti": [
@@ -4794,7 +4794,7 @@
                 "Dessert"
             ],
             "ingredientiPrincipali": [
-                41
+                42
             ],
             "ingredientiSecondari": [
                 57
@@ -4851,7 +4851,7 @@
                 "Dessert"
             ],
             "ingredientiPrincipali": [
-                42
+                43
             ],
             "ingredientiSecondari": [],
             "viniProposti": [
@@ -5302,7 +5302,7 @@
                 "Ricette italiane"
             ],
             "ingredientiPrincipali": [
-                43
+                44
             ],
             "ingredientiSecondari": [
                 60
@@ -5588,7 +5588,7 @@
                 "Ricette italiane"
             ],
             "ingredientiPrincipali": [
-                44
+                45
             ],
             "ingredientiSecondari": [
                 46
@@ -5645,7 +5645,7 @@
                 "Ricette italiane"
             ],
             "ingredientiPrincipali": [
-                45
+                46
             ],
             "ingredientiSecondari": [
                 3,
@@ -5701,7 +5701,7 @@
                 "Ricette italiane"
             ],
             "ingredientiPrincipali": [
-                46
+                47
             ],
             "ingredientiSecondari": [],
             "viniProposti": [
@@ -5981,7 +5981,7 @@
                 "Ricette italiane"
             ],
             "ingredientiPrincipali": [
-                47
+                48
             ],
             "ingredientiSecondari": [
                 66
@@ -6037,7 +6037,7 @@
                 "Ricette italiane"
             ],
             "ingredientiPrincipali": [
-                47
+                48
             ],
             "ingredientiSecondari": [
                 67
@@ -6320,7 +6320,7 @@
                 "Ricette italiane"
             ],
             "ingredientiPrincipali": [
-                48
+                49
             ],
             "ingredientiSecondari": [
                 13,
@@ -6491,7 +6491,7 @@
                 "Ricette italiane"
             ],
             "ingredientiPrincipali": [
-                49
+                50
             ],
             "ingredientiSecondari": [
                 69
@@ -6549,7 +6549,7 @@
                 "Ricette italiane"
             ],
             "ingredientiPrincipali": [
-                41
+                42
             ],
             "ingredientiSecondari": [
                 57
@@ -7964,12 +7964,10 @@
                 56,
                 58,
                 60,
-                61,
                 62,
                 63,
                 67,
                 74,
-                75,
                 110,
                 115
             ]
@@ -8054,6 +8052,14 @@
         },
         {
             "id": 30,
+            "nome": "steak",
+            "ricette": [
+                61,
+                75
+            ]
+        },
+        {
+            "id": 31,
             "nome": "squid",
             "ricette": [
                 64,
@@ -8061,56 +8067,56 @@
             ]
         },
         {
-            "id": 31,
+            "id": 32,
             "nome": "mussel",
             "ricette": [
                 65
             ]
         },
         {
-            "id": 32,
+            "id": 33,
             "nome": "sea bass",
             "ricette": [
                 68
             ]
         },
         {
-            "id": 33,
+            "id": 34,
             "nome": "sea bream",
             "ricette": [
                 69
             ]
         },
         {
-            "id": 34,
+            "id": 35,
             "nome": "wurstel",
             "ricette": [
                 71
             ]
         },
         {
-            "id": 35,
+            "id": 36,
             "nome": "quinoa",
             "ricette": [
                 76
             ]
         },
         {
-            "id": 36,
+            "id": 37,
             "nome": "vegetables",
             "ricette": [
                 77
             ]
         },
         {
-            "id": 37,
+            "id": 38,
             "nome": "apple",
             "ricette": [
                 79
             ]
         },
         {
-            "id": 38,
+            "id": 39,
             "nome": "chocolate",
             "ricette": [
                 81,
@@ -8118,21 +8124,21 @@
             ]
         },
         {
-            "id": 39,
+            "id": 40,
             "nome": "Fresh cheese",
             "ricette": [
                 82
             ]
         },
         {
-            "id": 40,
+            "id": 41,
             "nome": "strawberry",
             "ricette": [
                 85
             ]
         },
         {
-            "id": 41,
+            "id": 42,
             "nome": "mascarpone cheese",
             "ricette": [
                 86,
@@ -8140,42 +8146,42 @@
             ]
         },
         {
-            "id": 42,
+            "id": 43,
             "nome": "milk",
             "ricette": [
                 87
             ]
         },
         {
-            "id": 43,
+            "id": 44,
             "nome": "tornellini",
             "ricette": [
                 95
             ]
         },
         {
-            "id": 44,
+            "id": 45,
             "nome": "parmaham",
             "ricette": [
                 100
             ]
         },
         {
-            "id": 45,
+            "id": 46,
             "nome": "gnocchi",
             "ricette": [
                 101
             ]
         },
         {
-            "id": 46,
+            "id": 47,
             "nome": "veal meat",
             "ricette": [
                 102
             ]
         },
         {
-            "id": 47,
+            "id": 48,
             "nome": "veal",
             "ricette": [
                 107,
@@ -8183,14 +8189,14 @@
             ]
         },
         {
-            "id": 48,
+            "id": 49,
             "nome": "aubregines",
             "ricette": [
                 113
             ]
         },
         {
-            "id": 49,
+            "id": 50,
             "nome": "shortcrust pastry",
             "ricette": [
                 116
@@ -11564,6 +11570,7 @@
         "sausages",
         "white meat",
         "pastrami",
+        "steak",
         "squid",
         "mussel",
         "sea bass",
@@ -11921,6 +11928,7 @@
             "sausages",
             "white meat",
             "pastrami",
+            "steak",
             "squid",
             "mussel",
             "sea bass",
