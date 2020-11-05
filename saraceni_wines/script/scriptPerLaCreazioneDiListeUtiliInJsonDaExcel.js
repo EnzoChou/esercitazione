@@ -566,7 +566,8 @@ var wrapUpFunction = function () {
           estrazioneParoleChiave(ingredientiPrincipali),
           estrazioneParoleChiave(ingredientiSecondari),
           estrazioneParoleChiave(listaOccasioni),
-          estrazioneParoleChiave(listaVini)
+          estrazioneParoleChiave(listaVini),
+          ['wine', 'wines', 'vino', 'booze', 'liquor']
         );
 
         estrazioneParoleChiavePerCategoria(listaParoleChiavePerCategoria, antipastiContorni, 'antipastiContorni');
