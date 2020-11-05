@@ -24,6 +24,8 @@ var anagrammaParole = function (arrayParole, oggettoNome) {
   var arrayNome = oggettoNome.split(' ');
   var numeroParole = arrayNome.length;
   if (arrayParole.length >= numeroParole) {
+    // console.log(ngrams.ngrams(arrayParole, numeroParole));
+    // return ngrams.ngrams(arrayParole, numeroParole);
     var paroleAnagrammate = [];
     for (let i = 0; i < arrayParole.length && arrayParole.length - i >= numeroParole; i++) {
       var parola = [];
@@ -181,9 +183,11 @@ var filtroParoleInutili = function (listaParole, listaParoleChiave) {
         console.log('[filtro parole inutili]\nprobabilità "' + parola + '" e "' + parolaChiave + '" ---> ',
           natural.JaroWinklerDistance(parola, parolaChiave, undefined, true));
       }*/
-      return natural.JaroWinklerDistance(parola, parolaChiave, undefined, true) > 0.6;
+      // return natural.JaroWinklerDistance(parola, parolaChiave, undefined, true) > 0.6;
+      return parolaChiave.includes(parola);
     })
   });
+  
   return listaParoleFiltrate;
 };
 
