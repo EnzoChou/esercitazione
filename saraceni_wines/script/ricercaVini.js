@@ -10,7 +10,7 @@ var data = null;
 
 var matchRicetta = function (arrayParole = [], listaRicette = []) {
   // var funzioniGeneriche = external_services.saraceni_wines.integrations.funzioniGeneriche;
-  console.log('è stato scelto il metodo di match da Ricette\n\n');
+  console.log('\n\n------------------ricerca Ricette------------------\n\n');
   var ricetteTrovate = funzioniGeneriche.filtroListaDalNome(arrayParole, listaRicette);
   return ricetteTrovate;
 };
@@ -18,7 +18,7 @@ var matchRicetta = function (arrayParole = [], listaRicette = []) {
 // METODI DI RICERCA DALLA LISTA DEGLI INGREDIENTI PRINCIPALI
 
 var ricetteTrovateDaIngredienti = function (arrayParole = [], listaIngredienti = [], listaRicette = []) {
-  console.log('è stata chiamata la funzione ricette dagli ingredienti');
+  console.log('\n\n------------------ricerca per ingredienti------------------\n\n');
   // var funzioniGeneriche = external_services.saraceni_wines.integrations.funzioniGeneriche;
   var ingredientiTrovati = funzioniGeneriche.filtroListaDalNome(arrayParole, listaIngredienti);
   if (ingredientiTrovati[0]) {
@@ -34,7 +34,7 @@ var ricetteTrovateDaIngredienti = function (arrayParole = [], listaIngredienti =
 // METODI DI RICERCA PER ABBINAMENTI GENERALI
 
 var ricercaPerAbbinamentiGenerali = function (arrayParole = [], listaAbbinamentiGenerali = []) {
-  console.log('è stato scelto il metodo di match da abbinamenti generali\n\n');
+  console.log('\n\n------------------ricerca negli abbinamenti generali------------------\n\n');
   // console.log('\n\n\nlistaAbbinamentiGenerali\n\n\n', listaAbbinamentiGenerali);
   var risultatoTrovato = funzioniGeneriche.filtroListaDalNome(arrayParole, listaAbbinamentiGenerali);
   console.log('risultato dopo il filtro per nome', risultatoTrovato);
@@ -59,7 +59,7 @@ var abbinamentoTrovatoPerTipologia = function (arrayParole, obj) {
 // METODI DI RICERCA PER L'OCCASIONE
 
 var occasioneTrovata = function (arrayParole = [], obj = []) {
-  console.log('è stata chiamata la funzione di ricerca per occasione');
+  console.log('\n\n------------------ricerca occasioni------------------\n\n');
   // var funzioniGeneriche = external_services.saraceni_wines.integrations.funzioniGeneriche;
   var listaOccasioniTmp = [];
   listaOccasioniTmp = funzioniGeneriche.filtroListaDalNome(arrayParole, obj);
@@ -70,7 +70,7 @@ var occasioneTrovata = function (arrayParole = [], obj = []) {
 // METODI DI RICERCA DIRETTAMENTE DALLA LISTA VINI
 
 var abbinamentoTrovatoDallaListaVini = function (arrayParole = [], listaVini = [], listaAggettivi = []) {
-
+  console.log('\n\n------------------ricerca diretta nei vini------------------\n\n');
   if (listaAggettivi.length > 0) {
     arrayParole = listaAggettivi;
   }
@@ -227,9 +227,9 @@ var metodoScelto = function (richiestaUtente = '', params = '') {
     console.log('parole inserite dall\'utente filtrate', paroleDaCercareFiltrate);
     var indexScelto = 0;
     if (parametri.portata) {
-      listaRicette = funzioniGeneriche.filtroPerTag([parametri.portata], listaRicette);
+      listaRicette = funzioniGeneriche.filtroPerTag([parametri.portata, 'Ricette italiane'], listaRicette);
       // listaIngredientiPrincipali = funzioniGeneriche.filtroPerTag([parametri.portata], listaIngredientiPrincipali);
-      console.log('lista ricette dopo il filtro della portata', listaRicette);
+      // console.log('lista ricette dopo il filtro della portata', listaRicette);
     }
     if (parametri.tipologia) { // suggerimento tipologia
       indexScelto = 1;
@@ -238,7 +238,7 @@ var metodoScelto = function (richiestaUtente = '', params = '') {
     } else if (Math.max(...nomiVini.map(nomeVino => { // controllo più stretto per il vino
         return Math.max(funzioniGeneriche.somiglianzaParoleArray(paroleDaCercareFiltrate, nomeVino),
           funzioniGeneriche.somiglianzaParoleArray(nomeVino, paroleDaCercareFiltrate))
-      })) > 0.9 || paroleDaCercareFiltrate.some(parola => paroleChiaveConCuiCercareDirettamenteInVini.includes(parola))) {
+      })) > 0.9 || (parametri.aggettivo && paroleDaCercareFiltrate.some(parola => paroleChiaveConCuiCercareDirettamenteInVini.includes(parola)))) {
       indexScelto = 5;
     } else { // opzione di default che ricerca nelle varie liste
       console.log('entra nella ricerca di default');
@@ -341,7 +341,7 @@ exports.metodoScelto = metodoScelto;
 // var modulo = {};
 
 var t0 = performance.now();
-metodoScelto('wine drink booze liquor vino I\'m having a steak and cheese sandwich, with spinach on the side');
+metodoScelto('carbonara', 'portata=antipasti/contorni');
 var t1 = performance.now();
 console.log('\n\n\nl\'algoritmo ci ha impiegato:', t1 - t0, 'millisecondi\n\n\n');
 
