@@ -80,12 +80,22 @@ var abbinamentoTrovatoDallaListaVini = function (arrayParole = [], listaVini = [
   var listaViniTmp = [];
   listaViniTmp = funzioniGeneriche.filtroListaDalNome(arrayParole, listaVini);
   if (listaViniTmp.length === 0) {
-    console.log('la ricerca per nome non ha prodotto risultati');
+    console.log('la ricerca per nome non ha prodotto risultati, provo una ricerca approfondita');
     listaViniTmp = funzioniGeneriche.filtroListaDalNomeApprofondito(arrayParole, listaVini);
   }
   if (listaViniTmp.length === 0) {
-    console.log('la ricerca per nome e nome approfondito non ha prodotto risultati');
+    console.log('la ricerca per nome e nome approfondito non ha prodotto risultati, provo con i tag');
     listaViniTmp = funzioniGeneriche.filtroPerTag(arrayParole, listaVini);
+  }
+  if (listaViniTmp.length > 3) {
+    var indexArr = [];
+    while (indexArr.length < 3) {
+      var rndIndex = listaViniTmp[Math.floor(Math.random() * listaViniTmp.length)];
+      if (indexArr.indexOf(rndIndex) == -1) // if rndIndex is not in indexArr
+        indexArr.push(rndIndex);
+    }
+    listaViniTmp = indexArr;
+    console.log('vini proposti randomicamente perchè superiori a 3--->', listaViniTmp);
   }
   obj.viniProposti = listaViniTmp;
   return [obj];
@@ -329,7 +339,10 @@ var metodoScelto = function (richiestaUtente = '', params = '') {
       }
 
       console.log('arrayDiRitorno', listaPapabile[0].viniProposti);
-      resolve(listaPapabile[0].viniProposti);
+      resolve({
+        vini: listaPapabile[0].viniProposti,
+        motivazione: listaPapabile[0].motivazione
+      });
     } else {
       resolve([]);
     }
@@ -341,7 +354,7 @@ exports.metodoScelto = metodoScelto;
 // var modulo = {};
 
 var t0 = performance.now();
-metodoScelto('carbonara', 'portata=antipasti/contorni');
+metodoScelto('dry wine', 'aggettivo');
 var t1 = performance.now();
 console.log('\n\n\nl\'algoritmo ci ha impiegato:', t1 - t0, 'millisecondi\n\n\n');
 
