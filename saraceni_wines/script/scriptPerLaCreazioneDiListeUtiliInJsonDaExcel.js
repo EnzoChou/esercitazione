@@ -201,7 +201,7 @@ var popolaListaVini = function (viniDaShopify, listaVini) {
         listaVini[i] = new ObjVino(
           vinoShopify.id,
           vinoShopify.variants[0].id,
-          vinoShopify.title.toLowerCase(),
+          vinoShopify.title,
           vinoShopify.variants[0].price,
           vinoShopify.variants[0].image.src);
         listaVini[i].quantity = quantity;
@@ -213,7 +213,7 @@ var popolaListaVini = function (viniDaShopify, listaVini) {
       // console.log('\narriva alla creazione di vinoTmp');
       var vinoTmp = new ObjVino(vinoShopify.id,
         vinoShopify.variants[0].id,
-        vinoShopify.title.toLowerCase(),
+        vinoShopify.title,
         vinoShopify.variants[0].price,
         vinoShopify.variants[0].image.src);
       // console.log('\nvinoTmp è ', vinoTmp);
@@ -228,7 +228,7 @@ function estrazioneListaVini(nomeVino) {
   var vinoTmp = somiglianzaNomiVini(nomeVino, listaVini);
   if (!vinoTmp) {
     vinoTmp = new ObjVino();
-    vinoTmp.nome = nomeVino.toLowerCase();
+    vinoTmp.nome = nomeVino;
     idVini++;
     console.log('\n\nvino non trovato, ne creo uno nuovo ---> ', vinoTmp);
     listaVini.push(vinoTmp);
@@ -241,7 +241,7 @@ function estrazioneListaIngredientiPrincipali(nomeIngredientePrincipale) {
   if (ingredientiPrincipali.filter(i => i.nome === nomeIngredientePrincipale).length === 0) {
     var ingredientePrincipale = {};
     ingredientePrincipale.id = idIngredientePrincipale;
-    ingredientePrincipale.nome = nomeIngredientePrincipale.toLowerCase();
+    ingredientePrincipale.nome = nomeIngredientePrincipale;
     ingredientePrincipale.ricette = [];
     ingredientiPrincipali.push(ingredientePrincipale);
     idIngredientePrincipale++;
@@ -252,7 +252,7 @@ function estrazioneListaIngredientiSecondari(nomeIngredienteSecondario) {
   if (ingredientiSecondari.filter(i => i.nome === nomeIngredienteSecondario).length === 0) {
     var ingredienteSecondario = {};
     ingredienteSecondario.id = idIngredienteSecondario;
-    ingredienteSecondario.nome = nomeIngredienteSecondario.toLowerCase();
+    ingredienteSecondario.nome = nomeIngredienteSecondario;
     ingredienteSecondario.ricette = [];
     ingredientiSecondari.push(ingredienteSecondario);
     idIngredienteSecondario++;
@@ -312,8 +312,8 @@ function estrazioneListaRicette(nomePagina) {
     if (listaPagina[i].B) {
       var strutturaRicetta = {}; // come uscirà fuori l'oggetto RICETTA
       strutturaRicetta.id = idRicetta;
-      strutturaRicetta.nome = listaPagina[i].B.toLowerCase();
-      strutturaRicetta.tags = [nomePagina.toLowerCase()];
+      strutturaRicetta.nome = listaPagina[i].B;
+      strutturaRicetta.tags = [nomePagina];
       strutturaRicetta.ingredientiPrincipali = estrazioneIngredientiPrincipaliConAggiornamentoLista(listaPagina[i]);
       strutturaRicetta.ingredientiSecondari = estrazioneIngredientiSecondariConAggiornamentoLista(listaPagina[i]);
       strutturaRicetta.viniProposti = estrazioneViniConAggiornamentoListaVini(listaPagina[i], colonneVini);
@@ -435,7 +435,7 @@ function estrazioneAbbinamentiPerTipologia(nomePagina) {
       strutturaAbbinamentoPerTipologia.tags = [];
       if (listaPagina[i].D) {
         const regexFieldSpace = /[.,\/\n-\r]/;
-        strutturaAbbinamentoPerTipologia.tags = listaPagina[i].D.toLowerCase().split(regexFieldSpace);
+        strutturaAbbinamentoPerTipologia.tags = listaPagina[i].D.split(regexFieldSpace);
       }
       strutturaAbbinamentoPerTipologia.viniProposti = estrazioneViniConAggiornamentoListaVini(listaPagina[i], colonneVini);
       idAbbinamentoPerTipologia++;
@@ -472,9 +472,9 @@ function estrazioneAggettiviVino(nomePagina) {
   for (let i = 3; i < listaPagina.length; i++) {
     if (listaPagina[i].B) {
       var strutturaAggettiviVino = {};
-      strutturaAggettiviVino.nome = listaPagina[i].B.toLowerCase();
+      strutturaAggettiviVino.nome = listaPagina[i].B;
       const regexFieldSpace = /[.,\/\n-\r]/;
-      strutturaAggettiviVino.tags = listaPagina[i].D.toLowerCase().split(regexFieldSpace);
+      strutturaAggettiviVino.tags = listaPagina[i].D.split(regexFieldSpace);
       strutturaAggettiviVino.tags = strutturaAggettiviVino.tags.map(tag => {
         return tag.trim();
       })
