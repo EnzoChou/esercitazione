@@ -183,11 +183,14 @@ var filtroParoleInutili = function (listaParole, listaParoleChiave) {
         console.log('[filtro parole inutili]\nprobabilità "' + parola + '" e "' + parolaChiave + '" ---> ',
           natural.JaroWinklerDistance(parola, parolaChiave, undefined, true));
       }*/
-      return natural.JaroWinklerDistance(parola, parolaChiave, undefined, true) > 0.6;
-      // return parolaChiave.toLowerCase().includes(parola.toLowerCase());
+      if (parolaChiave.toLowerCase().includes(parola.toLowerCase())) {
+        return parolaChiave.toLowerCase().includes(parola.toLowerCase());
+      } else {
+        return natural.JaroWinklerDistance(parola, parolaChiave, undefined, true) > 0.6;
+      }
     })
   });
-  
+
   return listaParoleFiltrate;
 };
 
