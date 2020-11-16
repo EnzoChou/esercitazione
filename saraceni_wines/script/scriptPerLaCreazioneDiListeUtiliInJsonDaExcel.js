@@ -96,6 +96,7 @@ var listaAbbinamentiGenerali = [];
 var listaAbbinamentiPerTipologia = [];
 var listaParoleChiavePerCategoria = {};
 var listaAggettiviVino = [];
+var collections = {};
 // var ricettaToVini = {};
 var listaVini = []; // LISTA VINI
 var listaViniConAggettivi = [];
@@ -214,8 +215,8 @@ var popolaListaVini = function (viniDaShopify, listaVini) {
       var vinoTmp = new ObjVino(vinoShopify.id,
         vinoShopify.variants[0].id,
         vinoShopify.title.toLowerCase(),
-        vinoShopify.variants[0].price,
-        vinoShopify.variants[0].image.src);
+        vinoShopify.variants[0].price/*,
+        vinoShopify.variants[0].image.src*/);
       // console.log('\nvinoTmp è ', vinoTmp);
       vinoTmp.quantity = quantity;
       listaVini.push(vinoTmp);
@@ -590,6 +591,37 @@ var wrapUpFunction = function () {
         // console.log('\nlista abbinamenti per tipologia\n', listaAbbinamentiPerTipologia);
         return;
       })
+      .then(() => {
+        return shopifyApi.fetchAllCollections()
+      })
+      .then(collected_collections => {
+        var useful_collections = ['bestseller', 'cream_liquors', 'sparklings', 'rose', 'white', 'red'];
+        collected_collections.map(collection => {
+          var title = collection.title;
+          title = title.replace(/ /g, '_').toLowerCase();
+          if (title == 'best_sellers') {
+            title = 'bestseller';
+          }
+          if (title == 'creams_&_liqueurs' || title == 'creams_&_liquors') {
+            title = 'cream_liquors';
+          }
+          if (title == 'sparkling_wine') {
+            title = 'sparklings';
+          }
+          if (title == 'rosè') {
+            title = 'rose';
+          }
+          if (title == 'white') {
+            title = 'white';
+          }
+          if (title == 'red') {
+            title = 'red';
+          }
+          // console.log(`${collection.title} ----> ${title}`);
+          collections[title] = collection.id;
+        })
+        return;
+      })
       .then(obj => {
         console.log('vini totali in lista', listaVini.length);
         var strutture = {
@@ -603,7 +635,8 @@ var wrapUpFunction = function () {
           listaViniConAggettivi: listaViniConAggettivi,
           listaAggettiviVino: listaAggettiviVino,
           listaParoleChiave: listaParoleChiave,
-          listaParoleChiavePerCategoria: listaParoleChiavePerCategoria
+          listaParoleChiavePerCategoria: listaParoleChiavePerCategoria,
+          collections: collections
         };
         return strutture;
       })

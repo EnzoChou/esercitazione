@@ -13,8 +13,12 @@
         "password": "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",
         "host": "https://@apac-saraceni-wines.myshopify.com"
     },
-    "prod": {
-        "domain": "",
-        "storefrontAccessToken": ""
+    "prod_EU": {
+        "domain": "eu-saraceni-wines.myshopify.com",
+        "storefrontAccessToken": "b04d9ce8f824618503d71ef9cc0b050f"
+    },
+    "prod_US": {
+        "domain": "saracenishop.myshopify.com",
+        "storefrontAccessToken": "b163cbcaf6efeb16bb48db4aa8ae0a37"
     }
 }

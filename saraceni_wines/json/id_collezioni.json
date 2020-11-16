@@ -1,0 +1,59 @@
+{
+    "US": {
+      "bestseller": "Z2lkOi8vc2hvcGlmeS9Db2xsZWN0aW9uLzQwNjM4MDY4Mg==",
+      "cream_liquors": "Z2lkOi8vc2hvcGlmeS9Db2xsZWN0aW9uLzE2NzU5NzQ0MTEwNg==",
+      "sparklings": "Z2lkOi8vc2hvcGlmeS9Db2xsZWN0aW9uLzU4Mzk1MDk5MjE4",
+      "rose": "Z2lkOi8vc2hvcGlmeS9Db2xsZWN0aW9uLzU4Mzk1MTMxOTg2",
+      "white": "Z2lkOi8vc2hvcGlmeS9Db2xsZWN0aW9uLzU4Mzk1MDY2NDUw",
+      "red": "Z2lkOi8vc2hvcGlmeS9Db2xsZWN0aW9uLzU4Mzk1MDMzNjgy"
+    },
+    "EU": {
+      "bestseller": "Z2lkOi8vc2hvcGlmeS9Db2xsZWN0aW9uLzEzNDQ1ODg2Nzc2NA==",
+      "cream_liquors": "Z2lkOi8vc2hvcGlmeS9Db2xsZWN0aW9uLzE1MzYwMzI3NjkwMA==",
+      "sparklings": "Z2lkOi8vc2hvcGlmeS9Db2xsZWN0aW9uLzEzNDQ1ODczNjY5Mg==",
+      "rose": "Z2lkOi8vc2hvcGlmeS9Db2xsZWN0aW9uLzEzNDQ1ODkwMDUzMg==",
+      "white": "Z2lkOi8vc2hvcGlmeS9Db2xsZWN0aW9uLzEzNDQ1ODc2OTQ2MA==",
+      "red": "Z2lkOi8vc2hvcGlmeS9Db2xsZWN0aW9uLzEzNDQ1ODg2Nzc2NA=="
+    },
+    "collections_US": {
+        "explore_all": "Z2lkOi8vc2hvcGlmeS9Db2xsZWN0aW9uLzMxNDA3NzYzOQ==",
+        "italian_iconic_sparklers™": "Z2lkOi8vc2hvcGlmeS9Db2xsZWN0aW9uLzMxNDA3ODAyMw==",
+        "libero_collection": "Z2lkOi8vc2hvcGlmeS9Db2xsZWN0aW9uLzMxNTQ5MzE5MQ==",
+        "villa_machiavelli": "Z2lkOi8vc2hvcGlmeS9Db2xsZWN0aW9uLzMxNTUxNzM4Mw==",
+        "wine_boxes": "Z2lkOi8vc2hvcGlmeS9Db2xsZWN0aW9uLzMxNTUzNjI2Mw==",
+        "baby_bubbly™": "Z2lkOi8vc2hvcGlmeS9Db2xsZWN0aW9uLzQwNDI4MDMzMA==",
+        "bestseller": "Z2lkOi8vc2hvcGlmeS9Db2xsZWN0aW9uLzQwNjM4MDY4Mg==",
+        "cuvée_monogram_franciacorta": "Z2lkOi8vc2hvcGlmeS9Db2xsZWN0aW9uLzU4MjE3NzkxNTcw",
+        "red": "Z2lkOi8vc2hvcGlmeS9Db2xsZWN0aW9uLzU4Mzk1MDMzNjgy",
+        "white": "Z2lkOi8vc2hvcGlmeS9Db2xsZWN0aW9uLzU4Mzk1MDY2NDUw",
+        "sparklings": "Z2lkOi8vc2hvcGlmeS9Db2xsZWN0aW9uLzU4Mzk1MDk5MjE4",
+        "rose": "Z2lkOi8vc2hvcGlmeS9Db2xsZWN0aW9uLzU4Mzk1MTMxOTg2",
+        "our_collection": "Z2lkOi8vc2hvcGlmeS9Db2xsZWN0aW9uLzg0ODYyNjk3NTU0",
+        "vermouth,_the_italian_jewel": "Z2lkOi8vc2hvcGlmeS9Db2xsZWN0aW9uLzE1MzQ5NzUzNDU0Ng==",
+        "cream_liquors": "Z2lkOi8vc2hvcGlmeS9Db2xsZWN0aW9uLzE2NzU5NzQ0MTEwNg==",
+        "new_releases": "Z2lkOi8vc2hvcGlmeS9Db2xsZWN0aW9uLzE2ODU5NzE2MDAxOA==",
+        "aromatic_wines": "Z2lkOi8vc2hvcGlmeS9Db2xsZWN0aW9uLzE2OTgwMTg0Mjc3MA==",
+        "getting_cozy_with_sweet_wine": "Z2lkOi8vc2hvcGlmeS9Db2xsZWN0aW9uLzE2OTgxODQ4ODkxNA=="
+    },
+    "collections_EU": {
+        "home_page": "Z2lkOi8vc2hvcGlmeS9Db2xsZWN0aW9uLzEzNDE3ODE3NzA3Ng==",
+        "sparklings": "Z2lkOi8vc2hvcGlmeS9Db2xsZWN0aW9uLzEzNDQ1ODczNjY5Mg==",
+        "white": "Z2lkOi8vc2hvcGlmeS9Db2xsZWN0aW9uLzEzNDQ1ODc2OTQ2MA==",
+        "our_collection": "Z2lkOi8vc2hvcGlmeS9Db2xsZWN0aW9uLzEzNDQ1ODgwMjIyOA==",
+        "red": "Z2lkOi8vc2hvcGlmeS9Db2xsZWN0aW9uLzEzNDQ1ODgzNDk5Ng==",
+        "bestseller": "Z2lkOi8vc2hvcGlmeS9Db2xsZWN0aW9uLzEzNDQ1ODg2Nzc2NA==",
+        "rose": "Z2lkOi8vc2hvcGlmeS9Db2xsZWN0aW9uLzEzNDQ1ODkwMDUzMg==",
+        "all_products": "Z2lkOi8vc2hvcGlmeS9Db2xsZWN0aW9uLzEzNDQ1ODkzMzMwMA==",
+        "italian_iconic_sparklers™": "Z2lkOi8vc2hvcGlmeS9Db2xsZWN0aW9uLzEzNDQ1ODk2NjA2OA==",
+        "libero_collection": "Z2lkOi8vc2hvcGlmeS9Db2xsZWN0aW9uLzEzNDQ1ODk5ODgzNg==",
+        "villa_machiavelli": "Z2lkOi8vc2hvcGlmeS9Db2xsZWN0aW9uLzEzNDQ1OTAzMTYwNA==",
+        "wine_boxes": "Z2lkOi8vc2hvcGlmeS9Db2xsZWN0aW9uLzEzNDQ1OTE2MjY3Ng==",
+        "baby_bubbly™": "Z2lkOi8vc2hvcGlmeS9Db2xsZWN0aW9uLzEzNDQ1OTE5NTQ0NA==",
+        "cuvée_monogram_franciacorta": "Z2lkOi8vc2hvcGlmeS9Db2xsZWN0aW9uLzEzNDQ1OTI2MDk4MA==",
+        "vermouth,_the_italian_jewel": "Z2lkOi8vc2hvcGlmeS9Db2xsZWN0aW9uLzE1MzYwMzIxMTM2NA==",
+        "cream_liquors": "Z2lkOi8vc2hvcGlmeS9Db2xsZWN0aW9uLzE1MzYwMzI3NjkwMA==",
+        "deals.deals.deals!": "Z2lkOi8vc2hvcGlmeS9Db2xsZWN0aW9uLzE2NjIxMTMyMTk1Ng==",
+        "aromatic_wines": "Z2lkOi8vc2hvcGlmeS9Db2xsZWN0aW9uLzE3Mzk2NDcyMjI3Ng==",
+        "new_releases": "Z2lkOi8vc2hvcGlmeS9Db2xsZWN0aW9uLzE3Mzk2NDc4NzgxMg=="
+    }
+  }

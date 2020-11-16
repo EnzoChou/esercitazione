@@ -4,7 +4,7 @@ var Client = require('shopify-buy');
 var config = require('../config/config');
 
 // Initializing a client to return content in the store's primary language
-const client = Client.buildClient(config.dev2);
+const client = Client.buildClient(config.prod_EU);
 
 // console.log("client", client);
 
@@ -18,8 +18,8 @@ var fetchAllWithProducts = function () {
         // Fetch all collections, including their products
         client.collection.fetchAllWithProducts().then((collections) => {
             // Do something with the collections
-            console.log(collections);
-            console.log(collections[0].products);
+            // console.log(collections);
+            // console.log(collections[0].products);
             resolve(collections);
         })
             .catch(err => {
@@ -28,10 +28,14 @@ var fetchAllWithProducts = function () {
             });
     })
 };
-/*
+
 fetchAllWithProducts().then(collections => {
+    collections.map(collection => {
+        console.log('nome collection', collection.title);
+        console.log('id collezione', collection.id);
+    })
     console.log(collections.map(collection => collection.id));
     console.log('lunghezza collezioni', collections.length);
 })
-*/
+
 
