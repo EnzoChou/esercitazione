@@ -242,6 +242,7 @@ var metodoScelto = function (richiestaUtente = '', params = '') {
       // console.log('lista ricette dopo il filtro della portata', listaRicette);
     }
     if (parametri.tipologia) { // suggerimento tipologia
+      paroleDaCercareFiltrate = [parametri.portata, parametri.tipologia];
       indexScelto = 1;
     } else if (parametri.occasione) { // suggerimento occasione
       indexScelto = 2;
@@ -354,7 +355,7 @@ exports.metodoScelto = metodoScelto;
 // var modulo = {};
 
 var t0 = performance.now();
-metodoScelto('red dry wine','aggettivo');
+metodoScelto('dessert','portata=dolce,tipologia=torta');
 var t1 = performance.now();
 console.log('\n\n\nl\'algoritmo ci ha impiegato:', t1 - t0, 'millisecondi\n\n\n');
 
